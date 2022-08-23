@@ -2,25 +2,8 @@
 include('public/outputValues.js');
 include('public/elementIds.js');
 include('public/eventListeners.js');
-
-
-let childern
-let husbandPart
-
-
-// Submit Button Function
-submitBtn.addEventListener('click', function() {
-
-    // eligibleRelativesInPesenceOfSon()    
-    // eligibleRelativesInPesenceOfsSon()
-    // eligibleRelativesInPesenceOfssSon()
-    // eligibleRelativesInPesenceOfsssSon()
-    // eligibleRelativesInPresenceOfFather()
-
-    childern = childernExists() 
-	showParts()   
-    outputAllValues()
-})
+include('public/calculateParts.js');
+include('public/existance.js');
 
 // Function to include many javascript files
 function include(file) {
@@ -34,33 +17,33 @@ function include(file) {
 
 }
 
-// check offsprings
-function childernExists() {
-	if (parseInt(son.value) === 0 && parseInt(sSon.value) === 0 && parseInt(ssSon.value) === 0 && parseInt(sssSon.value) === 0 
-		&& parseInt(daughter.value) === 0 && parseInt(sDaughter.value) === 0 && parseInt(ssDaughter.value) === 0 && parseInt(sssDaughter.value) === 0 ) {
-		console.log ("childern does not exists")
-		return false
-	} else {
-		console.log("childern exists")
-		return true
-	}
-}
+let childernCheck, sonCheck, husbandPart, wifePart, daughterPart
 
-// Define Husband Part
-function showHusbandPart() {
-	if (parseInt(husband.value) === 1) {
-		if(childern) {
-			return 1/4
-		} else {
-			return 1/2
-		}
-	} else {
-		return 0
-	}
-}
+
+// Submit Button Function
+submitBtn.addEventListener('click', function() {
+    
+    childernCheck = childernExists() 
+	sonCheck = sonExists()
+	showParts()   
+    outputAllValues()
+})
 
 // Show Parts
 function showParts() {
 	// Husband
-	husbandPart = showHusbandPart()
+	husbandPart = calculateHusbandPart()
+	wifePart = calculateWifePart()
+	daughterPart = calculateDaughterPart()
+}
+
+//calculates Daughter part
+function calculateDaughterPart() {
+    if (parseInt(daughter.value) === 1 && !sonCheck) {
+        return 1/2
+    }
+
+    if (parseInt(daughter.value) > 1 && !sonCheck) {
+        return 2/3
+    }
 }

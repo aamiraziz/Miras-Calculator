@@ -39,8 +39,11 @@ function outputAllValues() {
         Sons Sons Son: ${ssSon.value}<br>
         Sons Sons Sons Son: ${sssSon.value}<br><br>
 
-		childern: ${childern}<br>
-		HusbandPart: ${husbandPart}
+		childern Check: ${childernCheck}<br>
+		Son Check: ${sonCheck}<br>
+		HusbandPart: ${husbandPart}<br>
+		WifePart: ${wifePart}<br>
+		daughterPart: ${daughterPart}
     `)
 
 }
