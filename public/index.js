@@ -48,6 +48,7 @@ let ssSon = document.getElementById('ssSon')		 // Son's Son's Son
 let sssSon = document.getElementById('sssSon')		 // Son's Son's Son's Son
 
 let childern
+let husbandPart
 
 // Event Listener On Husband Checkbox
 husband.addEventListener('change', function() {
@@ -60,8 +61,8 @@ husband.addEventListener('change', function() {
 	wife.style.display='none'
 	wifeText.style.display='none'
 
-  	console.log(`IF STMT Wife: ${wife.value}`)
-	console.log(`IF STMT Husband: ${husband.value}`)
+  	// console.log(`IF STMT Wife: ${wife.value}`)
+	// console.log(`IF STMT Husband: ${husband.value}`)
   } 
 
   if (husband.checked === false) {
@@ -71,8 +72,8 @@ husband.addEventListener('change', function() {
 	wife.style.display='inline'
 	wifeText.style.display='inline'
 
-  	console.log(`ELSE STMT Wife: ${wife.value}`)
-	console.log(`ELSE STMT Husband: ${husband.value}`)
+  	// console.log(`ELSE STMT Wife: ${wife.value}`)
+	// console.log(`ELSE STMT Husband: ${husband.value}`)
   }
 
 });
@@ -87,9 +88,8 @@ wife.addEventListener('change', function() {
 	husbandText.style.display='none'
 	husband.style.display='none'
 	
-	console.log('Wife: ', this.value);
-	
-	console.log(`Wife Section Husband: ${husband.value}`)
+	// console.log('Wife: ', this.value);	
+	// console.log(`Wife Section Husband: ${husband.value}`)
   } else {
 	husbandText.style.display='inline'
 	husband.style.display='inline'
@@ -482,7 +482,8 @@ submitBtn.addEventListener('click', function() {
     // eligibleRelativesInPesenceOfsssSon()
     // eligibleRelativesInPresenceOfFather()
 
-    childern = childernExists()    
+    childern = childernExists() 
+	showParts()   
     outputAllValues()
 })
 
@@ -491,13 +492,32 @@ function childernExists() {
 	if (parseInt(son.value) === 0 && parseInt(sSon.value) === 0 && parseInt(ssSon.value) === 0 && parseInt(sssSon.value) === 0 
 		&& parseInt(daughter.value) === 0 && parseInt(sDaughter.value) === 0 && parseInt(ssDaughter.value) === 0 && parseInt(sssDaughter.value) === 0 ) {
 		console.log ("childern does not exists")
-		childern = 0
+		//childern = 0
 		return false
 	} else {
 		console.log("childern exists")
-		childern = 1
+		//childern = 1
 		return true
 	}
+}
+
+// Define Husband Part
+function showHusbandPart() {
+	if (parseInt(husband.value) === 1) {
+		if(childern) {
+			return 1/4
+		} else {
+			return 1/2
+		}
+	} else {
+		return 0
+	}
+}
+
+// Show Parts
+function showParts() {
+	// Husband
+	husbandPart = showHusbandPart()
 }
 
 
@@ -537,7 +557,8 @@ function outputAllValues() {
         Sons Sons Son: ${ssSon.value}<br>
         Sons Sons Sons Son: ${sssSon.value}<br><br>
 
-		childern: ${childern}
+		childern: ${childern}<br>
+		HusbandPart: ${husbandPart}
     `)
 
 }
