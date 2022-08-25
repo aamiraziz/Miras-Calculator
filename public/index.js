@@ -18,7 +18,7 @@ function include(file) {
 }
 
 let childernCheck, sonCheck, sSonCheck, ssSonCheck, sssSonCheck, husbandPart, wifePart, daughterPart, 
-	sDaughterPart, ssDaughterPart
+	sDaughterPart, ssDaughterPart, sssDaughterPart
 
 // Submit Button Function
 submitBtn.addEventListener('click', function() {
@@ -52,5 +52,8 @@ function showParts() {
 
 	// Calculates Son's Son's Daughter Part
 	ssDaughterPart = calculateSSDaughterPart()
+
+	// Calculates Son's Son's Son's Daughter Part
+	sssDaughterPart = calculateSSSDaughterPart()
 }
 

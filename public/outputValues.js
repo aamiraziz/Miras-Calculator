@@ -45,7 +45,8 @@ function outputAllValues() {
 		WifePart: ${wifePart}<br>
 		daughterPart: ${daughterPart}<br>
 		sDaughterPart: ${sDaughterPart}<br>
-		ssDaughterPart: ${ssDaughterPart}
+		ssDaughterPart: ${ssDaughterPart}<br>
+		sssDaughterPart: ${sssDaughterPart}
     `)
 
 }
