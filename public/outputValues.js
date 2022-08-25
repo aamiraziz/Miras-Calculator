@@ -43,7 +43,8 @@ function outputAllValues() {
 		Son Check: ${sonCheck}<br>
 		HusbandPart: ${husbandPart}<br>
 		WifePart: ${wifePart}<br>
-		daughterPart: ${daughterPart}
+		daughterPart: ${daughterPart}<br>
+		sDaughterPart: ${sDaughterPart}
     `)
 
 }

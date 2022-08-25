@@ -17,33 +17,40 @@ function include(file) {
 
 }
 
-let childernCheck, sonCheck, husbandPart, wifePart, daughterPart
-
+let childernCheck, sonCheck, sSonCheck, ssSonCheck, sssSonCheck, husbandPart, wifePart, daughterPart, 
+	sDaughterPart, ssDaughter
 
 // Submit Button Function
 submitBtn.addEventListener('click', function() {
     
     childernCheck = childernExists() 
-	sonCheck = sonExists()
 	showParts()   
     outputAllValues()
 })
 
 // Show Parts
 function showParts() {
-	// Husband
+
+	// Existance
+	sonCheck = sonExists() // sonExists returns true if son and his offspring exists
+	sSonCheck = sSonExists() // sSonExists returns true if Son's son and his offspring exists
+	ssSonCheck = ssSonExists() // ssSonExists returns true if Son's Son's son and his offspring exists
+	sssSonCheck = sssSonExists() // ssSonExists returns true if Son's Son's Son's son and his offspring exists
+
+
+	// Calculates Husband Part
 	husbandPart = calculateHusbandPart()
+
+	// Calculates Wife Part
 	wifePart = calculateWifePart()
+
+	// Calculates Daughter Part
 	daughterPart = calculateDaughterPart()
+
+	// Calculates Son's Daughter Part
+	sDaughterPart = calculateSDaughterPart()
+
+	// Calculates Son's Son's Daughter Part
+	// ssDaughterPart = calculateSSDaughterPart()
 }
 
-//calculates Daughter part
-function calculateDaughterPart() {
-    if (parseInt(daughter.value) === 1 && !sonCheck) {
-        return 1/2
-    }
-
-    if (parseInt(daughter.value) > 1 && !sonCheck) {
-        return 2/3
-    }
-}

@@ -20,3 +20,33 @@ function sonExists() {
         return true
     }
 }
+
+// checks Son's Son exists or not
+function sSonExists() {
+    if (parseInt(sSon.value) === 0 && parseInt(ssSon.value) === 0 && parseInt(sssSon.value) === 0) {
+        console.log("Son's son(s) does not exist")
+        return false
+    } else {
+        return true
+    }
+}
+
+// checks Son's Son's Son exists or not
+function ssSonExists() {
+    if (parseInt(ssSon.value) === 0 && parseInt(sssSon.value) === 0) {
+        console.log("Son's Son's son(s) does not exist")
+        return false
+    } else {
+        return true
+    }
+}
+
+// checks Son's Son's Son's Son exists or not
+function sssSonExists() {
+    if (parseInt(sssSon.value) === 0) {
+        console.log("Son's Son's Son's son(s) does not exist")
+        return false
+    } else {
+        return true
+    }
+}
