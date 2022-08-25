@@ -48,20 +48,29 @@ function calculateSDaughterPart() {
     
     // in zawe al farooz chart in absence of son, son of son and daughter, if there is more than one daughter of son, 
     // then all of them will get 2/3
-    if ( parseInt(son.value) === 0 && parseInt(sSon.value) === 0 && parseInt(daughter.value) === 0 && parseInt(sDaughter.value) > 1 ) {
+    if ( parseInt(son.value) === 0 && parseInt(sSon.value) === 0 && 
+         parseInt(daughter.value) === 0 && parseInt(sDaughter.value) > 1 ) {
+
         return 2/3
+        
     }
 
     // in zawe al farooz chart in absence of son, son of son and daughter, if there is only one daughter of son, 
     // then she will get 1/2
-    if ( parseInt(son.value) === 0 && parseInt(sSon.value) === 0 && parseInt(daughter.value) === 0 && parseInt(sDaughter.value) === 1 ){
+    if ( parseInt(son.value) === 0 && parseInt(sSon.value) === 0 && 
+         parseInt(daughter.value) === 0 && parseInt(sDaughter.value) === 1 ){
+
         return 1/2
+
     }
 
     // in zawe al farooz chart in absence of son and son of son, if there is only one daughter,
     // then daughter of son will get 1/6
-    if( parseInt(son.value) === 0 && parseInt(sSon.value) === 0 && parseInt(daughter.value) === 1 && parseInt(sDaughter.value) > 0 ) {
+    if( parseInt(son.value) === 0 && parseInt(sSon.value) === 0 && 
+        parseInt(daughter.value) === 1 && parseInt(sDaughter.value) > 0 ) {
+
         return 1/6
+
     }
 
 }
@@ -72,22 +81,35 @@ function calculateSSDaughterPart() {
     // in zawe al farooz chart in absence of son, son of son, son of son of son, daughter and daughter of son.
     // if Daughter of son of son is greater than 1
     // then daughter of son of son will get 2/3
-    if( parseInt(son.value) === 0 && parseInt(sSon.value) === 0 && parseInt(ssSon.value) === 0 && parseInt(daughter.value) === 0 && parseInt(sDaughter.value) === 0 && parseInt(ssDaughter.value) > 1 ) {
+    if( parseInt(son.value) === 0 && parseInt(sSon.value) === 0 && 
+        parseInt(ssSon.value) === 0 && parseInt(daughter.value) === 0 && 
+        parseInt(sDaughter.value) === 0 && parseInt(ssDaughter.value) > 1 ) {
+
         return 2/3
+
     }
 
     // in zawe al farooz chart in absence of son, son of son, son of son of son, daughter and daughter of son.
     // if Daughter of son of son is only 1
     // then daughter of son of son will get 1/2
-    if( parseInt(son.value) === 0 && parseInt(sSon.value) === 0 && parseInt(ssSon.value) === 0 && parseInt(daughter.value) === 0 && parseInt(sDaughter.value) === 0 && parseInt(ssDaughter.value) === 1 ) {
+    if( parseInt(son.value) === 0 && parseInt(sSon.value) === 0 && 
+        parseInt(ssSon.value) === 0 && parseInt(daughter.value) === 0 && 
+        parseInt(sDaughter.value) === 0 && parseInt(ssDaughter.value) === 1 ) {
+
         return 1/2
+
     }
 
     // in zawe al farooz chart in absence of son, son of son, son of son of son, 
     // if only one daughter OR only one daughter of son exists.
     // no matter how many Daughter of son of son exists
     // then daughter of son of son will get 1/6
-    if ( parseInt(son.value) === 0 && parseInt(sSon.value) === 0 && parseInt(ssSon.value) === 0 && (parseInt(daughter.value) === 1 || parseInt(sDaughter.value) === 1) && parseInt(ssDaughter.value) > 0 ) {
+    if ( parseInt(son.value) === 0 && parseInt(sSon.value) === 0 && parseInt(ssSon.value) === 0 && 
+        (parseInt(daughter.value) === 1 || parseInt(sDaughter.value) === 1) && 
+        !(parseInt(daughter.value) === 1 && parseInt(sDaughter.value) === 1) && 
+        parseInt(ssDaughter.value) > 0 ) {
+
         return 1/6
+
     }
 }
