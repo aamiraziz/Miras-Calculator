@@ -22,8 +22,7 @@ let childernCheck, sonCheck, sSonCheck, ssSonCheck, sssSonCheck, husbandPart, wi
 
 // Submit Button Function
 submitBtn.addEventListener('click', function() {
-    
-    childernCheck = childernExists() 
+     
 	showParts()   
     outputAllValues()
 })
@@ -32,10 +31,11 @@ submitBtn.addEventListener('click', function() {
 function showParts() {
 
 	// Existance
-	sonCheck = sonExists() // sonExists returns true if son and his offspring exists
-	sSonCheck = sSonExists() // sSonExists returns true if Son's son and his offspring exists
-	ssSonCheck = ssSonExists() // ssSonExists returns true if Son's Son's son and his offspring exists
-	sssSonCheck = sssSonExists() // ssSonExists returns true if Son's Son's Son's son and his offspring exists
+    childernCheck = childernExists()
+	// sonCheck = sonExists() // sonExists returns true if son and his offspring exists
+	// sSonCheck = sSonExists() // sSonExists returns true if Son's son and his offspring exists
+	// ssSonCheck = ssSonExists() // ssSonExists returns true if Son's Son's son and his offspring exists
+	// sssSonCheck = sssSonExists() // ssSonExists returns true if Son's Son's Son's son and his offspring exists
 
 
 	// Calculates Husband Part
