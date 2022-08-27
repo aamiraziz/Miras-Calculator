@@ -18,7 +18,8 @@ function include(file) {
 }
 
 let childernCheck, sonCheck, sSonCheck, ssSonCheck, sssSonCheck, husbandPart, wifePart, daughterPart, 
-	sDaughterPart, ssDaughterPart, sssDaughterPart, fatherPart, ikhwaCheck, motherPart
+	sDaughterPart, ssDaughterPart, sssDaughterPart, fatherPart, ikhwaCheck, motherPart, rSisterPart, 
+	pSisterPart
 
 // Submit Button Function
 submitBtn.addEventListener('click', function() {
@@ -62,5 +63,11 @@ function showParts() {
 
 	// Calculates Mother's part
 	motherPart = calculateMotherPart()
+
+	// Calculates Real Sister's Part
+	rSisterPart = calculateRSisterPart()
+
+	// Calculates Paternal Sister's Part
+	pSisterPart = calculatePSisterPart()
 }
 
