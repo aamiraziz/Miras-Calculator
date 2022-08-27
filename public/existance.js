@@ -50,3 +50,18 @@ function sssSonExists() {
         return true
     }
 }
+
+// checks Ikhwa (اخوہ)
+function ikhwaExists () {
+    let ik = parseInt(rSister.value) + parseInt(pSister.value) + 
+    parseInt(mSister.value) + parseInt(rBrother.value) + 
+    parseInt(pBrother.value) + parseInt(mBrother.value)
+
+    if (ik > 1) {
+        console.log("Ikhwa Exists")
+        return true
+    } else {
+        console.log("Ikhwa does not Exists")
+        return false
+    }
+}
