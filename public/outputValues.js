@@ -50,7 +50,8 @@ function outputAllValues() {
 		fatherPart: ${fatherPart}<br>
 		motherPart: ${motherPart}<br>
 		rSisterPart: ${rSisterPart}<br>
-		pSisterPart: ${pSisterPart}
+		pSisterPart: ${pSisterPart}<br>
+		mBroSisPart: ${mBroSisPart}<br>
     `)
 
 }

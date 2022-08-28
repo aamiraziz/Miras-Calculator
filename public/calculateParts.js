@@ -188,7 +188,7 @@ function calculateSSSDaughterPart() {
     }
 }
 
-// function calculate father's part (والد)
+// function to calculate father's part (والد)
 function calculateFatherPart() {
 
     // Check if Father exists
@@ -202,7 +202,7 @@ function calculateFatherPart() {
     
 }
 
-// function calculate Mother's Part
+// function to calculate Mother's Part
 function calculateMotherPart() {
 
     // Check if mother exists
@@ -228,7 +228,7 @@ function calculateMotherPart() {
     
 }
 
-// function calculate Real Sister's Part
+// function to calculate Real Sister's Part
 function calculateRSisterPart() {
 
     // Check if Real Sister exists
@@ -257,7 +257,7 @@ function calculateRSisterPart() {
 
 }
 
-// function calculate Paternal Sister's Part
+// function to calculate Paternal (who has same father but different mother) Sister's Part
 function calculatePSisterPart() {
 
     // Check if Paternal Sister exists
@@ -292,6 +292,47 @@ function calculatePSisterPart() {
         parseInt(father.value) === 0 && parseInt(grandFather.value) === 0 && 
         parseInt(rBrother.value) === 0 && parseInt(rSister.value) === 1 && 
         parseInt(pBrother.value) === 0 ) {
+
+            return 1/6
+        }
+
+    } else {
+        return 0
+    }
+}
+
+// function to calculate maternal (who has same mother but different father) Brother's or Sister's part
+function calculateMBroSisPart() {
+
+    // checks if Maternal Brother or sister Exists
+    if ( parseInt(mBrother.value) !== 0 || parseInt(mSister.value) !== 0 ) {
+
+        // in zawe al farooz chart, in absence of childern, father and grand father (Father 0f Father)
+        // no matter how many maternal brother or sister exists
+        // then they will get 1/3
+        if ( (parseInt(mBrother.value) === 1 && parseInt(mSister.value) === 1) && 
+        parseInt(father.value) === 0 && parseInt(grandFather.value) === 0 &&
+        !childernCheck ) {
+
+            return 1/3
+        }
+
+        // in zawe al farooz chart, in absence of childern, father and grand father (Father 0f Father)
+        // no matter how many maternal brother or sister exists
+        // then they will get 1/3
+        if ( (parseInt(mBrother.value) > 1 || parseInt(mSister.value) > 1) && 
+        parseInt(father.value) === 0 && parseInt(grandFather.value) === 0 &&
+        !childernCheck ) {
+
+            return 1/3
+        }
+
+        // in zawe al farooz chart, in absence of childern, father and grand father (Father 0f Father)
+        // if there is only one  brother or sister exists
+        // then he/she will get 1/6
+        if ( (parseInt(mBrother.value) === 1 || parseInt(mSister.value) === 1) && 
+        parseInt(father.value) === 0 && parseInt(grandFather.value) === 0 && 
+        !childernCheck ) {
 
             return 1/6
         }
