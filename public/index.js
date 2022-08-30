@@ -17,9 +17,9 @@ function include(file) {
 
 }
 
-let childernCheck, sonCheck, sSonCheck, ssSonCheck, sssSonCheck, husbandPart, wifePart, daughterPart, 
-	sDaughterPart, ssDaughterPart, sssDaughterPart, fatherPart, ikhwaCheck, motherPart, rSisterPart, 
-	pSisterPart, mBroSisPart, mSisterPart
+let childernExists, sonCheck, sSonCheck, ssSonCheck, sssSonCheck, husbandPart, wifePart, daughterPart, 
+	sDaughterPart, ssDaughterPart, sssDaughterPart, fatherPart, ikhwaExists, motherPart, rSisterPart, 
+	pSisterPart, mBroSisPart, mSisterPart, myNum
 
 // Submit Button Function
 submitBtn.addEventListener('click', function() {
@@ -32,16 +32,18 @@ submitBtn.addEventListener('click', function() {
 function showParts() {
 
 	// Existance
-    childernCheck = childernExists()
-	ikhwaCheck = ikhwaExists()
-	// sonCheck = sonExists() // sonExists returns true if son and his offspring exists
-	// sSonCheck = sSonExists() // sSonExists returns true if Son's son and his offspring exists
-	// ssSonCheck = ssSonExists() // ssSonExists returns true if Son's Son's son and his offspring exists
-	// sssSonCheck = sssSonExists() // ssSonExists returns true if Son's Son's Son's son and his offspring exists
+    childernExists = childernCheck()
+	ikhwaExists = ikhwaCheck()
+
+	// check Math.js
+	//myNum = math.evaluate(1/3 + 1/3 + 1/3)
+	//console.log(`basic usage ${printRatio(math.fraction(0.125))}`)
+	//console.log(myNum) 
 
 
 	// Calculates Husband Part
 	husbandPart = calculateHusbandPart()
+	//husbandPart = Math.fraction(husbandPart)
 
 	// Calculates Wife Part
 	wifePart = calculateWifePart()

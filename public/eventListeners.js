@@ -69,9 +69,13 @@ husband.addEventListener('change', function() {
           
           // Shows Grand Father/Mother option
           grandFather.style.display='inline'
-          grandMother.style.display='inline'
           grandFatherText.style.display='inline'
+          grandMother.checked = false
+          grandMother.style.display='inline'
           grandMotherText.style.display='inline'
+          // Shows Mother option
+          mother.style.display = 'inline'
+          motherText.style.display = 'inline'
           
       
       }
@@ -84,7 +88,23 @@ husband.addEventListener('change', function() {
       mother.value = 0
       if (mother.checked === true ) {
           mother.value = 1
+          grandMother.value = 0
+
+          // Hides Grand Mother option
+          grandMother.style.display='none'
+          grandMotherText.style.display='none'
       }
+
+      if (mother.checked === false) {
+      
+        mother.value = 0
+        
+        // Shows Grand Mother option
+        grandMother.style.display='inline'
+        grandMotherText.style.display='inline'
+        
+    
+    }
   
   })
   
@@ -116,6 +136,21 @@ husband.addEventListener('change', function() {
       grandMother.value = 0
       if (grandMother.checked === true) {
           grandMother.value = 1
+
+          mother.checked = false
+          mother.value = 0
+          
+          // Hides Mother option
+          mother.style.display='none'
+          motherText.style.display='none'
+      }
+      
+      if (grandMother.checked === false) {
+          grandMother.value = 0
+          
+          // Shows Mother option
+          mother.style.display = 'inline'
+          motherText.style.display = 'inline'
       }
   
   })

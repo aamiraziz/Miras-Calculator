@@ -3,15 +3,17 @@
 function calculateHusbandPart() {
 
 	if (parseInt(husband.value) === 1) {
-        // in zawe al farooz chart in absence of childern, Husband part is 1/4
-		if(childernCheck) {
+
+		if(childernExists) {
+            // in zawe al farooz chart in presence of childern, Husband part is 1/4
 			return 1/4
-		} else { // in zawe al farooz chart in presence of childern, Husband part is 1/2
+		} else { 
+            // in zawe al farooz chart in absence of childern, Husband part is 1/2
 			return 1/2
 		}
-	} else {
-		return 0
 	}
+    
+    return 0
 
 }
 
@@ -20,14 +22,14 @@ function calculateWifePart() {
 
 	// Check if Wife exists
     if (parseInt(wife.value) > 0) {
-		if(childernCheck) {
+		if(childernExists) {
 			return 1/8
 		} else {
 			return 1/4
 		}
-	} else {
-		return 0
 	}
+    
+    return 0
 
 }
 
@@ -47,10 +49,9 @@ function calculateDaughterPart() {
             return 1/2
         }
 
-    } else {
-        return 0
     }
-	
+    
+    return 0
 
 }
 
@@ -87,9 +88,9 @@ function calculateSDaughterPart() {
     
         }
 
-    } else {
-        return 0
     }
+    
+    return 0
 
 }
 
@@ -133,9 +134,10 @@ function calculateSSDaughterPart() {
             return 1/6
     
         }
-    } else {
-        return 0
-    }
+    } 
+    
+    return 0
+
 }
 
 // calculates Son's Son's Son's Daughter part (سکڑ پوتی)
@@ -183,9 +185,10 @@ function calculateSSSDaughterPart() {
             return 1/6
     
         }
-    } else {
-        return 0
-    }
+    } 
+    
+    return 0
+
 }
 
 // function to calculate father's part (والد)
@@ -193,12 +196,12 @@ function calculateFatherPart() {
 
     // Check if Father exists
     if ( parseInt(father.value) !== 0 ) {
-        if (childernCheck) {
+        if (childernExists) {
             return 1/6
         }
-    } else {
-        return 0
     }
+    
+    return 0
     
 }
 
@@ -210,9 +213,9 @@ function calculateMotherPart() {
 
         // in zawe al farooz chart, if childern are present OR Ikhwa are Present OR Father and Husband are present
         // then mother will get 1/6
-        if ( childernCheck || ikhwaCheck || ( parseInt(father.value) === 1 && parseInt(husband.value) === 1 ) ) {
+        if ( childernExists || ikhwaExists || ( parseInt(father.value) === 1 && parseInt(husband.value) === 1 ) ) {
             return 1/6
-        } else if ( !(childernCheck || ikhwaCheck) && ( parseInt(wife.value) > 0 && parseInt(father.value) === 1 ) ) {
+        } else if ( !(childernExists || ikhwaExists) && ( parseInt(wife.value) > 0 && parseInt(father.value) === 1 ) ) {
 
         // in zawe al farooz chart, if childern and Ikhwa are Absent AND Wife and Father are present
         // then mother will get 1/4
@@ -222,9 +225,9 @@ function calculateMotherPart() {
             return 1/3
         }
 
-    } else {
-        return 0
     }
+    
+    return 0
     
 }
 
@@ -236,7 +239,7 @@ function calculateRSisterPart() {
 
         // in zawe al farooz chart in absence of childern, father, grand father (Father 0f Father) and real brother
         // if there are more than one Real Sister then she will get 2/3
-        if ( parseInt(rSister.value) > 1 && !childernCheck && 
+        if ( parseInt(rSister.value) > 1 && !childernExists && 
         parseInt(father.value) === 0 && parseInt(grandFather.value) === 0 && 
         parseInt(rBrother.value) === 0 ) {
 
@@ -245,15 +248,15 @@ function calculateRSisterPart() {
 
         // in zawe al farooz chart in absence of childern, father, grand father (Father 0f Father) and real brother
         // if there is only one Real Sister then she will get 1/2
-        if ( parseInt(rSister.value) === 1 && !childernCheck && 
+        if ( parseInt(rSister.value) === 1 && !childernExists && 
         parseInt(father.value) === 0 && parseInt(grandFather.value) === 0 && 
         parseInt(rBrother.value) === 0 ) {
 
             return 1/2
         }
-    } else {
-        return 0
     }
+    
+    return 0
 
 }
 
@@ -266,7 +269,7 @@ function calculatePSisterPart() {
         // in zawe al farooz chart in absence of childern, father, grand father (Father 0f Father), real brother(s), 
         // real sister(s) and paternal brother
         // if there is more than one paternal sister, then she will get 2/3
-        if ( parseInt(pSister.value) > 1 && !childernCheck && 
+        if ( parseInt(pSister.value) > 1 && !childernExists && 
         parseInt(father.value) === 0 && parseInt(grandFather.value) === 0 && 
         parseInt(rBrother.value) === 0 && parseInt(rSister.value) === 0 && 
         parseInt(pBrother.value) === 0 ) {
@@ -277,7 +280,7 @@ function calculatePSisterPart() {
         // in zawe al farooz chart in absence of childern, father, grand father (Father 0f Father), real brother(s), 
         // real sister(s) and paternal brother
         // if there is only one paternal sister, then she will get 1/2
-        if ( parseInt(pSister.value) === 1 && !childernCheck && 
+        if ( parseInt(pSister.value) === 1 && !childernExists && 
         parseInt(father.value) === 0 && parseInt(grandFather.value) === 0 && 
         parseInt(rBrother.value) === 0 && parseInt(rSister.value) === 0 && 
         parseInt(pBrother.value) === 0 ) {
@@ -288,7 +291,7 @@ function calculatePSisterPart() {
         // in zawe al farooz chart in absence of childern, father, grand father (Father 0f Father), real brother(s), 
         // real sister(s) and paternal brother, but only one real sister exist.
         // no matter how many paternal sisters are, then she will get 1/6
-        if ( parseInt(pSister.value) > 0 && !childernCheck && 
+        if ( parseInt(pSister.value) > 0 && !childernExists && 
         parseInt(father.value) === 0 && parseInt(grandFather.value) === 0 && 
         parseInt(rBrother.value) === 0 && parseInt(rSister.value) === 1 && 
         parseInt(pBrother.value) === 0 ) {
@@ -296,9 +299,10 @@ function calculatePSisterPart() {
             return 1/6
         }
 
-    } else {
-        return 0
-    }
+    } 
+    
+    return 0
+
 }
 
 // function to calculate maternal (who has same mother but different father) Brother's or Sister's part
@@ -312,7 +316,7 @@ function calculateMBroSisPart() {
         // then they will get 1/3
         if ( (parseInt(mBrother.value) === 1 && parseInt(mSister.value) === 1) && 
         parseInt(father.value) === 0 && parseInt(grandFather.value) === 0 &&
-        !childernCheck ) {
+        !childernExists ) {
 
             return 1/3
         }
@@ -322,7 +326,7 @@ function calculateMBroSisPart() {
         // then they will get 1/3
         if ( (parseInt(mBrother.value) > 1 || parseInt(mSister.value) > 1) && 
         parseInt(father.value) === 0 && parseInt(grandFather.value) === 0 &&
-        !childernCheck ) {
+        !childernExists ) {
 
             return 1/3
         }
@@ -332,13 +336,14 @@ function calculateMBroSisPart() {
         // then he/she will get 1/6
         if ( (parseInt(mBrother.value) === 1 || parseInt(mSister.value) === 1) && 
         parseInt(father.value) === 0 && parseInt(grandFather.value) === 0 && 
-        !childernCheck ) {
+        !childernExists ) {
 
             return 1/6
         }
 
-    } else {
-        return 0
-    }
+    } 
+    
+    return 0
+
 }
 
