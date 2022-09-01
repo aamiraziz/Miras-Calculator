@@ -175,14 +175,14 @@ function calculateSSSDaughterPart() {
         // no matter how many Daughter of son of son exists
         // then daughter of son of son will get 1/6
         if ( parseInt(son.value) === 0 && parseInt(sSon.value) === 0 && 
-        parseInt(ssSon.value) === 0 && parseInt(sssSon.value) === 0 && 
-        (parseInt(daughter.value) === 1 || parseInt(sDaughter.value) === 1 || parseInt(ssDaughter.value) === 1) && 
-       // !(parseInt(daughter.value) === 1 && parseInt(sDaughter.value) === 1) && 
-       // !(parseInt(sdaughter.value) === 1 && parseInt(ssDaughter.value) === 1) &&
-        !(parseInt(daughter.value) === 1 && parseInt(ssDaughter.value) === 1) &&
-        parseInt(sssDaughter.value) > 0 ) {
+             parseInt(ssSon.value) === 0 && parseInt(sssSon.value) === 0 && 
+             (parseInt(daughter.value) === 1 || parseInt(sDaughter.value) === 1 || parseInt(ssDaughter.value) === 1) && 
+             // !(parseInt(daughter.value) === 1 && parseInt(sDaughter.value) === 1) && 
+             // !(parseInt(sdaughter.value) === 1 && parseInt(ssDaughter.value) === 1) &&
+             !(parseInt(daughter.value) === 1 && parseInt(ssDaughter.value) === 1) &&
+             parseInt(sssDaughter.value) > 0 ) {
     
-            return 1/6
+             return 1/6
     
         }
     } 
@@ -347,3 +347,13 @@ function calculateMBroSisPart() {
 
 }
 
+// function to calculate Grand Father's Part i.e Father's Father Part, Father's Father's Father Part and 
+// Father's Father's Father's part
+function calculateGrandFatherPart() {
+
+    if ( parseInt(grandFather.value) === 1 && childernExists && parseInt(father.value) === 0) {
+        return 1/6
+    }
+
+    return 0
+}

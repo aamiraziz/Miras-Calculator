@@ -51,6 +51,8 @@ function outputAllValues() {
 		rSisterPart: ${rSisterPart}<br>
 		pSisterPart: ${pSisterPart}<br>
 		mBroSisPart: ${mBroSisPart}<br>
+		grandFatherType: ${grandFatherType}<br>
+		grandFatherPart: ${grandFatherPart}<br>
     `)
 
 }

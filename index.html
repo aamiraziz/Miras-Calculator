@@ -22,90 +22,101 @@
 	<h6 class="text-center text-danger"> Change values carefully, all non related relatives may remove automatically in the form</h6>
     </div>
     <div class="row">
-	<div class="col border border-2">
-	<fieldset>
-	  <legend>Spouse:</legend>
-	  <input type="checkbox" id="husband" name="husband" value="0">
-	  <label for="husband" id="husbandText">Husband</label><br><br>
-	  <label for="wife" id="wifeText">Wife (From 0 to 4)</label>
-	  <input type="number" id="wife" name="wife" min="0" max="4" value="0">
-	</fieldset>
-	</div>
+		<div class="col border border-2">
+		<fieldset>
+			<legend>Spouse:</legend>
+			<input type="checkbox" id="husband" name="husband" value="0">
+			<label for="husband" id="husbandText">Husband</label><br><br>
+			<label for="wife" id="wifeText">Wife (From 0 to 4)</label>
+			<input type="number" id="wife" name="wife" min="0" max="4" value="0">
+		</fieldset>
+		</div>
 
-	<div class="col border border-2">
-	<fieldset>
-	    <legend>Sisters:</legend>
-	    <input type="number" id="rSister" name="rSister" min="0" max="999" value="0">
-	    <label for="rSister" id="rSisterText">Real Sister(s)</label><br><br>
-	    <input type="number" id="pSister" name="pSister" min="0" max="999" value="0">
-	    <label for="pSister" id="pSisterText">Paternal Sister(s)</label><br><br>
-	    <input type="number" id="mSister" name="mSister" min="0" max="999" value="0">
-	    <label for="mSister" id="mSisterText">Maternal Sister(s)</label><br><br>
-	</fieldset>
-	</div>
+		<div class="col border border-2">
+		<fieldset>
+			<legend>Sisters:</legend>
+			<input type="number" id="rSister" name="rSister" min="0" max="999" value="0">
+			<label for="rSister" id="rSisterText">Real Sister(s)</label><br><br>
+			<input type="number" id="pSister" name="pSister" min="0" max="999" value="0">
+			<label for="pSister" id="pSisterText">Paternal Sister(s)</label><br><br>
+			<input type="number" id="mSister" name="mSister" min="0" max="999" value="0">
+			<label for="mSister" id="mSisterText">Maternal Sister(s)</label><br><br>
+		</fieldset>
+		</div>
 
-	<div class="col border border-2">
-	<fieldset >
-	    <legend>Brothers:</legend>
-	    <input type="number" id="rBrother" name="rBrother" min="0" max="999" value="0">
-	    <label for="rBrother" id="rBrotherText">Real Brother(s)</label><br><br>
-	    <input type="number" id="pBrother" name="pBrother" min="0" max="999" value="0">
-	    <label for="pBrother" id="pBrotherText">Paternal Brother(s)</label><br><br>
-	    <input type="number" id="mBrother" name="mBrother" min="0" max="999" value="0">
-	    <label for="mBrother" id="mBrotherText">Maternal Brother(s)</label><br><br>
-	</fieldset>
-	</div>
+		<div class="col border border-2">
+		<fieldset >
+			<legend>Brothers:</legend>
+			<input type="number" id="rBrother" name="rBrother" min="0" max="999" value="0">
+			<label for="rBrother" id="rBrotherText">Real Brother(s)</label><br><br>
+			<input type="number" id="pBrother" name="pBrother" min="0" max="999" value="0">
+			<label for="pBrother" id="pBrotherText">Paternal Brother(s)</label><br><br>
+			<input type="number" id="mBrother" name="mBrother" min="0" max="999" value="0">
+			<label for="mBrother" id="mBrotherText">Maternal Brother(s)</label><br><br>
+		</fieldset>
+		</div>
     </div>
 
     <div class="row">
-	<div class="col border border-2">
-	<fieldset>
-	  <legend>Parents:</legend>
-	  <input type="checkbox" id="father" name="father" value="0">
-	  <label for="father" id="fatherText">Father</label><br>
-	  <input type="checkbox" id="mother" name="mother" value="0">
-	  <label for="mother" id="motherText">Mother</label><br>
+		<div id="pType" class="col border border-2">
+		<fieldset>
+			<legend>Parents:</legend>
+			<input type="checkbox" id="father" name="father" value="0">
+			<label for="father" id="fatherText">Father</label><br>
+			<input type="checkbox" id="mother" name="mother" value="0">
+			<label for="mother" id="motherText">Mother</label><br>
 
-	  <input type="checkbox" id="grandFather" name="grandFather" value="0">
-	  <label for="grandFather" id="grandFatherText">Grand Father</label><br>
-	  <input type="checkbox" id="grandMother" name="grandMother" value="0">
-	  <label for="grandMother" id="grandMotherText">Grand Mother</label><br>
-	</fieldset>
-	</div>
+			<input type="checkbox" id="grandFather" name="grandFather" value="0">
+			<label for="grandFather" id="grandFatherText" value="Grand Father">Grand Father</label><br>
+			<input type="checkbox" id="grandMother" name="grandMother" value="0">
+			<label for="grandMother" id="grandMotherText">Grand Mother</label><br>
 
-	<div class="col border border-2">
-	<fieldset>
-	    <legend>Female Offspring:</legend>
-	    <input type="number" id="daughter" name="daughter" min="0" max="999" value="0">
-	    <label for="daughter" id="daughterText">Daughter(s)</label><br><br>
-	    <input type="number" id="sDaughter" name="sDaughter" min="0" max="999" value="0">
-	    <label for="sDaughter" id="sDaughterText">Son's Daughter(s)</label><br><br>
-	    <input type="number" id="ssDaughter" name="ssDaughter" min="0" max="999" value="0">
-	    <label for="ssDaughter" id="ssDaughterText">Son's Son's Daughter(s)</label><br><br>
-	    <input type="number" id="sssDaughter" name="sssDaughter" min="0" max="999" value="0">
-	    <label for="sssDaughter" id="sssDaughterText">Son's Son's Son's Daughter(s)</label><br><br>
-	</fieldset>
-	</div>
+			<div id="gfType">
+				<legend>Enter Grand Father Type:</legend>
+                <input type="radio" id="FF" name="gFatherType" value="Father's Father" checked>
+                <label for="FF" id="FFText">Father's Father</label><br>
+                <input type="radio" id="FFF" name="gFatherType" value="Father's Father's Father">
+                <label for="FFF" id="FFFText">Father's Father's Father</label><br>
+                <input type="radio" id="FFFF" name="gFatherType" value="Father's Father's Father's Father">
+                <label for="FFFF" id="FFFFText">Father's Father's Father's Father</label><br>
+			</div>
+			
+		</fieldset>
+		</div>
 
-	<div class="col border border-2">
-	<fieldset>
-	    <legend>Male offspring:</legend>
-	    <input type="number" id="son" name="son" min="0" max="999" value="0">
-	    <label for="son" id="sonText">Son(s)</label><br><br>
-	    <input type="number" id="sSon" name="sSon" min="0" max="999" value="0">
-	    <label for="sSon" id="sSonText">Son's Son(s)</label><br><br>
-	    <input type="number" id="ssSon" name="ssSon" min="0" max="999" value="0">
-	    <label for="ssSon" id="ssSonText">Son's Son's Son(s)</label><br><br>
-	    <input type="number" id="sssSon" name="sssSon" min="0" max="999" value="0">
-	    <label for="sssSon" id="sssSonText">Son's Son's Son's Son(s)</label><br><br>
-	</fieldset>
-	</div>
+		<div class="col border border-2">
+		<fieldset>
+			<legend>Female Offspring:</legend>
+			<input type="number" id="daughter" name="daughter" min="0" max="999" value="0">
+			<label for="daughter" id="daughterText">Daughter(s)</label><br><br>
+			<input type="number" id="sDaughter" name="sDaughter" min="0" max="999" value="0">
+			<label for="sDaughter" id="sDaughterText">Son's Daughter(s)</label><br><br>
+			<input type="number" id="ssDaughter" name="ssDaughter" min="0" max="999" value="0">
+			<label for="ssDaughter" id="ssDaughterText">Son's Son's Daughter(s)</label><br><br>
+			<input type="number" id="sssDaughter" name="sssDaughter" min="0" max="999" value="0">
+			<label for="sssDaughter" id="sssDaughterText">Son's Son's Son's Daughter(s)</label><br><br>
+		</fieldset>
+		</div>
+
+		<div class="col border border-2">
+		<fieldset>
+			<legend>Male offspring:</legend>
+			<input type="number" id="son" name="son" min="0" max="999" value="0">
+			<label for="son" id="sonText">Son(s)</label><br><br>
+			<input type="number" id="sSon" name="sSon" min="0" max="999" value="0">
+			<label for="sSon" id="sSonText">Son's Son(s)</label><br><br>
+			<input type="number" id="ssSon" name="ssSon" min="0" max="999" value="0">
+			<label for="ssSon" id="ssSonText">Son's Son's Son(s)</label><br><br>
+			<input type="number" id="sssSon" name="sssSon" min="0" max="999" value="0">
+			<label for="sssSon" id="sssSonText">Son's Son's Son's Son(s)</label><br><br>
+		</fieldset>
+		</div>
     </div>
-     <div class="d-grid gap-3 row justify-content-end">
-	<div class="col-4 col-lg-2">	
-  		<button type="submit" class="btn btn-success" id="submitBtn">Calculate</button>
-	</div>
-     </div>
+    <div class="d-grid gap-3 row justify-content-end">
+		<div class="col-4 col-lg-2">	
+			<button type="submit" class="btn btn-success" id="submitBtn">Calculate</button>
+		</div>
+    </div>
 </div>
      
 </form>

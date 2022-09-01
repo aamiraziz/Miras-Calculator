@@ -4,6 +4,7 @@ include('public/elementIds.js');
 include('public/eventListeners.js');
 include('public/calculateParts.js');
 include('public/existance.js');
+include('public/grandParentType.js');
 
 // Function to include many javascript files
 function include(file) {
@@ -19,11 +20,11 @@ function include(file) {
 
 let childernExists, sonCheck, sSonCheck, ssSonCheck, sssSonCheck, husbandPart, wifePart, daughterPart, 
 	sDaughterPart, ssDaughterPart, sssDaughterPart, fatherPart, ikhwaExists, motherPart, rSisterPart, 
-	pSisterPart, mBroSisPart, mSisterPart, myNum
+	pSisterPart, mBroSisPart, mSisterPart, myNum, grandFatherType, grandFatherPart
 
 // Submit Button Function
 submitBtn.addEventListener('click', function() {
-     
+    
 	showParts()   
     outputAllValues()
 })
@@ -35,15 +36,8 @@ function showParts() {
     childernExists = childernCheck()
 	ikhwaExists = ikhwaCheck()
 
-	// check Math.js
-	//myNum = math.evaluate(1/3 + 1/3 + 1/3)
-	//console.log(`basic usage ${printRatio(math.fraction(0.125))}`)
-	//console.log(myNum) 
-
-
 	// Calculates Husband Part
 	husbandPart = calculateHusbandPart()
-	//husbandPart = Math.fraction(husbandPart)
 
 	// Calculates Wife Part
 	wifePart = calculateWifePart()
@@ -74,6 +68,12 @@ function showParts() {
 
 	// Calculates Maternal Brother's or Sister's Part
 	mBroSisPart = calculateMBroSisPart()
+
+	// this function will show the grand father type written in grandParentType.js file
+	grandFatherType = showGrandFatherType()
+
+	// calculates Grand Father's Part
+	grandFatherPart = calculateGrandFatherPart()
 	
 }
 

@@ -118,6 +118,8 @@ husband.addEventListener('change', function() {
           // Hides Father option
           father.style.display='none'
           fatherText.style.display='none'
+
+          gfType.style.display='block'          
       }
       
       if (grandFather.checked === false) {
@@ -126,6 +128,9 @@ husband.addEventListener('change', function() {
           // Shows Father option
           father.style.display = 'inline'
           fatherText.style.display = 'inline'
+
+          gfType.style.display='none'
+          ff.checked = true
       }
   
   })
