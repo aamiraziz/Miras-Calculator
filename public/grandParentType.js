@@ -13,4 +13,10 @@ function showGrandFatherType() {
     if (ffff.checked === true) {
         return ffff.value
     }
+
+    if ( grandFather.checked === true && ff.checked === false && 
+        ffff.checked === false && ffff.checked === false) {
+
+        return ff.value
+    }
 }

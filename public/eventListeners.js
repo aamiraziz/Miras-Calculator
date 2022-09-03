@@ -126,11 +126,57 @@ husband.addEventListener('change', function() {
   
   })
 
+  // Father's Father eventListener
+//   ff.addEventListener('change', function() {
+
+//     if (ff.checked === true) {
+
+//         fff.style.display = 'none'
+//         ffff.style.display = 'none'
+
+//     }
+
+//     if (ff.checked === false) {
+
+//         fff.style.display = 'inline'
+//         ffff.style.display = 'inline'
+
+//     }
+
+//     if (fff.checked === true) {
+
+//         ff.style.display = 'none'
+//         ffff.style.display = 'none'
+
+//     }
+
+//     if (fff.checked === false) {
+
+//         ff.style.display = 'inline'
+//         ffff.style.display = 'inline'
+
+//     }
+
+//     if (ffff.checked === true) {
+
+//         ff.style.display = 'none'
+//         fff.style.display = 'none'
+        
+//     }
+
+//     if (ffff.checked === false) {
+
+//         ff.style.display = 'inline'
+//         fff.style.display = 'inline'
+        
+//     }
+
+//   })
+
   // Event Listener on Grand Father's Back Button
   backBtnGF.addEventListener('click', function() {
     gfType.style.display = 'none'  
     pType.style.display = 'block'
-    // backBtn.checked = false
   })
   
   // Event Listener on Grand Mother's CheckBox
