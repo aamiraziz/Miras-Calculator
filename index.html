@@ -62,27 +62,66 @@
 		<fieldset>
 			<legend>Parents:</legend>
 			<input type="checkbox" id="father" name="father" value="0">
-			<label for="father" id="fatherText">Father</label><br>
+			<label for="father" id="fatherText">Father&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
 			<input type="checkbox" id="mother" name="mother" value="0">
 			<label for="mother" id="motherText">Mother</label><br>
 
 			<input type="checkbox" id="grandFather" name="grandFather" value="0">
-			<label for="grandFather" id="grandFatherText" value="Grand Father">Grand Father</label><br>
+			<label for="grandFather" id="grandFatherText">Grand Father</label>
 			<input type="checkbox" id="grandMother" name="grandMother" value="0">
-			<label for="grandMother" id="grandMotherText">Grand Mother</label><br>
-
-			<div id="gfType">
-				<legend>Enter Grand Father Type:</legend>
-                <input type="radio" id="FF" name="gFatherType" value="Father's Father" checked>
-                <label for="FF" id="FFText">Father's Father</label><br>
-                <input type="radio" id="FFF" name="gFatherType" value="Father's Father's Father">
-                <label for="FFF" id="FFFText">Father's Father's Father</label><br>
-                <input type="radio" id="FFFF" name="gFatherType" value="Father's Father's Father's Father">
-                <label for="FFFF" id="FFFFText">Father's Father's Father's Father</label><br>
-			</div>
-			
+			<label for="grandMother" id="grandMotherText">Grand Mother</label><br>					
 		</fieldset>
 		</div>
+
+		<!-- Grand Father Type -->
+		<div id="gfType" class="col border border-2">
+			<fieldset>
+				<legend>Enter Grand Father Type:&nbsp;&nbsp;&nbsp;&nbsp;
+					<label class="btn btn-secondary" id="backBtnGF">Go Back</label>
+				</legend>
+				<input type="radio" id="FF" name="gFatherType" value="Father of Father" checked>
+				<label for="FF" id="FFText">Father of Father (FF)</label><br>
+				<input type="radio" id="FFF" name="gFatherType" value="Father of Father's Father">
+				<label for="FFF" id="FFFText">Father of Father's Father (FFF)</label><br>
+				<input type="radio" id="FFFF" name="gFatherType" value="Father of Father's Father's Father">
+				<label for="FFFF" id="FFFFText">Father of Father's Father's Father (FFFF)</label><br><br>
+				<p style="color:blue; font-size: 14px;">Please select any option according to the rules given below:</p>
+				<ol style="color: red; font-size: 14px;">
+					<li>In presence of FF, FFF and FFFF are not eligible.</li>
+					<li>In absense of FF, if FFF is present then FFFF is not eligible.</li>
+					<li>In absense of FF and FFF, FFFF will be eligible.</li>
+				</ol>
+			</fieldset>
+		</div>	
+
+		<!-- Grand Mother Types -->
+		<div id="gmType" class="col border border-2">
+            <fieldset>
+                <legend>Enter Grand Mother Type:&nbsp;&nbsp;&nbsp;&nbsp;
+					<label class="btn btn-secondary" id="backBtnGM">Go Back</label>
+				</legend>
+                <input type="checkbox" id="MM" name="Mother of Mother (MM)" value="0">
+                <label for="MM">Mother of Mother (MM)</label><br>
+                <input type="checkbox" id="MF" name="Mother of Father (MF)" value="0">
+                <label for="MF">Mother of Father (MF)</label><br>
+				
+                <input type="checkbox" id="MMM" name="Mother of Mother's Mother (MMM)" value="0">
+                <label for="MMM">Mother of Mother's Mother (MMM)</label><br>
+                <input type="checkbox" id="MFM" name="Mother of Father's Mother (MFM)" value="0">
+                <label for="MFM">Mother of Father's Mother (MFM)</label><br>
+                <input type="checkbox" id="MFF" name="Mother of Father's Father (MFF)" value="0">
+                <label for="MFF">Mother of Father's Father (MFF)</label><br>
+				
+                <input type="checkbox" id="MMMM" name="Mother of Mother's Mother's Mother (MMMM)" value="0">
+                <label for="MMMM">Mother of Mother's Mother's Mother (MMMM)</label><br>
+                <input type="checkbox" id="MMFM" name="Mother's Mother of Father's Mother (MMFM)" value="0">
+                <label for="MMFM">Mother's Mother of Father's Mother (MMFM)</label><br>
+                <input type="checkbox" id="MMFF" name="Mother's Mother of Father's Father (MMFF)" value="0">
+                <label for="MMFF">Mother's Mother of Father's Father (MMFF)</label><br>
+                <input type="checkbox" id="MFFF" name="Mother of Father's Father's Father (MFFF)" value="0">
+                <label for="MFFF">Mother of Father's Father's Father (MFFF)</label><br>
+            </fieldset>
+        </div>
 
 		<div class="col border border-2">
 		<fieldset>
@@ -112,7 +151,7 @@
 		</fieldset>
 		</div>
     </div>
-    <div class="d-grid gap-3 row justify-content-end">
+    <div class="d-grid gap-3 row justify-content-end"><br>
 		<div class="col-4 col-lg-2">	
 			<button type="submit" class="btn btn-success" id="submitBtn">Calculate</button>
 		</div>

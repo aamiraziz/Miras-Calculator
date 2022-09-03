@@ -3,14 +3,14 @@
 // this function will show the grand father type
 function showGrandFatherType() {
     if (ff.checked === true) {
-        return "Father's Father"
+        return ff.value
     }
 
     if (fff.checked === true) {
-        return "Father's Father's Father"
+        return fff.value
     }
 
     if (ffff.checked === true) {
-        return "Father's Father's Father's Father"
+        return ffff.value
     }
 }

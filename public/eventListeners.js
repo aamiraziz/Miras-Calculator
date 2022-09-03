@@ -53,13 +53,10 @@ husband.addEventListener('change', function() {
       
           father.value = 1
           grandFather.value = 0
-          grandMother.value = 0
           
           // Hides Grand Father/Mother option
           grandFather.style.display='none'
           grandFatherText.style.display='none'
-          grandMother.style.display='none'
-          grandMotherText.style.display='none'
           
       }
       
@@ -69,14 +66,7 @@ husband.addEventListener('change', function() {
           
           // Shows Grand Father/Mother option
           grandFather.style.display='inline'
-          grandFatherText.style.display='inline'
-          grandMother.checked = false
-          grandMother.style.display='inline'
-          grandMotherText.style.display='inline'
-          // Shows Mother option
-          mother.style.display = 'inline'
-          motherText.style.display = 'inline'
-          
+          grandFatherText.style.display='inline'          
       
       }
   
@@ -119,6 +109,7 @@ husband.addEventListener('change', function() {
           father.style.display='none'
           fatherText.style.display='none'
 
+          pType.style.display = 'none'
           gfType.style.display='block'          
       }
       
@@ -130,9 +121,16 @@ husband.addEventListener('change', function() {
           fatherText.style.display = 'inline'
 
           gfType.style.display='none'
-          ff.checked = true
+        //   ff.checked = true
       }
   
+  })
+
+  // Event Listener on Grand Father's Back Button
+  backBtnGF.addEventListener('click', function() {
+    gfType.style.display = 'none'  
+    pType.style.display = 'block'
+    // backBtn.checked = false
   })
   
   // Event Listener on Grand Mother's CheckBox
@@ -148,6 +146,9 @@ husband.addEventListener('change', function() {
           // Hides Mother option
           mother.style.display='none'
           motherText.style.display='none'
+
+          pType.style.display = 'none'
+          gmType.style.display = 'block'
       }
       
       if (grandMother.checked === false) {
@@ -159,7 +160,14 @@ husband.addEventListener('change', function() {
       }
   
   })
-  
+
+  // Event Listener on Grand Mother's Back Button
+  backBtnGM.addEventListener('click', function() {
+    gmType.style.display = 'none'  
+    pType.style.display = 'block'
+    // backBtn.checked = false
+  })
+
   // Event Listener on Son's TextBox
   son.addEventListener('change', function() {
   

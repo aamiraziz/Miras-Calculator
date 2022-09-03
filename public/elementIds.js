@@ -39,10 +39,32 @@ let sssSon = document.getElementById('sssSon')		 // Son's Son's Son's Son
 let gfType = document.getElementById('gfType')		 // for grandFather type
 gfType.style.display = 'none'
 
+let backBtnGF = document.getElementById('backBtnGF')		 // Back Button in grand mother's type box
+
 let ff = document.getElementById('FF')              // Father's Father
 let fff = document.getElementById('FFF')		    // Father's Father's Father
 let ffff = document.getElementById('FFFF')		    // Father's Father's Father's Father
 
+// Parent type
+let pType = document.getElementById('pType')		 // Parent type column in html
+
+// to find grand mother type
+let gmType = document.getElementById('gmType')		 //
+gmType.style.display = 'none'
+
+let backBtnGM = document.getElementById('backBtnGM')		 // Back Button in grand mother's type box
+
+let mm = document.getElementById('MM')		        // Mother of Mother
+let mf = document.getElementById('MF')		        // Mother of Father
+
+let mmm = document.getElementById('MMM')		    // Mother of Mother's  Mother
+let mfm = document.getElementById('MFM')		    // Mother of Father's Mother
+let mff = document.getElementById('MFF')		    // Mother of Father's Father
+
+let mmmm = document.getElementById('MMMM')          // Mother of Mother's  Mother's  Mother
+let mmfm = document.getElementById('MMFM')		    // Mother of Mother's Father's Mother
+let mmff = document.getElementById('MMFF')		    // Mother of Mother's Father's Father
+let mfff = document.getElementById('MFFF')		    // Mother of Father's Father's Father
 
 
 
