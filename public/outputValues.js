@@ -46,13 +46,19 @@ function outputAllValues() {
 		sDaughterPart: ${sDaughterPart}<br>
 		ssDaughterPart: ${ssDaughterPart}<br>
 		sssDaughterPart: ${sssDaughterPart}<br>
+
 		fatherPart: ${fatherPart}<br>
 		motherPart: ${motherPart}<br>
+
 		rSisterPart: ${rSisterPart}<br>
 		pSisterPart: ${pSisterPart}<br>
 		mBroSisPart: ${mBroSisPart}<br>
+        
 		grandFatherType: ${grandFatherType}<br>
 		grandFatherPart: ${grandFatherPart}<br>
+        
+		grandMotherType: ${grandMotherType}<br>
+		grandMotherPart: ${grandMotherPart}<br>
     `)
 
 }

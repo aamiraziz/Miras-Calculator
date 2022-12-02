@@ -351,9 +351,23 @@ function calculateMBroSisPart() {
 // Father's Father's Father's part
 function calculateGrandFatherPart() {
 
+    // in presence of childern if father is not present then grandFather will get 1/6
     if ( parseInt(grandFather.value) === 1 && childernExists && parseInt(father.value) === 0) {
         return 1/6
     }
 
     return 0
+}
+
+function calculateGrandMotherPart() {
+
+    // if GrandMother (Mother of Mother) exists in absebce of Mother then grandMother will get 1/6
+    if ( parseInt(grandMother.value) === 1 && parseInt(mother.value) === 0 ) {
+        return 1/6
+    }
+
+    // if GrandMother (Mother of Father) exists in absebce of father then grandMother will get 1/6
+    if ( parseInt(grandMother.value) === 1 && parseInt(father.value) === 0 ) {
+        return 1/6
+    }
 }

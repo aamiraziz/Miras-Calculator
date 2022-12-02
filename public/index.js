@@ -20,7 +20,7 @@ function include(file) {
 
 let childernExists, sonCheck, sSonCheck, ssSonCheck, sssSonCheck, husbandPart, wifePart, daughterPart, 
 	sDaughterPart, ssDaughterPart, sssDaughterPart, fatherPart, ikhwaExists, motherPart, rSisterPart, 
-	pSisterPart, mBroSisPart, mSisterPart, myNum, grandFatherType, grandFatherPart
+	pSisterPart, mBroSisPart, mSisterPart, myNum, grandFatherType, grandFatherPart, grandMotherType, grandMotherPart
 
 // Submit Button Function
 submitBtn.addEventListener('click', function() {
@@ -74,6 +74,14 @@ function showParts() {
 
 	// calculates Grand Father's Part
 	grandFatherPart = calculateGrandFatherPart()
+
+	// this function will show the grand Mother type written in grandParentType.js file
+	// incomplete
+	grandMotherType = showGrandMotherType()
+
+	// calculates Grand Mother's Part
+	// incomplete
+	grandMotherPart = calculateGrandMotherPart()
 	
 }
 

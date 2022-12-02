@@ -48,7 +48,7 @@ husband.addEventListener('change', function() {
   // Event Listener on Father's CheckBox
   father.addEventListener('change', function() {
   
-      father.value = 0
+      //father.value = 0
       if (father.checked === true) {
       
           father.value = 1
@@ -57,26 +57,46 @@ husband.addEventListener('change', function() {
           // Hides Grand Father/Mother option
           grandFather.style.display='none'
           grandFatherText.style.display='none'
-          
       }
       
       if (father.checked === false) {
       
           father.value = 0
           
-          // Shows Grand Father/Mother option
+          // Shows Grand Father option
           grandFather.style.display='inline'
-          grandFatherText.style.display='inline'          
-      
+          grandFatherText.style.display='inline'
+
+          // Shows Grand Mother option
+          grandMother.style.display='inline'
+          grandMotherText.style.display='inline'
+      }
+
+      if (mother.checked === true && father.checked === true) {
+
+          mother.value = 1
+          grandMother.value = 0
+
+          // Hides Grand Mother option
+          grandMother.style.display='none'
+          grandMotherText.style.display='none'
       }
   
   })
   
   // Event Listener on Mother's CheckBox
+  // temporary commented
   mother.addEventListener('change', function() {
   
-      mother.value = 0
-      if (mother.checked === true ) {
+      if (mother.checked === false) {
+        mother.value = 0
+      }
+
+      if (mother.checked === true) {
+        mother.value = 1
+      }
+
+      if (mother.checked === true && father.checked === true) {
           mother.value = 1
           grandMother.value = 0
 
@@ -85,23 +105,24 @@ husband.addEventListener('change', function() {
           grandMotherText.style.display='none'
       }
 
-      if (mother.checked === false) {
-      
+      if (mother.checked === false) {   
+
         mother.value = 0
-        
+
         // Shows Grand Mother option
         grandMother.style.display='inline'
         grandMotherText.style.display='inline'
-        
-    
-    }
+      }
   
-  })
+  }) 
   
   // Event Listener on Grand Father's CheckBox
   grandFather.addEventListener('change', function() {
   
+    if (grandFather.checked === false) {
       grandFather.value = 0
+    }
+
       if (grandFather.checked === true) {
           grandFather.value = 1
           
@@ -125,54 +146,7 @@ husband.addEventListener('change', function() {
       }
   
   })
-
-  // Father's Father eventListener
-//   ff.addEventListener('change', function() {
-
-//     if (ff.checked === true) {
-
-//         fff.style.display = 'none'
-//         ffff.style.display = 'none'
-
-//     }
-
-//     if (ff.checked === false) {
-
-//         fff.style.display = 'inline'
-//         ffff.style.display = 'inline'
-
-//     }
-
-//     if (fff.checked === true) {
-
-//         ff.style.display = 'none'
-//         ffff.style.display = 'none'
-
-//     }
-
-//     if (fff.checked === false) {
-
-//         ff.style.display = 'inline'
-//         ffff.style.display = 'inline'
-
-//     }
-
-//     if (ffff.checked === true) {
-
-//         ff.style.display = 'none'
-//         fff.style.display = 'none'
-        
-//     }
-
-//     if (ffff.checked === false) {
-
-//         ff.style.display = 'inline'
-//         fff.style.display = 'inline'
-        
-//     }
-
-//   })
-
+  
   // Event Listener on Grand Father's Back Button
   backBtnGF.addEventListener('click', function() {
     gfType.style.display = 'none'  
@@ -181,37 +155,98 @@ husband.addEventListener('change', function() {
   
   // Event Listener on Grand Mother's CheckBox
   grandMother.addEventListener('change', function() {
-  
+
+    // Error message for no selection
+    gmTypeError.style.display = 'none'
+
+    // disappearance of submit button
+    if ( grandMother.checked === true) {
+      submitBtn.style.display = 'none'
+    }
+
+    // if mother is checked then no grand mother related to mother will appear
+    if ( mother.checked === true) {
+      gmMother.style.display = 'none'
+    }
+
+    // if mother is unchecked
+    if ( mother.checked === false) {
+      gmMother.style.display = 'block'
+
+      // uncheck all options in this div
+      mm.checked = false
+      mmm.checked = false
+      mmmm.checked = false
+    }
+
+    // if father is checked then no grand mother related to father will appear
+    if ( father.checked === true) {
+      gmFather.style.display = 'none'
+    }
+
+    // if father is unchecked
+    if ( father.checked === false) {
+      gmFather.style.display = 'block'
+
+      // uncheck all options in this div
+      mf.checked = false
+      mfm.checked = false
+      mff.checked = false
+
+      mmfm.checked = false
+      mmff.checked = false
+      mfff.checked = false
+    }
+
+    if (grandMother.checked === false) {
       grandMother.value = 0
-      if (grandMother.checked === true) {
-          grandMother.value = 1
+    }
+        
+    if (grandMother.checked === true) {
+        grandMother.value = 1
 
-          mother.checked = false
-          mother.value = 0
-          
-          // Hides Mother option
-          mother.style.display='none'
-          motherText.style.display='none'
+        //mother.checked = false
+        //mother.value = 0
+        
+        // Hides Mother option
+        //mother.style.display='none'
+        //motherText.style.display='none'
 
-          pType.style.display = 'none'
-          gmType.style.display = 'block'
-      }
-      
-      if (grandMother.checked === false) {
-          grandMother.value = 0
-          
-          // Shows Mother option
-          mother.style.display = 'inline'
-          motherText.style.display = 'inline'
-      }
+        pType.style.display = 'none'
+        gmType.style.display = 'block'
+    }
+    
+    // if (grandMother.checked === false) {
+    //     grandMother.value = 0
+        
+    //     // Shows Mother option
+    //     mother.style.display = 'inline'
+    //     motherText.style.display = 'inline'
+    // }
   
   })
 
   // Event Listener on Grand Mother's Back Button
   backBtnGM.addEventListener('click', function() {
-    gmType.style.display = 'none'  
-    pType.style.display = 'block'
-    // backBtn.checked = false
+
+    // if father and mother is not selected then do not go back 
+    // provide an error to select grandmother type
+    if (mother.checked === false && father.checked === false && grandMother.checked === true && 
+      mm.checked === false && mmm.checked === false && mmmm.checked === false && mf.checked === false && 
+      mfm.checked === false && mff.checked === false && mmfm.checked === false && mmff.checked === false 
+      && mfff.checked === false) {
+
+        gmTypeError.style.display = 'block'
+        gmTypeError.style.color = 'Red'
+
+    } else {
+      gmType.style.display = 'none'  
+      pType.style.display = 'block'
+      submitBtn.style.display = 'block'
+    }
+
+    // gmType.style.display = 'none'  
+    // pType.style.display = 'block'
   })
 
   // Event Listener on Son's TextBox
@@ -513,3 +548,50 @@ husband.addEventListener('change', function() {
       }
   
   })
+
+  // Father's Father eventListener --- Not Needed This time
+//   ff.addEventListener('change', function() {
+
+//     if (ff.checked === true) {
+
+//         fff.style.display = 'none'
+//         ffff.style.display = 'none'
+
+//     }
+
+//     if (ff.checked === false) {
+
+//         fff.style.display = 'inline'
+//         ffff.style.display = 'inline'
+
+//     }
+
+//     if (fff.checked === true) {
+
+//         ff.style.display = 'none'
+//         ffff.style.display = 'none'
+
+//     }
+
+//     if (fff.checked === false) {
+
+//         ff.style.display = 'inline'
+//         ffff.style.display = 'inline'
+
+//     }
+
+//     if (ffff.checked === true) {
+
+//         ff.style.display = 'none'
+//         fff.style.display = 'none'
+        
+//     }
+
+//     if (ffff.checked === false) {
+
+//         ff.style.display = 'inline'
+//         fff.style.display = 'inline'
+        
+//     }
+
+//   })
