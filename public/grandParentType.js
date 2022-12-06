@@ -26,11 +26,60 @@ function showGrandFatherType() {
 // this fucntion will show the grand Mother type
 function showGrandMotherType() {
 
-    let grandMotherMArr = [mm.checked, mmm.checked, mmmm.checked]
-    let grandMotherFArr = [mf.checked, mfm.checked, mff.checked, mmfm.checked, mmff.checked, mfff.checked]
+    // let grandMotherMArr = [mm.checked, mmm.checked, mmmm.checked]
+    // let grandMotherFArr = [mf.checked, mfm.checked, mff.checked, mmfm.checked, mmff.checked, mfff.checked]
+        
+    
 
-    console.log(`Grand Mother from Mother is: ${grandMotherMArr}`)
-    console.log(`Grand Father from Father is: ${grandMotherFArr}`)
+    let gmTypeArr = []
+    
+    // Grand Mother from mother
+    if ( mm.checked ) {
+        mmm.checked = false
+        mmmm.checked = false
+        gmTypeArr.push(mm.name)
+    }
+
+    if ( mmm.checked ) {mmmm.checked = false; gmTypeArr.push(mmm.name)}
+
+    if ( mmmm.checked ) {gmTypeArr.push(mmmm.name)}
+
+    // grand Mother from father
+    if ( mf.checked ) {        
+        mfm.checked = false
+        mff.checked = false
+        mmfm.checked = false
+        mmff.checked = false
+        mfff.checked = false
+        gmTypeArr.push(mf.name)
+    }
+
+    if ( mfm.checked ) {
+        mmfm.checked = false
+        mmff.checked = false
+        mfff.checked = false
+        gmTypeArr.push(mfm.name)
+    }
+
+    if ( mff.checked ) {
+        mmfm.checked = false
+        mmff.checked = false
+        mfff.checked = false
+        gmTypeArr.push(mff.name)
+    }
+
+    if ( mmfm.checked ) {gmTypeArr.push(mmfm.name)}
+
+    if ( mmff.checked ) {gmTypeArr.push(mmff.name)}
+
+    if ( mfff.checked ) {gmTypeArr.push(mfff.name)}
+
+    // console.log(`Grand Mother from Mother is: ${grandMotherMArr.filter(function(e) { return e === true })} and Name: ${gmTypeArr}`)
+    // console.log(`Grand Father from Father is: ${grandMotherFArr}`)
+
+    return gmTypeArr
+
+
     /*
     // if Mother's Mother is selected then mmm and mmmm will get nothing
     if ( mm.checked === true && (mmm.checked === true || mmmm.checked === true) ) {
