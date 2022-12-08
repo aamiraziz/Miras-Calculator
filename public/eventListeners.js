@@ -53,6 +53,8 @@ husband.addEventListener('change', function() {
       
           father.value = 1
           grandFather.value = 0
+          grandMother.checked = false
+          grandMother.value = 0
           
           // Hides Grand Father/Mother option
           grandFather.style.display='none'
@@ -96,7 +98,7 @@ husband.addEventListener('change', function() {
         mother.value = 1
       }
 
-      if (mother.checked === true && father.checked === true) {
+      if (mother.checked === true) {
           mother.value = 1
           grandMother.value = 0
 
@@ -198,31 +200,31 @@ husband.addEventListener('change', function() {
       mfff.checked = false
     }
 
-    if (grandMother.checked === false) {
-      grandMother.value = 0
-    }
+    // if (grandMother.checked === false) {
+    //   grandMother.value = 0
+    // }
         
     if (grandMother.checked === true) {
         grandMother.value = 1
 
-        //mother.checked = false
-        //mother.value = 0
+        mother.checked = false
+        mother.value = 0
         
         // Hides Mother option
-        //mother.style.display='none'
-        //motherText.style.display='none'
+        mother.style.display='none'
+        motherText.style.display='none'
 
         pType.style.display = 'none'
         gmType.style.display = 'block'
     }
     
-    // if (grandMother.checked === false) {
-    //     grandMother.value = 0
+    if (grandMother.checked === false) {
+        grandMother.value = 0
         
-    //     // Shows Mother option
-    //     mother.style.display = 'inline'
-    //     motherText.style.display = 'inline'
-    // }
+        // Shows Mother option
+        mother.style.display = 'inline'
+        motherText.style.display = 'inline'
+    }
   
   })
 
@@ -231,7 +233,8 @@ husband.addEventListener('change', function() {
 
     // if father and mother is not selected then do not go back 
     // provide an error to select grandmother type
-    if (mother.checked === false && father.checked === false && grandMother.checked === true && 
+    //mother.checked === false && father.checked === false && grandMother.checked === true && 
+    if (
       mm.checked === false && mmm.checked === false && mmmm.checked === false && mf.checked === false && 
       mfm.checked === false && mff.checked === false && mmfm.checked === false && mmff.checked === false 
       && mfff.checked === false) {
@@ -239,11 +242,23 @@ husband.addEventListener('change', function() {
         gmTypeError.style.display = 'block'
         gmTypeError.style.color = 'Red'
 
-    } else {
+    } 
+    // if father is selected and grandmother is selected then do not go back
+    // provide an error to select grandmother type
+    // if (mother.checked === false && father.checked === true && grandMother.checked === true && 
+    //   mm.checked === false && mmm.checked === false && mmmm.checked === false) {
+
+    //     gmTypeError.style.display = 'block'
+    //     gmTypeError.style.color = 'Red'
+
+    // } 
+    else {
       gmType.style.display = 'none'  
       pType.style.display = 'block'
       submitBtn.style.display = 'block'
     }
+
+    
 
     // gmType.style.display = 'none'  
     // pType.style.display = 'block'

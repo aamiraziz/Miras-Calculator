@@ -23,36 +23,79 @@
     </div>
     <div class="row">
 		<div class="col border border-2">
-		<fieldset>
-			<legend>Spouse:</legend>
-			<input type="checkbox" id="husband" name="husband" value="0">
-			<label for="husband" id="husbandText">Husband</label><br><br>
-			<label for="wife" id="wifeText">Wife (From 0 to 4)</label>
-			<input type="number" id="wife" name="wife" min="0" max="4" value="0">
-		</fieldset>
+
+			<!-- <div class="col border border-2"> -->
+				<div class="float-start Width auto border border-success border-1"  style="padding-right:10px; padding-left:10px;">
+					<fieldset>
+						<legend>Select Method:</legend>
+							<div class="form-check">
+							<input class="form-check-input" type="radio" name="hanfi" id="hanfi" checked>
+							<label class="form-check-label" for="hanfi">
+								Hanfi
+							</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="shaafi" id="shaafi">
+								<label class="form-check-label" for="shaafi">
+								Shaafi
+								</label>
+							</div>						
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="hanbali" id="hanbali">
+								<label class="form-check-label" for="hanbali">
+								Hanbali
+								</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="malki" id="malki">
+								<label class="form-check-label" for="malki">
+								Malki
+								</label>
+							</div>
+					</fieldset>
+				</div>
+			<!-- </div> -->
+
+			<!-- <div class="col border border-2"> class="float-end" -->
+				<div class="float-start Width auto" style="margin-left: 20px;">
+					<fieldset>
+						<legend>Spouse:</legend>						
+							<input type="checkbox" id="husband" name="husband" value="0">
+							<label for="husband" id="husbandText">Husband</label><br>
+							<label for="wife" id="wifeText">Wife</label>
+							<input type="number" id="wife" name="wife" min="0" max="4" value="0">
+						
+					</fieldset>
+				</div>
+			<!-- </div> -->
+
 		</div>
 
 		<div class="col border border-2">
 		<fieldset>
 			<legend>Sisters:</legend>
-			<input type="number" id="rSister" name="rSister" min="0" max="999" value="0">
-			<label for="rSister" id="rSisterText">Real Sister(s)</label><br><br>
-			<input type="number" id="pSister" name="pSister" min="0" max="999" value="0">
-			<label for="pSister" id="pSisterText">Paternal Sister(s)</label><br><br>
-			<input type="number" id="mSister" name="mSister" min="0" max="999" value="0">
-			<label for="mSister" id="mSisterText">Maternal Sister(s)</label><br><br>
+			<div class="float-start">
+				<input type="number" id="rSister" name="rSister" min="0" max="999" value="0">
+				<label for="rSister" id="rSisterText">Real Sister(s)</label><br><br>
+				<input type="number" id="pSister" name="pSister" min="0" max="999" value="0">
+				<label for="pSister" id="pSisterText">Paternal Sister(s)</label><br><br>
+				<input type="number" id="mSister" name="mSister" min="0" max="999" value="0">
+				<label for="mSister" id="mSisterText">Maternal Sister(s)</label><br><br>
+			</div>
 		</fieldset>
 		</div>
 
 		<div class="col border border-2">
 		<fieldset >
 			<legend>Brothers:</legend>
-			<input type="number" id="rBrother" name="rBrother" min="0" max="999" value="0">
-			<label for="rBrother" id="rBrotherText">Real Brother(s)</label><br><br>
-			<input type="number" id="pBrother" name="pBrother" min="0" max="999" value="0">
-			<label for="pBrother" id="pBrotherText">Paternal Brother(s)</label><br><br>
-			<input type="number" id="mBrother" name="mBrother" min="0" max="999" value="0">
-			<label for="mBrother" id="mBrotherText">Maternal Brother(s)</label><br><br>
+			<div class="float-start">
+				<input type="number" id="rBrother" name="rBrother" min="0" max="999" value="0">
+				<label for="rBrother" id="rBrotherText">Real Brother(s)</label><br><br>
+				<input type="number" id="pBrother" name="pBrother" min="0" max="999" value="0">
+				<label for="pBrother" id="pBrotherText">Paternal Brother(s)</label><br><br>
+				<input type="number" id="mBrother" name="mBrother" min="0" max="999" value="0">
+				<label for="mBrother" id="mBrotherText">Maternal Brother(s)</label><br><br>
+			</div>
 		</fieldset>
 		</div>
     </div>
@@ -61,15 +104,19 @@
 		<div id="pType" class="col border border-2">
 		<fieldset>
 			<legend>Parents:</legend>
-			<input type="checkbox" id="father" name="father" value="0">
-			<label for="father" id="fatherText">Father&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-			<input type="checkbox" id="mother" name="mother" value="0">
-			<label for="mother" id="motherText">Mother</label><br>
+			<div class="float-start" style="width: 100px;">
+				<input type="checkbox" id="father" name="father" value="0">
+				<label for="father" id="fatherText">Father</label><br>
+				<input type="checkbox" id="mother" name="mother" value="0">
+				<label for="mother" id="motherText">Mother</label><br>
+			</div>
 
-			<input type="checkbox" id="grandFather" name="grandFather" value="0">
-			<label for="grandFather" id="grandFatherText">Grand Father</label>
-			<input type="checkbox" id="grandMother" name="grandMother" value="0">
-			<label for="grandMother" id="grandMotherText">Grand Mother</label><br>					
+			<div class="float-start">
+				<input type="checkbox" id="grandFather" name="grandFather" value="0">
+				<label for="grandFather" id="grandFatherText">Grand Father</label><br>
+				<input type="checkbox" id="grandMother" name="grandMother" value="0">
+				<label for="grandMother" id="grandMotherText">Grand Mother</label><br>					
+			</div>
 		</fieldset>
 		</div>
 
