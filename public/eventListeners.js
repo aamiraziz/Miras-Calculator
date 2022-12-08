@@ -1,3 +1,24 @@
+// Event Listener on Fiqah Method
+// this eventListener will give the name of imam
+method.addEventListener('change', function() {
+
+  grandMother.checked = false
+
+  // Press Back Button
+  gmType.style.display = 'none'  
+  pType.style.display = 'block'
+  submitBtn.style.display = 'block'
+
+  const nodeList = document.querySelectorAll(".form-check-input");
+  for (let i = 0; i < nodeList.length; i++) {
+      if (nodeList[i].checked) {
+          imam = nodeList[i].id
+      }
+  }
+
+})
+console.log(`default Imam: ${imam}`)
+
 // Event Listener On Husband Checkbox
 husband.addEventListener('change', function() {
 
@@ -55,6 +76,10 @@ husband.addEventListener('change', function() {
           grandFather.value = 0
           grandMother.checked = false
           grandMother.value = 0
+
+          // Shows Mother option
+          mother.style.display = 'inline'
+          motherText.style.display = 'inline'
           
           // Hides Grand Father/Mother option
           grandFather.style.display='none'
@@ -158,8 +183,26 @@ husband.addEventListener('change', function() {
   // Event Listener on Grand Mother's CheckBox
   grandMother.addEventListener('change', function() {
 
-    // Error message for no selection
+    // Hide Error message for no selection
     gmTypeError.style.display = 'none'
+
+    // console.log(`inside grandMother's EventListener. Hey! ${imam}`)
+
+    if (imam === "hanbali") {
+      // console.log(`inside grandMother's EventListener ${imam}`)
+      mfff.checked = false
+      rmmaliki.style.display = 'block'
+      rmhanbali.style.display = 'none'
+    }
+
+    if (imam === "maliki") {
+      // console.log(`inside grandMother's EventListener ${imam}`)
+      mff.checked = false
+      mmff.checked = false
+      mfff.checked = false
+      rmhanbali.style.display = 'none'
+      rmmaliki.style.display = 'none'
+    }
 
     // disappearance of submit button
     if ( grandMother.checked === true) {
@@ -199,10 +242,6 @@ husband.addEventListener('change', function() {
       mmff.checked = false
       mfff.checked = false
     }
-
-    // if (grandMother.checked === false) {
-    //   grandMother.value = 0
-    // }
         
     if (grandMother.checked === true) {
         grandMother.value = 1
@@ -233,7 +272,6 @@ husband.addEventListener('change', function() {
 
     // if father and mother is not selected then do not go back 
     // provide an error to select grandmother type
-    //mother.checked === false && father.checked === false && grandMother.checked === true && 
     if (
       mm.checked === false && mmm.checked === false && mmmm.checked === false && mf.checked === false && 
       mfm.checked === false && mff.checked === false && mmfm.checked === false && mmff.checked === false 
@@ -243,15 +281,6 @@ husband.addEventListener('change', function() {
         gmTypeError.style.color = 'Red'
 
     } 
-    // if father is selected and grandmother is selected then do not go back
-    // provide an error to select grandmother type
-    // if (mother.checked === false && father.checked === true && grandMother.checked === true && 
-    //   mm.checked === false && mmm.checked === false && mmmm.checked === false) {
-
-    //     gmTypeError.style.display = 'block'
-    //     gmTypeError.style.color = 'Red'
-
-    // } 
     else {
       gmType.style.display = 'none'  
       pType.style.display = 'block'

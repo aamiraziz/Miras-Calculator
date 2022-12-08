@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>The Document Object</h1>
+<h2>The querySelectorAll() Method</h2>
+
+<div id="method">
+  <fieldset>
+    <legend>Select Method:</legend>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" id="hanfi" name="radio" value="hanfi" checked>
+        <label class="form-check-label" for="hanfi">
+        Hanfi
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" id="shaafi" name="radio" value="shaafi">
+        <label class="form-check-label" for="shaafi">
+        Shaafi
+        </label>
+    </div>						
+    <div class="form-check">
+        <input class="form-check-input" type="radio" id="hanbali" name="radio" value="hanbali">
+        <label class="form-check-label" for="hanbali">
+        Hanbali
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" id="malki" name="radio" value="malki">
+        <label class="form-check-label" for="malki">
+        Malki
+        </label>
+    </div>
+  </fieldset>
+</div>
+<script>
+
+const method = document.getElementById("method");
+
+let imam = "Hanfi and Shaafi"
+
+method.addEventListener("change", function() {
+
+    const nodeList = document.querySelectorAll(".form-check-input");
+    for (let i = 0; i < nodeList.length; i++) {
+        if (nodeList[i].checked) {
+            imam = nodeList[i].id
+            break
+        }
+    }
+
+    console.log(`myval: ${myval}`)
+})
+
+console.log(`default Imam: ${imam}`)
+
+
+
+</script>
+
+</body>
+</html>

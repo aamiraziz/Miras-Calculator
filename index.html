@@ -23,40 +23,38 @@
     </div>
     <div class="row">
 		<div class="col border border-2">
-
-			<!-- <div class="col border border-2"> -->
-				<div class="float-start Width auto border border-success border-1"  style="padding-right:10px; padding-left:10px;">
+			
+				<div id="method" class="float-start Width auto border border-success border-1"  style="padding-right:10px; padding-left:10px;">
 					<fieldset>
 						<legend>Select Method:</legend>
 							<div class="form-check">
-							<input class="form-check-input" type="radio" name="hanfi" id="hanfi" checked>
+							<input class="form-check-input" type="radio" id="hanfi" name="imam" value="hanfi" checked>
 							<label class="form-check-label" for="hanfi">
 								Hanfi
 							</label>
 							</div>
+
 							<div class="form-check">
-								<input class="form-check-input" type="radio" name="shaafi" id="shaafi">
+								<input class="form-check-input" type="radio" id="shaafi" name="imam" value="shaafi">
 								<label class="form-check-label" for="shaafi">
 								Shaafi
 								</label>
 							</div>						
 							<div class="form-check">
-								<input class="form-check-input" type="radio" name="hanbali" id="hanbali">
+								<input class="form-check-input" type="radio" id="hanbali" name="imam" value="hanbali">
 								<label class="form-check-label" for="hanbali">
 								Hanbali
 								</label>
 							</div>
 							<div class="form-check">
-								<input class="form-check-input" type="radio" name="malki" id="malki">
-								<label class="form-check-label" for="malki">
-								Malki
+								<input class="form-check-input" type="radio" id="maliki" name="imam" value="maliki">
+								<label class="form-check-label" for="maliki">
+								Maliki
 								</label>
 							</div>
 					</fieldset>
 				</div>
-			<!-- </div> -->
 
-			<!-- <div class="col border border-2"> class="float-end" -->
 				<div class="float-start Width auto" style="margin-left: 20px;">
 					<fieldset>
 						<legend>Spouse:</legend>						
@@ -67,7 +65,6 @@
 						
 					</fieldset>
 				</div>
-			<!-- </div> -->
 
 		</div>
 
@@ -104,7 +101,7 @@
 		<div id="pType" class="col border border-2">
 		<fieldset>
 			<legend>Parents:</legend>
-			<div class="float-start" style="width: 100px;">
+			<div class="float-start Width auto" style="padding-right: 20px;">
 				<input type="checkbox" id="father" name="father" value="0">
 				<label for="father" id="fatherText">Father</label><br>
 				<input type="checkbox" id="mother" name="mother" value="0">
@@ -156,15 +153,20 @@
 					
 					<input type="checkbox" id="MFM" name="Mother of Father's Mother (MFM)" value="0">
 					<label for="MFM">Mother of Father's Mother (MFM)</label><br>
-					<input type="checkbox" id="MFF" name="Mother of Father's Father (MFF)" value="0">
-					<label for="MFF">Mother of Father's Father (MFF)</label><br>
-					
 					<input type="checkbox" id="MMFM" name="Mother's Mother of Father's Mother (MMFM)" value="0">
 					<label for="MMFM">Mother's Mother of Father's Mother (MMFM)</label><br>
-					<input type="checkbox" id="MMFF" name="Mother's Mother of Father's Father (MMFF)" value="0">
-					<label for="MMFF">Mother's Mother of Father's Father (MMFF)</label><br>
-					<input type="checkbox" id="MFFF" name="Mother of Father's Father's Father (MFFF)" value="0">
-					<label for="MFFF">Mother of Father's Father's Father (MFFF)</label><br>
+
+					<div id="rmmaliki">
+						<input type="checkbox" id="MFF" name="Mother of Father's Father (MFF)" value="0">
+						<label for="MFF">Mother of Father's Father (MFF)</label><br>
+						<input type="checkbox" id="MMFF" name="Mother's Mother of Father's Father (MMFF)" value="0">
+						<label for="MMFF">Mother's Mother of Father's Father (MMFF)</label><br>
+					</div>
+
+					<div id="rmhanbali">
+						<input type="checkbox" id="MFFF" name="Mother of Father's Father's Father (MFFF)" value="0">
+						<label for="MFFF">Mother of Father's Father's Father (MFFF)</label><br>
+					</div>
 				</div>
                 
             </fieldset>

@@ -1,6 +1,9 @@
 // Submit Button
 let submitBtn = document.getElementById('submitBtn')
 
+// Select Fiqah Method
+let method = document.getElementById("method");
+
 // Spouse
 let husband = document.getElementById('husband')	 // Husband
 let husbandText = document.getElementById("husbandText")
@@ -54,6 +57,9 @@ gmType.style.display = 'none'
 
 let backBtnGM = document.getElementById('backBtnGM')		 // Back Button in grand mother's type box
 
+let rmhanbali = document.getElementById('rmhanbali')
+let rmmaliki = document.getElementById('rmmaliki')
+
 let mm = document.getElementById('MM')		        // Mother of Mother
 let mf = document.getElementById('MF')		        // Mother of Father
 
@@ -65,6 +71,8 @@ let mmmm = document.getElementById('MMMM')          // Mother of Mother's  Mothe
 let mmfm = document.getElementById('MMFM')		    // Mother of Mother's Father's Mother
 let mmff = document.getElementById('MMFF')		    // Mother of Mother's Father's Father
 let mfff = document.getElementById('MFFF')		    // Mother of Father's Father's Father
+
+
 
 
 
