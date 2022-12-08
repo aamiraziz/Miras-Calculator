@@ -4,6 +4,10 @@ method.addEventListener('change', function() {
 
   grandMother.checked = false
 
+  // bring back the mother option
+  mother.style.display = 'inline'
+  motherText.style.display = 'inline'
+
   // Press Back Button
   gmType.style.display = 'none'  
   pType.style.display = 'block'
@@ -17,7 +21,6 @@ method.addEventListener('change', function() {
   }
 
 })
-console.log(`default Imam: ${imam}`)
 
 // Event Listener On Husband Checkbox
 husband.addEventListener('change', function() {
@@ -29,9 +32,6 @@ husband.addEventListener('change', function() {
       // Hides Wife option
       wife.style.display='none'
       wifeText.style.display='none'
-  
-        // console.log(`IF STMT Wife: ${wife.value}`)
-      // console.log(`IF STMT Husband: ${husband.value}`)
     } 
   
     if (husband.checked === false) {
@@ -40,9 +40,6 @@ husband.addEventListener('change', function() {
       // Shows Wife option
       wife.style.display='inline'
       wifeText.style.display='inline'
-  
-        // console.log(`ELSE STMT Wife: ${wife.value}`)
-      // console.log(`ELSE STMT Husband: ${husband.value}`)
     }
   
   });
@@ -56,9 +53,7 @@ husband.addEventListener('change', function() {
       
       husbandText.style.display='none'
       husband.style.display='none'
-      
-      // console.log('Wife: ', this.value);	
-      // console.log(`Wife Section Husband: ${husband.value}`)
+
     } else {
       husbandText.style.display='inline'
       husband.style.display='inline'
@@ -69,7 +64,6 @@ husband.addEventListener('change', function() {
   // Event Listener on Father's CheckBox
   father.addEventListener('change', function() {
   
-      //father.value = 0
       if (father.checked === true) {
       
           father.value = 1
@@ -169,7 +163,6 @@ husband.addEventListener('change', function() {
           fatherText.style.display = 'inline'
 
           gfType.style.display='none'
-        //   ff.checked = true
       }
   
   })
@@ -185,8 +178,6 @@ husband.addEventListener('change', function() {
 
     // Hide Error message for no selection
     gmTypeError.style.display = 'none'
-
-    // console.log(`inside grandMother's EventListener. Hey! ${imam}`)
 
     if (imam === "hanbali") {
       // console.log(`inside grandMother's EventListener ${imam}`)
@@ -287,10 +278,6 @@ husband.addEventListener('change', function() {
       submitBtn.style.display = 'block'
     }
 
-    
-
-    // gmType.style.display = 'none'  
-    // pType.style.display = 'block'
   })
 
   // Event Listener on Son's TextBox
@@ -328,20 +315,16 @@ husband.addEventListener('change', function() {
           pBrotherText.style.display = 'none'
           mBrotherText.style.display = 'none'
           
-          // son.style.display = 'none'
           sSon.style.display = 'none'
           ssSon.style.display = 'none'
           sssSon.style.display = 'none'
-          // sonText.style.display = 'none'		
           sSonText.style.display = 'none'
           ssSonText.style.display = 'none'
           sssSonText.style.display = 'none'
           
-          // daughter.style.display = 'none'
           sDaughter.style.display = 'none'
           ssDaughter.style.display = 'none'
           sssDaughter.style.display = 'none'		
-          // daughterText.style.display = 'none'		
           sDaughterText.style.display = 'none'
           ssDaughterText.style.display = 'none'
           sssDaughterText.style.display = 'none'
@@ -592,50 +575,3 @@ husband.addEventListener('change', function() {
       }
   
   })
-
-  // Father's Father eventListener --- Not Needed This time
-//   ff.addEventListener('change', function() {
-
-//     if (ff.checked === true) {
-
-//         fff.style.display = 'none'
-//         ffff.style.display = 'none'
-
-//     }
-
-//     if (ff.checked === false) {
-
-//         fff.style.display = 'inline'
-//         ffff.style.display = 'inline'
-
-//     }
-
-//     if (fff.checked === true) {
-
-//         ff.style.display = 'none'
-//         ffff.style.display = 'none'
-
-//     }
-
-//     if (fff.checked === false) {
-
-//         ff.style.display = 'inline'
-//         ffff.style.display = 'inline'
-
-//     }
-
-//     if (ffff.checked === true) {
-
-//         ff.style.display = 'none'
-//         fff.style.display = 'none'
-        
-//     }
-
-//     if (ffff.checked === false) {
-
-//         ff.style.display = 'inline'
-//         fff.style.display = 'inline'
-        
-//     }
-
-//   })

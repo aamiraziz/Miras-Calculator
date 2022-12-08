@@ -77,7 +77,6 @@ function showParts() {
 	grandFatherPart = calculateGrandFatherPart()
 
 	// this function will show the grand Mother type written in grandParentType.js file
-	// incomplete
 	grandMotherType = showGrandMotherType()
 
 	// calculates Grand Mother's Part
