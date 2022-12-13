@@ -23,6 +23,12 @@ let childernExists, sonCheck, sSonCheck, ssSonCheck, sssSonCheck, husbandPart, w
 	sDaughterPart, ssDaughterPart, sssDaughterPart, fatherPart, ikhwaExists, motherPart, rSisterPart, 
 	pSisterPart, mBroSisPart, mSisterPart, myNum, grandFatherType, grandFatherPart, grandMotherType, grandMotherPart
 
+/*----------------------------------------------------------------
+
+let arr = [All value types and its values]
+let arr2 = [only types that has greater than 0 values, make it through loop]
+*/
+
 // Submit Button Function
 submitBtn.addEventListener('click', function() {
     

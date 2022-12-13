@@ -6,38 +6,38 @@
 // Output all values just for testing purpose.
 function outputAllValues() {
 
-    document.write(`
+    document.write(`<pre>
         All Values: <br>
-        Wife: ${wife.value}<br>
-        Husband: ${husband.value}<br><br>
+        ${wife.name}: ${wife.value}<br>
+        ${husband.name}: ${husband.value}<br><br>
 
         Sisters:<br>
-        Real Sister: ${rSister.value}<br>
-        Paternal Sister: ${pSister.value}<br>
-        Maternal Sister: ${mSister.value}<br><br>
+        ${rSister.name}: ${rSister.value}<br>
+        ${pSister.name}: ${pSister.value}<br>
+        ${mSister.name}: ${mSister.value}<br><br>
 
         Brothers:<br>
-        Real Brother: ${rBrother.value}<br>
-        Paternal Brother: ${pBrother.value}<br>
-        Maternal Brother: ${mBrother.value}<br><br>
+        ${rBrother.name}: ${rBrother.value}<br>
+        ${pBrother.name}: ${pBrother.value}<br>
+        ${mBrother.name}: ${mBrother.value}<br><br>
 
         Parents:<br>
-        Father: ${father.value}<br>
-        Mother: ${mother.value}<br>
-        Grand Father: ${grandFather.value}<br>
-        Grand Mother: ${grandMother.value}<br><br>
+        ${father.name}: ${father.value}<br>
+        ${mother.name}: ${mother.value}<br>
+        ${grandFather.name}: ${grandFather.value}<br>
+        ${grandMother.name}: ${grandMother.value}<br><br>
 
         Female Offsprings:<br>
-        Daughter: ${daughter.value}<br>
-        Sons Daughter: ${sDaughter.value}<br>
-        Sons Sons Daughter: ${ssDaughter.value}<br>
-        Sons Sons Sons Daughter: ${sssDaughter.value}<br><br>
+        ${daughter.name}: ${daughter.value}<br>
+        ${sDaughter.name}: ${sDaughter.value}<br>
+        ${ssDaughter.name}: ${ssDaughter.value}<br>
+        ${sssDaughter.name}: ${sssDaughter.value}<br><br>
 
         Male Offsprings:<br>
-        Son: ${son.value}<br>
-        Sons Son: ${sSon.value}<br>
-        Sons Sons Son: ${ssSon.value}<br>
-        Sons Sons Sons Son: ${sssSon.value}<br><br>
+        ${son.name}: ${son.value}<br>
+        ${sSon.name}: ${sSon.value}<br>
+        ${ssSon.name}: ${ssSon.value}<br>
+        ${sssSon.name}: ${sssSon.value}<br><br>
 
 		childern Exists: ${childernExists}<br>
 		HusbandPart: ${husbandPart}<br>
@@ -59,6 +59,8 @@ function outputAllValues() {
         
 		grandMotherType: ${grandMotherType}<br>
 		grandMotherPart: ${grandMotherPart}<br>
+
+        </pre>
     `)
 
 }

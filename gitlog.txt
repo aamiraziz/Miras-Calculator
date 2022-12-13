@@ -1,3 +1,40 @@
+commit f61b7a18a1cf76490a24870cebfddc9c4855025d
+Merge: 369da95 30e6b06
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Tue Dec 13 13:06:51 2022 +0500
+
+    Merge branch 'master' because from now master branch will delete
+
+commit 30e6b06af9e6240f4a8e762ac04873db6f62282d
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Tue Dec 13 12:45:00 2022 +0500
+
+    in jidat e saheha work on different imam methods completed and tested (Only Interface)
+
+commit 843096ca71286a7ccd6115585ab972f17adf0ee7
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Thu Dec 8 21:47:17 2022 +0500
+
+    unnecessary commented code lines are removed
+
+commit 359e399589776eaa85a1837d028e63685142ac25
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Thu Dec 8 21:33:36 2022 +0500
+
+    in jidat e saheha work on different imam methods completed but not fully tested
+
+commit 4bd9c6f929ad5243fa837f12eed77b2d2fb857ec
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Thu Dec 8 10:50:10 2022 +0500
+
+    in jidat e saheha work on different imam methods started
+
+commit 3973ecc468aaa131eaceddab5dccde590cf229da
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Tue Dec 6 11:31:28 2022 +0500
+
+    jidat e saheha implemented but testing is not completed yet
+
 commit d7b5766d42aae5994ea2679b8a069f32310bb85c
 Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
 Date:   Fri Dec 2 11:09:01 2022 +0500
@@ -93,6 +130,12 @@ Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
 Date:   Tue Aug 23 16:45:57 2022 +0500
 
     Husband Part implemented
+
+commit 369da95f24b39f1748f1f06182898c5049736e94
+Author: aamiraziz <aamiraziz.khattak@gmail.com>
+Date:   Tue Aug 23 16:05:21 2022 +0500
+
+    Initial commit
 
 commit d908e1b27ff1a6d251d569634113a660b30a0257
 Author: Aamir Aziz <aamiraziz.khattak@gmail.com>

@@ -142,6 +142,12 @@ husband.addEventListener('change', function() {
   
     if (grandFather.checked === false) {
       grandFather.value = 0
+      ff.checked = false
+      fff.checked = false
+      ffff.checked = false
+
+      grandMother.value = 0
+      grandMother.checked = false
     }
 
       if (grandFather.checked === true) {
@@ -192,7 +198,8 @@ husband.addEventListener('change', function() {
       rmhanbali.style.display = 'none'
     }
 
-    if (imam === "maliki") {
+    // if (imam === "maliki") or grandFather exists then the grand mother options will remain the same
+    if (imam === "maliki" || ff.checked) {
       // console.log(`inside grandMother's EventListener ${imam}`)
       mff.checked = false
       mmff.checked = false
@@ -200,6 +207,14 @@ husband.addEventListener('change', function() {
       rmhanbali.style.display = 'none'
       rmmaliki.style.display = 'none'
     }
+
+    // if father of grandFather exists (fff.checked) then MMFF and MFFF will not elligible.
+    if (fff.checked) {
+      mmff.checked = false
+      mfff.checked = false
+      rmhanbali.style.display = 'none'
+      FFFTrue.style.display = 'none'
+    } 
 
     // disappearance of submit button
     if ( grandMother.checked === true) {
