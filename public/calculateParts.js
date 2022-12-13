@@ -370,4 +370,7 @@ function calculateGrandMotherPart() {
     if ( parseInt(grandMother.value) === 1 && parseInt(father.value) === 0 ) {
         return 1/6
     }
+
+    // to remove "undefined"
+    return 0
 }

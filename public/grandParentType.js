@@ -20,14 +20,14 @@ function showGrandFatherType() {
         return ff.value
     }
 
-    return "Grand Father Does Not Exist"
+    return null
 }
 
 // this fucntion will show the grand Mother type
 function showGrandMotherType() {
 
     if (!grandMother.checked) {
-        return "Grand Mother Does Not Exist"
+        return null
     }
 
     let gmTypeArr = []

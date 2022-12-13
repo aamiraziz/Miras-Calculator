@@ -179,6 +179,12 @@ husband.addEventListener('change', function() {
     // Hide Error message for no selection
     gmTypeError.style.display = 'none'
 
+    if (imam === "hanfi" || imam === "shaafi") {
+      // console.log(`inside grandMother's EventListener ${imam}`)
+      rmmaliki.style.display = 'block'
+      rmhanbali.style.display = 'block'
+    }
+
     if (imam === "hanbali") {
       // console.log(`inside grandMother's EventListener ${imam}`)
       mfff.checked = false
