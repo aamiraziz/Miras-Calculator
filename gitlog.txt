@@ -1,0 +1,101 @@
+commit d7b5766d42aae5994ea2679b8a069f32310bb85c
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Fri Dec 2 11:09:01 2022 +0500
+
+    Jidat e saheha option under construction
+
+commit 9b9e1d7a07f13229456563bc4b05cc8361c6b80e
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Sat Sep 3 14:10:35 2022 +0500
+
+    checkboxes for grand father
+
+commit 00a849de4703ebfef1c884293b9a532bc655a8af
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Sat Sep 3 13:26:39 2022 +0500
+
+    grand parents interface has been added but functionality is not added yet
+
+commit 7a91e6bb59a6933586a24c18a91aafb29980b4f3
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Thu Sep 1 16:41:52 2022 +0500
+
+    Grand Father Type Functionality added in the interface
+
+commit 861617a4f2a8a3875b62aa47995eabc8fb212c38
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Tue Aug 30 15:30:46 2022 +0500
+
+    changes related to userfriendly code, undefiened values to 0, and added mathjs. working with math.js is not stable
+
+commit b13550be48176d981ef3d97209f9f9b70ad8f524
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Sun Aug 28 18:44:56 2022 +0500
+
+    Upto maternall brother and sister, chart implemented
+
+commit 3352294088d4323c7445c82fec0cd37342cf50ee
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Sat Aug 27 18:36:41 2022 +0500
+
+    zawe al farooz chart completed uptill paternal sister
+
+commit cb052ef6dca800aca707e4dc4d0febd0b8a88ccd
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Sat Aug 27 13:01:28 2022 +0500
+
+    zawee al farooz chart upto mother has been implemented, all errors are removed from previous functions also
+
+commit 1e5ce40431cbb84f109bcd20e8d9b4d181f9cb9c
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Thu Aug 25 15:02:19 2022 +0500
+
+    calculates upto Son's Son's Son's Daughter part
+
+commit 914ccebfd75ff5c755ca40309fb482f9c36a7748
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Thu Aug 25 14:24:50 2022 +0500
+
+    upto daughter of Son's Son all bugs removed
+
+commit 30a274c49ea3f2a9e3a4f3d5b016014745f58f93
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Thu Aug 25 13:05:59 2022 +0500
+
+    uptil daughter of Son's Son removed errors
+
+commit 61fc6dacd3c96b93a8cf39fbdac1f08ded01dab9
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Thu Aug 25 11:46:26 2022 +0500
+
+    Upto Daughter of son of son completed without testing
+
+commit b805052398cd346ea16360b3162502ef9fe77fb4
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Thu Aug 25 10:27:05 2022 +0500
+
+    From zawe al farooz Son's Daughter part added
+
+commit 8615b4544e5fce68e198e26b75f2b20eb69b9fd7
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Tue Aug 23 18:49:31 2022 +0500
+
+    Table upto daughter implemented
+
+commit e2ed66a6b31265fbd5b96eee68cfc67af8848544
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Tue Aug 23 18:07:15 2022 +0500
+
+    code modularized, split into seperate files
+
+commit 4e3c67d016ef4c433ab1274085a4402d11a72b17
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Tue Aug 23 16:45:57 2022 +0500
+
+    Husband Part implemented
+
+commit d908e1b27ff1a6d251d569634113a660b30a0257
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Tue Aug 23 15:57:06 2022 +0500
+
+    First Commit - Only Interface completed
