@@ -39,7 +39,8 @@ let arr2 = [only types that has greater than 0 values, make it through loop]
 */
 
 // the value of these variables are in intergers or float
-let mBroSisArr, mBrotherVal, mSisterVal, totalBroSis, perHead, sisParts, broParts
+let mBroSisArr, mBrotherVal, mSisterVal, totalBroSis, maternalPerHead, sisParts, broParts,
+	gmArr, grandMotherVal, gmPerHead
 
 // Submit Button Function
 submitBtn.addEventListener('click', function() {
@@ -101,13 +102,29 @@ function showParts() {
 	grandMotherPart = calculateGrandMotherPart()
 
 	// Maternal Brothers and sisters calculations
-	mBrotherVal = parseInt(mBrother.value)
-	mSisterVal = parseInt(mSister.value)
-	totalBroSis = mBrotherVal + mSisterVal
-	perHead = mBroSisPart/(totalBroSis)
-	broParts = mBrotherVal * perHead
-	sisParts = mSisterVal * perHead
-	mBroSisArr = [mBrotherVal, mSisterVal, mBroSisPart, totalBroSis, perHead, broParts, sisParts]
+	mBrotherVal = parseInt(mBrother.value)	// total number of maternal brothers
+	mSisterVal = parseInt(mSister.value)	// total number of maternal sisters
+	totalBroSis = mBrotherVal + mSisterVal	// total number of brothers and sisters
+	maternalPerHead = mBroSisPart/(totalBroSis)	// per head merath part
+	broParts = mBrotherVal * maternalPerHead	// all brothers part
+	sisParts = mSisterVal * maternalPerHead		// all sisters part
+	mBroSisArr = [mBrotherVal, mSisterVal, mBroSisPart, totalBroSis, maternalPerHead, broParts, sisParts]
+
+	// Grand Mother Caculations
+
+	// decides the total number of grand mother(s)
+	if (grandMotherType === null) {
+		grandMotherVal = 0
+	} else {
+		grandMotherVal = grandMotherType.length
+	}
+	console.log(`grandMotherVal is: ${grandMotherVal}`)
+	
+	grandMotherVal 										// decides the total number of grand mother(s)
+	grandMotherPart										// decides the total parts of all grand mothers
+	gmPerHead = grandMotherPart/grandMotherVal			// decides the total merath of per head
+
+	gmArr = [grandMotherVal, grandMotherPart, gmPerHead, grandMotherType]
 	
 }
 

@@ -18,7 +18,7 @@ function ikhwaCheck () {
     parseInt(pBrother.value) + parseInt(mBrother.value)
 
     if (ik > 1) {
-        console.log("Ikhwa Exists")
+        // console.log("Ikhwa Exists")
         return true
     } else {
         // console.log("Ikhwa does not Exists")
