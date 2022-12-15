@@ -18,7 +18,16 @@ function include(file) {
 
 }
 
+/* // Variables that store Element IDs 
+let submitBtn, method, husband, husbandText, wife, wifeText, rSister, pSister, mSister, rBrother, pBrother, mBrother,
+	father, mother, grandFather, grandMother, daughter, sDaughter, ssDaughter, sssDaughter, son, sSon, ssSon, sssSon,
+	gfType, backBtnGF, ff, fff, ffff, pType, gmType, backBtnGM, rmhanbali, rmmaliki, mm, mf, mmm, mfm, mff, mmmm, 
+	mmfm, mmff, mfff
+*/
+
 let imam = "hanfi"
+
+// few check variables, mirath parts and parent types
 let childernExists, sonCheck, sSonCheck, ssSonCheck, sssSonCheck, husbandPart, wifePart, daughterPart, 
 	sDaughterPart, ssDaughterPart, sssDaughterPart, fatherPart, ikhwaExists, motherPart, rSisterPart, 
 	pSisterPart, mBroSisPart, mSisterPart, myNum, grandFatherType, grandFatherPart, grandMotherType, grandMotherPart
@@ -29,19 +38,22 @@ let arr = [All value types and its values]
 let arr2 = [only types that has greater than 0 values, make it through loop]
 */
 
+// the value of these variables are in intergers or float
+let mBroSisArr, mBrothers, mSisters, totalBroSis, perHead, sisParts, broParts
+
 // Submit Button Function
 submitBtn.addEventListener('click', function() {
     
 	showParts()   
-    outputAllValues()
+    outputAllValues()	// Temporary for testing and debigging purposes
 })
 
 // Show Parts
 function showParts() {
 
 	// Existance
-    childernExists = childernCheck()
-	ikhwaExists = ikhwaCheck()
+    childernExists = childernCheck()	// If childern exists then it will return true
+	ikhwaExists = ikhwaCheck()			// if ikhwa exists then it will return true
 
 	// Calculates Husband Part
 	husbandPart = calculateHusbandPart()
@@ -86,8 +98,16 @@ function showParts() {
 	grandMotherType = showGrandMotherType()
 
 	// calculates Grand Mother's Part
-	// incomplete
 	grandMotherPart = calculateGrandMotherPart()
+
+	// Maternal Brothers and sisters calculations
+	mBrothers = parseInt(mBrother.value)
+	mSisters = parseInt(mSister.value)
+	totalBroSis = mBrothers + mSisters
+	perHead = mBroSisPart/(totalBroSis)
+	broParts = parseInt(mBrother.value) * perHead
+	sisParts = parseInt(mSister.value) * perHead
+	mBroSisArr = [mBrothers, mSisters, mBroSisPart, totalBroSis, perHead, broParts, sisParts]
 	
 }
 

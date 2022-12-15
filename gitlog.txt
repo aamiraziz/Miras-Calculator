@@ -1,3 +1,9 @@
+commit e9d31529a308fcdaa0f87ce32c8880a093506e94
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Thu Dec 15 12:37:13 2022 +0500
+
+    Bugs in previous commit has been removed
+
 commit 8a64ba2d913cdf9a8a20aa5e8e3d93fd3c09e358
 Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
 Date:   Tue Dec 13 20:41:49 2022 +0500
