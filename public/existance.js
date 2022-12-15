@@ -3,7 +3,7 @@
 function childernCheck() {
     if (parseInt(son.value) === 0 && parseInt(sSon.value) === 0 && parseInt(ssSon.value) === 0 && parseInt(sssSon.value) === 0 
     && parseInt(daughter.value) === 0 && parseInt(sDaughter.value) === 0 && parseInt(ssDaughter.value) === 0 && parseInt(sssDaughter.value) === 0 ) {
-    console.log ("childern does not exists")
+    // console.log ("childern does not exists")
         return false
     } else {
         console.log("childern exists")
@@ -21,7 +21,7 @@ function ikhwaCheck () {
         console.log("Ikhwa Exists")
         return true
     } else {
-        console.log("Ikhwa does not Exists")
+        // console.log("Ikhwa does not Exists")
         return false
     }
 }

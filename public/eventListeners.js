@@ -146,30 +146,33 @@ husband.addEventListener('change', function() {
       fff.checked = false
       ffff.checked = false
 
+      // Shows Father option
+      father.style.display = 'inline'
+      fatherText.style.display = 'inline'
+
+      gfType.style.display='none'
+
       grandMother.value = 0
       grandMother.checked = false
+      // Shows Mother option
+      mother.style.display = 'inline'
+      motherText.style.display = 'inline'
     }
 
-      if (grandFather.checked === true) {
-          grandFather.value = 1
-          
-          // Hides Father option
-          father.style.display='none'
-          fatherText.style.display='none'
+    if (grandFather.checked === true) {
+        grandFather.value = 1
+        
+        // Hides Father option
+        father.style.display='none'
+        fatherText.style.display='none'
 
-          pType.style.display = 'none'
-          gfType.style.display='block'          
-      }
-      
-      if (grandFather.checked === false) {
-          grandFather.value = 0
-          
-          // Shows Father option
-          father.style.display = 'inline'
-          fatherText.style.display = 'inline'
-
-          gfType.style.display='none'
-      }
+        pType.style.display = 'none'
+        gfType.style.display='block'  
+        
+        // uncheck GrandMother check box
+        grandMother.value = 0
+        grandMother.checked = false
+    }
   
   })
   
@@ -215,6 +218,11 @@ husband.addEventListener('change', function() {
       rmhanbali.style.display = 'none'
       FFFTrue.style.display = 'none'
     } 
+
+    // if selected imam option and !ffff.checked
+    if (imam !== "maliki" && !grandFather.checked || ffff.checked) {
+      FFFTrue.style.display = 'block'
+    }
 
     // disappearance of submit button
     if ( grandMother.checked === true) {

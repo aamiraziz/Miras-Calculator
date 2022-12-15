@@ -1,9 +1,8 @@
-commit f61b7a18a1cf76490a24870cebfddc9c4855025d
-Merge: 369da95 30e6b06
+commit 8a64ba2d913cdf9a8a20aa5e8e3d93fd3c09e358
 Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
-Date:   Tue Dec 13 13:06:51 2022 +0500
+Date:   Tue Dec 13 20:41:49 2022 +0500
 
-    Merge branch 'master' because from now master branch will delete
+    Errors from grandFather options removed and errors in grandMother due to grandFather selection has also been removed.
 
 commit 30e6b06af9e6240f4a8e762ac04873db6f62282d
 Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
@@ -130,12 +129,6 @@ Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
 Date:   Tue Aug 23 16:45:57 2022 +0500
 
     Husband Part implemented
-
-commit 369da95f24b39f1748f1f06182898c5049736e94
-Author: aamiraziz <aamiraziz.khattak@gmail.com>
-Date:   Tue Aug 23 16:05:21 2022 +0500
-
-    Initial commit
 
 commit d908e1b27ff1a6d251d569634113a660b30a0257
 Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
