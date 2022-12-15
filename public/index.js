@@ -39,7 +39,7 @@ let arr2 = [only types that has greater than 0 values, make it through loop]
 */
 
 // the value of these variables are in intergers or float
-let mBroSisArr, mBrothers, mSisters, totalBroSis, perHead, sisParts, broParts
+let mBroSisArr, mBrotherVal, mSisterVal, totalBroSis, perHead, sisParts, broParts
 
 // Submit Button Function
 submitBtn.addEventListener('click', function() {
@@ -101,13 +101,13 @@ function showParts() {
 	grandMotherPart = calculateGrandMotherPart()
 
 	// Maternal Brothers and sisters calculations
-	mBrothers = parseInt(mBrother.value)
-	mSisters = parseInt(mSister.value)
-	totalBroSis = mBrothers + mSisters
+	mBrotherVal = parseInt(mBrother.value)
+	mSisterVal = parseInt(mSister.value)
+	totalBroSis = mBrotherVal + mSisterVal
 	perHead = mBroSisPart/(totalBroSis)
-	broParts = parseInt(mBrother.value) * perHead
-	sisParts = parseInt(mSister.value) * perHead
-	mBroSisArr = [mBrothers, mSisters, mBroSisPart, totalBroSis, perHead, broParts, sisParts]
+	broParts = mBrotherVal * perHead
+	sisParts = mSisterVal * perHead
+	mBroSisArr = [mBrotherVal, mSisterVal, mBroSisPart, totalBroSis, perHead, broParts, sisParts]
 	
 }
 
