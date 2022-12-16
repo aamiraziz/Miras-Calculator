@@ -39,14 +39,16 @@ let arr2 = [only types that has greater than 0 values, make it through loop]
 */
 
 // the value of these variables are in intergers or float
-let mBroSisArr, mBrotherVal, mSisterVal, totalBroSis, maternalPerHead, sisParts, broParts, // For maternal brothers and sisters array
+let mBroArr, mSisArr, mBrotherVal, mSisterVal, totalBroSis, maternalPerHead, mSisParts, mBroParts, // For maternal brothers and sisters array
 	gmArr, grandMotherVal, gmPerHead, 		// For grand mother's array -- done
 	husbandArr, husbandVal, husbandName,	// For husband
 	wifeArr, wifeVal, wifePerHead, wifeName,// For wife
 	rSisterArr, rSisterVal, rSisterPerHead, rSisterName, // For Real Sister(s)
 	pSisterArr, pSisterVal, pSisterPerHead, pSisterName, // For Paternal Sister(s)	
 	rBrotherArr, rBrotherVal, rBrotherPerHead, rBrotherName, // For Real Brother(s)
-	pBrotherArr, pBrotherVal, pBrotherPerHead, pBrotherName // For Paternal Brother(s)
+	pBrotherArr, pBrotherVal, pBrotherPerHead, pBrotherName, // For Paternal Brother(s)
+	fatherArr, fatherVal, fatherName, // For Father
+	motherArr, motherVal, motherName // For Mother
 
 // Submit Button Function
 submitBtn.addEventListener('click', function() {
@@ -114,13 +116,15 @@ function showParts() {
 	grandMotherPart = calculateGrandMotherPart()
 
 	// Maternal Brothers and sisters calculations
+	// mBroArr, mSisArr, mBrotherVal, mSisterVal, totalBroSis, maternalPerHead, mSisParts, mBroParts,
 	mBrotherVal = parseInt(mBrother.value)	// total number of maternal brothers
 	mSisterVal = parseInt(mSister.value)	// total number of maternal sisters
 	totalBroSis = mBrotherVal + mSisterVal	// total number of brothers and sisters
 	maternalPerHead = mBroSisPart/(totalBroSis)	// per head merath part
-	broParts = mBrotherVal * maternalPerHead	// all brothers part
-	sisParts = mSisterVal * maternalPerHead		// all sisters part
-	mBroSisArr = [mBrotherVal, mSisterVal, mBroSisPart, totalBroSis, maternalPerHead, broParts, sisParts]
+	mBroParts = mBrotherVal * maternalPerHead	// all brothers part
+	mSisParts = mSisterVal * maternalPerHead	// all sisters part
+	mBroArr = [mBrotherVal, mBroSisPart, totalBroSis, maternalPerHead, mBroParts]
+	mSisArr = [mSisterVal, mBroSisPart, totalBroSis, maternalPerHead, mSisParts]
 
 	// Array For Grand Mother Calculations
 
@@ -179,6 +183,18 @@ function showParts() {
 
 	pBrotherArr = [pBrotherVal, pBrotherPart, pBrotherPerHead, pBrotherName]
 
+	// Array for Father Calculations
+	// if (fatherPart === 0) {fatherVal = 0} else {fatherVal = 1}
+	fatherVal = parseInt(father.value)
+	fatherName = father.name
+
+	fatherArr = [fatherVal, fatherPart, fatherName] 
+
+	// Array for Father Calculations
+	motherVal = parseInt(mother.value)
+	motherName = mother.name
+
+	motherArr = [motherVal, motherPart, motherName] 
 	
 	
 }

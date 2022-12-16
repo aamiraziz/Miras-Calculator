@@ -60,7 +60,9 @@ function outputAllValues() {
 		grandMotherType: ${grandMotherType}<br>
 		grandMotherPart: ${grandMotherPart}<br>
 
-        mBroSisArr[Brothers, sisters, part, totalBroSis, maternalPerHead, broParts, sisParts]: ${mBroSisArr}<br>
+        mBroArr[mBrotherVal, mBroSisPart, totalBroSis, maternalPerHead, mBroParts]: ${mBroArr}<br>
+
+        mSisArr[mSisterVal, mBroSisPart, totalBroSis, maternalPerHead, mSisParts]: ${mSisArr}<br>
 
         gmArr[grandMotherVal, grandMotherPart, gmPerHead, grandMotherType]: ${gmArr}<br>
 
@@ -75,6 +77,10 @@ function outputAllValues() {
         rBrotherArr[rBrotherVal, rBrotherPart, rBrotherPerHead, rBrotherName] : ${rBrotherArr}<br>
 
         pBrotherArr[pBrotherVal, pBrotherPart, pBrotherPerHead, pBrotherName] : ${pBrotherArr}<br>
+
+        fatherArr[fatherVal, fatherPart, fatherName]  : ${fatherArr}<br>
+
+        motherArr[motherVal, motherPart, motherName]  : ${motherArr}<br>
 
         </pre>
     `)
