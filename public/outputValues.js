@@ -64,6 +64,14 @@ function outputAllValues() {
 
         gmArr[grandMotherVal, grandMotherPart, gmPerHead, grandMotherType]: ${gmArr}<br>
 
+        husbandArr[husbandVal, husbandPart, husbandName]: ${husbandArr}<br>
+
+        wifeArr[wifeVal, wifePart, wifePerHead, wifeName]: ${wifeArr}<br>
+
+        rSisterArr[rSisterVal, rSisterPart, rSisterPerHead, rSisterName] : ${rSisterArr}<br>
+
+        pSisterArr[pSisterVal, pSisterPart, pSisterPerHead, pSisterName] : ${pSisterArr}<br>
+
         </pre>
     `)
 

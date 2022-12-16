@@ -39,8 +39,12 @@ let arr2 = [only types that has greater than 0 values, make it through loop]
 */
 
 // the value of these variables are in intergers or float
-let mBroSisArr, mBrotherVal, mSisterVal, totalBroSis, maternalPerHead, sisParts, broParts,
-	gmArr, grandMotherVal, gmPerHead
+let mBroSisArr, mBrotherVal, mSisterVal, totalBroSis, maternalPerHead, sisParts, broParts, // For maternal brothers and sisters array
+	gmArr, grandMotherVal, gmPerHead, 		// For grand mother's array -- done
+	husbandArr, husbandVal, husbandName,	// For husband
+	wifeArr, wifeVal, wifePerHead, wifeName,// For wife
+	rSisterArr, rSisterVal, rSisterPerHead, rSisterName, // For Real Sister(s)
+	pSisterArr, pSisterVal, pSisterPerHead, pSisterName // For Paternal Sister(s)
 
 // Submit Button Function
 submitBtn.addEventListener('click', function() {
@@ -110,7 +114,7 @@ function showParts() {
 	sisParts = mSisterVal * maternalPerHead		// all sisters part
 	mBroSisArr = [mBrotherVal, mSisterVal, mBroSisPart, totalBroSis, maternalPerHead, broParts, sisParts]
 
-	// Grand Mother Caculations
+	// Array For Grand Mother Calculations
 
 	// decides the total number of grand mother(s)
 	if (grandMotherType === null) {
@@ -118,13 +122,42 @@ function showParts() {
 	} else {
 		grandMotherVal = grandMotherType.length
 	}
-	console.log(`grandMotherVal is: ${grandMotherVal}`)
+	// console.log(`grandMotherVal is: ${grandMotherVal}`)
 	
-	grandMotherVal 										// decides the total number of grand mother(s)
-	grandMotherPart										// decides the total parts of all grand mothers
+	// grandMotherVal 										// decides the total number of grand mother(s)
+	// grandMotherPart										// decides the total parts of all grand mothers
 	gmPerHead = grandMotherPart/grandMotherVal			// decides the total merath of per head
 
 	gmArr = [grandMotherVal, grandMotherPart, gmPerHead, grandMotherType]
+
+	// Array For Husband Calculations
+	husbandVal = parseInt(husband.value)
+	husbandName = husband.name
+
+	husbandArr = [husbandVal, husbandPart, husbandName]
+
+	// Array For wife Caculations
+	wifeVal = parseInt(wife.value)
+	wifeName = wife.name
+	wifePerHead = wifePart / wifeVal
+
+	wifeArr = [wifeVal, wifePart, wifePerHead, wifeName]
+
+	// Array For Real Sisters Calculations
+	rSisterVal = parseInt(rSister.value)
+	rSisterPerHead = rSisterPart / rSisterVal
+	rSisterName = rSister.name
+
+	rSisterArr = [rSisterVal, rSisterPart, rSisterPerHead, rSisterName]
+
+	// Array For Paternal Sisters Calculations
+	pSisterVal = parseInt(pSister.value)
+	pSisterPerHead = pSisterPart / pSisterVal
+	pSisterName = pSister.name
+
+	pSisterArr = [pSisterVal, pSisterPart, pSisterPerHead, pSisterName]
+
+	
 	
 }
 
