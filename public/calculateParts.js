@@ -260,6 +260,10 @@ function calculateRSisterPart() {
 
 }
 
+// function to calculate Real Brother's Part
+function calculateRBrotherPart() { return null }
+
+
 // function to calculate Paternal (who has same father but different mother) Sister's Part
 function calculatePSisterPart() {
 
@@ -304,6 +308,9 @@ function calculatePSisterPart() {
     return 0
 
 }
+
+// function to calculate Paternal (who has same father but different mother) Brother's Part
+function calculatePBrotherPart() { return null }
 
 // function to calculate maternal (who has same mother but different father) Brother's or Sister's part
 function calculateMBroSisPart() {

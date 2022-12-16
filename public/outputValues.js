@@ -72,6 +72,10 @@ function outputAllValues() {
 
         pSisterArr[pSisterVal, pSisterPart, pSisterPerHead, pSisterName] : ${pSisterArr}<br>
 
+        rBrotherArr[rBrotherVal, rBrotherPart, rBrotherPerHead, rBrotherName] : ${rBrotherArr}<br>
+
+        pBrotherArr[pBrotherVal, pBrotherPart, pBrotherPerHead, pBrotherName] : ${pBrotherArr}<br>
+
         </pre>
     `)
 

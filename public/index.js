@@ -44,7 +44,9 @@ let mBroSisArr, mBrotherVal, mSisterVal, totalBroSis, maternalPerHead, sisParts,
 	husbandArr, husbandVal, husbandName,	// For husband
 	wifeArr, wifeVal, wifePerHead, wifeName,// For wife
 	rSisterArr, rSisterVal, rSisterPerHead, rSisterName, // For Real Sister(s)
-	pSisterArr, pSisterVal, pSisterPerHead, pSisterName // For Paternal Sister(s)
+	pSisterArr, pSisterVal, pSisterPerHead, pSisterName, // For Paternal Sister(s)	
+	rBrotherArr, rBrotherVal, rBrotherPerHead, rBrotherName, // For Real Brother(s)
+	pBrotherArr, pBrotherVal, pBrotherPerHead, pBrotherName // For Paternal Brother(s)
 
 // Submit Button Function
 submitBtn.addEventListener('click', function() {
@@ -87,8 +89,14 @@ function showParts() {
 	// Calculates Real Sister's Part
 	rSisterPart = calculateRSisterPart()
 
+	// Calculates Real Brother's Part
+	rBrotherPart = calculateRBrotherPart()
+
 	// Calculates Paternal Sister's Part
 	pSisterPart = calculatePSisterPart()
+
+	// Calculates Paternal Brother's Part
+	pBrotherPart = calculatePBrotherPart()
 
 	// Calculates Maternal Brother's or Sister's Part
 	mBroSisPart = calculateMBroSisPart()
@@ -156,6 +164,20 @@ function showParts() {
 	pSisterName = pSister.name
 
 	pSisterArr = [pSisterVal, pSisterPart, pSisterPerHead, pSisterName]
+
+	// Array For Real Brothers Calculations
+	rBrotherVal = parseInt(rBrother.value)
+	rBrotherPerHead = rBrotherPart / rBrotherVal
+	rBrotherName = rBrother.name
+
+	rBrotherArr = [rBrotherVal, rBrotherPart, rBrotherPerHead, rBrotherName]
+
+	// Array For Paternal Sisters Calculations
+	pBrotherVal = parseInt(pBrother.value)
+	pBrotherPerHead = pBrotherPart / pBrotherVal
+	pBrotherName = pBrother.name
+
+	pBrotherArr = [pBrotherVal, pBrotherPart, pBrotherPerHead, pBrotherName]
 
 	
 	
