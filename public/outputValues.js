@@ -92,6 +92,14 @@ function outputAllValues() {
 
         sssDaughterArr[sssDaughterVal, sssDaughterPart, sssDaughterPerHead, sssDaughterName] : ${sssDaughterArr}<br>
 
+        sonArr[sonVal, sonart, sonead, soname] : ${sonArr}<br>
+
+        sSonArr[sSonVal, sSonart, sSonead, sSoname] : ${sSonArr}<br>
+
+        ssSonArr[ssSonVal, ssSonart, ssSonead, ssSoname] : ${ssSonArr}<br>
+
+        sssSonArr[sssSonVal, sssSonart, sssSonead, sssSoname] : ${sssSonArr}<br>
+
         
 
         </pre>

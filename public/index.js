@@ -54,7 +54,11 @@ let mBroArr, mSisArr, mBrotherVal, mSisterVal, totalBroSis, maternalPerHead, mSi
 	daughterArr, daughterVal, daughterPerHead, daughterName, // For Daughter(s)
 	sDaughterArr, sDaughterVal, sDaughterPerHead, sDaughterName, // For sDaughter(s)
 	ssDaughterArr, ssDaughterVal, ssDaughterPerHead, ssDaughterName, // For ssDaughter(s)
-	sssDaughterArr, sssDaughterVal, sssDaughterPerHead, sssDaughterName // For sssDaughter(s)
+	sssDaughterArr, sssDaughterVal, sssDaughterPerHead, sssDaughterName, // For sssDaughter(s)	
+	sonArr, sonVal, sonPerHead, sonName, // For son(s)	
+	sSonArr, sSonVal, sSonPerHead, sSonName, // For sSon(s)
+	ssSonArr, ssSonVal, ssSonPerHead, ssSonName, // For ssSon(s)
+	sssSonArr, sssSonVal, sssSonPerHead, sssSonName // For sssSon(s)
 
 // Submit Button Function
 submitBtn.addEventListener('click', function() {
@@ -87,6 +91,18 @@ function showParts() {
 
 	// Calculates Son's Son's Son's Daughter Part
 	sssDaughterPart = calculateSSSDaughterPart()
+
+	// Calculates Son Part
+	sonPart = calculateSonPart()
+
+	// Calculates Son's Son Part
+	sSonPart = calculateSSonPart()
+
+	// Calculates Son's Son's Son Part
+	ssSonPart = calculateSSSonPart()
+
+	// Calculates Son's Son's Son's Son Part
+	sssSonPart = calculateSSSSonPart()
 
 	// calculates Father's Part
 	fatherPart = calculateFatherPart()
@@ -235,6 +251,34 @@ function showParts() {
 	sssDaughterName = sssDaughter.name
 
 	sssDaughterArr = [sssDaughterVal, sssDaughterPart, sssDaughterPerHead, sssDaughterName]
+
+	// ---- Array for son Calculations ----
+	sonVal= parseInt(son.value)
+	sonPerHead = sonPart / sonVal
+	sonName = son.name
+
+	sonArr = [sonVal, sonPart, sonPerHead, sonName]
+
+	// ---- Array for sSon Calculations ----
+	sSonVal= parseInt(sSon.value)
+	sSonPerHead = sSonPart / sSonVal
+	sSonName = sSon.name
+
+	sSonArr = [sSonVal, sSonPart, sSonPerHead, sSonName]
+
+	// ---- Array for ssSon Calculations ----
+	ssSonVal= parseInt(ssSon.value)
+	ssSonPerHead = ssSonPart / ssSonVal
+	ssSonName = ssSon.name
+
+	ssSonArr = [ssSonVal, ssSonPart, ssSonPerHead, ssSonName]
+
+	// ---- Array for sssSon Calculations ----
+	sssSonVal= parseInt(sssSon.value)
+	sssSonPerHead = sssSonPart / sssSonVal
+	sssSonName = sssSon.name
+
+	sssSonArr = [sssSonVal, sssSonPart, sssSonPerHead, sssSonName]
 
 	
 }
