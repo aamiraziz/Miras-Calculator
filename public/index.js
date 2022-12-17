@@ -30,7 +30,8 @@ let imam = "hanfi"
 // few check variables, mirath parts and parent types
 let childernExists, sonCheck, sSonCheck, ssSonCheck, sssSonCheck, husbandPart, wifePart, daughterPart, 
 	sDaughterPart, ssDaughterPart, sssDaughterPart, fatherPart, ikhwaExists, motherPart, rSisterPart, 
-	pSisterPart, mBroSisPart, mSisterPart, myNum, grandFatherType, grandFatherPart, grandMotherType, grandMotherPart
+	pSisterPart, mBroSisPart, mSisterPart, myNum, grandFatherType, grandFatherPart, grandMotherType, 
+	grandMotherPart
 
 /*----------------------------------------------------------------
 
@@ -41,6 +42,7 @@ let arr2 = [only types that has greater than 0 values, make it through loop]
 // the value of these variables are in intergers or float
 let mBroArr, mSisArr, mBrotherVal, mSisterVal, totalBroSis, maternalPerHead, mSisParts, mBroParts, // For maternal brothers and sisters array
 	gmArr, grandMotherVal, gmPerHead, 		// For grand mother's array -- done
+	gfArr, grandFatherVal, gfPerHead, 		// For grand father's array -- done
 	husbandArr, husbandVal, husbandName,	// For husband
 	wifeArr, wifeVal, wifePerHead, wifeName,// For wife
 	rSisterArr, rSisterVal, rSisterPerHead, rSisterName, // For Real Sister(s)
@@ -48,7 +50,8 @@ let mBroArr, mSisArr, mBrotherVal, mSisterVal, totalBroSis, maternalPerHead, mSi
 	rBrotherArr, rBrotherVal, rBrotherPerHead, rBrotherName, // For Real Brother(s)
 	pBrotherArr, pBrotherVal, pBrotherPerHead, pBrotherName, // For Paternal Brother(s)
 	fatherArr, fatherVal, fatherName, // For Father
-	motherArr, motherVal, motherName // For Mother
+	motherArr, motherVal, motherName, // For Mother
+	daughterArr, daughterVal, daughterPerHead, daughterName // For Daughter(s)
 
 // Submit Button Function
 submitBtn.addEventListener('click', function() {
@@ -116,17 +119,16 @@ function showParts() {
 	grandMotherPart = calculateGrandMotherPart()
 
 	// Maternal Brothers and sisters calculations
-	// mBroArr, mSisArr, mBrotherVal, mSisterVal, totalBroSis, maternalPerHead, mSisParts, mBroParts,
 	mBrotherVal = parseInt(mBrother.value)	// total number of maternal brothers
 	mSisterVal = parseInt(mSister.value)	// total number of maternal sisters
 	totalBroSis = mBrotherVal + mSisterVal	// total number of brothers and sisters
 	maternalPerHead = mBroSisPart/(totalBroSis)	// per head merath part
 	mBroParts = mBrotherVal * maternalPerHead	// all brothers part
 	mSisParts = mSisterVal * maternalPerHead	// all sisters part
-	mBroArr = [mBrotherVal, mBroSisPart, totalBroSis, maternalPerHead, mBroParts]
-	mSisArr = [mSisterVal, mBroSisPart, totalBroSis, maternalPerHead, mSisParts]
+	mBroArr = [mBrotherVal, mBroSisPart, totalBroSis, maternalPerHead, mBroParts]	// Maternal Brothers Array
+	mSisArr = [mSisterVal, mBroSisPart, totalBroSis, maternalPerHead, mSisParts]	// maternal sisters array
 
-	// Array For Grand Mother Calculations
+	// ---- Array For Grand Mother Calculations ----
 
 	// decides the total number of grand mother(s)
 	if (grandMotherType === null) {
@@ -138,64 +140,79 @@ function showParts() {
 	
 	// grandMotherVal 										// decides the total number of grand mother(s)
 	// grandMotherPart										// decides the total parts of all grand mothers
-	gmPerHead = grandMotherPart/grandMotherVal			// decides the total merath of per head
+	gmPerHead = grandMotherPart/grandMotherVal				// decides the total merath of per head
 
 	gmArr = [grandMotherVal, grandMotherPart, gmPerHead, grandMotherType]
 
-	// Array For Husband Calculations
+	// ---- Array For grand Father Calculations	----
+	
+	// grandFatherPart										// decides the total parts of all grand fathers
+	grandFatherVal = parseInt(grandFather.value) 			// decides the total number of grand father(s)
+	gfPerHead = grandFatherPart/grandFatherVal				// decides the total merath of per head
+
+	gfArr = [grandFatherVal, grandFatherPart, gfPerHead, grandFatherType]
+
+	// ---- Array For Husband Calculations ----
 	husbandVal = parseInt(husband.value)
 	husbandName = husband.name
 
 	husbandArr = [husbandVal, husbandPart, husbandName]
 
-	// Array For wife Caculations
+	// ----Array For wife Caculations ----
 	wifeVal = parseInt(wife.value)
 	wifeName = wife.name
 	wifePerHead = wifePart / wifeVal
 
 	wifeArr = [wifeVal, wifePart, wifePerHead, wifeName]
 
-	// Array For Real Sisters Calculations
+	// ---- Array For Real Sisters Calculations ----
 	rSisterVal = parseInt(rSister.value)
 	rSisterPerHead = rSisterPart / rSisterVal
 	rSisterName = rSister.name
 
 	rSisterArr = [rSisterVal, rSisterPart, rSisterPerHead, rSisterName]
 
-	// Array For Paternal Sisters Calculations
+	// ---- Array For Paternal Sisters Calculations ----
 	pSisterVal = parseInt(pSister.value)
 	pSisterPerHead = pSisterPart / pSisterVal
 	pSisterName = pSister.name
 
 	pSisterArr = [pSisterVal, pSisterPart, pSisterPerHead, pSisterName]
 
-	// Array For Real Brothers Calculations
+	// ---- Array For Real Brothers Calculations ----
 	rBrotherVal = parseInt(rBrother.value)
 	rBrotherPerHead = rBrotherPart / rBrotherVal
 	rBrotherName = rBrother.name
 
 	rBrotherArr = [rBrotherVal, rBrotherPart, rBrotherPerHead, rBrotherName]
 
-	// Array For Paternal Sisters Calculations
+	// ---- Array For Paternal Sisters Calculations ----
 	pBrotherVal = parseInt(pBrother.value)
 	pBrotherPerHead = pBrotherPart / pBrotherVal
 	pBrotherName = pBrother.name
 
 	pBrotherArr = [pBrotherVal, pBrotherPart, pBrotherPerHead, pBrotherName]
 
-	// Array for Father Calculations
-	// if (fatherPart === 0) {fatherVal = 0} else {fatherVal = 1}
+	// ---- Array for Father Calculations ----
 	fatherVal = parseInt(father.value)
 	fatherName = father.name
 
 	fatherArr = [fatherVal, fatherPart, fatherName] 
 
-	// Array for Father Calculations
+	// ---- Array for Father Calculations ----
 	motherVal = parseInt(mother.value)
 	motherName = mother.name
 
 	motherArr = [motherVal, motherPart, motherName] 
-	
+
+	// ---- Array for Daughter Calculations ----
+
+	daughterVal= parseInt(daughter.value)
+	daughterPerHead = daughterPart / daughterVal
+	daughterName = daughter.name
+
+	daughterArr = [daughterVal, daughterPart, daughterPerHead, daughterName]
+
 	
 }
 
