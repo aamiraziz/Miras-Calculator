@@ -86,6 +86,12 @@ function outputAllValues() {
 
         daughterArr[daughterVal, daughterPart, daughterPerHead, daughterName] : ${daughterArr}<br>
 
+        sDaughterArr[sDaughterVal, sDaughterPart, sDaughterPerHead, sDaughterName] : ${sDaughterArr}<br>
+
+        ssDaughterArr[ssDaughterVal, ssDaughterPart, ssDaughterPerHead, ssDaughterName] : ${ssDaughterArr}<br>
+
+        sssDaughterArr[sssDaughterVal, sssDaughterPart, sssDaughterPerHead, sssDaughterName] : ${sssDaughterArr}<br>
+
         
 
         </pre>

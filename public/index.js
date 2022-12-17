@@ -51,7 +51,10 @@ let mBroArr, mSisArr, mBrotherVal, mSisterVal, totalBroSis, maternalPerHead, mSi
 	pBrotherArr, pBrotherVal, pBrotherPerHead, pBrotherName, // For Paternal Brother(s)
 	fatherArr, fatherVal, fatherName, // For Father
 	motherArr, motherVal, motherName, // For Mother
-	daughterArr, daughterVal, daughterPerHead, daughterName // For Daughter(s)
+	daughterArr, daughterVal, daughterPerHead, daughterName, // For Daughter(s)
+	sDaughterArr, sDaughterVal, sDaughterPerHead, sDaughterName, // For sDaughter(s)
+	ssDaughterArr, ssDaughterVal, ssDaughterPerHead, ssDaughterName, // For ssDaughter(s)
+	sssDaughterArr, sssDaughterVal, sssDaughterPerHead, sssDaughterName // For sssDaughter(s)
 
 // Submit Button Function
 submitBtn.addEventListener('click', function() {
@@ -206,12 +209,32 @@ function showParts() {
 	motherArr = [motherVal, motherPart, motherName] 
 
 	// ---- Array for Daughter Calculations ----
-
 	daughterVal= parseInt(daughter.value)
 	daughterPerHead = daughterPart / daughterVal
 	daughterName = daughter.name
 
 	daughterArr = [daughterVal, daughterPart, daughterPerHead, daughterName]
+
+	// ---- Array for sDaughter Calculations ----
+	sDaughterVal= parseInt(sDaughter.value)
+	sDaughterPerHead = sDaughterPart / sDaughterVal
+	sDaughterName = sDaughter.name
+
+	sDaughterArr = [sDaughterVal, sDaughterPart, sDaughterPerHead, sDaughterName]
+
+	// ---- Array for ssDaughter Calculations ----
+	ssDaughterVal= parseInt(ssDaughter.value)
+	ssDaughterPerHead = ssDaughterPart / ssDaughterVal
+	ssDaughterName = ssDaughter.name
+
+	ssDaughterArr = [ssDaughterVal, ssDaughterPart, ssDaughterPerHead, ssDaughterName]
+
+	// ---- Array for sssDaughter Calculations ----
+	sssDaughterVal= parseInt(sssDaughter.value)
+	sssDaughterPerHead = sssDaughterPart / sssDaughterVal
+	sssDaughterName = sssDaughter.name
+
+	sssDaughterArr = [sssDaughterVal, sssDaughterPart, sssDaughterPerHead, sssDaughterName]
 
 	
 }
