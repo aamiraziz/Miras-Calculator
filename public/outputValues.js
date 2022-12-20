@@ -60,45 +60,45 @@ function outputAllValues() {
 		grandMotherType: ${grandMotherType}<br>
 		grandMotherPart: ${grandMotherPart}<br>
 
-        mBroArr[mBrotherVal, mBroSisPart, totalBroSis, maternalPerHead, mBroParts]: ${mBroArr}<br>
+        mBroArr [mBrotherVal, mBroSisPart, totalBroSis, maternalPerHead, mBroParts]: ${mBroArr}<br>
 
-        mSisArr[mSisterVal, mBroSisPart, totalBroSis, maternalPerHead, mSisParts]: ${mSisArr}<br>
+        mSisArr [mSisterVal, mBroSisPart, totalBroSis, maternalPerHead, mSisParts]: ${mSisArr}<br>
 
-        gfArr[grandFatherVal, grandFatherPart, gfPerHead, grandFatherType]: ${gfArr}<br>
+        gfArr [grandFatherVal, grandFatherPart, gfPerHead, grandFatherType]: ${gfArr}<br>
 
-        gmArr[grandMotherVal, grandMotherPart, gmPerHead, grandMotherType]: ${gmArr}<br>
+        gmArr [grandMotherVal, grandMotherPart, gmPerHead, grandMotherType]: ${gmArr}<br>
 
-        husbandArr[husbandVal, husbandPart, husbandName]: ${husbandArr}<br>
+        husbandArr [husbandVal, husbandPart, husbandName]: ${husbandArr}<br>
 
-        wifeArr[wifeVal, wifePart, wifePerHead, wifeName]: ${wifeArr}<br>
+        wifeArr [wifeVal, wifePart, wifePerHead, wifeName]: ${wifeArr}<br>
 
-        rSisterArr[rSisterVal, rSisterPart, rSisterPerHead, rSisterName] : ${rSisterArr}<br>
+        rSisterArr [rSisterVal, rSisterPart, rSisterPerHead, rSisterName] : ${rSisterArr}<br>
 
-        pSisterArr[pSisterVal, pSisterPart, pSisterPerHead, pSisterName] : ${pSisterArr}<br>
+        pSisterArr [pSisterVal, pSisterPart, pSisterPerHead, pSisterName] : ${pSisterArr}<br>
 
-        rBrotherArr[rBrotherVal, rBrotherPart, rBrotherPerHead, rBrotherName] : ${rBrotherArr}<br>
+        rBrotherArr [rBrotherVal, rBrotherPart, rBrotherPerHead, rBrotherName] : ${rBrotherArr}<br>
 
-        pBrotherArr[pBrotherVal, pBrotherPart, pBrotherPerHead, pBrotherName] : ${pBrotherArr}<br>
+        pBrotherArr [pBrotherVal, pBrotherPart, pBrotherPerHead, pBrotherName] : ${pBrotherArr}<br>
 
-        fatherArr[fatherVal, fatherPart, fatherName]  : ${fatherArr}<br>
+        fatherArr [fatherVal, fatherPart, fatherName]  : ${fatherArr}<br>
 
-        motherArr[motherVal, motherPart, motherName]  : ${motherArr}<br>
+        motherArr [motherVal, motherPart, motherName]  : ${motherArr}<br>
 
-        daughterArr[daughterVal, daughterPart, daughterPerHead, daughterName] : ${daughterArr}<br>
+        daughterArr [daughterVal, daughterPart, daughterPerHead, daughterName] : ${daughterArr}<br>
 
-        sDaughterArr[sDaughterVal, sDaughterPart, sDaughterPerHead, sDaughterName] : ${sDaughterArr}<br>
+        sDaughterArr [sDaughterVal, sDaughterPart, sDaughterPerHead, sDaughterName] : ${sDaughterArr}<br>
 
-        ssDaughterArr[ssDaughterVal, ssDaughterPart, ssDaughterPerHead, ssDaughterName] : ${ssDaughterArr}<br>
+        ssDaughterArr [ssDaughterVal, ssDaughterPart, ssDaughterPerHead, ssDaughterName] : ${ssDaughterArr}<br>
 
-        sssDaughterArr[sssDaughterVal, sssDaughterPart, sssDaughterPerHead, sssDaughterName] : ${sssDaughterArr}<br>
+        sssDaughterArr [sssDaughterVal, sssDaughterPart, sssDaughterPerHead, sssDaughterName] : ${sssDaughterArr}<br>
 
-        sonArr[sonVal, sonart, sonead, soname] : ${sonArr}<br>
+        sonArr [sonVal, sonPart, sonPerHead, sonName] : ${sonArr}<br>
 
-        sSonArr[sSonVal, sSonart, sSonead, sSoname] : ${sSonArr}<br>
+        sSonArr [sSonVal, sSonPart, sSonPerHead, sSonName] : ${sSonArr}<br>
 
-        ssSonArr[ssSonVal, ssSonart, ssSonead, ssSoname] : ${ssSonArr}<br>
+        ssSonArr [ssSonVal, ssSonPart, ssSonPerHead, ssSonName] : ${ssSonArr}<br>
 
-        sssSonArr[sssSonVal, sssSonart, sssSonead, sssSoname] : ${sssSonArr}<br>
+        sssSonArr [sssSonVal, sssSonPart, sssSonPerHead, sssSonName] : ${sssSonArr}<br>
 
         
 
