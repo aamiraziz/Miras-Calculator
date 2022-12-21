@@ -7,7 +7,21 @@
 <div id="method">
   
 </div>
+<script src="public/Fraction.js-master/fraction.js"></script>
+<script src="testIndex.js"></script>
 <script>
+
+
+// let oneByTwo = Fraction(1).div(2)
+// let oneByThree = Fraction(1).div(3)
+// let twoByThree = Fraction(2).div(3)
+// let oneByFour = Fraction(1).div(4)
+// let oneBySix = Fraction(1).div(6)
+// let oneByEight = Fraction(1).div(8)
+
+// console.log(`oneByTwo = ${oneByTwo}, oneByThree = ${oneByThree}, twoByThree = ${twoByThree}, oneByFour =  ${oneByFour},
+//              oneBySix =  ${oneBySix}, oneByEight = ${oneByEight}`)
+// console.log(`0.1(6) + 0.1(6) + 0.(6) = ${0.1(6) + 0.1(6) + 0.(6)}`)
 
 class Frac {
   constructor(n, d = 1) {
@@ -32,15 +46,17 @@ let one3rd = new Frac(1, 3)
 let one6th = new Frac(1, 6)
 let sum = new Frac(0, 1)
 let num = 1/6
+let checkType = half.display()
 sum = half + one3rd
 
-console.log(`one3rd: = ${one3rd.valueOf()}`)
+console.log(`one3rd.valueOf(): = ${one3rd.valueOf()}`)
 console.log(`one3rd: ${one3rd.display()}`)
-console.log(`half: ${half.valueOf()}`)
-console.log(`half: ${half.display()}`)
-console.log(`SUM: ${sum.valueOf()}`)
+console.log(`half.valueOf: ${half.valueOf()}`)
+console.log(`half.display(): ${half.display()}`)
+console.log(`typeof checkType: ${typeof checkType}`)
+console.log(`SUM.valueOf(): ${sum.valueOf()}`)
 console.log(`24 * 1/3 Results: ${24 * one3rd}`)
-console.log(`24 * 1/6 Results: ${24 * one6th}`)
+console.log(`1/6 + 1/6 + 1/3 + 1/3 Results: ${one6th + one6th + one3rd + one3rd}`)
 console.log(`24 * 1/6 Results: ${24 * num}`)
 
 

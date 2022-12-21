@@ -72,11 +72,16 @@ function showParts() {
     // ---------------------------- Calculations ------------------------
     // ------------------------------------------------------------------
 
+	// ------------------------------------
+	// ---- Zawe Al Farooz Starts Here ----
+	// ------------------------------------
+
     // ---- Array For Husband Calculations ----
 	husbandVal = parseInt(husband.value)
 	husbandName = husband.name
+	husbandPerHead = husbandPart
 
-	husbandArr = [husbandVal, husbandPart, husbandName]
+	husbandArr = [husbandVal, husbandPart, husbandPerHead, husbandName]
 
 	// ----Array For wife Caculations ----
 	wifeVal = parseInt(wife.value)
@@ -174,6 +179,36 @@ function showParts() {
 
 	gmArr = [grandMotherVal, grandMotherPart, gmPerHead, grandMotherType]
 
+	// If this sum (zaweAlFaroozSum) is equal to 1 or greater than 1 then all these parts are the zawe al farooz parts
+	// If this sum (zaweAlFaroozSum) is greater than 1 then go to asbat
+	// If this sum (zaweAlFaroozSum) is less than 1 but asbat not present then use رد کا طریقہ
+	zaweAlFaroozSum = husbandPart + wifePart + daughterPart + sDaughterPart + ssDaughterPart + 
+						sssDaughterPart + fatherPart + motherPart + rSisterPart + pSisterPart 
+						+ mBroSisPart + grandFatherPart + grandMotherPart + mBroSisPart
+
+	// conver the zaweAlFaroozSum to fraction to find the exact value of its sum
+	zaweAlFaroozSum = new Fraction(zaweAlFaroozSum)
+						
+	// console.log(`zaweAlFaroozSum is ${zaweAlFaroozSum}`)
+	// console.log(`typeof zaweAlFaroozSum = ${typeof parseFloat(zaweAlFaroozSum)}`)
+	// console.log(`typeof daughterPart = ${typeof daughterPart}`)
+	// console.log(`typeof oneByTwo = ${typeof oneByTwo}`)
+
+	// check to solve the problem 
+	if (parseFloat(zaweAlFaroozSum) === 1 || parseFloat(zaweAlFaroozSum) > 1) {
+		// if zaweAlFaroozSum is greater than 1 or equal to 1 then solve the zaweAlFaroozSum problem and the parts are their parts
+		console.log(`Solve zawe al farooz and these are their parts`)
+	} else if (parseFloat(zaweAlFaroozSum) < 1 && !asbat) {
+		// if zaweAlFaroozSum is Less than 1 and asbat not present, then solve the zaweAlFaroozSum problem and use رد کا عمل
+		console.log(`رد کا عمل استعمال کریں`)
+	} else {
+		console.log(`GoTo Asbat `)
+	}
+
+
+	// -----------------------------------
+	// ---- Zawe Al Farooz Ends Here ----
+	// -----------------------------------
 	
 	// ---- Array For Real Brothers Calculations ----
 	rBrotherVal = parseInt(rBrother.value)

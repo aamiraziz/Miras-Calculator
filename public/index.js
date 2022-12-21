@@ -1,11 +1,12 @@
 /* Include Many js files */
 include('public/outputValues.js');
-include('public/showParts.js');
 include('public/elementIds.js');
 include('public/eventListeners.js');
-include('public/calculateParts.js');
 include('public/existance.js');
 include('public/grandParentType.js');
+include('public/calculateParts.js');
+include('public/showParts.js'); 
+include('public/outputValues.js');
 
 // Function to include many javascript files
 function include(file) {
@@ -18,6 +19,13 @@ function include(file) {
     document.getElementsByTagName('head').item(0).appendChild(script);
 
 }
+
+let oneByTwo = Fraction(1).div(2)
+let oneByThree = Fraction(1).div(3)
+let twoByThree = Fraction(2).div(3)
+let oneByFour = Fraction(1).div(4)
+let oneBySix = Fraction(1).div(6)
+let oneByEight = Fraction(1).div(8)
 
 /* // Variables that store Element IDs 
 let submitBtn, method, husband, husbandText, wife, wifeText, rSister, pSister, mSister, rBrother, pBrother, mBrother,
@@ -34,14 +42,15 @@ let childernExists, sonCheck, sSonCheck, ssSonCheck, sssSonCheck, husbandPart, w
 	pSisterPart, mBroSisPart, mSisterPart, myNum, grandFatherType, grandFatherPart, grandMotherType, 
 	grandMotherPart
 
-/*----------------------------------------------------------------
 
-let arr = [All value types and its values]
-let arr2 = [only types that has greater than 0 values, make it through loop]
-*/
+// If this sum (zaweAlFaroozSum) is equal to 1 or greater than 1 then all these parts are the zawe al farooz parts
+// If this sum (zaweAlFaroozSum) is greater than 1 then go to asbat
+// If this sum (zaweAlFaroozSum) is less than 1 but asbat not present then use رد کا طریقہ
+let zaweAlFaroozSum
+let asbat = false
 
 // the value of these variables are in intergers or float
-let husbandArr, husbandVal, husbandName,	// For husband
+let husbandArr, husbandVal, husbandPerHead, husbandName,	// For husband
 	wifeArr, wifeVal, wifePerHead, wifeName,// For wife
 	daughterArr, daughterVal, daughterPerHead, daughterName, // For Daughter(s)
 	sDaughterArr, sDaughterVal, sDaughterPerHead, sDaughterName, // For sDaughter(s)

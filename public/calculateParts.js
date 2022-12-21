@@ -6,10 +6,10 @@ function calculateHusbandPart() {
 
 		if(childernExists) {
             // in zawe al farooz chart in presence of childern, Husband part is 1/4
-			return 1/4
+			return oneByFour // 1/4
 		} else { 
             // in zawe al farooz chart in absence of childern, Husband part is 1/2
-			return 1/2
+			return oneByTwo // 1/2
 		}
 	}
     
@@ -23,9 +23,9 @@ function calculateWifePart() {
 	// Check if Wife exists
     if (parseInt(wife.value) > 0) {
 		if(childernExists) {
-			return 1/8
+			return oneByEight // 1/8
 		} else {
-			return 1/4
+			return oneByFour // 1/4
 		}
 	}
     
@@ -41,12 +41,12 @@ function calculateDaughterPart() {
 
         // in zawe al farooz chart in absence of son, if daughter is more than one, then daughter's part is 2/3
         if ( parseInt(son.value) === 0 && parseInt(daughter.value) > 1 ) {
-            return 2/3
+            return twoByThree // 2/3
         }
 
         // in zawe al farooz chart in absence of son, if daughter is only one, then daughter's part is 1/2
         if ( parseInt(son.value) === 0 && parseInt(daughter.value) === 1 ) {
-            return 1/2
+            return oneByTwo // 1/2
         }
 
     }
@@ -66,7 +66,7 @@ function calculateSDaughterPart() {
         if ( parseInt(son.value) === 0 && parseInt(sSon.value) === 0 && 
              parseInt(daughter.value) === 0 && parseInt(sDaughter.value) > 1 ) {
     
-            return 2/3
+            return twoByThree // 2/3
             
         }
     
@@ -75,7 +75,7 @@ function calculateSDaughterPart() {
         if ( parseInt(son.value) === 0 && parseInt(sSon.value) === 0 && 
              parseInt(daughter.value) === 0 && parseInt(sDaughter.value) === 1 ){
     
-            return 1/2
+            return oneByTwo // 1/2
     
         }
     
@@ -84,7 +84,7 @@ function calculateSDaughterPart() {
         if( parseInt(son.value) === 0 && parseInt(sSon.value) === 0 && 
             parseInt(daughter.value) === 1 && parseInt(sDaughter.value) > 0 ) {
     
-            return 1/6
+            return oneBySix // 1/6
     
         }
 
@@ -107,7 +107,7 @@ function calculateSSDaughterPart() {
             parseInt(ssSon.value) === 0 && parseInt(daughter.value) === 0 && 
             parseInt(sDaughter.value) === 0 && parseInt(ssDaughter.value) > 1 ) {
     
-            return 2/3
+            return twoByThree // 2/3
     
         }
     
@@ -118,7 +118,7 @@ function calculateSSDaughterPart() {
             parseInt(ssSon.value) === 0 && parseInt(daughter.value) === 0 && 
             parseInt(sDaughter.value) === 0 && parseInt(ssDaughter.value) === 1 ) {
     
-            return 1/2
+            return oneByTwo // 1/2
     
         }
     
@@ -131,7 +131,7 @@ function calculateSSDaughterPart() {
             !(parseInt(daughter.value) === 1 && parseInt(sDaughter.value) === 1) && 
             parseInt(ssDaughter.value) > 0 ) {
     
-            return 1/6
+            return oneBySix // 1/6
     
         }
     } 
@@ -154,7 +154,7 @@ function calculateSSSDaughterPart() {
             parseInt(daughter.value) === 0 && parseInt(sDaughter.value) === 0 &&
             parseInt(ssDaughter.value) === 0 && parseInt(sssDaughter.value) > 1 ) {
     
-            return 2/3
+            return twoByThree // 2/3
     
         }
     
@@ -166,7 +166,7 @@ function calculateSSSDaughterPart() {
             parseInt(daughter.value) === 0 && parseInt(sDaughter.value) === 0 && 
             parseInt(ssDaughter.value) === 0 && parseInt(sssDaughter.value) === 1 ) {
     
-            return 1/2
+            return oneByTwo // 1/2
     
         }
     
@@ -182,7 +182,7 @@ function calculateSSSDaughterPart() {
              !(parseInt(daughter.value) === 1 && parseInt(ssDaughter.value) === 1) &&
              parseInt(sssDaughter.value) > 0 ) {
     
-             return 1/6
+             return oneBySix // 1/6
     
         }
     } 
@@ -209,7 +209,7 @@ function calculateFatherPart() {
     // Check if Father exists
     if ( parseInt(father.value) !== 0 ) {
         if (childernExists) {
-            return 1/6
+            return oneBySix // 1/6
         }
     }
     
@@ -226,15 +226,15 @@ function calculateMotherPart() {
         // in zawe al farooz chart, if childern are present OR Ikhwa are Present OR Father and Husband are present
         // then mother will get 1/6
         if ( childernExists || ikhwaExists || ( parseInt(father.value) === 1 && parseInt(husband.value) === 1 ) ) {
-            return 1/6
+            return oneBySix // 1/6
         } else if ( !(childernExists || ikhwaExists) && ( parseInt(wife.value) > 0 && parseInt(father.value) === 1 ) ) {
 
         // in zawe al farooz chart, if childern and Ikhwa are Absent AND Wife and Father are present
         // then mother will get 1/4
         
-            return 1/4
+            return oneByFour // 1/4
         } else {
-            return 1/3
+            return oneByThree // 1/3
         }
 
     }
@@ -255,7 +255,7 @@ function calculateRSisterPart() {
         parseInt(father.value) === 0 && parseInt(grandFather.value) === 0 && 
         parseInt(rBrother.value) === 0 ) {
 
-            return 2/3
+            return twoByThree // 2/3
         }
 
         // in zawe al farooz chart in absence of childern, father, grand father (Father 0f Father) and real brother
@@ -264,7 +264,7 @@ function calculateRSisterPart() {
         parseInt(father.value) === 0 && parseInt(grandFather.value) === 0 && 
         parseInt(rBrother.value) === 0 ) {
 
-            return 1/2
+            return oneByTwo // 1/2
         }
     }
     
@@ -290,7 +290,7 @@ function calculatePSisterPart() {
         parseInt(rBrother.value) === 0 && parseInt(rSister.value) === 0 && 
         parseInt(pBrother.value) === 0 ) {
 
-            return 2/3
+            return twoByThree // 2/3
         }
 
         // in zawe al farooz chart in absence of childern, father, grand father (Father 0f Father), real brother(s), 
@@ -301,7 +301,7 @@ function calculatePSisterPart() {
         parseInt(rBrother.value) === 0 && parseInt(rSister.value) === 0 && 
         parseInt(pBrother.value) === 0 ) {
 
-            return 1/2
+            return oneByTwo // 1/2
         }
 
         // in zawe al farooz chart in absence of childern, father, grand father (Father 0f Father), real brother(s), 
@@ -312,7 +312,7 @@ function calculatePSisterPart() {
         parseInt(rBrother.value) === 0 && parseInt(rSister.value) === 1 && 
         parseInt(pBrother.value) === 0 ) {
 
-            return 1/6
+            return oneBySix // 1/6
         }
 
     } 
@@ -337,7 +337,7 @@ function calculateMBroSisPart() {
         parseInt(father.value) === 0 && parseInt(grandFather.value) === 0 &&
         !childernExists ) {
 
-            return 1/3
+            return oneByThree // 1/3
         }
 
         // in zawe al farooz chart, in absence of childern, father and grand father (Father 0f Father)
@@ -347,7 +347,7 @@ function calculateMBroSisPart() {
         parseInt(father.value) === 0 && parseInt(grandFather.value) === 0 &&
         !childernExists ) {
 
-            return 1/3
+            return oneByThree // 1/3
         }
 
         // in zawe al farooz chart, in absence of childern, father and grand father (Father 0f Father)
@@ -357,7 +357,7 @@ function calculateMBroSisPart() {
         parseInt(father.value) === 0 && parseInt(grandFather.value) === 0 && 
         !childernExists ) {
 
-            return 1/6
+            return oneBySix // 1/6
         }
 
     } 
@@ -372,7 +372,7 @@ function calculateGrandFatherPart() {
 
     // in presence of childern if father is not present then grandFather will get 1/6
     if ( parseInt(grandFather.value) === 1 && childernExists && parseInt(father.value) === 0) {
-        return 1/6
+        return oneBySix // 1/6
     }
 
     return 0
@@ -382,12 +382,12 @@ function calculateGrandMotherPart() {
 
     // if GrandMother (Mother of Mother) exists in absebce of Mother then grandMother will get 1/6
     if ( parseInt(grandMother.value) === 1 && parseInt(mother.value) === 0 ) {
-        return 1/6
+        return oneBySix // 1/6
     }
 
     // if GrandMother (Mother of Father) exists in absebce of father then grandMother will get 1/6
     if ( parseInt(grandMother.value) === 1 && parseInt(father.value) === 0 ) {
-        return 1/6
+        return oneBySix // 1/6
     }
 
     // to remove "undefined"

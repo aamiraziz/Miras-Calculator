@@ -68,7 +68,7 @@ function outputAllValues() {
 
         gmArr [grandMotherVal, grandMotherPart, gmPerHead, grandMotherType]: ${gmArr}<br>
 
-        husbandArr [husbandVal, husbandPart, husbandName]: ${husbandArr}<br>
+        husbandArr [husbandVal, husbandPart, husbandPerHead, husbandName]: ${husbandArr}<br>
 
         wifeArr [wifeVal, wifePart, wifePerHead, wifeName]: ${wifeArr}<br>
 
@@ -80,9 +80,9 @@ function outputAllValues() {
 
         pBrotherArr [pBrotherVal, pBrotherPart, pBrotherPerHead, pBrotherName] : ${pBrotherArr}<br>
 
-        fatherArr [fatherVal, fatherPart, fatherName]  : ${fatherArr}<br>
+        fatherArr [fatherVal, fatherPart, fatherPerHead, fatherName]  : ${fatherArr}<br>
 
-        motherArr [motherVal, motherPart, motherName]  : ${motherArr}<br>
+        motherArr [motherVal, motherPart, motherPerHead, motherName]  : ${motherArr}<br>
 
         daughterArr [daughterVal, daughterPart, daughterPerHead, daughterName] : ${daughterArr}<br>
 

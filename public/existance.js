@@ -6,7 +6,7 @@ function childernCheck() {
     // console.log ("childern does not exists")
         return false
     } else {
-        console.log("childern exists")
+        // console.log("childern exists")
         return true
     }
 }
