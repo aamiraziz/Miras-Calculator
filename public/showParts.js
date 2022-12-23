@@ -4,6 +4,7 @@ function showParts() {
 	// Existance
     childernExists = childernCheck()	// If childern exists then it will return true
 	ikhwaExists = ikhwaCheck()			// if ikhwa exists then it will return true
+	asbatExists = asbatCheck()			// if asbat exists then it will return true
 
 	// Calculates Husband Part
 	husbandPart = calculateHusbandPart()
@@ -148,20 +149,24 @@ function showParts() {
 	// Maternal Brothers and sisters calculations
 	mBrotherVal = parseInt(mBrother.value)	// total number of maternal brothers
 	mSisterVal = parseInt(mSister.value)	// total number of maternal sisters
+	mBrotherName = mBrother.name
+	mSisterName = mSister.name
 	totalBroSis = mBrotherVal + mSisterVal	// total number of brothers and sisters
 	maternalPerHead = mBroSisPart/(totalBroSis)	// per head merath part
 	mBroParts = mBrotherVal * maternalPerHead	// all brothers part
 	mSisParts = mSisterVal * maternalPerHead	// all sisters part
-	mBroArr = [mBrotherVal, mBroSisPart, totalBroSis, maternalPerHead, mBroParts]	// Maternal Brothers Array
-	mSisArr = [mSisterVal, mBroSisPart, totalBroSis, maternalPerHead, mSisParts]	// maternal sisters array
+
+	mBroArr = [mBrotherVal, mBroSisPart, maternalPerHead, mBrotherName]	// Maternal Brothers Array
+	mSisArr = [mSisterVal, mBroSisPart, maternalPerHead, mSisterName]	// maternal sisters array
 
 	// ---- Array For grand Father Calculations	----
 	
 	// grandFatherPart										// decides the total parts of all grand fathers
 	grandFatherVal = parseInt(grandFather.value) 			// decides the total number of grand father(s)
 	gfPerHead = grandFatherPart/grandFatherVal				// decides the total merath of per head
+	gfName = grandFatherType
 
-	gfArr = [grandFatherVal, grandFatherPart, gfPerHead, grandFatherType]
+	gfArr = [grandFatherVal, grandFatherPart, gfPerHead, gfName]
 
 	// ---- Array For Grand Mother Calculations ----
 
@@ -172,16 +177,19 @@ function showParts() {
 		grandMotherVal = grandMotherType.length
 	}
 	// console.log(`grandMotherVal is: ${grandMotherVal}`)
+	// console.log(`typeof grandMotherVal is: ${typeof grandMotherVal}`)
 	
 	// grandMotherVal 										// decides the total number of grand mother(s)
 	// grandMotherPart										// decides the total parts of all grand mothers
 	gmPerHead = grandMotherPart/grandMotherVal				// decides the total merath of per head
+	gmName = grandMotherType
 
-	gmArr = [grandMotherVal, grandMotherPart, gmPerHead, grandMotherType]
+	gmArr = [grandMotherVal, grandMotherPart, gmPerHead, gmName]
 
 	// If this sum (zaweAlFaroozSum) is equal to 1 or greater than 1 then all these parts are the zawe al farooz parts
 	// If this sum (zaweAlFaroozSum) is greater than 1 then go to asbat
 	// If this sum (zaweAlFaroozSum) is less than 1 but asbat not present then use رد کا طریقہ
+	// CHECK PARTS
 	zaweAlFaroozSum = husbandPart + wifePart + daughterPart + sDaughterPart + ssDaughterPart + 
 						sssDaughterPart + fatherPart + motherPart + rSisterPart + pSisterPart 
 						+ mBroSisPart + grandFatherPart + grandMotherPart + mBroSisPart
@@ -193,17 +201,42 @@ function showParts() {
 	// console.log(`typeof zaweAlFaroozSum = ${typeof parseFloat(zaweAlFaroozSum)}`)
 	// console.log(`typeof daughterPart = ${typeof daughterPart}`)
 	// console.log(`typeof oneByTwo = ${typeof oneByTwo}`)
+	
+	zaweAlFaroozArr = [ husbandArr, wifeArr, daughterArr, sDaughterArr, ssDaughterArr, sssDaughterArr, fatherArr,
+		motherArr, rSisterArr, pSisterArr, mSisArr, mBroArr, gfArr, gmArr ]
+	
+	// Put only the available relatives in zaweAlFaroozArr array to selectedZaweAlFaroozArr array
+	for ( let i = 0, z = 0; z < zaweAlFaroozArr.length; z++ ) {
+		if ( zaweAlFaroozArr[z][0] !== 0 ) {
+
+			selectedZaweAlFaroozArr[i] = zaweAlFaroozArr[z]
+			console.log(`selectedZaweAlFaroozArr[${i}] = ${selectedZaweAlFaroozArr[i]}}`)
+			i++
+		} 
+	}
 
 	// check to solve the problem 
 	if (parseFloat(zaweAlFaroozSum) === 1 || parseFloat(zaweAlFaroozSum) > 1) {
 		// if zaweAlFaroozSum is greater than 1 or equal to 1 then solve the zaweAlFaroozSum problem and the parts are their parts
 		console.log(`Solve zawe al farooz and these are their parts`)
-	} else if (parseFloat(zaweAlFaroozSum) < 1 && !asbat) {
-		// if zaweAlFaroozSum is Less than 1 and asbat not present, then solve the zaweAlFaroozSum problem and use رد کا عمل
-		console.log(`رد کا عمل استعمال کریں`)
+		// if parseFloat(zaweAlFaroozSum) === 1 then multiply every person part with 24. This is the solution
+		// if parseFloat(zaweAlFaroozSum) > 1 then if we multiply every part with 24 and then add it then this number will be
+		// greater than 24. For this purpose we need the LCM
+	} else if (parseFloat(zaweAlFaroozSum) < 1 && asbatExists) {
+		// if zaweAlFaroozSum is Less than 1 and asbat are present in the first page of interface, 
+		// then first solve the zaweAlFarooz problem and then asbat problem
+		console.log(`calculate zawe al farooz and then asbat`)
+	} else if (parseFloat(zaweAlFaroozSum) < 1 && !asbatExists) {
+		// if zaweAlFaroozSum is Less than 1 and asbat is not present in the first page of interface,
+		// then go the second page of interface and select the asbat (from chart).
+		console.log(`GoTo Asbat Chart`)
 	} else {
-		console.log(`GoTo Asbat `)
+		// if zaweAlFaroozSum is Less than 1 and asbat not present which is selected from the asbat chat in the interface,
+		// then solve the zaweAlFaroozSum problem and use رد کا عمل
+		console.log(`if asbat not present in absabt chart is selected then`)
+		console.log(`رد کا عمل استعمال کریں`)
 	}
+	
 
 
 	// -----------------------------------
@@ -251,6 +284,23 @@ function showParts() {
 	sssSonName = sssSon.name
 
 	sssSonArr = [sssSonVal, sssSonPart, sssSonPerHead, sssSonName]
+
+	availableRelatives = [ husbandArr, wifeArr, daughterArr, sDaughterArr, ssDaughterArr, sssDaughterArr, fatherArr,
+		motherArr, rSisterArr, pSisterArr, mSisArr, mBroArr, gfArr, gmArr, rBrotherArr, pBrotherArr, 
+		sonArr, sSonArr, ssSonArr, sssSonArr ]
+	// console.log(`availableRelatives.length: ${availableRelatives.length}`)
+	// selectedRelatives[0] = availableRelatives[0]
+	// console.log(`selectedRelatives[0]: ${selectedRelatives[0]}`)
+
+	// Put only the available relatives in availableRelatives array to selectedRelatives array
+	for ( let i = 0, z = 0; z < availableRelatives.length; z++ ) {
+		if ( availableRelatives[z][0] !== 0 ) {
+
+			selectedRelatives[i] = availableRelatives[z]
+			console.log(`selectedRelatives[${i}] = ${selectedRelatives[i]}`)
+			i++
+		} 
+	}
 
 	
 }

@@ -8,6 +8,12 @@ function outputAllValues() {
 
     document.write(`<pre>
         All Values: <br>
+        availableRelatives Array: ${availableRelatives}<br><br>
+        Array Ended: <br><br>
+
+        typeof availableRelatives[1][0] ${typeof availableRelatives[1][0]} <br><br>
+        availableRelatives[1][0] ${availableRelatives[1][0]} <br><br>
+        AsbatExists: ${asbatExists}<br>
         ${wife.name}: ${wife.value}<br>
         ${husband.name}: ${husband.value}<br><br>
 
@@ -60,29 +66,9 @@ function outputAllValues() {
 		grandMotherType: ${grandMotherType}<br>
 		grandMotherPart: ${grandMotherPart}<br>
 
-        mBroArr [mBrotherVal, mBroSisPart, totalBroSis, maternalPerHead, mBroParts]: ${mBroArr}<br>
-
-        mSisArr [mSisterVal, mBroSisPart, totalBroSis, maternalPerHead, mSisParts]: ${mSisArr}<br>
-
-        gfArr [grandFatherVal, grandFatherPart, gfPerHead, grandFatherType]: ${gfArr}<br>
-
-        gmArr [grandMotherVal, grandMotherPart, gmPerHead, grandMotherType]: ${gmArr}<br>
-
         husbandArr [husbandVal, husbandPart, husbandPerHead, husbandName]: ${husbandArr}<br>
 
         wifeArr [wifeVal, wifePart, wifePerHead, wifeName]: ${wifeArr}<br>
-
-        rSisterArr [rSisterVal, rSisterPart, rSisterPerHead, rSisterName] : ${rSisterArr}<br>
-
-        pSisterArr [pSisterVal, pSisterPart, pSisterPerHead, pSisterName] : ${pSisterArr}<br>
-
-        rBrotherArr [rBrotherVal, rBrotherPart, rBrotherPerHead, rBrotherName] : ${rBrotherArr}<br>
-
-        pBrotherArr [pBrotherVal, pBrotherPart, pBrotherPerHead, pBrotherName] : ${pBrotherArr}<br>
-
-        fatherArr [fatherVal, fatherPart, fatherPerHead, fatherName]  : ${fatherArr}<br>
-
-        motherArr [motherVal, motherPart, motherPerHead, motherName]  : ${motherArr}<br>
 
         daughterArr [daughterVal, daughterPart, daughterPerHead, daughterName] : ${daughterArr}<br>
 
@@ -92,6 +78,27 @@ function outputAllValues() {
 
         sssDaughterArr [sssDaughterVal, sssDaughterPart, sssDaughterPerHead, sssDaughterName] : ${sssDaughterArr}<br>
 
+        fatherArr [fatherVal, fatherPart, fatherPerHead, fatherName]  : ${fatherArr}<br>
+
+        motherArr [motherVal, motherPart, motherPerHead, motherName]  : ${motherArr}<br>     
+
+        rSisterArr [rSisterVal, rSisterPart, rSisterPerHead, rSisterName] : ${rSisterArr}<br>
+
+        pSisterArr [pSisterVal, pSisterPart, pSisterPerHead, pSisterName] : ${pSisterArr}<br>
+
+        mBroArr [mBrotherVal, mBroSisPart, maternalPerHead, mBrotherName]: ${mBroArr}<br> 
+
+        mSisArr [mSisterVal, mBroSisPart, maternalPerHead, mSisterName]: ${mSisArr}<br>
+        
+        gfArr [grandFatherVal, grandFatherPart, gfPerHead, gfName]: ${gfArr}<br>
+
+        gmArr [grandMotherVal, grandMotherPart, gmPerHead, gmName]: ${gmArr}<br> 
+
+
+        rBrotherArr [rBrotherVal, rBrotherPart, rBrotherPerHead, rBrotherName] : ${rBrotherArr}<br>
+
+        pBrotherArr [pBrotherVal, pBrotherPart, pBrotherPerHead, pBrotherName] : ${pBrotherArr}<br> 
+
         sonArr [sonVal, sonPart, sonPerHead, sonName] : ${sonArr}<br>
 
         sSonArr [sSonVal, sSonPart, sSonPerHead, sSonName] : ${sSonArr}<br>
@@ -99,7 +106,6 @@ function outputAllValues() {
         ssSonArr [ssSonVal, ssSonPart, ssSonPerHead, ssSonName] : ${ssSonArr}<br>
 
         sssSonArr [sssSonVal, sssSonPart, sssSonPerHead, sssSonName] : ${sssSonArr}<br>
-
         
 
         </pre>

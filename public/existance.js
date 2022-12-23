@@ -43,7 +43,7 @@ function ikhwaCheck () {
 // checks son(s) exist or not
 function sonExists() {
     if (parseInt(son.value) === 0 && parseInt(sSon.value) === 0 && parseInt(ssSon.value) === 0 && parseInt(sssSon.value) === 0) {
-        console.log("son(s) does not exist")
+        console.log("son(s) and any their offspring does not exist")
         return false
     } else {
         return true
@@ -76,6 +76,18 @@ function sssSonExists() {
         console.log("Son's Son's Son's son(s) does not exist")
         return false
     } else {
+        return true
+    }
+}
+
+// if real brother, paternal brother, son, sSon, ssSon or sssSon exists then asbat are present
+function asbatCheck() {
+    if (parseInt(rBrother.value) === 0 && parseInt(pBrother.value) === 0 && parseInt(son.value) === 0 && 
+        parseInt(sSon.value) === 0 && parseInt(ssSon.value) === 0 && parseInt(sssSon.value) === 0) {
+        console.log("Asbat Not Present")
+        return false
+    } else {
+        console.log("Asbat Present")
         return true
     }
 }
