@@ -1,3 +1,6 @@
+// Note on Top 
+let note = document.getElementById('note')
+
 // Submit Button
 let submitBtn = document.getElementById('submitBtn')
 

@@ -219,7 +219,18 @@ function showParts() {
 	if (parseFloat(zaweAlFaroozSum) === 1 || parseFloat(zaweAlFaroozSum) > 1) {
 		// if zaweAlFaroozSum is greater than 1 or equal to 1 then solve the zaweAlFaroozSum problem and the parts are their parts
 		console.log(`Solve zawe al farooz and these are their parts`)
-		// if parseFloat(zaweAlFaroozSum) === 1 then multiply every person part with 24. This is the solution
+		// if parseFloat(zaweAlFaroozSum) === 1 then multiply every person part with 24. This is the solution.
+		outputParts = 24
+		console.log(`Total Parts: ${outputParts}`)
+		// console.log(`Relative Name: \t\t|\t\t Total Relatives: \t\t|\t\t Per Head Part:`)
+		for (let i = 0; i < selectedZaweAlFaroozArr.length; i++) {
+			// Assign 2D array to a new array
+			outputArray[i] = [selectedZaweAlFaroozArr[i][3], selectedZaweAlFaroozArr[i][0], outputParts * selectedZaweAlFaroozArr[i][2]]
+			
+			console.log(`${outputArray[i][0]} \t\t|\t\t\t ${outputArray[i][1]} \t\t\t\t\t|\t\t ${outputArray[i][2]}`)
+		}
+		console.table(`outputArray: ${outputArray}`)
+
 		// if parseFloat(zaweAlFaroozSum) > 1 then if we multiply every part with 24 and then add it then this number will be
 		// greater than 24. For this purpose we need the LCM
 	} else if (parseFloat(zaweAlFaroozSum) < 1 && asbatExists) {

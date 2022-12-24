@@ -6,7 +6,7 @@ include('public/existance.js');
 include('public/grandParentType.js');
 include('public/calculateParts.js');
 include('public/showParts.js'); 
-include('public/outputValues.js');
+// include('public/testoutputfile.js');
 
 // Function to include many javascript files
 function include(file) {
@@ -51,6 +51,11 @@ let availableRelatives = [[]]
 
 // this is also 2D array which will contain the details of all present relatives in availableRelatives
 let selectedRelatives = [[]]
+
+// output variables
+let outputParts	= 0	// shows the total number of output parts
+let outputArray	= [[]]	// shows the total number of output rows in the output table
+let outputArrayLength = 0	// shows the total number of elements in the outputArray
 
 // the value of these variables are in intergers or float
 let husbandArr, husbandVal, husbandPerHead, husbandName,	// For husband

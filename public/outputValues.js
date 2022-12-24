@@ -1,114 +1,50 @@
-
-
+// test file for output 
+// testoutputfile
+// function outputAllValues() {
+//     let name = "Abd Ur Rehman"
+// 	let Phrase = `My name is ${name}`
+//   document.getElementById("main").innerHTML = Phrase;
+// }
 
 
 
 // Output all values just for testing purpose.
 function outputAllValues() {
+    note.style.display = "none";
+    
+    let allRows = ""
+    let tableRow = ""
+    let out
+    for (let i = 0; i < outputArray.length; i++) {
+      // console.log("I am here")
+      tableRow = `
+      <tr>
+              <th class="text-center" scope="row">${i}</th>
+              <td class="text-center">${outputArray[i][0]}</td>
+              <td class="text-center">${outputArray[i][1]}</td>
+              <td class="text-center">${outputArray[i][2]}</td>
+      </tr>
+      `
+      allRows = allRows.concat(tableRow)
+    }
+  
+    out = `
+      <h3>Total Parts: ${outputParts}</h3>
+      <table class="table">
+          <thead>
+              <tr>
+              <th class="text-center" scope="col">S.No</th>
+              <th class="text-center" scope="col">Name</th>
+              <th class="text-center" scope="col">Total</th>
+              <th class="text-center" scope="col">Per Head Part</th>
+              </tr>
+          </thead>
+          <tbody>            
+              ${allRows}
+          </tbody>
+      </table>
+      `
+    document.getElementById("main").innerHTML = out
+  
+  }
 
-    document.write(`<pre>
-        All Values: <br>
-        availableRelatives Array: ${availableRelatives}<br><br>
-        Array Ended: <br><br>
-
-        typeof availableRelatives[1][0] ${typeof availableRelatives[1][0]} <br><br>
-        availableRelatives[1][0] ${availableRelatives[1][0]} <br><br>
-        AsbatExists: ${asbatExists}<br>
-        ${wife.name}: ${wife.value}<br>
-        ${husband.name}: ${husband.value}<br><br>
-
-        Sisters:<br>
-        ${rSister.name}: ${rSister.value}<br>
-        ${pSister.name}: ${pSister.value}<br>
-        ${mSister.name}: ${mSister.value}<br><br>
-
-        Brothers:<br>
-        ${rBrother.name}: ${rBrother.value}<br>
-        ${pBrother.name}: ${pBrother.value}<br>
-        ${mBrother.name}: ${mBrother.value}<br><br>
-
-        Parents:<br>
-        ${father.name}: ${father.value}<br>
-        ${mother.name}: ${mother.value}<br>
-        ${grandFather.name}: ${grandFather.value}<br>
-        ${grandMother.name}: ${grandMother.value}<br><br>
-
-        Female Offsprings:<br>
-        ${daughter.name}: ${daughter.value}<br>
-        ${sDaughter.name}: ${sDaughter.value}<br>
-        ${ssDaughter.name}: ${ssDaughter.value}<br>
-        ${sssDaughter.name}: ${sssDaughter.value}<br><br>
-
-        Male Offsprings:<br>
-        ${son.name}: ${son.value}<br>
-        ${sSon.name}: ${sSon.value}<br>
-        ${ssSon.name}: ${ssSon.value}<br>
-        ${sssSon.name}: ${sssSon.value}<br><br>
-
-		childern Exists: ${childernExists}<br>
-		HusbandPart: ${husbandPart}<br>
-		WifePart: ${wifePart}<br>
-		daughterPart: ${daughterPart}<br>
-		sDaughterPart: ${sDaughterPart}<br>
-		ssDaughterPart: ${ssDaughterPart}<br>
-		sssDaughterPart: ${sssDaughterPart}<br>
-
-		fatherPart: ${fatherPart}<br>
-		motherPart: ${motherPart}<br>
-
-		rSisterPart: ${rSisterPart}<br>
-		pSisterPart: ${pSisterPart}<br>
-		mBroSisPart: ${mBroSisPart}<br>
-        
-		grandFatherType: ${grandFatherType}<br>
-		grandFatherPart: ${grandFatherPart}<br>
-        
-		grandMotherType: ${grandMotherType}<br>
-		grandMotherPart: ${grandMotherPart}<br>
-
-        husbandArr [husbandVal, husbandPart, husbandPerHead, husbandName]: ${husbandArr}<br>
-
-        wifeArr [wifeVal, wifePart, wifePerHead, wifeName]: ${wifeArr}<br>
-
-        daughterArr [daughterVal, daughterPart, daughterPerHead, daughterName] : ${daughterArr}<br>
-
-        sDaughterArr [sDaughterVal, sDaughterPart, sDaughterPerHead, sDaughterName] : ${sDaughterArr}<br>
-
-        ssDaughterArr [ssDaughterVal, ssDaughterPart, ssDaughterPerHead, ssDaughterName] : ${ssDaughterArr}<br>
-
-        sssDaughterArr [sssDaughterVal, sssDaughterPart, sssDaughterPerHead, sssDaughterName] : ${sssDaughterArr}<br>
-
-        fatherArr [fatherVal, fatherPart, fatherPerHead, fatherName]  : ${fatherArr}<br>
-
-        motherArr [motherVal, motherPart, motherPerHead, motherName]  : ${motherArr}<br>     
-
-        rSisterArr [rSisterVal, rSisterPart, rSisterPerHead, rSisterName] : ${rSisterArr}<br>
-
-        pSisterArr [pSisterVal, pSisterPart, pSisterPerHead, pSisterName] : ${pSisterArr}<br>
-
-        mBroArr [mBrotherVal, mBroSisPart, maternalPerHead, mBrotherName]: ${mBroArr}<br> 
-
-        mSisArr [mSisterVal, mBroSisPart, maternalPerHead, mSisterName]: ${mSisArr}<br>
-        
-        gfArr [grandFatherVal, grandFatherPart, gfPerHead, gfName]: ${gfArr}<br>
-
-        gmArr [grandMotherVal, grandMotherPart, gmPerHead, gmName]: ${gmArr}<br> 
-
-
-        rBrotherArr [rBrotherVal, rBrotherPart, rBrotherPerHead, rBrotherName] : ${rBrotherArr}<br>
-
-        pBrotherArr [pBrotherVal, pBrotherPart, pBrotherPerHead, pBrotherName] : ${pBrotherArr}<br> 
-
-        sonArr [sonVal, sonPart, sonPerHead, sonName] : ${sonArr}<br>
-
-        sSonArr [sSonVal, sSonPart, sSonPerHead, sSonName] : ${sSonArr}<br>
-
-        ssSonArr [ssSonVal, ssSonPart, ssSonPerHead, ssSonName] : ${ssSonArr}<br>
-
-        sssSonArr [sssSonVal, sssSonPart, sssSonPerHead, sssSonName] : ${sssSonArr}<br>
-        
-
-        </pre>
-    `)
-
-}
