@@ -1,3 +1,45 @@
+commit e9d31529a308fcdaa0f87ce32c8880a093506e94
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Thu Dec 15 12:37:13 2022 +0500
+
+    Bugs in previous commit has been removed
+
+commit 8a64ba2d913cdf9a8a20aa5e8e3d93fd3c09e358
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Tue Dec 13 20:41:49 2022 +0500
+
+    Errors from grandFather options removed and errors in grandMother due to grandFather selection has also been removed.
+
+commit 30e6b06af9e6240f4a8e762ac04873db6f62282d
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Tue Dec 13 12:45:00 2022 +0500
+
+    in jidat e saheha work on different imam methods completed and tested (Only Interface)
+
+commit 843096ca71286a7ccd6115585ab972f17adf0ee7
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Thu Dec 8 21:47:17 2022 +0500
+
+    unnecessary commented code lines are removed
+
+commit 359e399589776eaa85a1837d028e63685142ac25
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Thu Dec 8 21:33:36 2022 +0500
+
+    in jidat e saheha work on different imam methods completed but not fully tested
+
+commit 4bd9c6f929ad5243fa837f12eed77b2d2fb857ec
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Thu Dec 8 10:50:10 2022 +0500
+
+    in jidat e saheha work on different imam methods started
+
+commit 3973ecc468aaa131eaceddab5dccde590cf229da
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Tue Dec 6 11:31:28 2022 +0500
+
+    jidat e saheha implemented but testing is not completed yet
+
 commit d7b5766d42aae5994ea2679b8a069f32310bb85c
 Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
 Date:   Fri Dec 2 11:09:01 2022 +0500

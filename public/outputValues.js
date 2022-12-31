@@ -1,64 +1,50 @@
-
-
+// test file for output 
+// testoutputfile
+// function outputAllValues() {
+//     let name = "Abd Ur Rehman"
+// 	let Phrase = `My name is ${name}`
+//   document.getElementById("main").innerHTML = Phrase;
+// }
 
 
 
 // Output all values just for testing purpose.
 function outputAllValues() {
+    note.style.display = "none";
+    
+    let allRows = ""
+    let tableRow = ""
+    let out
+    for (let i = 0; i < outputArray.length; i++) {
+      // console.log("I am here")
+      tableRow = `
+      <tr>
+              <th class="text-center" scope="row">${i}</th>
+              <td class="text-center">${outputArray[i][0]}</td>
+              <td class="text-center">${outputArray[i][1]}</td>
+              <td class="text-center">${outputArray[i][2]}</td>
+      </tr>
+      `
+      allRows = allRows.concat(tableRow)
+    }
+  
+    out = `
+      <h3>Total Parts: ${outputParts}</h3>
+      <table class="table">
+          <thead>
+              <tr>
+              <th class="text-center" scope="col">S.No</th>
+              <th class="text-center" scope="col">Name</th>
+              <th class="text-center" scope="col">Total</th>
+              <th class="text-center" scope="col">Per Head Part</th>
+              </tr>
+          </thead>
+          <tbody>            
+              ${allRows}
+          </tbody>
+      </table>
+      `
+    document.getElementById("main").innerHTML = out
+  
+  }
 
-    document.write(`
-        All Values: <br>
-        Wife: ${wife.value}<br>
-        Husband: ${husband.value}<br><br>
-
-        Sisters:<br>
-        Real Sister: ${rSister.value}<br>
-        Paternal Sister: ${pSister.value}<br>
-        Maternal Sister: ${mSister.value}<br><br>
-
-        Brothers:<br>
-        Real Brother: ${rBrother.value}<br>
-        Paternal Brother: ${pBrother.value}<br>
-        Maternal Brother: ${mBrother.value}<br><br>
-
-        Parents:<br>
-        Father: ${father.value}<br>
-        Mother: ${mother.value}<br>
-        Grand Father: ${grandFather.value}<br>
-        Grand Mother: ${grandMother.value}<br><br>
-
-        Female Offsprings:<br>
-        Daughter: ${daughter.value}<br>
-        Sons Daughter: ${sDaughter.value}<br>
-        Sons Sons Daughter: ${ssDaughter.value}<br>
-        Sons Sons Sons Daughter: ${sssDaughter.value}<br><br>
-
-        Male Offsprings:<br>
-        Son: ${son.value}<br>
-        Sons Son: ${sSon.value}<br>
-        Sons Sons Son: ${ssSon.value}<br>
-        Sons Sons Sons Son: ${sssSon.value}<br><br>
-
-		childern Exists: ${childernExists}<br>
-		HusbandPart: ${husbandPart}<br>
-		WifePart: ${wifePart}<br>
-		daughterPart: ${daughterPart}<br>
-		sDaughterPart: ${sDaughterPart}<br>
-		ssDaughterPart: ${ssDaughterPart}<br>
-		sssDaughterPart: ${sssDaughterPart}<br>
-
-		fatherPart: ${fatherPart}<br>
-		motherPart: ${motherPart}<br>
-
-		rSisterPart: ${rSisterPart}<br>
-		pSisterPart: ${pSisterPart}<br>
-		mBroSisPart: ${mBroSisPart}<br>
-        
-		grandFatherType: ${grandFatherType}<br>
-		grandFatherPart: ${grandFatherPart}<br>
-        
-		grandMotherType: ${grandMotherType}<br>
-		grandMotherPart: ${grandMotherPart}<br>
-    `)
-
-}

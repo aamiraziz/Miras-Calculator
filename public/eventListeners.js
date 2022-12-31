@@ -142,28 +142,37 @@ husband.addEventListener('change', function() {
   
     if (grandFather.checked === false) {
       grandFather.value = 0
+      ff.checked = false
+      fff.checked = false
+      ffff.checked = false
+
+      // Shows Father option
+      father.style.display = 'inline'
+      fatherText.style.display = 'inline'
+
+      gfType.style.display='none'
+
+      grandMother.value = 0
+      grandMother.checked = false
+      // Shows Mother option
+      mother.style.display = 'inline'
+      motherText.style.display = 'inline'
     }
 
-      if (grandFather.checked === true) {
-          grandFather.value = 1
-          
-          // Hides Father option
-          father.style.display='none'
-          fatherText.style.display='none'
+    if (grandFather.checked === true) {
+        grandFather.value = 1
+        
+        // Hides Father option
+        father.style.display='none'
+        fatherText.style.display='none'
 
-          pType.style.display = 'none'
-          gfType.style.display='block'          
-      }
-      
-      if (grandFather.checked === false) {
-          grandFather.value = 0
-          
-          // Shows Father option
-          father.style.display = 'inline'
-          fatherText.style.display = 'inline'
-
-          gfType.style.display='none'
-      }
+        pType.style.display = 'none'
+        gfType.style.display='block'  
+        
+        // uncheck GrandMother check box
+        grandMother.value = 0
+        grandMother.checked = false
+    }
   
   })
   
@@ -192,13 +201,27 @@ husband.addEventListener('change', function() {
       rmhanbali.style.display = 'none'
     }
 
-    if (imam === "maliki") {
+    // if (imam === "maliki") or grandFather exists then the grand mother options will remain the same
+    if (imam === "maliki" || ff.checked) {
       // console.log(`inside grandMother's EventListener ${imam}`)
       mff.checked = false
       mmff.checked = false
       mfff.checked = false
       rmhanbali.style.display = 'none'
       rmmaliki.style.display = 'none'
+    }
+
+    // if father of grandFather exists (fff.checked) then MMFF and MFFF will not elligible.
+    if (fff.checked) {
+      mmff.checked = false
+      mfff.checked = false
+      rmhanbali.style.display = 'none'
+      FFFTrue.style.display = 'none'
+    } 
+
+    // if selected imam option and !ffff.checked
+    if (imam !== "maliki" && !grandFather.checked || ffff.checked) {
+      FFFTrue.style.display = 'block'
     }
 
     // disappearance of submit button

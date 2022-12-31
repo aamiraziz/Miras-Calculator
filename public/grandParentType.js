@@ -93,6 +93,10 @@ function showGrandMotherType() {
 
     if ( mfff.checked ) {gmTypeArr.push(mfff.name)}
 
+    // There is no grand Mother then this function will retrn 0 to get rid of errors
+    // if (gmTypeArr === []) {gmTypeArr = 0}
+    // gmTypeArr.push(gmTypeArr.length)
+
     return gmTypeArr
 
 }
