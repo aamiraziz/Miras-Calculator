@@ -8,10 +8,39 @@
   
 </div>
 <script src="public/Fraction.js-master/fraction.js"></script>
-<script src="public/Fraction.js-master/fraction.d.js"></script>
+<script src="public/nerdamer/all.min.js"></script>
 <script src="testIndex.js"></script>
 <script>
 
+
+
+
+let one3rd = new Frac(1, 3)
+let one6th = new Frac(1, 6)
+let mySum = one3rd + one3rd + one3rd
+mySum =  new Fraction(mySum)
+
+let dnom1 = one3rd.denominator(), dnom2 = one6th.denominator()
+let myArr = [dnom1, dnom2, dnom2]
+let nerDnom = nerdamer(`lcm(${myArr})`)
+
+console.log(`one3rd.numerator(): = ${one3rd.numerator()}`)
+console.log(`one3rd.denominator(): = ${one3rd.denominator()}`)
+console.log(`LCM of one3rd and one6th is: ${parseInt(nerDnom)} andy type of nerDnom is: ${typeof parseInt(nerDnom)}`)
+console.log(`The sum of three times one3rd is : ${mySum}`)
+
+
+
+
+
+
+// let nerY = nerdamer('lcm(3, 6, 6)');
+// console.log(`Nerdamer LCM (lcm(3, 6, 6)) Result`)
+// console.log(nerY.toString());
+
+// let nerX = nerdamer('sum(2/3, 1/6, 1/6)');
+// console.log(`Nerdamer SUM Result`)
+// console.log(nerX.toString());
 
 // let oneByTwo = Fraction(1).div(2)
 // let oneByThree = Fraction(1).div(3)
@@ -24,42 +53,25 @@
 //              oneBySix =  ${oneBySix}, oneByEight = ${oneByEight}`)
 // console.log(`0.1(6) + 0.1(6) + 0.(6) = ${0.1(6) + 0.1(6) + 0.(6)}`)
 
-class Frac {
-  constructor(n, d = 1) {
-    if (d == 0) {
-      throw new Error("denominator cannot be zero!");
-    }
-    this.n = n;
-    this.d = d;
-  }
-  
-  valueOf() {
-    return this.n / this.d;
-  }
 
-  display() {
-    return this.n + "/" + this.d.toString()
-  }
-}
 
-let half = new Frac(1, 2)
-let one3rd = new Frac(1, 3)
-let one6th = new Frac(1, 6)
-let sum = new Frac(0, 1)
-let num = 1/6
-let checkType = half.display()
-sum = half + one3rd
-// let myLCM = Fraction lcm(half, one3rd, one6th)
+// let half = new Frac(1, 2)
+// let sum = new Frac(0, 1)
+// let num = 1/6
+// let checkType = half.display()
+// sum = half + one3rd
 
-console.log(`one3rd.valueOf(): = ${one3rd.valueOf()}`)
-console.log(`one3rd: ${one3rd.display()}`)
-console.log(`half.valueOf: ${half.valueOf()}`)
-console.log(`half.display(): ${half.display()}`)
-console.log(`typeof checkType: ${typeof checkType}`)
-console.log(`SUM.valueOf(): ${sum.valueOf()}`)
-console.log(`24 * 1/3 Results: ${24 * one3rd}`)
-console.log(`1/6 + 1/6 + 1/3 + 1/3 Results: ${one6th + one6th + one3rd + one3rd}`)
-console.log(`24 * 1/6 Results: ${24 * num}`)
+// // let myLCM = Fraction lcm(half, one3rd, one6th)
+
+// console.log(`one3rd.valueOf(): = ${one3rd.valueOf()}`)
+// console.log(`one3rd: ${one3rd.display()}`)
+// console.log(`half.valueOf: ${half.valueOf()}`)
+// console.log(`half.display(): ${half.display()}`)
+// console.log(`typeof checkType: ${typeof checkType}`)
+// console.log(`SUM.valueOf(): ${sum.valueOf()}`)
+// console.log(`24 * 1/3 Results: ${24 * one3rd}`)
+// console.log(`1/6 + 1/6 + 1/3 + 1/3 Results: ${one6th + one6th + one3rd + one3rd}`)
+// console.log(`24 * 1/6 Results: ${24 * num}`)
 // console.log(`LCM of 1/2, 1/3 and 1/6 Results: ${myLCM}`)
 
 

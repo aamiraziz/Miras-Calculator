@@ -20,12 +20,12 @@ function include(file) {
 
 }
 
-let oneByTwo = Fraction(1).div(2)
-let oneByThree = Fraction(1).div(3)
-let twoByThree = Fraction(2).div(3)
-let oneByFour = Fraction(1).div(4)
-let oneBySix = Fraction(1).div(6)
-let oneByEight = Fraction(1).div(8)
+let oneByTwo = new Frac(1, 2)		//	Fraction(1).div(2)
+let oneByThree = new Frac(1, 3)		//	Fraction(1).div(3)
+let twoByThree = new Frac(2, 3) 	//	Fraction(2).div(3)
+let oneByFour = new Frac(1, 4) 		//	Fraction(1).div(4)
+let oneBySix = new Frac(1, 6) 		//	Fraction(1).div(6)
+let oneByEight = new Frac(1, 8) 	//	Fraction(1).div(8)
 
 let imam = "hanfi"
 
@@ -92,6 +92,7 @@ submitBtn.addEventListener('click', function() {
 	showParts()   
     outputAllValues()	// Temporary for testing and debigging purposes
 })
+
 
 /* 
 
