@@ -96,6 +96,10 @@ function showParts() {
 	daughterPerHead = daughterPart / daughterVal
 	daughterName = daughter.name
 
+	// The numertator and denominator is working properly
+	// console.log(`daughterPart.numerator() is ${daughterPart.numerator()}
+	// 			daughterPart.denominator() is ${daughterPart.denominator()}`)
+
 	daughterArr = [daughterVal, daughterPart, daughterPerHead, daughterName]
 
 	// ---- Array for sDaughter Calculations ----
@@ -196,11 +200,6 @@ function showParts() {
 
 	// conver the zaweAlFaroozSum to fraction to find the exact value of its sum
 	zaweAlFaroozSum = new Fraction(zaweAlFaroozSum)
-						
-	// console.log(`zaweAlFaroozSum is ${zaweAlFaroozSum}`)
-	// console.log(`typeof zaweAlFaroozSum = ${typeof parseFloat(zaweAlFaroozSum)}`)
-	// console.log(`typeof daughterPart = ${typeof daughterPart}`)
-	// console.log(`typeof oneByTwo = ${typeof oneByTwo}`)
 	
 	zaweAlFaroozArr = [ husbandArr, wifeArr, daughterArr, sDaughterArr, ssDaughterArr, sssDaughterArr, fatherArr,
 		motherArr, rSisterArr, pSisterArr, mSisArr, mBroArr, gfArr, gmArr ]
@@ -210,7 +209,9 @@ function showParts() {
 		if ( zaweAlFaroozArr[z][0] !== 0 ) {
 
 			selectedZaweAlFaroozArr[i] = zaweAlFaroozArr[z]
-			console.log(`selectedZaweAlFaroozArr[${i}] = ${selectedZaweAlFaroozArr[i]}}`)
+			// console.log(`selectedZaweAlFaroozArr[${i}] = ${selectedZaweAlFaroozArr[i]}}`)
+			zaweAlFaroozDenominatorArr[i] = parseInt(selectedZaweAlFaroozArr[i][1].denominator())
+			console.log(`zaweAlFaroozDenominatorArr[${i}] = ${zaweAlFaroozDenominatorArr[i]}`)
 			i++
 		} 
 	}
@@ -219,17 +220,17 @@ function showParts() {
 	if (parseFloat(zaweAlFaroozSum) === 1 || parseFloat(zaweAlFaroozSum) > 1) {
 		// if zaweAlFaroozSum is greater than 1 or equal to 1 then solve the zaweAlFaroozSum problem and the parts are their parts
 		console.log(`Solve zawe al farooz and these are their parts`)
-		// if parseFloat(zaweAlFaroozSum) === 1 then multiply every person part with 24. This is the solution.
-		outputParts = 24
-		console.log(`Total Parts: ${outputParts}`)
+		zaweAlFaroozLCM = nerdamer(`lcm(${zaweAlFaroozDenominatorArr})`) // remove error from this line
+		// outputParts = 24
 		// console.log(`Relative Name: \t\t|\t\t Total Relatives: \t\t|\t\t Per Head Part:`)
 		for (let i = 0; i < selectedZaweAlFaroozArr.length; i++) {
 			// Assign 2D array to a new array
-			outputArray[i] = [selectedZaweAlFaroozArr[i][3], selectedZaweAlFaroozArr[i][0], outputParts * selectedZaweAlFaroozArr[i][2]]
+			// outputArray[i] = [selectedZaweAlFaroozArr[i][3], selectedZaweAlFaroozArr[i][0], outputParts * selectedZaweAlFaroozArr[i][2]]
+			outputArray[i] = [selectedZaweAlFaroozArr[i][3], selectedZaweAlFaroozArr[i][0], selectedZaweAlFaroozArr[i][1] * zaweAlFaroozLCM]
 			
-			console.log(`${outputArray[i][0]} \t\t|\t\t\t ${outputArray[i][1]} \t\t\t\t\t|\t\t ${outputArray[i][2]}`)
+			// console.log(`${outputArray[i][0]} \t\t|\t\t\t ${outputArray[i][1]} \t\t\t\t\t|\t\t ${outputArray[i][2]}`)
 		}
-		console.table(`outputArray: ${outputArray}`)
+		// console.table(`outputArray: ${outputArray}`)
 
 		// if parseFloat(zaweAlFaroozSum) > 1 then if we multiply every part with 24 and then add it then this number will be
 		// greater than 24. For this purpose we need the LCM
@@ -308,7 +309,7 @@ function showParts() {
 		if ( availableRelatives[z][0] !== 0 ) {
 
 			selectedRelatives[i] = availableRelatives[z]
-			console.log(`selectedRelatives[${i}] = ${selectedRelatives[i]}`)
+			// console.log(`selectedRelatives[${i}] = ${selectedRelatives[i]}`)
 			i++
 		} 
 	}

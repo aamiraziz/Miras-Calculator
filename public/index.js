@@ -35,10 +35,14 @@ let childernExists, sonCheck, sSonCheck, ssSonCheck, sssSonCheck, husbandPart, w
 	pSisterPart, mBroSisPart, mSisterPart, myNum, grandFatherType, grandFatherPart, grandMotherType, 
 	grandMotherPart
 
-// this array will contain the array of all zawe al farooz 
+// this array will contain all zawe al farooz 
 let zaweAlFaroozArr = [[]]
 
+// this will contain only available zawe al farooz
 let selectedZaweAlFaroozArr = [[]]
+
+// this array will contain the denominator of all zawe al farooz
+let zaweAlFaroozDenominatorArr = [], zaweAlFaroozLCM
 
 // this  array will contain the sum of all zawe al farooz parts
 let zaweAlFaroozSum
