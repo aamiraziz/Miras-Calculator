@@ -241,17 +241,14 @@ function showParts() {
 		} else {
 			// this loop will fill the array of numbers required for the second LCM
 			for (let i = 0; i < selectedZaweAlFaroozArr.length; i++) {
-				// zaweAlFarooz2ndLCMArr[i] = selectedZaweAlFaroozArr[i][0]
 
-				
 				tempNumerator = parseInt(selectedZaweAlFaroozArr[i][1].numerator() * zaweAlFarooz1stLCM)
 				tempDenominator = parseInt(selectedZaweAlFaroozArr[i][1].denominator() * selectedZaweAlFaroozArr[i][0])
-				// zaweAlFarooz2ndLCMArr[i] = new Frac(tempNumerator, tempDenominator)
-				zaweAlFarooz2ndLCMArr[i] = new Frac(tempNumerator, tempDenominator)
+				// zaweAlFarooz2ndLCMArr[i] = new Frac(selectedZaweAlFaroozArr[i][1].numerator() * zaweAlFarooz1stLCM, selectedZaweAlFaroozArr[i][1].denominator() * selectedZaweAlFaroozArr[i][0])
+				zaweAlFarooz2ndLCMArr[i] = new Frac(tempNumerator, tempDenominator)	// same as above line
 				zaweAlFarooz2ndLCMArr[i] = zaweAlFarooz2ndLCMArr[i].denominator()
 
 				// console.log(`zaweAlFarooz2ndLCMArr[i]: ${zaweAlFarooz2ndLCMArr[i]}`)
-				// ( (selectedZaweAlFaroozArr[i][1].numerator * zaweAlFarooz1stLCM) / (selectedZaweAlFaroozArr[i][1].denominator) * selectedZaweAlFaroozArr[i][0]) )
 				
 			}
 
@@ -261,20 +258,13 @@ function showParts() {
 			
 			for (let i = 0; i < selectedZaweAlFaroozArr.length; i++) {
 				// Assign 2D array to a new array
-				// Array       =	Name, Value, ( (Part * 1stLCM / value) * 2ndLCM )
-				// outputArray[i] = [selectedZaweAlFaroozArr[i][3], selectedZaweAlFaroozArr[i][0], selectedZaweAlFaroozArr[i][1] * zaweAlFarooz1stLCM * zaweAlFarooz2ndLCM]
-				outputArray[i] = [selectedZaweAlFaroozArr[i][3], selectedZaweAlFaroozArr[i][0], (( selectedZaweAlFaroozArr[i][1] * zaweAlFarooz1stLCM ) / selectedZaweAlFaroozArr[i][0]) * zaweAlFarooz2ndLCM]
+				// Array       =	Name, Value, ( Per Head = (Part * 1stLCM * 2ndLCM / value) )
+				outputArray[i] = [selectedZaweAlFaroozArr[i][3], selectedZaweAlFaroozArr[i][0], 
+				(( selectedZaweAlFaroozArr[i][1] * zaweAlFarooz1stLCM * zaweAlFarooz2ndLCM ) / selectedZaweAlFaroozArr[i][0])]
 				outputParts += (( selectedZaweAlFaroozArr[i][1] * zaweAlFarooz1stLCM ) * zaweAlFarooz2ndLCM)
 			}			
 		}
 
-		
-		// testing code in console
-		// console.log(`Relative Name: \t\t|\t\t Total Relatives: \t\t|\t\t Per Head Part:`)
-		// for (let i = 0; i < selectedZaweAlFaroozArr.length; i++) {
-		// 	outputArray[i] = [selectedZaweAlFaroozArr[i][3], selectedZaweAlFaroozArr[i][0], outputParts * selectedZaweAlFaroozArr[i][2]]
-		// 	console.log(`${outputArray[i][0]} \t\t|\t\t\t ${outputArray[i][1]} \t\t\t\t\t|\t\t ${outputArray[i][2]}`)
-		// }
 		// console.table(`outputArray: ${outputArray}`)
 
 	} else if (parseFloat(zaweAlFaroozSum) < 1 && asbatExists) {
