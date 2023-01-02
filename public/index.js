@@ -42,10 +42,13 @@ let zaweAlFaroozArr = [[]]
 let selectedZaweAlFaroozArr = [[]]
 
 // this array will contain the denominator of all zawe al farooz
-let zaweAlFaroozDenominatorArr = [], zaweAlFaroozLCM
+let zaweAlFaroozDenominatorArr = [], zaweAlFarooz1stLCM, zaweAlFarooz2ndLCM, zaweAlFarooz2ndLCMArr = []
 
 // this  array will contain the sum of all zawe al farooz parts
-let zaweAlFaroozSum
+let zaweAlFaroozSum, tempNumerator = 0, tempDenominator = 0
+
+// this variable will become true when value of any relative is greater than 1
+let secondLCM = false
 
 // this contains only the asbat of first page in interface.
 let asbatExists

@@ -14,12 +14,32 @@ class Frac {
     }
   
     display() {
-      return this.n + "/" + this.d.toString()
+      return this.n + "/" + this.d
+    }
+
+    solvedDisplay() {
+      return this.n / gcd_two_numbers(this.n, this.d) + "/" + this.d / gcd_two_numbers(this.n, this.d)
     }
   
-    numerator() { return this.n }
-    denominator() { return this.d }
+    numerator() { return this.n / gcd_two_numbers(this.n, this.d) }
+    denominator() { return this.d / gcd_two_numbers(this.n, this.d)}
+}
+
+function gcd_two_numbers(x, y) {
+  if ((typeof x !== 'number') || (typeof y !== 'number')) 
+    return false;
+  x = Math.abs(x);
+  y = Math.abs(y);
+  while(y) {
+    var t = y;
+    y = x % y;
+    x = t;
   }
+  return x;
+}
+
+console.log(`gcd_two_numbers(12, 13): ${gcd_two_numbers(12, 13)}`);
+console.log(`gcd_two_numbers(9, 3) ${gcd_two_numbers(9, 3)}`);
 
 let oneByTwo = Fraction(1).div(2);      oneByTwo = oneByTwo.toFraction(true); 
 let oneByThree = Fraction(1).div(3);    oneByThree = oneByThree.toFraction(true);

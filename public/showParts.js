@@ -212,6 +212,12 @@ function showParts() {
 			// console.log(`selectedZaweAlFaroozArr[${i}] = ${selectedZaweAlFaroozArr[i]}}`)
 			zaweAlFaroozDenominatorArr[i] = parseInt(selectedZaweAlFaroozArr[i][1].denominator())
 			console.log(`zaweAlFaroozDenominatorArr[${i}] = ${zaweAlFaroozDenominatorArr[i]}`)
+
+			// check for second LCM
+			if ( selectedZaweAlFaroozArr[i][0] > 1) {
+				secondLCM = true
+			}
+
 			i++
 		} 
 	}
@@ -220,20 +226,57 @@ function showParts() {
 	if (parseFloat(zaweAlFaroozSum) === 1 || parseFloat(zaweAlFaroozSum) > 1) {
 		// if zaweAlFaroozSum is greater than 1 or equal to 1 then solve the zaweAlFaroozSum problem and the parts are their parts
 		console.log(`Solve zawe al farooz and these are their parts`)
-		zaweAlFaroozLCM = nerdamer(`lcm(${zaweAlFaroozDenominatorArr})`) // remove error from this line
-		// outputParts = 24
-		// console.log(`Relative Name: \t\t|\t\t Total Relatives: \t\t|\t\t Per Head Part:`)
-		for (let i = 0; i < selectedZaweAlFaroozArr.length; i++) {
-			// Assign 2D array to a new array
-			// outputArray[i] = [selectedZaweAlFaroozArr[i][3], selectedZaweAlFaroozArr[i][0], outputParts * selectedZaweAlFaroozArr[i][2]]
-			outputArray[i] = [selectedZaweAlFaroozArr[i][3], selectedZaweAlFaroozArr[i][0], selectedZaweAlFaroozArr[i][1] * zaweAlFaroozLCM]
+
+		zaweAlFarooz1stLCM = nerdamer(`lcm(${zaweAlFaroozDenominatorArr})`) // First LCM
+		console.log(`zaweAlFarooz1stLCM = ${zaweAlFarooz1stLCM}`)
+		console.log(`secondLCM = ${secondLCM}`)
+
+		if(!secondLCM) {			
+			// outputParts = 24
+			for (let i = 0; i < selectedZaweAlFaroozArr.length; i++) {
+				// Assign 2D array to a new array
+				// Array       =	Name, Value, Part * LCM
+				outputArray[i] = [selectedZaweAlFaroozArr[i][3], selectedZaweAlFaroozArr[i][0], selectedZaweAlFaroozArr[i][1] * zaweAlFarooz1stLCM]
+			}
+		} else {
+			// this loop will fill the array of numbers required for the second LCM
+			for (let i = 0; i < selectedZaweAlFaroozArr.length; i++) {
+				// zaweAlFarooz2ndLCMArr[i] = selectedZaweAlFaroozArr[i][0]
+
+				
+				tempNumerator = parseInt(selectedZaweAlFaroozArr[i][1].numerator() * zaweAlFarooz1stLCM)
+				tempDenominator = parseInt(selectedZaweAlFaroozArr[i][1].denominator() * selectedZaweAlFaroozArr[i][0])
+				// zaweAlFarooz2ndLCMArr[i] = new Frac(tempNumerator, tempDenominator)
+				zaweAlFarooz2ndLCMArr[i] = new Frac(tempNumerator, tempDenominator)
+				zaweAlFarooz2ndLCMArr[i] = zaweAlFarooz2ndLCMArr[i].denominator()
+
+				// console.log(`zaweAlFarooz2ndLCMArr[i]: ${zaweAlFarooz2ndLCMArr[i]}`)
+				// ( (selectedZaweAlFaroozArr[i][1].numerator * zaweAlFarooz1stLCM) / (selectedZaweAlFaroozArr[i][1].denominator) * selectedZaweAlFaroozArr[i][0]) )
+				
+			}
+
+			zaweAlFarooz2ndLCM = nerdamer(`lcm(${zaweAlFarooz2ndLCMArr})`)	// calculates the second LCM
+			// console.log(`zaweAlFarooz2ndLCMArr: ${zaweAlFarooz2ndLCMArr}`)
+			// console.log(`zaweAlFarooz2ndLCM = ${zaweAlFarooz2ndLCM}`)
 			
-			// console.log(`${outputArray[i][0]} \t\t|\t\t\t ${outputArray[i][1]} \t\t\t\t\t|\t\t ${outputArray[i][2]}`)
+			for (let i = 0; i < selectedZaweAlFaroozArr.length; i++) {
+				// Assign 2D array to a new array
+				// Array       =	Name, Value, ( (Part * 1stLCM / value) * 2ndLCM )
+				// outputArray[i] = [selectedZaweAlFaroozArr[i][3], selectedZaweAlFaroozArr[i][0], selectedZaweAlFaroozArr[i][1] * zaweAlFarooz1stLCM * zaweAlFarooz2ndLCM]
+				outputArray[i] = [selectedZaweAlFaroozArr[i][3], selectedZaweAlFaroozArr[i][0], (( selectedZaweAlFaroozArr[i][1] * zaweAlFarooz1stLCM ) / selectedZaweAlFaroozArr[i][0]) * zaweAlFarooz2ndLCM]
+				outputParts += (( selectedZaweAlFaroozArr[i][1] * zaweAlFarooz1stLCM ) * zaweAlFarooz2ndLCM)
+			}			
 		}
+
+		
+		// testing code in console
+		// console.log(`Relative Name: \t\t|\t\t Total Relatives: \t\t|\t\t Per Head Part:`)
+		// for (let i = 0; i < selectedZaweAlFaroozArr.length; i++) {
+		// 	outputArray[i] = [selectedZaweAlFaroozArr[i][3], selectedZaweAlFaroozArr[i][0], outputParts * selectedZaweAlFaroozArr[i][2]]
+		// 	console.log(`${outputArray[i][0]} \t\t|\t\t\t ${outputArray[i][1]} \t\t\t\t\t|\t\t ${outputArray[i][2]}`)
+		// }
 		// console.table(`outputArray: ${outputArray}`)
 
-		// if parseFloat(zaweAlFaroozSum) > 1 then if we multiply every part with 24 and then add it then this number will be
-		// greater than 24. For this purpose we need the LCM
 	} else if (parseFloat(zaweAlFaroozSum) < 1 && asbatExists) {
 		// if zaweAlFaroozSum is Less than 1 and asbat are present in the first page of interface, 
 		// then first solve the zaweAlFarooz problem and then asbat problem
