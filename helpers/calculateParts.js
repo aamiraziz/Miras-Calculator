@@ -13,7 +13,7 @@ function calculateHusbandPart() {
 		}
 	}
     
-    return 0
+    return zero
 
 }
 
@@ -29,7 +29,7 @@ function calculateWifePart() {
 		}
 	}
     
-    return 0
+    return zero
 
 }
 
@@ -51,7 +51,7 @@ function calculateDaughterPart() {
 
     }
     
-    return 0
+    return zero
 
 }
 
@@ -90,7 +90,7 @@ function calculateSDaughterPart() {
 
     }
     
-    return 0
+    return zero
 
 }
 
@@ -136,7 +136,7 @@ function calculateSSDaughterPart() {
         }
     } 
     
-    return 0
+    return zero
 
 }
 
@@ -187,21 +187,21 @@ function calculateSSSDaughterPart() {
         }
     } 
     
-    return 0
+    return zero
 
 }
 
 // calculate Son part
-function calculateSonPart(){return 0}
+function calculateSonPart(){return zero}
 
 // calculate Son's Son part
-function calculateSSonPart(){return 0}
+function calculateSSonPart(){return zero}
 
 // calculate son's Son's Son part
-function calculateSSSonPart(){return 0}
+function calculateSSSonPart(){return zero}
 
 // calculate Son's Son's Son's Son part
-function calculateSSSSonPart(){return 0}
+function calculateSSSSonPart(){return zero}
 
 // function to calculate father's part (والد)
 function calculateFatherPart() {
@@ -210,10 +210,10 @@ function calculateFatherPart() {
     if ( parseInt(father.value) !== 0 ) {
         if (childernExists) {
             return oneBySix // 1/6
-        }
+        } // else {return zero}
     }
     
-    return 0
+    return zero
     
 }
 
@@ -239,7 +239,7 @@ function calculateMotherPart() {
 
     }
     
-    return 0
+    return zero
     
 }
 
@@ -268,12 +268,12 @@ function calculateRSisterPart() {
         }
     }
     
-    return 0
+    return zero
 
 }
 
 // function to calculate Real Brother's Part
-function calculateRBrotherPart() { return 0 }
+function calculateRBrotherPart() { return zero }
 
 
 // function to calculate Paternal (who has same father but different mother) Sister's Part
@@ -317,12 +317,12 @@ function calculatePSisterPart() {
 
     } 
     
-    return 0
+    return zero
 
 }
 
 // function to calculate Paternal (who has same father but different mother) Brother's Part
-function calculatePBrotherPart() { return 0 }
+function calculatePBrotherPart() { return zero }
 
 // function to calculate maternal (who has same mother but different father) Brother's or Sister's part
 function calculateMBroSisPart() {
@@ -362,7 +362,7 @@ function calculateMBroSisPart() {
 
     } 
     
-    return 0
+    return zero
 
 }
 
@@ -375,7 +375,7 @@ function calculateGrandFatherPart() {
         return oneBySix // 1/6
     }
 
-    return 0
+    return zero
 }
 
 function calculateGrandMotherPart() {
@@ -391,5 +391,5 @@ function calculateGrandMotherPart() {
     }
 
     // to remove "undefined"
-    return 0
+    return zero
 }

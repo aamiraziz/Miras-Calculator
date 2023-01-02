@@ -1,12 +1,12 @@
 /* Include Many js files */
-// include('helpers/outputValues.js');
+include('helpers/outputValues.js');
 include('helpers/elementIds.js');
 include('helpers/eventListeners.js');
 include('helpers/existance.js');
 include('helpers/grandParentType.js');
 include('helpers/calculateParts.js');
 include('helpers/showParts.js'); 
-include('helpers/testoutputfile.js');
+// include('helpers/testoutputfile.js');
 
 // Function to include many javascript files
 function include(file) {
@@ -26,6 +26,7 @@ let twoByThree = new Frac(2, 3) 	//	Fraction(2).div(3)
 let oneByFour = new Frac(1, 4) 		//	Fraction(1).div(4)
 let oneBySix = new Frac(1, 6) 		//	Fraction(1).div(6)
 let oneByEight = new Frac(1, 8) 	//	Fraction(1).div(8)
+let zero = new Frac(0, 1) 			//	Fraction(0).div(1)
 
 let imam = "hanfi"
 

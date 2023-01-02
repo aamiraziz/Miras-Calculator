@@ -206,7 +206,7 @@ function showParts() {
 	
 	// Put only the available relatives in zaweAlFaroozArr array to selectedZaweAlFaroozArr array
 	for ( let i = 0, z = 0; z < zaweAlFaroozArr.length; z++ ) {
-		if ( zaweAlFaroozArr[z][0] !== 0 ) {
+		if ( zaweAlFaroozArr[z][0] !== 0 && zaweAlFaroozArr[z][1] !== zero ) {
 
 			selectedZaweAlFaroozArr[i] = zaweAlFaroozArr[z]
 			// console.log(`selectedZaweAlFaroozArr[${i}] = ${selectedZaweAlFaroozArr[i]}}`)
@@ -222,23 +222,27 @@ function showParts() {
 		} 
 	}
 
-	/*
+	
 	// check to solve the problem 
 	if (parseFloat(zaweAlFaroozSum) === 1 || parseFloat(zaweAlFaroozSum) > 1) {
 		// if zaweAlFaroozSum is greater than 1 or equal to 1 then solve the zaweAlFaroozSum problem and the parts are their parts
 		console.log(`Solve zawe al farooz and these are their parts`)
 
+		
 		zaweAlFarooz1stLCM = nerdamer(`lcm(${zaweAlFaroozDenominatorArr})`) // First LCM
 		console.log(`zaweAlFarooz1stLCM = ${zaweAlFarooz1stLCM}`)
 		console.log(`secondLCM = ${secondLCM}`)
 
+		
 		if(!secondLCM) {			
 			// outputParts = 24
 			for (let i = 0; i < selectedZaweAlFaroozArr.length; i++) {
 				// Assign 2D array to a new array
 				// Array       =	Name, Value, Part * LCM
 				outputArray[i] = [selectedZaweAlFaroozArr[i][3], selectedZaweAlFaroozArr[i][0], selectedZaweAlFaroozArr[i][1] * zaweAlFarooz1stLCM]
+				outputParts += selectedZaweAlFaroozArr[i][1] * zaweAlFarooz1stLCM
 			}
+
 		} else {
 			// this loop will fill the array of numbers required for the second LCM
 			for (let i = 0; i < selectedZaweAlFaroozArr.length; i++) {
@@ -264,7 +268,7 @@ function showParts() {
 				(( selectedZaweAlFaroozArr[i][1] * zaweAlFarooz1stLCM * zaweAlFarooz2ndLCM ) / selectedZaweAlFaroozArr[i][0])]
 				outputParts += (( selectedZaweAlFaroozArr[i][1] * zaweAlFarooz1stLCM ) * zaweAlFarooz2ndLCM)
 			}			
-		}
+		} 
 
 		// console.table(`outputArray: ${outputArray}`)
 
@@ -281,7 +285,7 @@ function showParts() {
 		// then solve the zaweAlFaroozSum problem and use رد کا عمل
 		console.log(`if asbat not present in absabt chart is selected then`)
 		console.log(`رد کا عمل استعمال کریں`)
-	} */
+	} 
 	
 
 
