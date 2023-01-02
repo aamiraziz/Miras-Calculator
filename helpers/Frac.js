@@ -33,12 +33,12 @@ class Frac {
   
     // numerator() { return this.n }
     // denominator() { return this.d }
-    numerator() { return this.n / gcd_two_numbers(this.n, this.d) }
-    denominator() { return this.d / gcd_two_numbers(this.n, this.d)}
+    numerator() { return this.n / GCD(this.n, this.d) }
+    denominator() { return this.d / GCD(this.n, this.d)}
 }
 
 // calculate GCD
-function gcd_two_numbers(x, y) {
+function GCD(x, y) {
   if ((typeof x !== 'number') || (typeof y !== 'number')) 
     return false;
   x = Math.abs(x);

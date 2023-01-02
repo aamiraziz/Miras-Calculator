@@ -1,12 +1,12 @@
 /* Include Many js files */
-include('public/outputValues.js');
-include('public/elementIds.js');
-include('public/eventListeners.js');
-include('public/existance.js');
-include('public/grandParentType.js');
-include('public/calculateParts.js');
-include('public/showParts.js'); 
-// include('public/testoutputfile.js');
+// include('helpers/outputValues.js');
+include('helpers/elementIds.js');
+include('helpers/eventListeners.js');
+include('helpers/existance.js');
+include('helpers/grandParentType.js');
+include('helpers/calculateParts.js');
+include('helpers/showParts.js'); 
+include('helpers/testoutputfile.js');
 
 // Function to include many javascript files
 function include(file) {

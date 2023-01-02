@@ -222,6 +222,7 @@ function showParts() {
 		} 
 	}
 
+	/*
 	// check to solve the problem 
 	if (parseFloat(zaweAlFaroozSum) === 1 || parseFloat(zaweAlFaroozSum) > 1) {
 		// if zaweAlFaroozSum is greater than 1 or equal to 1 then solve the zaweAlFaroozSum problem and the parts are their parts
@@ -280,7 +281,7 @@ function showParts() {
 		// then solve the zaweAlFaroozSum problem and use رد کا عمل
 		console.log(`if asbat not present in absabt chart is selected then`)
 		console.log(`رد کا عمل استعمال کریں`)
-	}
+	} */
 	
 
 
