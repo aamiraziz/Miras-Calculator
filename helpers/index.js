@@ -1,12 +1,13 @@
 /* Include Many js files */
-include('public/outputValues.js');
-include('public/elementIds.js');
-include('public/eventListeners.js');
-include('public/existance.js');
-include('public/grandParentType.js');
-include('public/calculateParts.js');
-include('public/showParts.js'); 
-// include('public/testoutputfile.js');
+include('helpers/outputValues.js');
+include('helpers/elementIds.js');
+include('helpers/eventListeners.js');
+include('helpers/existance.js');
+include('helpers/grandParentType.js');
+include('helpers/calculateParts.js');
+include('helpers/showParts.js'); 
+include('helpers/solve.js');
+// include('test/testoutputfile.js');
 
 // Function to include many javascript files
 function include(file) {
@@ -26,6 +27,7 @@ let twoByThree = new Frac(2, 3) 	//	Fraction(2).div(3)
 let oneByFour = new Frac(1, 4) 		//	Fraction(1).div(4)
 let oneBySix = new Frac(1, 6) 		//	Fraction(1).div(6)
 let oneByEight = new Frac(1, 8) 	//	Fraction(1).div(8)
+let zero = new Frac(0, 1) 			//	Fraction(0).div(1)
 
 let imam = "hanfi"
 
@@ -42,10 +44,13 @@ let zaweAlFaroozArr = [[]]
 let selectedZaweAlFaroozArr = [[]]
 
 // this array will contain the denominator of all zawe al farooz
-let zaweAlFaroozDenominatorArr = [], zaweAlFaroozLCM
+let zaweAlFaroozDenominatorArr = [], zaweAlFarooz1stLCM, zaweAlFarooz2ndLCM, zaweAlFarooz2ndLCMArr = []
 
 // this  array will contain the sum of all zawe al farooz parts
-let zaweAlFaroozSum
+let zaweAlFaroozSum, tempNumerator = 0, tempDenominator = 0
+
+// this variable will become true when value of any relative is greater than 1
+let secondLCM = false
 
 // this contains only the asbat of first page in interface.
 let asbatExists
@@ -62,33 +67,26 @@ let outputArray	= [[]]	// shows the total number of output rows in the output ta
 let outputArrayLength = 0	// shows the total number of elements in the outputArray
 
 // the value of these variables are in intergers or float
-let husbandArr, husbandVal, husbandPerHead, husbandName,	// For husband
-	wifeArr, wifeVal, wifePerHead, wifeName,				// For wife
-	daughterArr, daughterVal, daughterPerHead, daughterName,	// For Daughter(s)
-	sDaughterArr, sDaughterVal, sDaughterPerHead, sDaughterName, // For sDaughter(s)
-	ssDaughterArr, ssDaughterVal, ssDaughterPerHead, ssDaughterName,	// For ssDaughter(s)
-	sssDaughterArr, sssDaughterVal, sssDaughterPerHead, sssDaughterName,	// For sssDaughter(s)	
-	fatherArr, fatherVal, fatherPerHead, fatherName,	// For Father
-	motherArr, motherVal, motherPerHead, motherName,	// For Mother
-	rSisterArr, rSisterVal, rSisterPerHead, rSisterName, // For Real Sister(s)
-	pSisterArr, pSisterVal, pSisterPerHead, pSisterName, // For Paternal Sister(s)
-	mBroArr, mBrotherVal, mBroParts, mBrotherName, totalBroSis, maternalPerHead, // For maternal brothers array
-	mSisArr, mSisterVal, mSisParts, mSisterName, // For maternal sisters array
-	gfArr, grandFatherVal, gfPerHead, gfName, 		// For grand father's array -- done	
-	gmArr, grandMotherVal, gmPerHead, gmName,		// For grand mother's array -- done
+let husbandArr, husbandVal, husbandName,	// For husband
+	wifeArr, wifeVal, wifeName,				// For wife
+	daughterArr, daughterVal, daughterName,	// For Daughter(s)
+	sDaughterArr, sDaughterVal, sDaughterName, // For sDaughter(s)
+	ssDaughterArr, ssDaughterVal, ssDaughterName,	// For ssDaughter(s)
+	sssDaughterArr, sssDaughterVal, sssDaughterName,	// For sssDaughter(s)	
+	fatherArr, fatherVal, fatherName,	// For Father
+	motherArr, motherVal, motherName,	// For Mother
+	rSisterArr, rSisterVal, rSisterName, // For Real Sister(s)
+	pSisterArr, pSisterVal, pSisterName, // For Paternal Sister(s)
+    mSisArr, mBroSisName, totalBroSis, // For maternal brothers / sisters array
+	gfArr, grandFatherVal, gfName, 		// For grand father's array -- done	
+	gmArr, grandMotherVal, gmName,		// For grand mother's array -- done
 	// above are zawe al farooz		
-	rBrotherArr, rBrotherVal, rBrotherPerHead, rBrotherName,	// For Real Brother(s)
-	pBrotherArr, pBrotherVal, pBrotherPerHead, pBrotherName,	// For Paternal Brother(s)
-	sonArr, sonVal, sonPerHead, sonName,	// For son(s)	
-	sSonArr, sSonVal, sSonPerHead, sSonName,	// For sSon(s)
-	ssSonArr, ssSonVal, ssSonPerHead, ssSonName,	// For ssSon(s)
-	sssSonArr, sssSonVal, sssSonPerHead, sssSonName	// For sssSon(s)
-
-// this is the 2D array which will hold the details of all available relatives in form of first page
-// let availableRelatives  // = [ husbandArr, wifeArr, daughterArr, sDaughterArr, ssDaughterArr, sssDaughterArr, fatherArr,
-						//	motherArr, rSisterArr, pSisterArr, mSisArr, mBroArr, gfArr, gmArr, rBrotherArr, pBrotherArr, 
-						//	sonArr, sSonArr, ssSonArr, sssSonArr ]
-						 
+	rBrotherArr, rBrotherVal, rBrotherName,	// For Real Brother(s)
+	pBrotherArr, pBrotherVal, pBrotherName,	// For Paternal Brother(s)
+	sonArr, sonVal, sonName,	// For son(s)	
+	sSonArr, sSonVal, sSonName,	// For sSon(s)
+	ssSonArr, ssSonVal, ssSonName,	// For ssSon(s)
+	sssSonArr, sssSonVal, sssSonName	// For sssSon(s)
 
 // Submit Button Function
 submitBtn.addEventListener('click', function() {
@@ -99,6 +97,11 @@ submitBtn.addEventListener('click', function() {
 
 
 /* 
+// this is the 2D array which will hold the details of all available relatives in form of first page
+// let availableRelatives  // = [ husbandArr, wifeArr, daughterArr, sDaughterArr, ssDaughterArr, sssDaughterArr, fatherArr,
+						//	motherArr, rSisterArr, pSisterArr, mSisArr, mBroArr, gfArr, gmArr, rBrotherArr, pBrotherArr, 
+						//	sonArr, sSonArr, ssSonArr, sssSonArr ]
+						 
 
 zaweAlFaroozArr = [husbandArr, wifeArr, daughterArr, sDaughterArr, ssDaughterArr, sssDaughterArr, fatherArr, motherArr, 
 	rSisterArr, pSisterArr, mBroArr, mSisArr, gfArr, gmArr]
