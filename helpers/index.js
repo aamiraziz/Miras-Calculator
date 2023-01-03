@@ -1,3 +1,13 @@
+/*
+	* This is the main entry point file 
+	* This file includes many javascript files
+	* In this file maximum variables are declared
+	* Khanqah Rehmkariya Imdadia
+	* Copyright (c) 2023 ~ 2123
+	* Development Started on August 2022
+	* Documentation Started on January 03, 2023
+*/
+
 /* Include Many js files */
 include('helpers/outputValues.js');
 include('helpers/elementIds.js');

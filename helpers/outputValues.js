@@ -1,11 +1,11 @@
-// test file for output 
-// testoutputfile
-// function outputAllValues() {
-//     let name = "Abd Ur Rehman"
-// 	let Phrase = `My name is ${name}`
-//   document.getElementById("main").innerHTML = Phrase;
-// }
-
+/*
+    * This file shows the output screen
+    * All the results are stored in outputArray
+    * Khanqah Rehmkariya Imdadia
+    * Copyright (c) 2023 ~ 2123
+    * Development Started on August 2022
+    * Documentation Started on January 03, 2023
+*/
 
 
 // Output all values just for testing purpose.

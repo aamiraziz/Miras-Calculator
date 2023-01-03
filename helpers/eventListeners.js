@@ -1,3 +1,14 @@
+/*
+    * This file contains all the event listeners and their handlers
+    * These event listeners and their handlers are written for index.html file
+    * There is only one index.html file lies in the root directory
+    * Khanqah Rehmkariya Imdadia
+    * Copyright (c) 2023 ~ 2123
+    * Development Started on August 2022
+    * Documentation Started on January 03, 2023
+*/
+
+
 // Event Listener on Fiqah Method
 // this eventListener will give the name of imam
 method.addEventListener('change', function() {

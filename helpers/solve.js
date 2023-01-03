@@ -1,3 +1,13 @@
+/*
+	* This file contains the functions which solves the problem.
+	* All necessary data in the form of array is given to function in this file.
+	* This function will perform computation and stores the result in output array
+	* Khanqah Rehmkariya Imdadia
+	* Copyright (c) 2023 ~ 2123
+	* Development Started on August 2022
+	* Documentation Started on January 03, 2023
+*/
+
 function solveZAF(zaweAlFaroozArr) {
 
     	// Put only the available relatives in zaweAlFaroozArr array to selectedZaweAlFaroozArr array

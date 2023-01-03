@@ -1,3 +1,13 @@
+/*
+	* This file will show and perform computations on every heir's part
+	* Many functions writeen in different files are called here
+	* khanqah Rehmkariya Imdadia
+	* Copyright (c) 2023 ~ 2123
+	* Development Started on August 2022
+	* Documentation Started on January 03, 2023
+*/
+
+
 // Show Parts
 function showParts() {
 

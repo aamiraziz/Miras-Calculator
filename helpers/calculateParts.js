@@ -1,3 +1,12 @@
+/*
+    * This file contains the functions for every zawe al farooz heir
+    * functions for other than zawe al farooz heirs are written but they return zero for the time being
+    * the return value of every function is object which is written in Frac.js in lib folder
+    * Khanqah Rehmkariya Imdadia
+    * Copyright (c) 2023 ~ 2123
+	* Development Started on August 2022
+	* Documentation Started on January 03, 2023
+*/
 
 // Calculates Husband Part (شوہر)
 function calculateHusbandPart() {

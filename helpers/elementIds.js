@@ -1,3 +1,12 @@
+/*
+    * This file contains the all the element ids of index.html file
+    * These ids are stored in the variables to get their different properties
+    * Khanqah Rehmkariya Imdadia
+    * Copyright (c) 2023 ~ 2123
+	* Development Started on August 2022
+	* Documentation Started on January 03, 2023
+*/
+
 // Note on Top 
 let note = document.getElementById('note')
 

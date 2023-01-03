@@ -1,3 +1,12 @@
+/*
+    * This file contains the check of relatives
+    * For instance, Ikhwa Check, Childern Check and etc
+    * Khanqah Rehmkariya Imdadia
+    * Copyright (c) 2023 ~ 2123
+	* Development Started on August 2022
+	* Documentation Started on January 03, 2023
+*/
+
 
 // checks son/daughter or any of their offspring.
 function childernCheck() {
