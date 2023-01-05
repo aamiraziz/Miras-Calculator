@@ -11,11 +11,11 @@
 // Show Parts
 function showParts() {
 
-	// Existance
-	asbatExists = asbatCheck()			// if asbat exists then it will return true
+	// Existance necessary to get parts
+	// asbatExists = asbatCheck()			// if asbat exists then it will return true
+	// asbatExists ? console.log(`Asbat Exists`) : console.log(`Asbat Does Not Exists`)
     childernExists = childernCheck()	// If childern exists then it will return true
 	ikhwaExists = ikhwaCheck()			// if ikhwa exists then it will return true
-	asbatExists ? console.log(`Asbat Exists`) : console.log(`Asbat Does Not Exists`)
 
 	// Calculates Husband Part
 	husbandPart = calculateHusbandPart()
@@ -83,7 +83,10 @@ function showParts() {
     // ------------------------------------------------------------------
     // ---------------------------- Calculations ------------------------
     // ------------------------------------------------------------------
-
+	
+	asbatExists = asbatCheck()			// if asbat exists then it will return true
+	asbatExists ? console.log(`Asbat Exists`) : console.log(`Asbat Does Not Exists`)
+	
 	// ------------------------------------
 	// ---- Zawe Al Farooz Starts Here ----
 	// ------------------------------------

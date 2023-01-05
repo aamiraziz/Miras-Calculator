@@ -95,16 +95,18 @@ function asbatCheck() {
     let ACArr = []
 
     // Real Sister(s) present
-    if (parseInt(rSister.value) > 0) {rSisterAsba = true}
+    if (parseInt(rSister.value) > 0 && rSisterPart === zero) {rSisterAsba = true}
+    // console.log(`rSisterAsba: ${rSisterAsba}`)
 
     // paternal sister(s) present
-    if (parseInt(pSister.value) > 0) {pSisterAsba = true}
-
-    // father present
-    if (parseInt(father.value) > 0) {fatherAsba = true}
-
-    // Grandfather present
-    if (parseInt(grandFather.value) > 0) {grandFatherAsba = true}
+    if (parseInt(pSister.value) > 0 && pSisterPart === zero)  {
+        // in absence of paternal brother, if real sister is more than 1 
+        // then paternal sister can not become asba
+        if (parseInt(rSister.value) < 2 || parseInt(pBrother.value) > 0) {
+            pSisterAsba = true
+        }
+    }
+    // console.log(`pSisterAsba: ${pSisterAsba}`)
 
     // daughter present
     if (parseInt(daughter.value) > 0) { 
@@ -114,6 +116,7 @@ function asbatCheck() {
         }
 
     }
+    // console.log(`daughterAsba: ${daughterAsba}`)
 
     // sDaughter present
     if (parseInt(sDaughter.value) > 0) { 
@@ -123,6 +126,7 @@ function asbatCheck() {
         }
 
     }
+    // console.log(`sDaughterAsba: ${sDaughterAsba}`)
 
     // ssDaughter present
     if (parseInt(ssDaughter.value) > 0) { 
@@ -132,6 +136,7 @@ function asbatCheck() {
         }
 
     }
+    // console.log(`ssDaughterAsba: ${ssDaughterAsba}`)
 
     // sssDaughter present
     if (parseInt(sssDaughter.value) > 0) { 
@@ -141,8 +146,42 @@ function asbatCheck() {
         }
 
     }
+    // console.log(`sssDaughterAsba: ${sssDaughterAsba}`)
 
-    ACArr = [rSisterAsba, pSisterAsba, fatherAsba, grandFatherAsba, daughterAsba, sDaughterAsba, ssDaughterAsba, sssDaughterAsba]
+    // father present
+    if (parseInt(father.value) > 0) {fatherAsba = true}
+    // console.log(`fatherAsba: ${fatherAsba}`)
+
+    // Grandfather present
+    if (parseInt(grandFather.value) > 0) {grandFatherAsba = true}
+    // console.log(`grandFatherAsba: ${grandFatherAsba}`)
+
+    // Paternal Brother present
+    if (parseInt(pBrother.value) > 0) {pBrotherAsba = true}
+    // console.log(`pBrotherAsba: ${pBrotherAsba}`)
+
+    // Real Brother present
+    if (parseInt(rBrother.value) > 0) {rBrotherAsba = true}
+    // console.log(`rBrotherAsba: ${rBrotherAsba}`)
+
+    // Son present
+    if (parseInt(son.value) > 0) {sonAsba = true}
+    // console.log(`sonAsba: ${sonAsba}`)
+
+    // sSon present
+    if (parseInt(sSon.value) > 0) {sSonAsba = true}
+    // console.log(`sSonAsba: ${sSonAsba}`)
+
+    // ssSon present
+    if (parseInt(ssSon.value) > 0) {ssSonAsba = true}
+    // console.log(`ssSonAsba: ${ssSonAsba}`)
+
+    // sssSon present
+    if (parseInt(sssSon.value) > 0) {sssSonAsba = true}
+    // console.log(`sssSonAsba: ${sssSonAsba}`)
+
+    ACArr = [rSisterAsba, pSisterAsba, daughterAsba, sDaughterAsba, ssDaughterAsba, sssDaughterAsba, 
+            fatherAsba, grandFatherAsba, pBrotherAsba, rBrotherAsba, sonAsba, sSonAsba, ssSonAsba, sssSonAsba]
 
     if (ACArr.indexOf(true) >= 0) {return true}
 

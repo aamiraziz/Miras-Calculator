@@ -78,7 +78,8 @@ let outputArrayLength = 0	// shows the total number of elements in the outputArr
 
 // For Asbat Check
 let rSisterAsba = false, pSisterAsba = false, fatherAsba = false, grandFatherAsba = false, daughterAsba = false,
-        sDaughterAsba = false, ssDaughterAsba = false, sssDaughterAsba = false
+        sDaughterAsba = false, ssDaughterAsba = false, sssDaughterAsba = false, 
+		rBrotherAsba = false, pBrotherAsba = false, sonAsba = false, sSonAsba = false, ssSonAsba = false, sssSonAsba = false
 
 // the value of these variables are in intergers or float
 let husbandArr, husbandVal, husbandName,	// For husband
