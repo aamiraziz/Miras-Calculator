@@ -76,6 +76,10 @@ let outputParts	= 0	// shows the total number of output parts
 let outputArray	= [[]]	// shows the total number of output rows in the output table
 let outputArrayLength = 0	// shows the total number of elements in the outputArray
 
+// For Asbat Check
+let rSisterAsba = false, pSisterAsba = false, fatherAsba = false, grandFatherAsba = false, daughterAsba = false,
+        sDaughterAsba = false, ssDaughterAsba = false, sssDaughterAsba = false
+
 // the value of these variables are in intergers or float
 let husbandArr, husbandVal, husbandName,	// For husband
 	wifeArr, wifeVal, wifeName,				// For wife

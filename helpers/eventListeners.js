@@ -144,6 +144,7 @@ husband.addEventListener('change', function() {
         // Shows Grand Mother option
         grandMother.style.display='inline'
         grandMotherText.style.display='inline'
+
       }
   
   }) 
@@ -183,6 +184,10 @@ husband.addEventListener('change', function() {
         // uncheck GrandMother check box
         grandMother.value = 0
         grandMother.checked = false
+
+        // Shows Mother option
+        mother.style.display='inline'
+        motherText.style.display='inline'
     }
   
   })
@@ -301,9 +306,33 @@ husband.addEventListener('change', function() {
   // Event Listener on Grand Mother's Back Button
   backBtnGM.addEventListener('click', function() {
 
+    // if not listed option is selected in grand Mother type
+    if (nl.checked) {
+      mm.checked = false
+      mf.checked = false
+
+      mmm.checked = false
+      mfm.checked = false
+      mff.checked = false
+
+      mmmm.checked = false
+      mmfm.checked = false
+      mmff.checked = false
+      mfff.checked = false
+          
+      // uncheck GrandMother check box
+      grandMother.value = 0
+      grandMother.checked = false
+
+      // Shows Mother option
+      mother.style.display = 'inline'
+      motherText.style.display = 'inline'
+      
+    }
+
     // if father and mother is not selected then do not go back 
     // provide an error to select grandmother type
-    if (
+    if ( nl.checked === false &&
       mm.checked === false && mmm.checked === false && mmmm.checked === false && mf.checked === false && 
       mfm.checked === false && mff.checked === false && mmfm.checked === false && mmff.checked === false 
       && mfff.checked === false) {
@@ -311,11 +340,12 @@ husband.addEventListener('change', function() {
         gmTypeError.style.display = 'block'
         gmTypeError.style.color = 'Red'
 
-    } 
-    else {
+    } else {
       gmType.style.display = 'none'  
       pType.style.display = 'block'
       submitBtn.style.display = 'block'
+      // uncheck the notlisted option
+      nl.checked = false
     }
 
   })

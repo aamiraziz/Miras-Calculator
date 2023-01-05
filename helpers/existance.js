@@ -91,12 +91,65 @@ function sssSonExists() {
 
 // if real brother, paternal brother, son, sSon, ssSon or sssSon exists then asbat are present
 function asbatCheck() {
+
+    let ACArr = []
+
+    // Real Sister(s) present
+    if (parseInt(rSister.value) > 0) {rSisterAsba = true}
+
+    // paternal sister(s) present
+    if (parseInt(pSister.value) > 0) {pSisterAsba = true}
+
+    // father present
+    if (parseInt(father.value) > 0) {fatherAsba = true}
+
+    // Grandfather present
+    if (parseInt(grandFather.value) > 0) {grandFatherAsba = true}
+
+    // daughter present
+    if (parseInt(daughter.value) > 0) { 
+        
+        if ( parseInt(son.value) > 0 || parseInt(sSon.value) > 0 || parseInt(ssSon.value) > 0 || parseInt(sssSon.value) > 0 ) {
+            daughterAsba = true
+        }
+
+    }
+
+    // sDaughter present
+    if (parseInt(sDaughter.value) > 0) { 
+        
+        if ( parseInt(son.value) === 0 && (parseInt(sSon.value) > 0 || parseInt(ssSon.value) > 0 || parseInt(sssSon.value) > 0) ) {
+            sDaughterAsba = true
+        }
+
+    }
+
+    // ssDaughter present
+    if (parseInt(ssDaughter.value) > 0) { 
+        
+        if ( parseInt(son.value) === 0 && parseInt(sSon.value) === 0 && (parseInt(ssSon.value) > 0 || parseInt(sssSon.value) > 0) ) {
+            ssDaughterAsba = true
+        }
+
+    }
+
+    // sssDaughter present
+    if (parseInt(sssDaughter.value) > 0) { 
+        
+        if ( parseInt(son.value) === 0 && parseInt(sSon.value) === 0 && parseInt(ssSon.value) === 0 && parseInt(sssSon.value) > 0 ) {
+            sssDaughterAsba = true
+        }
+
+    }
+
+    ACArr = [rSisterAsba, pSisterAsba, fatherAsba, grandFatherAsba, daughterAsba, sDaughterAsba, ssDaughterAsba, sssDaughterAsba]
+
+    if (ACArr.indexOf(true) >= 0) {return true}
+
     if (parseInt(rBrother.value) === 0 && parseInt(pBrother.value) === 0 && parseInt(son.value) === 0 && 
         parseInt(sSon.value) === 0 && parseInt(ssSon.value) === 0 && parseInt(sssSon.value) === 0) {
-        console.log("Asbat Not Present")
         return false
-    } else {
-        console.log("Asbat Present")
-        return true
     }
+
+    // return true
 }

@@ -12,9 +12,10 @@
 function showParts() {
 
 	// Existance
+	asbatExists = asbatCheck()			// if asbat exists then it will return true
     childernExists = childernCheck()	// If childern exists then it will return true
 	ikhwaExists = ikhwaCheck()			// if ikhwa exists then it will return true
-	asbatExists = asbatCheck()			// if asbat exists then it will return true
+	asbatExists ? console.log(`Asbat Exists`) : console.log(`Asbat Does Not Exists`)
 
 	// Calculates Husband Part
 	husbandPart = calculateHusbandPart()
@@ -182,9 +183,21 @@ function showParts() {
 
 	gmArr = [grandMotherVal, grandMotherPart, gmName]
 
-	// If this sum (zaweAlFaroozSum) is equal to 1 or greater than 1 then all these parts are the zawe al farooz parts
-	// If this sum (zaweAlFaroozSum) is greater than 1 then go to asbat
-	// If this sum (zaweAlFaroozSum) is less than 1 but asbat not present then use رد کا طریقہ
+	/*
+		APPLICATION lOGIC:
+		==================
+
+		* If this sum (zaweAlFaroozSum) is equal to 1 or greater than 1 then all these parts are the zawe al farooz parts
+
+		* If this sum (zaweAlFaroozSum) is Less than 1 and asbat is/are present in the first page of interface,
+		  then first solve the zaweAlFarooz problem and then asbat problem
+
+		* If this sum (zaweAlFaroozSum) is Less than 1 and asbat is not present in the first page of interface,
+		  then go the second page of interface and select the asbat (from chart).
+
+		* If this sum (zaweAlFaroozSum) is less than 1 but asbat not present then use رد کا طریقہ
+	*/
+
 	// CHECK PARTS
 	zaweAlFaroozSum = husbandPart + wifePart + daughterPart + sDaughterPart + ssDaughterPart + 
 						sssDaughterPart + fatherPart + motherPart + rSisterPart + pSisterPart 

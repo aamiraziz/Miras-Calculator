@@ -12,6 +12,7 @@ function solveZAF(zaweAlFaroozArr) {
 
     	// Put only the available relatives in zaweAlFaroozArr array to selectedZaweAlFaroozArr array
 		for ( let i = 0, z = 0; z < zaweAlFaroozArr.length; z++ ) {
+			// value !== 0 and part !== 0
 			if ( zaweAlFaroozArr[z][0] !== 0 && zaweAlFaroozArr[z][1] !== zero ) {
 
 				selectedZaweAlFaroozArr[i] = zaweAlFaroozArr[z]
