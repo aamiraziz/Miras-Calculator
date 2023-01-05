@@ -89,7 +89,11 @@ function sssSonExists() {
     }
 }
 
-// if real brother, paternal brother, son, sSon, ssSon or sssSon exists then asbat are present
+/*
+    * This function will check the presence of asbat present in the front form of application
+    * This function also have a call to eligibleAsba() which filters asbat i.e.
+    * only the eligible asbat value will remain true and not eligible asbat value will become false
+*/
 function asbatCheck() {
 
     let ACArr = []
@@ -180,8 +184,22 @@ function asbatCheck() {
     if (parseInt(sssSon.value) > 0) {sssSonAsba = true}
     // console.log(`sssSonAsba: ${sssSonAsba}`)
 
-    ACArr = [rSisterAsba, pSisterAsba, daughterAsba, sDaughterAsba, ssDaughterAsba, sssDaughterAsba, 
-            fatherAsba, grandFatherAsba, pBrotherAsba, rBrotherAsba, sonAsba, sSonAsba, ssSonAsba, sssSonAsba]
+    // ACArr = [rSisterAsba, pSisterAsba, daughterAsba, sDaughterAsba, ssDaughterAsba, sssDaughterAsba, 
+    //         fatherAsba, grandFatherAsba, pBrotherAsba, rBrotherAsba, sonAsba, sSonAsba, ssSonAsba, sssSonAsba]
+    ACArr = [
+        sonAsba, daughterAsba,
+        sSonAsba, sDaughterAsba,
+        ssSonAsba, ssDaughterAsba,
+        sssSonAsba, sssDaughterAsba,
+        fatherAsba, grandFatherAsba,
+        rBrotherAsba, rSisterAsba,
+        pSisterAsba, pBrotherAsba
+    ]
+
+    eligibleAsba()
+
+    // for checking in console, comment it after testing
+    eligibleAsbaOutputCheck()
 
     if (ACArr.indexOf(true) >= 0) {return true}
 
@@ -191,4 +209,202 @@ function asbatCheck() {
     }
 
     // return true
+}
+
+/*
+    * This function will filter the eligible asbat and the remaining will become not eligible
+    * This function is called within asbatCheck() to change the values for eligible asbat
+*/
+function eligibleAsba() {
+
+    // if son is present
+    if (sonAsba) {
+        [
+            // sonAsba, daughterAsba,
+            sSonAsba, sDaughterAsba,
+            ssSonAsba, ssDaughterAsba,
+            sssSonAsba, sssDaughterAsba,
+            fatherAsba, grandFatherAsba,
+            rBrotherAsba, rSisterAsba,
+            pBrotherAsba, pSisterAsba
+        ] = [
+            //false, false,
+            false, false,
+            false, false,
+            false, false,
+            false, false,
+            false, false,
+            false, false
+        ]
+    }
+
+    // if sSon is present
+    if (sSonAsba) {
+        [
+            // sonAsba, daughterAsba,
+            // sSonAsba, sDaughterAsba,
+            ssSonAsba, ssDaughterAsba,
+            sssSonAsba, sssDaughterAsba,
+            fatherAsba, grandFatherAsba,
+            rBrotherAsba, rSisterAsba,
+            pBrotherAsba, pSisterAsba
+        ] = [
+            // false, false,
+            // false, false,
+            false, false,
+            false, false,
+            false, false,
+            false, false,
+            false, false
+        ]
+    }
+
+    // if ssSon is present
+    if (ssSonAsba) {
+        [
+            // sonAsba, daughterAsba,
+            // sSonAsba, sDaughterAsba,
+            // ssSonAsba, ssDaughterAsba,
+            sssSonAsba, sssDaughterAsba,
+            fatherAsba, grandFatherAsba,
+            rBrotherAsba, rSisterAsba,
+            pBrotherAsba, pSisterAsba
+        ] = [
+            // false, false,
+            // false, false,
+            // false, false,
+            false, false,
+            false, false,
+            false, false,
+            false, false
+        ]
+    }
+
+    // if sssSon is present
+    if (sssSonAsba) {
+        [
+            // sonAsba, daughterAsba,
+            // sSonAsba, sDaughterAsba,
+            // ssSonAsba, ssDaughterAsba,
+            // sssSonAsba, sssDaughterAsba,
+            fatherAsba, grandFatherAsba,
+            rBrotherAsba, rSisterAsba,
+            pBrotherAsba, pSisterAsba
+        ] = [
+            // false, false,
+            // false, false,
+            // false, false,
+            // false, false,
+            false, false,
+            false, false,
+            false, false
+        ]
+    }
+
+    // if fatherAsba is present
+    if (fatherAsba) {
+        [
+            // sonAsba, daughterAsba,
+            // sSonAsba, sDaughterAsba,
+            // ssSonAsba, ssDaughterAsba,
+            // sssSonAsba, sssDaughterAsba,
+            // fatherAsba, 
+            grandFatherAsba,
+            rBrotherAsba, rSisterAsba,
+            pBrotherAsba, pSisterAsba
+        ] = [
+            // false, false,
+            // false, false,
+            // false, false,
+            // false, false,
+            // false, 
+            false,
+            false, false,
+            false, false
+        ]
+    }
+
+    // if grandFatherAsba is present
+    if (grandFatherAsba) {
+        [
+            // sonAsba, daughterAsba,
+            // sSonAsba, sDaughterAsba,
+            // ssSonAsba, ssDaughterAsba,
+            // sssSonAsba, sssDaughterAsba,
+            // fatherAsba, grandFatherAsba,
+            rBrotherAsba, rSisterAsba,
+            pBrotherAsba, pSisterAsba
+        ] = [
+            // false, false,
+            // false, false,
+            // false, false,
+            // false, false,
+            // false, false,
+            false, false,
+            false, false
+        ]
+    }
+
+     // if rBrotherAsba is present
+     if (rBrotherAsba || rSisterAsba) {
+        [
+            // sonAsba, daughterAsba,
+            // sSonAsba, sDaughterAsba,
+            // ssSonAsba, ssDaughterAsba,
+            // sssSonAsba, sssDaughterAsba,
+            // fatherAsba, grandFatherAsba,
+            // rBrotherAsba, rSisterAsba,
+            pBrotherAsba, pSisterAsba
+        ] = [
+            // false, false,
+            // false, false,
+            // false, false,
+            // false, false,
+            // false, false,
+            // false, false,
+            false, false
+        ]
+    }
+
+    // if rBrotherAsba is present
+    if (pBrotherAsba || pSisterAsba) {
+        [
+            // sonAsba, daughterAsba,
+            // sSonAsba, sDaughterAsba,
+            // ssSonAsba, ssDaughterAsba,
+            // sssSonAsba, sssDaughterAsba,
+            // fatherAsba, grandFatherAsba,
+            // rBrotherAsba, rSisterAsba,
+            // pBrotherAsba, pSisterAsba
+        ] = [
+            // false, false,
+            // false, false,
+            // false, false,
+            // false, false,
+            // false, false,
+            // false, false,
+            // false, false
+        ]
+    }
+}
+
+function eligibleAsbaOutputCheck() {
+
+    console.log(`ACArr = [
+        sonAsba: ${sonAsba},
+        daughterAsba : ${daughterAsba},
+        sSonAsba : ${sSonAsba}, 
+        sDaughterAsba : ${sDaughterAsba},
+        ssSonAsba: ${ssSonAsba}, 
+        ssDaughterAsba: ${ssDaughterAsba},
+        sssSonAsba : ${sssSonAsba}, 
+        sssDaughterAsba : ${sssDaughterAsba},
+        fatherAsba: ${fatherAsba}, 
+        grandFatherAsba : ${grandFatherAsba},
+        rBrotherAsba : ${rBrotherAsba}, 
+        rSisterAsba : ${rSisterAsba}, 
+        pBrotherAsba : ${pBrotherAsba},
+        pSisterAsba : ${pSisterAsba}
+    ]`)
+
 }
