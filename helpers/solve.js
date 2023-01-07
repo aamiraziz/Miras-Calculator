@@ -8,7 +8,8 @@
 	* Documentation Started on January 03, 2023
 */
 
-function solveZAF(zaweAlFaroozArr) {
+// function solveZAF(zaweAlFaroozArr) {
+function solveZAF() {
 
     	// Put only the available relatives in zaweAlFaroozArr array to selectedZaweAlFaroozArr array
 		for ( let i = 0, z = 0; z < zaweAlFaroozArr.length; z++ ) {
@@ -17,7 +18,7 @@ function solveZAF(zaweAlFaroozArr) {
 
 				selectedZaweAlFaroozArr[i] = zaweAlFaroozArr[z]
 				zaweAlFaroozDenominatorArr[i] = parseInt(selectedZaweAlFaroozArr[i][1].denominator())
-				console.log(`zaweAlFaroozDenominatorArr[${i}] = ${zaweAlFaroozDenominatorArr[i]}`)
+				// console.log(`zaweAlFaroozDenominatorArr[${i}] = ${zaweAlFaroozDenominatorArr[i]}`) // test Statement
 
 				// check for second LCM
 				if ( selectedZaweAlFaroozArr[i][0] > 1) {
@@ -39,7 +40,7 @@ function solveZAF(zaweAlFaroozArr) {
 			for (let i = 0; i < selectedZaweAlFaroozArr.length; i++) {
 				// Assign 2D array to a new array
 				// Array       =	Name, Value, Part * LCM
-				outputArray[i] = [selectedZaweAlFaroozArr[i][2], selectedZaweAlFaroozArr[i][0], selectedZaweAlFaroozArr[i][1] * zaweAlFarooz1stLCM]
+				outputArray[i] = [selectedZaweAlFaroozArr[i][3], selectedZaweAlFaroozArr[i][0], selectedZaweAlFaroozArr[i][1] * zaweAlFarooz1stLCM]
 				outputParts += selectedZaweAlFaroozArr[i][1] * zaweAlFarooz1stLCM
 			}
 
@@ -64,7 +65,7 @@ function solveZAF(zaweAlFaroozArr) {
 			for (let i = 0; i < selectedZaweAlFaroozArr.length; i++) {
 				// Assign 2D array to a new array
 				// Array       =	Name, Value, ( Per Head = (Part * 1stLCM * 2ndLCM / value) )
-				outputArray[i] = [selectedZaweAlFaroozArr[i][2], selectedZaweAlFaroozArr[i][0], 
+				outputArray[i] = [selectedZaweAlFaroozArr[i][3], selectedZaweAlFaroozArr[i][0], 
 				(( selectedZaweAlFaroozArr[i][1] * zaweAlFarooz1stLCM * zaweAlFarooz2ndLCM ) / selectedZaweAlFaroozArr[i][0])]
 				outputParts += (( selectedZaweAlFaroozArr[i][1] * zaweAlFarooz1stLCM ) * zaweAlFarooz2ndLCM)
 			}			

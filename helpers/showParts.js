@@ -12,8 +12,6 @@
 function showParts() {
 
 	// Existance necessary to get parts
-	// asbatExists = asbatCheck()			// if asbat exists then it will return true
-	// asbatExists ? console.log(`Asbat Exists`) : console.log(`Asbat Does Not Exists`)
     childernExists = childernCheck()	// If childern exists then it will return true
 	ikhwaExists = ikhwaCheck()			// if ikhwa exists then it will return true
 
@@ -95,13 +93,13 @@ function showParts() {
 	husbandVal = parseInt(husband.value)
 	husbandName = husband.name
 
-	husbandArr = [husbandVal, husbandPart, husbandName]
+	husbandArr = [husbandVal, husbandPart, false, husbandName]
 
 	// ----Array For wife Caculations ----
 	wifeVal = parseInt(wife.value)
 	wifeName = wife.name
 
-	wifeArr = [wifeVal, wifePart, wifeName]
+	wifeArr = [wifeVal, wifePart, false, wifeName]
 
     // ---- Array for Daughter Calculations ----
 	daughterVal= parseInt(daughter.value)
@@ -111,55 +109,55 @@ function showParts() {
 	// console.log(`daughterPart.numerator() is ${daughterPart.numerator()}
 	// 			daughterPart.denominator() is ${daughterPart.denominator()}`)
 
-	daughterArr = [daughterVal, daughterPart, daughterName]
+	daughterArr = [daughterVal, daughterPart, daughterAsba, daughterName]
 
 	// ---- Array for sDaughter Calculations ----
 	sDaughterVal= parseInt(sDaughter.value)
 	sDaughterName = sDaughter.name
 
-	sDaughterArr = [sDaughterVal, sDaughterPart, sDaughterName]
+	sDaughterArr = [sDaughterVal, sDaughterPart, sDaughterAsba, sDaughterName]
 
 	// ---- Array for ssDaughter Calculations ----
 	ssDaughterVal= parseInt(ssDaughter.value)
 	ssDaughterName = ssDaughter.name
 
-	ssDaughterArr = [ssDaughterVal, ssDaughterPart, ssDaughterName]
+	ssDaughterArr = [ssDaughterVal, ssDaughterPart, ssDaughterAsba, ssDaughterName]
 
 	// ---- Array for sssDaughter Calculations ----
 	sssDaughterVal= parseInt(sssDaughter.value)
 	sssDaughterName = sssDaughter.name
 
-	sssDaughterArr = [sssDaughterVal, sssDaughterPart, sssDaughterName]
+	sssDaughterArr = [sssDaughterVal, sssDaughterPart, sssDaughterAsba, sssDaughterName]
 
 	// ---- Array for Father Calculations ----
 	fatherVal = parseInt(father.value)
 	fatherName = father.name
 
-	fatherArr = [fatherVal, fatherPart, fatherName] 
+	fatherArr = [fatherVal, fatherPart, fatherAsba, fatherName] 
 
 	// ---- Array for Mother Calculations ----
 	motherVal = parseInt(mother.value)
 	motherName = mother.name
 	
-	motherArr = [motherVal, motherPart, motherName] 
+	motherArr = [motherVal, motherPart, false, motherName] 
     
     // ---- Array For Real Sisters Calculations ----
 	rSisterVal = parseInt(rSister.value)
 	rSisterName = rSister.name
 
-	rSisterArr = [rSisterVal, rSisterPart, rSisterName]
+	rSisterArr = [rSisterVal, rSisterPart, rSisterAsba, rSisterName]
 
 	// ---- Array For Paternal Sisters Calculations ----
 	pSisterVal = parseInt(pSister.value)
 	pSisterName = pSister.name
 
-	pSisterArr = [pSisterVal, pSisterPart, pSisterName]
+	pSisterArr = [pSisterVal, pSisterPart, pSisterAsba, pSisterName]
 
 	// Maternal Brothers and sisters calculations
 	mBroSisName = "Maternal Brother(s) / Sister(s)"
 	totalBroSis = parseInt(mBrother.value) + parseInt(mSister.value)	// total number of brothers and sisters
 	
-	mSisArr = [totalBroSis, mBroSisPart, mBroSisName]	// maternal brother(s) / sister(s) array
+	mSisArr = [totalBroSis, mBroSisPart, false, mBroSisName]	// maternal brother(s) / sister(s) array
 
 	// ---- Array For grand Father Calculations	----
 	
@@ -167,7 +165,7 @@ function showParts() {
 	grandFatherVal = parseInt(grandFather.value) 			// decides the total number of grand father(s)
 	gfName = grandFatherType
 
-	gfArr = [grandFatherVal, grandFatherPart, gfName]
+	gfArr = [grandFatherVal, grandFatherPart, grandFatherAsba, gfName]
 
 	// ---- Array For Grand Mother Calculations ----
 
@@ -184,61 +182,8 @@ function showParts() {
 	// grandMotherPart										// decides the total parts of all grand mothers
 	gmName = grandMotherType
 
-	gmArr = [grandMotherVal, grandMotherPart, gmName]
-
-	/*
-		APPLICATION lOGIC:
-		==================
-
-		* If this sum (zaweAlFaroozSum) is equal to 1 or greater than 1 then all these parts are the zawe al farooz parts
-
-		* If this sum (zaweAlFaroozSum) is Less than 1 and asbat is/are present in the first page of interface,
-		  then first solve the zaweAlFarooz problem and then asbat problem
-
-		* If this sum (zaweAlFaroozSum) is Less than 1 and asbat is not present in the first page of interface,
-		  then go the second page of interface and select the asbat (from chart).
-
-		* If this sum (zaweAlFaroozSum) is less than 1 but asbat not present then use رد کا طریقہ
-	*/
-
-	// CHECK PARTS
-	zaweAlFaroozSum = husbandPart + wifePart + daughterPart + sDaughterPart + ssDaughterPart + 
-						sssDaughterPart + fatherPart + motherPart + rSisterPart + pSisterPart 
-						+ mBroSisPart + grandFatherPart + grandMotherPart
-
-	// conver the zaweAlFaroozSum to fraction to find the exact value of its sum
-	zaweAlFaroozSum = new Fraction(zaweAlFaroozSum)
-	console.log(`zaweAlFaroozSum : ${zaweAlFaroozSum}`)
+	gmArr = [grandMotherVal, grandMotherPart, false, gmName]
 	
-	zaweAlFaroozArr = [ husbandArr, wifeArr, daughterArr, sDaughterArr, ssDaughterArr, sssDaughterArr, fatherArr,
-		motherArr, rSisterArr, pSisterArr, mSisArr, gfArr, gmArr ]
-
-	// =============================================================================
-	// check to solve the problem 
-	if (parseFloat(zaweAlFaroozSum) === 1 || parseFloat(zaweAlFaroozSum) > 1) {
-		// if zaweAlFaroozSum is greater than 1 or equal to 1 then solve the zaweAlFaroozSum problem and the parts are their parts
-		console.log(`Solve zawe al farooz and these are their parts`)
-
-		solveZAF(zaweAlFaroozArr) 
-
-	} else if (parseFloat(zaweAlFaroozSum) < 1 && asbatExists) {
-		// if zaweAlFaroozSum is Less than 1 and asbat are present in the first page of interface, 
-		// then first solve the zaweAlFarooz problem and then asbat problem
-		console.log(`calculate zawe al farooz and then asbat`)
-		// solveZAF(zaweAlFaroozArr) 
-	} else if (parseFloat(zaweAlFaroozSum) < 1 && !asbatExists) {
-		// if zaweAlFaroozSum is Less than 1 and asbat is not present in the first page of interface,
-		// then go the second page of interface and select the asbat (from chart).
-		console.log(`GoTo Asbat Chart`)
-	} else {
-		// if zaweAlFaroozSum is Less than 1 and asbat not present which is selected from the asbat chat in the interface,
-		// then solve the zaweAlFaroozSum problem and use رد کا عمل
-		console.log(`if asbat not present in absabt chart is selected then`)
-		console.log(`رد کا عمل استعمال کریں`)
-	} 
-	// =============================================================================
-
-
 	// -----------------------------------
 	// ---- Zawe Al Farooz Ends Here ----
 	// -----------------------------------
@@ -247,37 +192,37 @@ function showParts() {
 	rBrotherVal = parseInt(rBrother.value)
 	rBrotherName = rBrother.name
 
-	rBrotherArr = [rBrotherVal, rBrotherPart, rBrotherName]
+	rBrotherArr = [rBrotherVal, rBrotherPart, rBrotherAsba, rBrotherName]
 
 	// ---- Array For Paternal Sisters Calculations ----
 	pBrotherVal = parseInt(pBrother.value)
 	pBrotherName = pBrother.name
 
-	pBrotherArr = [pBrotherVal, pBrotherPart, pBrotherName]
+	pBrotherArr = [pBrotherVal, pBrotherPart, pBrotherAsba, pBrotherName]
 
 	// ---- Array for son Calculations ----
 	sonVal= parseInt(son.value)
 	sonName = son.name
 
-	sonArr = [sonVal, sonPart, sonName]
+	sonArr = [sonVal, sonPart, sonAsba, sonName]
 
 	// ---- Array for sSon Calculations ----
 	sSonVal= parseInt(sSon.value)
 	sSonName = sSon.name
 
-	sSonArr = [sSonVal, sSonPart, sSonName]
+	sSonArr = [sSonVal, sSonPart, sSonAsba, sSonName]
 
 	// ---- Array for ssSon Calculations ----
 	ssSonVal= parseInt(ssSon.value)
 	ssSonName = ssSon.name
 
-	ssSonArr = [ssSonVal, ssSonPart, ssSonName]
+	ssSonArr = [ssSonVal, ssSonPart, ssSonAsba, ssSonName]
 
 	// ---- Array for sssSon Calculations ----
 	sssSonVal= parseInt(sssSon.value)
 	sssSonName = sssSon.name
 
-	sssSonArr = [sssSonVal, sssSonPart, sssSonName]
+	sssSonArr = [sssSonVal, sssSonPart, sssSonAsba, sssSonName]
 
 	availableRelatives = [ husbandArr, wifeArr, daughterArr, sDaughterArr, ssDaughterArr, sssDaughterArr, fatherArr,
 		motherArr, rSisterArr, pSisterArr, mSisArr, gfArr, gmArr, rBrotherArr, pBrotherArr, 
@@ -299,5 +244,60 @@ function showParts() {
 	console.log(`==============================================================`)
 	console.log(`I am at the end of Show Parts page`)
 	console.log(`==============================================================`)
+
+	/*
+		APPLICATION lOGIC:
+		==================
+
+		* If this sum (zaweAlFaroozSum) is equal to 1 or greater than 1 then all these parts are the zawe al farooz parts
+
+		* If this sum (zaweAlFaroozSum) is Less than 1 and asbat is/are present in the first page of interface,
+		  then first solve the zaweAlFarooz problem and then asbat problem
+
+		* If this sum (zaweAlFaroozSum) is Less than 1 and asbat is not present in the first page of interface,
+		  then go the second page of interface and select the asbat (from chart).
+
+		* If this sum (zaweAlFaroozSum) is less than 1 but asbat not present then use رد کا طریقہ
+
+		* If only SPOUSE is present and neither ZaweAlFarooz nor Asbaat is present then go to ZaweAlArham
+	*/
+
+	// CHECK ZaweAlFarooz PARTS
+	zaweAlFaroozSum = husbandPart + wifePart + daughterPart + sDaughterPart + ssDaughterPart + 
+						sssDaughterPart + fatherPart + motherPart + rSisterPart + pSisterPart 
+						+ mBroSisPart + grandFatherPart + grandMotherPart
+
+	// conver the zaweAlFaroozSum to fraction to find the exact value of its sum
+	zaweAlFaroozSum = new Fraction(zaweAlFaroozSum)
+	console.log(`zaweAlFaroozSum : ${zaweAlFaroozSum}`)
+	
+	zaweAlFaroozArr = [ husbandArr, wifeArr, daughterArr, sDaughterArr, ssDaughterArr, sssDaughterArr, fatherArr,
+		motherArr, rSisterArr, pSisterArr, mSisArr, gfArr, gmArr ]
+
+	// =============================================================================
+	// check to solve the problem 
+	if (parseFloat(zaweAlFaroozSum) === 1 || parseFloat(zaweAlFaroozSum) > 1) {
+		// if zaweAlFaroozSum is greater than 1 or equal to 1 then solve the zaweAlFaroozSum problem and the parts are their parts
+		// In Solve.js, solveZAF is the function to calculate the solution of only zaweAlFarooz problem.
+		solveZAF() 
+		// console.log(`Solve zawe al farooz and these are their parts`) // test statement
+
+	} else if (parseFloat(zaweAlFaroozSum) < 1 && asbatExists) {
+		// if zaweAlFaroozSum is Less than 1 and asbat are present in the first page of interface, 
+		// then first solve the zaweAlFarooz problem and then asbat problem
+		console.log(`calculate zawe al farooz and then asbat`)
+		// solveZAF(zaweAlFaroozArr) 
+	} else if (parseFloat(zaweAlFaroozSum) < 1 && !asbatExists) {
+		// if zaweAlFaroozSum is Less than 1 and asbat is not present in the first page of interface,
+		// then go the second page of interface and select the asbat (from chart).
+		console.log(`GoTo Asbat Chart`)
+	} else {
+		// if zaweAlFaroozSum is Less than 1 and asbat not present which is selected from the asbat chat in the interface,
+		// then solve the zaweAlFaroozSum problem and use رد کا عمل
+		console.log(`if asbat not present in absabt chart is selected then`)
+		console.log(`رد کا عمل استعمال کریں`)
+	} 
+	// =============================================================================
+
 }
 
