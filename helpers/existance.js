@@ -206,7 +206,7 @@ function asbatCheck() {
     eligibleAsba()
 
     // for checking in console, comment it after testing
-    // eligibleAsbaOutputCheck()
+    eligibleAsbaOutputCheck()
 
     if (ACArr.indexOf(true) >= 0) {return true}
 

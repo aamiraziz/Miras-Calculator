@@ -81,10 +81,7 @@ function showParts() {
     // ------------------------------------------------------------------
     // ---------------------------- Calculations ------------------------
     // ------------------------------------------------------------------
-	
-	asbatExists = asbatCheck()			// if asbat exists then it will return true
-	// asbatExists ? console.log(`Asbat Exists`) : console.log(`Asbat Does Not Exists`)
-	
+		
 	// ------------------------------------
 	// ---- Zawe Al Farooz Starts Here ----
 	// ------------------------------------
@@ -203,10 +200,7 @@ function showParts() {
 
 	sssSonArr = [sssSonVal, sssSonPart, sssSonAsba, sssSonName]
 
-	availableRelativesArr = [ husbandArr, wifeArr, daughterArr, sDaughterArr, ssDaughterArr, sssDaughterArr, fatherArr,
-		motherArr, rSisterArr, pSisterArr, mSisArr, gfArr, gmArr, rBrotherArr, pBrotherArr, 
-		sonArr, sSonArr, ssSonArr, sssSonArr ]
-
+	
 	// console.log(`==============================================================`)
 	// console.log(`I am at the end of Show Parts page`)
 	// console.log(`==============================================================`)
@@ -235,17 +229,31 @@ function showParts() {
 
 	// conver the zaweAlFaroozSum to fraction to find the exact value of its sum
 	zaweAlFaroozSum = new Fraction(zaweAlFaroozSum)
-	
-	
+
 	zaweAlFaroozArr = [ husbandArr, wifeArr, daughterArr, sDaughterArr, ssDaughterArr, sssDaughterArr, fatherArr,
 		motherArr, rSisterArr, pSisterArr, mSisArr, gfArr, gmArr ]
 
+	asbatExists = asbatCheck()			// if asbat exists then it will return true
+	asbatExists ? console.log(`Asbat Exists`) : console.log(`Asbat Does Not Exists`)
+
+	// if (fatherAsba) {
+	// 	fatherArr[1] = zero
+	// }
+
+	// if (grandFatherAsba) {
+	// 	fatherArr[1] = zero
+	// }
+
+	availableRelativesArr = [ husbandArr, wifeArr, daughterArr, sDaughterArr, ssDaughterArr, sssDaughterArr, fatherArr,
+		motherArr, rSisterArr, pSisterArr, mSisArr, gfArr, gmArr, rBrotherArr, pBrotherArr, 
+		sonArr, sSonArr, ssSonArr, sssSonArr ]
+	
 	// =============================================================================
 	// check to solve the problem 
 	if (parseFloat(zaweAlFaroozSum) === 1 || parseFloat(zaweAlFaroozSum) > 1) {
 		// if zaweAlFaroozSum is greater than 1 or equal to 1 then solve the zaweAlFaroozSum problem and the parts are their parts
 		// In Solve.js, solveZAF is the function to calculate the solution of only zaweAlFarooz problem.
-		selectedZaweAlFaroozArr = filterSelectedZaweAlFarooz()
+		selectedZaweAlFaroozArr = filterSelectedZaweAlFarooz(zaweAlFaroozArr)
 		zaweAlFaroozDenominatorArr = filterDenominators(selectedZaweAlFaroozArr)
 
 		zaweAlFarooz1stLCM = nerdamer(`lcm(${zaweAlFaroozDenominatorArr})`) // First LCM
@@ -263,9 +271,18 @@ function showParts() {
 		// then first solve the zaweAlFarooz problem and then asbat problem
 		console.log(`calculate zawe al farooz and then asbat`)
 
+			
+		// // CHECK ZaweAlFarooz PARTS in availableRelativesArr
+		// availableRelativesZAFSum = husbandPart + wifePart + daughterPart + sDaughterPart + ssDaughterPart + 
+		// sssDaughterPart + fatherPart + motherPart + rSisterPart + pSisterPart 
+		// + mBroSisPart + availableRelativesArr[11][1] + grandMotherPart
+
+		// // conver the zaweAlFaroozSum to fraction to find the exact value of its sum
+		// availableRelativesZAFSum = new Fraction(availableRelativesZAFSum)
+
 		// available Zawe al farooz Relatives
-		selectedZaweAlFaroozArr = filterSelectedZaweAlFarooz()
-		
+		selectedZaweAlFaroozArr = filterSelectedZaweAlFarooz(availableRelativesArr)
+				
 		// calculate the remaining part from zawe al farooz
 		remainingPart = calculateRemainingPart()
 

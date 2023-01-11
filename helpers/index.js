@@ -98,6 +98,8 @@ let zaweAlFaroozDenominatorArr = []
 let zaweAlFaroozSum // = new Frac(0, 1)
 let tempNumerator = 0, tempDenominator = 0
 
+let availableRelativesZAFSum
+
 // this variable will become true when value of any relative is greater than 1
 let secondLCM = false
 
@@ -123,6 +125,9 @@ let selectedRelativesArr = [[]], selectedRelatives1stLCM, selectedRelatives2ndLC
 
 // this array will contain the denominator of all zawe al farooz And Asbaat in selectedRelativesArr
 let selectedRelativesDenominatorArr = []
+
+// this will contain only male asba
+let maleAsba = [sonAsba, sSonAsba, ssSonAsba, sssSonAsba, rBrotherAsba, pBrotherAsba]
 
 // output variables
 let outputParts	= 0	// shows the total number of output parts

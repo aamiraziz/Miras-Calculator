@@ -3,15 +3,18 @@
 */
 
 
-function filterSelectedZaweAlFarooz() {
+function filterSelectedZaweAlFarooz(myArr) {
 
     let tempZAF = [[]]
 
     // Put only the available Zawe Al Farooz from availableRelativesArr array to selectedZaweAlFaroozArr array
-    for ( let i = 0, z = 0; z < availableRelativesArr.length; z++ ) {
-        if ( availableRelativesArr[z][0] !== 0 && availableRelativesArr[z][1] !== zero) {
+    for ( let i = 0, z = 0; z < myArr.length; z++ ) {
+        if ( myArr[z][2] === true ) {
+            myArr[z][1] = zero
+        }
+        if ( myArr[z][0] !== 0 && myArr[z][1] !== zero ) {
 
-            tempZAF[i] = availableRelativesArr[z]
+            tempZAF[i] = myArr[z]
             // myArr[i] = parseInt(tempZAF[i][1].denominator())
             console.log(`selectedZaweAlFaroozArr[${i}] = ${tempZAF[i][0]}, ${tempZAF[i][1].valueOf()}, ${tempZAF[i][2]}, ${tempZAF[i][3]}`)
             i++

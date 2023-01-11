@@ -410,7 +410,7 @@ function calculateGrandMotherPart() {
 // when ZaweAlFaroozSum is less than 1 then calculate the remaining part
 function calculateRemainingPart() {
 
-    let remaining = 1 - zaweAlFaroozSum 
+    let remaining = 1 - availableRelativesZAFSum 
     let part = new Frac(0, 1)
 
     if (remaining === parseInt(1)) {
@@ -428,7 +428,7 @@ function calculateRemainingPart() {
 
     // ================= For Testing Purpose =================
     console.log(`================= For Testing Purpose Start =================`)
-    console.log(`zaweAlFaroozSum.toFraction() : ${zaweAlFaroozSum.toFraction()}`)
+    console.log(`availableRelativesZAFSum.toFraction() : ${availableRelativesZAFSum.toFraction()}`)
     console.log(`remaining: ${part.display()}`)
     console.log(`remaining Denominator: ${part.denominator()}`)
 
