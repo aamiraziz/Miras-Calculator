@@ -83,7 +83,7 @@ function showParts() {
     // ------------------------------------------------------------------
 	
 	asbatExists = asbatCheck()			// if asbat exists then it will return true
-	asbatExists ? console.log(`Asbat Exists`) : console.log(`Asbat Does Not Exists`)
+	// asbatExists ? console.log(`Asbat Exists`) : console.log(`Asbat Does Not Exists`)
 	
 	// ------------------------------------
 	// ---- Zawe Al Farooz Starts Here ----
@@ -91,70 +91,55 @@ function showParts() {
 
     // ---- Array For Husband Calculations ----
 	husbandVal = parseInt(husband.value)
-	husbandName = husband.name
 
 	husbandArr = [husbandVal, husbandPart, false, husbandName]
 
 	// ----Array For wife Caculations ----
 	wifeVal = parseInt(wife.value)
-	wifeName = wife.name
 
 	wifeArr = [wifeVal, wifePart, false, wifeName]
 
     // ---- Array for Daughter Calculations ----
 	daughterVal= parseInt(daughter.value)
-	daughterName = daughter.name
-
-	// The numertator and denominator is working properly
-	// console.log(`daughterPart.numerator() is ${daughterPart.numerator()}
-	// 			daughterPart.denominator() is ${daughterPart.denominator()}`)
 
 	daughterArr = [daughterVal, daughterPart, daughterAsba, daughterName]
 
 	// ---- Array for sDaughter Calculations ----
 	sDaughterVal= parseInt(sDaughter.value)
-	sDaughterName = sDaughter.name
 
 	sDaughterArr = [sDaughterVal, sDaughterPart, sDaughterAsba, sDaughterName]
 
 	// ---- Array for ssDaughter Calculations ----
 	ssDaughterVal= parseInt(ssDaughter.value)
-	ssDaughterName = ssDaughter.name
 
 	ssDaughterArr = [ssDaughterVal, ssDaughterPart, ssDaughterAsba, ssDaughterName]
 
 	// ---- Array for sssDaughter Calculations ----
 	sssDaughterVal= parseInt(sssDaughter.value)
-	sssDaughterName = sssDaughter.name
 
 	sssDaughterArr = [sssDaughterVal, sssDaughterPart, sssDaughterAsba, sssDaughterName]
 
 	// ---- Array for Father Calculations ----
 	fatherVal = parseInt(father.value)
-	fatherName = father.name
 
 	fatherArr = [fatherVal, fatherPart, fatherAsba, fatherName] 
 
 	// ---- Array for Mother Calculations ----
 	motherVal = parseInt(mother.value)
-	motherName = mother.name
 	
 	motherArr = [motherVal, motherPart, false, motherName] 
     
     // ---- Array For Real Sisters Calculations ----
 	rSisterVal = parseInt(rSister.value)
-	rSisterName = rSister.name
 
 	rSisterArr = [rSisterVal, rSisterPart, rSisterAsba, rSisterName]
 
 	// ---- Array For Paternal Sisters Calculations ----
 	pSisterVal = parseInt(pSister.value)
-	pSisterName = pSister.name
 
 	pSisterArr = [pSisterVal, pSisterPart, pSisterAsba, pSisterName]
 
 	// Maternal Brothers and sisters calculations
-	mBroSisName = "Maternal Brother(s) / Sister(s)"
 	totalBroSis = parseInt(mBrother.value) + parseInt(mSister.value)	// total number of brothers and sisters
 	
 	mSisArr = [totalBroSis, mBroSisPart, false, mBroSisName]	// maternal brother(s) / sister(s) array
@@ -190,60 +175,41 @@ function showParts() {
 	
 	// ---- Array For Real Brothers Calculations ----
 	rBrotherVal = parseInt(rBrother.value)
-	rBrotherName = rBrother.name
 
 	rBrotherArr = [rBrotherVal, rBrotherPart, rBrotherAsba, rBrotherName]
 
 	// ---- Array For Paternal Sisters Calculations ----
 	pBrotherVal = parseInt(pBrother.value)
-	pBrotherName = pBrother.name
 
 	pBrotherArr = [pBrotherVal, pBrotherPart, pBrotherAsba, pBrotherName]
 
 	// ---- Array for son Calculations ----
 	sonVal= parseInt(son.value)
-	sonName = son.name
 
 	sonArr = [sonVal, sonPart, sonAsba, sonName]
 
 	// ---- Array for sSon Calculations ----
 	sSonVal= parseInt(sSon.value)
-	sSonName = sSon.name
 
 	sSonArr = [sSonVal, sSonPart, sSonAsba, sSonName]
 
 	// ---- Array for ssSon Calculations ----
 	ssSonVal= parseInt(ssSon.value)
-	ssSonName = ssSon.name
 
 	ssSonArr = [ssSonVal, ssSonPart, ssSonAsba, ssSonName]
 
 	// ---- Array for sssSon Calculations ----
 	sssSonVal= parseInt(sssSon.value)
-	sssSonName = sssSon.name
 
 	sssSonArr = [sssSonVal, sssSonPart, sssSonAsba, sssSonName]
 
-	availableRelatives = [ husbandArr, wifeArr, daughterArr, sDaughterArr, ssDaughterArr, sssDaughterArr, fatherArr,
+	availableRelativesArr = [ husbandArr, wifeArr, daughterArr, sDaughterArr, ssDaughterArr, sssDaughterArr, fatherArr,
 		motherArr, rSisterArr, pSisterArr, mSisArr, gfArr, gmArr, rBrotherArr, pBrotherArr, 
 		sonArr, sSonArr, ssSonArr, sssSonArr ]
-	// console.log(`availableRelatives.length: ${availableRelatives.length}`)
-	// selectedRelatives[0] = availableRelatives[0]
-	// console.log(`selectedRelatives[0]: ${selectedRelatives[0]}`)
 
-	// Put only the available relatives in availableRelatives array to selectedRelatives array
-	for ( let i = 0, z = 0; z < availableRelatives.length; z++ ) {
-		if ( availableRelatives[z][0] !== 0 ) {
-
-			selectedRelatives[i] = availableRelatives[z]
-			// console.log(`selectedRelatives[${i}] = ${selectedRelatives[i]}`)
-			i++
-		} 
-	}
-
-	console.log(`==============================================================`)
-	console.log(`I am at the end of Show Parts page`)
-	console.log(`==============================================================`)
+	// console.log(`==============================================================`)
+	// console.log(`I am at the end of Show Parts page`)
+	// console.log(`==============================================================`)
 
 	/*
 		APPLICATION lOGIC:
@@ -269,7 +235,7 @@ function showParts() {
 
 	// conver the zaweAlFaroozSum to fraction to find the exact value of its sum
 	zaweAlFaroozSum = new Fraction(zaweAlFaroozSum)
-	console.log(`zaweAlFaroozSum : ${zaweAlFaroozSum}`)
+	
 	
 	zaweAlFaroozArr = [ husbandArr, wifeArr, daughterArr, sDaughterArr, ssDaughterArr, sssDaughterArr, fatherArr,
 		motherArr, rSisterArr, pSisterArr, mSisArr, gfArr, gmArr ]
@@ -279,18 +245,88 @@ function showParts() {
 	if (parseFloat(zaweAlFaroozSum) === 1 || parseFloat(zaweAlFaroozSum) > 1) {
 		// if zaweAlFaroozSum is greater than 1 or equal to 1 then solve the zaweAlFaroozSum problem and the parts are their parts
 		// In Solve.js, solveZAF is the function to calculate the solution of only zaweAlFarooz problem.
-		solveZAF() 
+		selectedZaweAlFaroozArr = filterSelectedZaweAlFarooz()
+		zaweAlFaroozDenominatorArr = filterDenominators(selectedZaweAlFaroozArr)
+
+		zaweAlFarooz1stLCM = nerdamer(`lcm(${zaweAlFaroozDenominatorArr})`) // First LCM
+		console.log(`zaweAlFarooz1stLCM = ${zaweAlFarooz1stLCM}`)
+		// console.log(`secondLCM = ${secondLCM}`)
+
+		secondLCM = checkForSecondLCM(selectedZaweAlFaroozArr)
+		console.log(`secondLCM = ${secondLCM}`)
+
+		solveZAF(selectedZaweAlFaroozArr, zaweAlFarooz1stLCM, zaweAlFarooz2ndLCM, zaweAlFarooz2ndLCMArr)
 		// console.log(`Solve zawe al farooz and these are their parts`) // test statement
 
 	} else if (parseFloat(zaweAlFaroozSum) < 1 && asbatExists) {
 		// if zaweAlFaroozSum is Less than 1 and asbat are present in the first page of interface, 
 		// then first solve the zaweAlFarooz problem and then asbat problem
 		console.log(`calculate zawe al farooz and then asbat`)
-		// solveZAF(zaweAlFaroozArr) 
+
+		// available Zawe al farooz Relatives
+		selectedZaweAlFaroozArr = filterSelectedZaweAlFarooz()
+		
+		// calculate the remaining part from zawe al farooz
+		remainingPart = calculateRemainingPart()
+
+		// available Asbaat
+		selectedAsbaatArr = filterSelectedAsbaat()
+
+		/*
+			* ALGORITHM
+			* Find ZaweAlFarooz Relatives and store it in "selectedZaweAlFaroozArr" Array
+			* Find Remaining Part from ZaweAlFarooz Relatives
+			* Find Asbaat Relatives and store it in "selectedAsbaatArr" Array
+			* if selectedAsbaatArr.length === 1
+				* selectedAsbaatArr[0][1] = remainingPart 
+			* if selectedAsbaatArr.length > 1
+				* perAsbaSiblingPart = remainingPart / totalFemales
+				* femaleAsbaPart = perAsbaSiblingPart
+				* find maleAsba (everytime at the last index of the array)
+					* maleAsbaPart = new Frac( 2 * perAsbaSiblingPart.numerator(), perAsbaSiblingPart.denominator() )
+			* find LCM of Parts in selectedRelativesArr
+			* Multiply LCM with parts of selectedRelativesArr // Answer
+		*/
+
+		if ( selectedAsbaatArr.length === 1 ) {
+			selectedAsbaatArr[0][1] = remainingPart
+		} else {
+			let totalFemales = parseInt(counterMale) + parseInt(counterFemale)
+			let temp = remainingPart.denominator() * totalFemales
+			perAsbaSiblingPart = new Frac(remainingPart.numerator(), temp)
+			console.log(`totalFemales : ${totalFemales}`)						// Test Statement
+			console.log(`typeof(totalFemales) : ${typeof(totalFemales)}`)		// Test Statement
+			console.log(`perAsbaSiblingPart: ${perAsbaSiblingPart.display()}`)	// Test Statement
+
+			// use FOR loop to assign values to array and multiply value by 2 on last index
+			for ( let i = 0; i < selectedAsbaatArr.length; i++ ) {
+				if ( i === selectedAsbaatArr.length -1 ) {
+					selectedAsbaatArr[i][1] = new Frac( 2 * perAsbaSiblingPart.numerator(), perAsbaSiblingPart.denominator() )
+				} else {
+					selectedAsbaatArr[i][1] = perAsbaSiblingPart
+				}		
+			}
+		}
+
+		// combines zawe al farooz and asbaat
+		selectedRelativesArr = selectedZaweAlFaroozArr.concat(selectedAsbaatArr)
+		display(selectedRelativesArr) // test function
+
+		selectedRelativesDenominatorArr = filterDenominators(selectedRelativesArr)
+
+		selectedRelatives1stLCM = nerdamer(`lcm(${selectedRelativesDenominatorArr})`) // First LCM
+		console.log(`selectedRelatives1stLCM = ${selectedRelatives1stLCM}`)
+
+		solveAsbaat(selectedRelativesArr, selectedRelatives1stLCM)
+
+		// solve(selectedRelativesArr, selectedRelatives1stLCM, selectedRelatives2ndLCM, selectedRelatives2ndLCMArr)
+
+		
 	} else if (parseFloat(zaweAlFaroozSum) < 1 && !asbatExists) {
 		// if zaweAlFaroozSum is Less than 1 and asbat is not present in the first page of interface,
 		// then go the second page of interface and select the asbat (from chart).
 		console.log(`GoTo Asbat Chart`)
+		// remainingPart = calculateRemainingPart()
 	} else {
 		// if zaweAlFaroozSum is Less than 1 and asbat not present which is selected from the asbat chat in the interface,
 		// then solve the zaweAlFaroozSum problem and use رد کا عمل

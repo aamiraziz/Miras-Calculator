@@ -99,33 +99,38 @@ function asbatCheck() {
     let ACArr = []
 
     // Real Sister(s) present
-    if (parseInt(rSister.value) > 0 && rSisterPart === zero) {rSisterAsba = true}
+    if (parseInt(rSister.value) > 0 && rSisterPart === zero) {counterFemale += parseInt(rSister.value);  rSisterAsba = true}
     // console.log(`rSisterAsba: ${rSisterAsba}`)
 
     // paternal sister(s) present
     if (parseInt(pSister.value) > 0 && pSisterPart === zero)  {
         // in absence of paternal brother, if real sister is more than 1 
         // then paternal sister can not become asba
-        if (parseInt(rSister.value) < 2 || parseInt(pBrother.value) > 0) {
+        if ( (parseInt(rSister.value) === 1) && parseInt(pBrother.value) === 0) {
+            counterFemale += parseInt(pSister.value); 
+            pSisterAsba = true
+        }
+
+        // if paternal brother exists then paternal sister will become asba
+        if ( parseInt(pBrother.value) > 0 ) {
+            counterFemale += parseInt(pSister.value); 
             pSisterAsba = true
         }
     }
     // console.log(`pSisterAsba: ${pSisterAsba}`)
 
     // daughter present
-    if (parseInt(daughter.value) > 0) { 
-        
-        if ( parseInt(son.value) > 0 || parseInt(sSon.value) > 0 || parseInt(ssSon.value) > 0 || parseInt(sssSon.value) > 0 ) {
-            daughterAsba = true
-        }
-
+    if ( parseInt(daughter.value) > 0 && parseInt(son.value) > 0 ) {
+        counterFemale += parseInt(daughter.value); 
+        daughterAsba = true
     }
     // console.log(`daughterAsba: ${daughterAsba}`)
 
     // sDaughter present
-    if (parseInt(sDaughter.value) > 0) { 
+    if (parseInt(sDaughter.value) > 0 && sDaughterPart === zero) { 
         
-        if ( parseInt(son.value) === 0 && (parseInt(sSon.value) > 0 || parseInt(ssSon.value) > 0 || parseInt(sssSon.value) > 0) ) {
+        if ( parseInt(sSon.value) > 0 || parseInt(ssSon.value) > 0 || parseInt(sssSon.value) > 0 ) {
+            counterFemale += parseInt(sDaughter.value); 
             sDaughterAsba = true
         }
 
@@ -133,9 +138,10 @@ function asbatCheck() {
     // console.log(`sDaughterAsba: ${sDaughterAsba}`)
 
     // ssDaughter present
-    if (parseInt(ssDaughter.value) > 0) { 
+    if (parseInt(ssDaughter.value) > 0 && ssDaughterPart === zero) { 
         
-        if ( parseInt(son.value) === 0 && parseInt(sSon.value) === 0 && (parseInt(ssSon.value) > 0 || parseInt(sssSon.value) > 0) ) {
+        if ( parseInt(ssSon.value) > 0  || parseInt(sssSon.value) > 0 ) {
+            counterFemale += parseInt(ssDaughter.value); 
             ssDaughterAsba = true
         }
 
@@ -143,9 +149,10 @@ function asbatCheck() {
     // console.log(`ssDaughterAsba: ${ssDaughterAsba}`)
 
     // sssDaughter present
-    if (parseInt(sssDaughter.value) > 0) { 
+    if (parseInt(sssDaughter.value) > 0 && sssDaughterPart === zero) { 
         
-        if ( parseInt(son.value) === 0 && parseInt(sSon.value) === 0 && parseInt(ssSon.value) === 0 && parseInt(sssSon.value) > 0 ) {
+        if ( parseInt(sssSon.value) > 0 ) {
+            counterFemale += parseInt(sssDaughter.value); 
             sssDaughterAsba = true
         }
 
@@ -153,35 +160,35 @@ function asbatCheck() {
     // console.log(`sssDaughterAsba: ${sssDaughterAsba}`)
 
     // father present
-    if (parseInt(father.value) > 0) {fatherAsba = true}
+    if (parseInt(father.value) > 0) {fatherAsba = true} //   && fatherPart === zero
     // console.log(`fatherAsba: ${fatherAsba}`)
 
     // Grandfather present
-    if (parseInt(grandFather.value) > 0) {grandFatherAsba = true}
+    if (parseInt(grandFather.value) > 0) {grandFatherAsba = true}   //   && grandFatherPart === zero
     // console.log(`grandFatherAsba: ${grandFatherAsba}`)
 
     // Paternal Brother present
-    if (parseInt(pBrother.value) > 0) {pBrotherAsba = true}
+    if (parseInt(pBrother.value) > 0) {counterMale = 2 * parseInt(pBrother.value); pBrotherAsba = true}
     // console.log(`pBrotherAsba: ${pBrotherAsba}`)
 
     // Real Brother present
-    if (parseInt(rBrother.value) > 0) {rBrotherAsba = true}
+    if (parseInt(rBrother.value) > 0) {counterMale = 2 * parseInt(rBrother.value); rBrotherAsba = true}
     // console.log(`rBrotherAsba: ${rBrotherAsba}`)
 
     // Son present
-    if (parseInt(son.value) > 0) {sonAsba = true}
+    if (parseInt(son.value) > 0) {counterMale = 2 * parseInt(son.value); sonAsba = true}
     // console.log(`sonAsba: ${sonAsba}`)
 
     // sSon present
-    if (parseInt(sSon.value) > 0) {sSonAsba = true}
+    if (parseInt(sSon.value) > 0) {counterMale = 2 * parseInt(sSon.value); sSonAsba = true}
     // console.log(`sSonAsba: ${sSonAsba}`)
 
     // ssSon present
-    if (parseInt(ssSon.value) > 0) {ssSonAsba = true}
+    if (parseInt(ssSon.value) > 0) {counterMale = 2 * parseInt(ssSon.value); ssSonAsba = true}
     // console.log(`ssSonAsba: ${ssSonAsba}`)
 
     // sssSon present
-    if (parseInt(sssSon.value) > 0) {sssSonAsba = true}
+    if (parseInt(sssSon.value) > 0) {counterMale = 2 * parseInt(sssSon.value); sssSonAsba = true}
     // console.log(`sssSonAsba: ${sssSonAsba}`)
 
     // ACArr = [rSisterAsba, pSisterAsba, daughterAsba, sDaughterAsba, ssDaughterAsba, sssDaughterAsba, 
@@ -199,7 +206,7 @@ function asbatCheck() {
     eligibleAsba()
 
     // for checking in console, comment it after testing
-    eligibleAsbaOutputCheck()
+    // eligibleAsbaOutputCheck()
 
     if (ACArr.indexOf(true) >= 0) {return true}
 
