@@ -124,6 +124,9 @@ let selectedRelativesArr = [[]], selectedRelatives1stLCM, selectedRelatives2ndLC
 // this array will contain the denominator of all zawe al farooz And Asbaat in selectedRelativesArr
 let selectedRelativesDenominatorArr = []
 
+// these flag will use to find the existance of father/grandFather in Selected ZAF and Selected Asbaat
+let flag1 = false, flag2 = false
+
 // output variables
 let outputParts	= 0	// shows the total number of output parts
 let outputArray	= [[]]	// shows the total number of output rows in the output table

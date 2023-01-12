@@ -14,8 +14,15 @@ function filterSelectedZaweAlFarooz() {
             tempZAF[i] = availableRelativesArr[z]
             // myArr[i] = parseInt(tempZAF[i][1].denominator())
             console.log(`selectedZaweAlFaroozArr[${i}] = ${tempZAF[i][0]}, ${tempZAF[i][1].valueOf()}, ${tempZAF[i][2]}, ${tempZAF[i][3]}`)
+
+            if ( tempZAF[i][2] ) {
+                flag1 = true
+                console.log(`My name is tempAZF[${i}][3] : ${tempZAF[i][3]} and my Flag is: ${flag1}`)
+            }
+
             i++
         } 
+        
     }
     
     return tempZAF
@@ -54,6 +61,12 @@ function filterSelectedAsbaat() {
             tempAsbaat[i] = availableRelativesArr[z]
             console.log(`selectedAsbaatArr[${i}] = ${tempAsbaat[i][0]}, ${tempAsbaat[i][1].valueOf()},
                                     ${tempAsbaat[i][2]}, ${tempAsbaat[i][3]}`)
+
+            if ( tempAsbaat[i][2] ) {
+                flag2 = true
+                console.log(`My name is tempAsbaat[${i}][3] : ${tempAsbaat[i][3]} and my Flag is: ${flag2}`)
+            }
+
             i++
         }
         

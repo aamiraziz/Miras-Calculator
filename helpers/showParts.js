@@ -289,7 +289,30 @@ function showParts() {
 		*/
 
 		if ( selectedAsbaatArr.length === 1 ) {
-			selectedAsbaatArr[0][1] = remainingPart
+			if ( flag1 === flag2 ) {
+				let remaining
+				// assign the remaining part in ZAF array in which asba part is true
+				for ( let i = 0; i < selectedZaweAlFaroozArr.length; i++ ) {
+					if ( selectedZaweAlFaroozArr[i][2]) {
+						console.log(`The Part of ${selectedZaweAlFaroozArr[i][3]} is 
+						${selectedZaweAlFaroozArr[i][1].solvedDisplay()} + ${remainingPart.solvedDisplay()} = `)
+
+						// selectedZaweAlFaroozArr[i][1] = selectedZaweAlFaroozArr[i][1] + remainingPart
+						remaining = selectedZaweAlFaroozArr[i][1] + remainingPart
+
+						remaining = new Fraction(remaining)
+						const myString = remaining.toFraction()
+						let myFrac = myString.split('/')
+						remaining = new Frac(parseInt(myFrac[0]), parseInt(myFrac[1]))
+
+						selectedZaweAlFaroozArr[i][1] = remaining
+
+						console.log(`${selectedZaweAlFaroozArr[i][1]}`)
+					}
+				}
+			} else {
+				selectedAsbaatArr[0][1] = remainingPart
+			}
 		} else {
 			let totalFemales = parseInt(counterMale) + parseInt(counterFemale)
 			let temp = remainingPart.denominator() * totalFemales
@@ -309,8 +332,13 @@ function showParts() {
 		}
 
 		// combines zawe al farooz and asbaat
-		selectedRelativesArr = selectedZaweAlFaroozArr.concat(selectedAsbaatArr)
-		display(selectedRelativesArr) // test function
+		if (flag1 === flag2) {
+			selectedRelativesArr = selectedZaweAlFaroozArr
+			display(selectedRelativesArr) // test function
+		} else {
+			selectedRelativesArr = selectedZaweAlFaroozArr.concat(selectedAsbaatArr)
+			display(selectedRelativesArr) // test function
+		}		
 
 		selectedRelativesDenominatorArr = filterDenominators(selectedRelativesArr)
 
