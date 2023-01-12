@@ -98,13 +98,16 @@ function solveZAF(anyArr, LCM1, LCM2, LCM2Arr) {
 function solveAsbaat(anyArr, LCM1) {
 
     let myArr = anyArr
+	outputParts = 0
 
 	for (let i = 0; i < myArr.length; i++) {
 		// Assign 2D array to a new array
 		// Array       =	Name, Value, Part * LCM
-		outputArray[i] = [myArr[i][3], myArr[i][0], myArr[i][1] * LCM1]
-		outputParts += myArr[i][0] * myArr[i][1] * LCM1
+		outputArray[i] = [myArr[i][3], myArr[i][0], ( (myArr[i][1] * LCM1) / myArr[i][0]) ]
+		outputParts += myArr[i][1] * LCM1
 
+		console.log(`myArr.length : ${myArr.length}`)
 		console.log(`outputParts : ${outputParts}`)
+		console.log(`outputArray : ${outputArray}`)
 	}
 }
