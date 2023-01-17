@@ -1,3 +1,12 @@
+/*
+    * This file contains the all the element ids of index.html file
+    * These ids are stored in the variables to get their different properties
+    * Khanqah Rehmkariya Imdadia
+    * Copyright (c) 2023 ~ 2123
+	* Development Started on August 2022
+	* Documentation Started on January 03, 2023
+*/
+
 // Note on Top 
 let note = document.getElementById('note')
 
@@ -28,6 +37,7 @@ let father = document.getElementById('father')		 // Father
 let mother = document.getElementById('mother')		 // Mother
 let grandFather = document.getElementById('grandFather') // Grand Father
 let grandMother = document.getElementById('grandMother') // Grand Mother
+// let grandMotherText = document.getElementById('grandMotherText') // Grand Mother
 
 // Female Offspring
 let daughter = document.getElementById('daughter')       // Daughter
@@ -62,6 +72,8 @@ let backBtnGM = document.getElementById('backBtnGM')		 // Back Button in grand m
 
 let rmhanbali = document.getElementById('rmhanbali')
 let rmmaliki = document.getElementById('rmmaliki')
+
+let nl = document.getElementById('NL')		        // Not Listed
 
 let mm = document.getElementById('MM')		        // Mother of Mother
 let mf = document.getElementById('MF')		        // Mother of Father

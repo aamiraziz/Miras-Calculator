@@ -1,3 +1,26 @@
+commit 5485b660a0f8998aa6ec7d16a4adb94e283d9e5d
+Merge: bbca237 d68ac30
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Tue Jan 3 20:46:44 2023 +0500
+
+    Merge branch 'underDev'
+    1) code is organized
+    2) unnecssary code is removed
+    3) errors are removed
+    4) properly working for zawe al farooz solution if sum of all parts are equal to or greater than 1
+
+commit d68ac30c9150bb37a64d6078d1dcf477f844d297
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Tue Jan 3 20:45:47 2023 +0500
+
+    code Orgnization, removed unnecessary code and removed errors from zawe al farooz solution
+
+commit 5240c1f61a164835a23d40dd2c445ff54a068730
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Mon Jan 2 22:53:45 2023 +0500
+
+    Few error regarding type mismatch was removed
+
 commit ed9e772dc0894e351bcd256bff49533e80d82efd
 Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
 Date:   Mon Jan 2 21:27:55 2023 +0500
@@ -15,6 +38,14 @@ Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
 Date:   Mon Jan 2 16:52:32 2023 +0500
 
     in Zawe Al Farooz caculations is done upto, if sum of all the heirs is equal to or greater than 1. Testing is not done yet
+
+commit bbca237e0cd08f722003bf31faf7aad19cf9b052
+Merge: f61b7a1 68e8f94
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Sat Dec 31 16:56:29 2022 +0500
+
+    Merge branch 'underDev'
+    LCM is working Properly and book first example is working properly
 
 commit 68e8f94381d480121a01f0688ea132968f447cfc
 Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
@@ -117,6 +148,13 @@ Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
 Date:   Tue Dec 13 20:41:49 2022 +0500
 
     Errors from grandFather options removed and errors in grandMother due to grandFather selection has also been removed.
+
+commit f61b7a18a1cf76490a24870cebfddc9c4855025d
+Merge: 369da95 30e6b06
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Tue Dec 13 13:06:51 2022 +0500
+
+    Merge branch 'master' because from now master branch will delete
 
 commit 30e6b06af9e6240f4a8e762ac04873db6f62282d
 Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
@@ -243,6 +281,12 @@ Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
 Date:   Tue Aug 23 16:45:57 2022 +0500
 
     Husband Part implemented
+
+commit 369da95f24b39f1748f1f06182898c5049736e94
+Author: aamiraziz <aamiraziz.khattak@gmail.com>
+Date:   Tue Aug 23 16:05:21 2022 +0500
+
+    Initial commit
 
 commit d908e1b27ff1a6d251d569634113a660b30a0257
 Author: Aamir Aziz <aamiraziz.khattak@gmail.com>

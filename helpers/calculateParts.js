@@ -1,3 +1,12 @@
+/*
+    * This file contains the functions for every zawe al farooz heir
+    * functions for other than zawe al farooz heirs are written but they return zero for the time being
+    * the return value of every function is object which is written in Frac.js in lib folder
+    * Khanqah Rehmkariya Imdadia
+    * Copyright (c) 2023 ~ 2123
+	* Development Started on August 2022
+	* Documentation Started on January 03, 2023
+*/
 
 // Calculates Husband Part (شوہر)
 function calculateHusbandPart() {
@@ -127,13 +136,14 @@ function calculateSSDaughterPart() {
         // no matter how many Daughter of son of son exists
         // then daughter of son's son's son will get 1/6
         if ( parseInt(son.value) === 0 && parseInt(sSon.value) === 0 && parseInt(ssSon.value) === 0 && 
-            (parseInt(daughter.value) === 1 || parseInt(sDaughter.value) === 1) && 
-            !(parseInt(daughter.value) === 1 && parseInt(sDaughter.value) === 1) && 
+            (parseInt(daughter.value) === 1 && parseInt(sDaughter.value) === 0) || 
+            (parseInt(daughter.value) === 0 && parseInt(sDaughter.value) === 1) && 
             parseInt(ssDaughter.value) > 0 ) {
     
             return oneBySix // 1/6
     
         }
+        
     } 
     
     return zero
@@ -176,10 +186,9 @@ function calculateSSSDaughterPart() {
         // then daughter of son of son will get 1/6
         if ( parseInt(son.value) === 0 && parseInt(sSon.value) === 0 && 
              parseInt(ssSon.value) === 0 && parseInt(sssSon.value) === 0 && 
-             (parseInt(daughter.value) === 1 || parseInt(sDaughter.value) === 1 || parseInt(ssDaughter.value) === 1) && 
-             // !(parseInt(daughter.value) === 1 && parseInt(sDaughter.value) === 1) && 
-             // !(parseInt(sdaughter.value) === 1 && parseInt(ssDaughter.value) === 1) &&
-             !(parseInt(daughter.value) === 1 && parseInt(ssDaughter.value) === 1) &&
+             (parseInt(daughter.value) === 1 && parseInt(sDaughter.value) === 0 && parseInt(ssDaughter.value) === 0) || 
+             (parseInt(daughter.value) === 0 && parseInt(sDaughter.value) === 1 && parseInt(ssDaughter.value) === 0) || 
+             (parseInt(daughter.value) === 0 && parseInt(sDaughter.value) === 0 && parseInt(ssDaughter.value) === 1) &&
              parseInt(sssDaughter.value) > 0 ) {
     
              return oneBySix // 1/6
@@ -375,9 +384,13 @@ function calculateGrandFatherPart() {
         return oneBySix // 1/6
     }
 
+    // write condition to fulfill asbaat here 
+    // e.g 1 daughter and 1 grandfather
+
     return zero
 }
 
+// function to calculate grand Mother's Part i.e total 9 types of grand Mothers
 function calculateGrandMotherPart() {
 
     // if GrandMother (Mother of Mother) exists in absebce of Mother then grandMother will get 1/6
@@ -392,4 +405,39 @@ function calculateGrandMotherPart() {
 
     // to remove "undefined"
     return zero
+}
+
+// when ZaweAlFaroozSum is less than 1 then calculate the remaining part
+function calculateRemainingPart() {
+
+    let remaining = 1 - zaweAlFaroozSum 
+    let part = new Frac(0, 1)
+
+    if (remaining === parseInt(1)) {
+        part = new Frac(remaining, 1)
+    } else {
+        remaining = new Fraction(remaining)
+        
+        // console.log(`remaining = new Fraction(remaining): ${remaining}`)
+        
+        const myString = remaining.toFraction()
+        let myFrac = myString.split('/')
+        part = new Frac(parseInt(myFrac[0]), parseInt(myFrac[1]))
+    }
+    
+
+    // ================= For Testing Purpose =================
+    console.log(`================= For Testing Purpose Start =================`)
+    console.log(`zaweAlFaroozSum.toFraction() : ${zaweAlFaroozSum.toFraction()}`)
+    console.log(`remaining: ${part.display()}`)
+    console.log(`remaining Denominator: ${part.denominator()}`)
+
+    // console.log(`myFrac[1] : ${myFrac[1]}`)
+    // console.log(`zaweAlFaroozSum : ${zaweAlFaroozSum}`)
+    // console.log(`myString : ${myString}`)
+    // console.log(`part Numerator: ${part.numerator()}`)
+    // console.log(`part display(): ${part.display()}`)
+    // console.log(`part valueOf(): ${part.valueOf()}`)
+    console.log(`================= For Testing Purpose Start =================`)
+    return part
 }
