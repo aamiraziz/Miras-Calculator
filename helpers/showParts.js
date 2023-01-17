@@ -255,7 +255,7 @@ function showParts() {
 		secondLCM = checkForSecondLCM(selectedZaweAlFaroozArr)
 		console.log(`secondLCM = ${secondLCM}`)
 
-		solveZAF(selectedZaweAlFaroozArr, zaweAlFarooz1stLCM, zaweAlFarooz2ndLCM, zaweAlFarooz2ndLCMArr)
+		solve(selectedZaweAlFaroozArr, zaweAlFarooz1stLCM, zaweAlFarooz2ndLCM, zaweAlFarooz2ndLCMArr)
 		// console.log(`Solve zawe al farooz and these are their parts`) // test statement
 
 	} else if (parseFloat(zaweAlFaroozSum) < 1 && asbatExists) {
@@ -345,9 +345,12 @@ function showParts() {
 		selectedRelatives1stLCM = nerdamer(`lcm(${selectedRelativesDenominatorArr})`) // First LCM
 		console.log(`selectedRelatives1stLCM = ${selectedRelatives1stLCM}`)
 
-		solveAsbaat(selectedRelativesArr, selectedRelatives1stLCM)
+		secondLCM = checkForSecondLCM(selectedRelativesArr)
+		console.log(`secondLCM = ${secondLCM}`)
 
-		// solve(selectedRelativesArr, selectedRelatives1stLCM, selectedRelatives2ndLCM, selectedRelatives2ndLCMArr)
+		// solveAsbaat(selectedRelativesArr, selectedRelatives1stLCM)
+
+		solve(selectedRelativesArr, selectedRelatives1stLCM, selectedRelatives2ndLCM, selectedRelatives2ndLCMArr)
 
 		
 	} else if (parseFloat(zaweAlFaroozSum) < 1 && !asbatExists) {

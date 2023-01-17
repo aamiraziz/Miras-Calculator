@@ -52,7 +52,7 @@
 // 		}
 // }
 
-function solveZAF(anyArr, LCM1, LCM2, LCM2Arr) {
+function solve(anyArr, LCM1, LCM2, LCM2Arr) {
 
     let myArr = anyArr
 
