@@ -345,10 +345,16 @@ function showParts() {
 		selectedRelatives1stLCM = nerdamer(`lcm(${selectedRelativesDenominatorArr})`) // First LCM
 		console.log(`selectedRelatives1stLCM = ${selectedRelatives1stLCM}`)
 
-		secondLCM = checkForSecondLCM(selectedRelativesArr)
+		// solveAsbaat(selectedRelativesArr, selectedRelatives1stLCM)
+
+		secondLCM = checkSecondLCMForAsbaat(selectedRelativesArr)
 		console.log(`secondLCM = ${secondLCM}`)
 
-		// solveAsbaat(selectedRelativesArr, selectedRelatives1stLCM)
+		// selectedRelativesNumeratorArr = filterNumerators(selectedRelativesArr)
+		// selectedRelatives2ndLCM = nerdamer(`lcm(${selectedRelativesNumeratorArr})`) // Second LCM
+		// console.log(`selectedRelatives2ndLCM = ${selectedRelatives2ndLCM}`)
+
+		// solveAsbaat(selectedRelativesArr, selectedRelatives2ndLCM)
 
 		solve(selectedRelativesArr, selectedRelatives1stLCM, selectedRelatives2ndLCM, selectedRelatives2ndLCMArr)
 
@@ -357,6 +363,9 @@ function showParts() {
 		// if zaweAlFaroozSum is Less than 1 and asbat is not present in the first page of interface,
 		// then go the second page of interface and select the asbat (from chart).
 		console.log(`GoTo Asbat Chart`)
+
+		main.style.display = 'none'
+		asbaatChart.style.display = 'block'
 		// remainingPart = calculateRemainingPart()
 	} else {
 		// if zaweAlFaroozSum is Less than 1 and asbat not present which is selected from the asbat chat in the interface,

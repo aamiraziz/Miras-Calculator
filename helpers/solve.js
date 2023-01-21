@@ -62,7 +62,7 @@ function solve(anyArr, LCM1, LCM2, LCM2Arr) {
 			// Assign 2D array to a new array
 			// Array       =	Name, Value, Part * LCM
 			outputArray[i] = [myArr[i][3], myArr[i][0], myArr[i][1] * LCM1]
-			outputParts += myArr[i][1] * LCM1
+			outputParts += myArr[i][1] * myArr[i][0] * LCM1
 		}
 
 	} else {
@@ -75,7 +75,7 @@ function solve(anyArr, LCM1, LCM2, LCM2Arr) {
 			LCM2Arr[i] = new Frac(tempNumerator, tempDenominator)	// same as above line
 			LCM2Arr[i] = LCM2Arr[i].denominator()
 
-			// console.log(`LCM2Arr[i]: ${LCM2Arr[i]}`)
+			console.log(`LCM2Arr[i]: ${LCM2Arr[i]}`)
 			
 		}
 
@@ -95,7 +95,7 @@ function solve(anyArr, LCM1, LCM2, LCM2Arr) {
 }
 
 
-function solveAsbaat(anyArr, LCM1) {
+function solveAsbaat(anyArr, LCM) {
 
     let myArr = anyArr
 	outputParts = 0
@@ -103,11 +103,13 @@ function solveAsbaat(anyArr, LCM1) {
 	for (let i = 0; i < myArr.length; i++) {
 		// Assign 2D array to a new array
 		// Array       =	Name, Value, Part * LCM
-		outputArray[i] = [myArr[i][3], myArr[i][0], ( (myArr[i][1] * LCM1) / myArr[i][0]) ]
-		outputParts += myArr[i][1] * LCM1
+		outputArray[i] = [myArr[i][3], myArr[i][0], ( (myArr[i][1] * LCM) / myArr[i][0]) ]
+		outputParts += myArr[i][1] * LCM
 
-		console.log(`myArr.length : ${myArr.length}`)
-		console.log(`outputParts : ${outputParts}`)
-		console.log(`outputArray : ${outputArray}`)
 	}
+	
+	console.log(`myArr.length : ${myArr.length}`)
+	console.log(`outputParts : ${outputParts}`)
+	console.log(`outputArray : ${outputArray}`)
+	
 }

@@ -28,27 +28,6 @@ function filterSelectedZaweAlFarooz() {
     return tempZAF
 }
 
-function filterDenominators(myArr) {
-
-    let tempdenom = []
-
-    for(let i = 0; i < myArr.length; i++) {
-        tempdenom[i] = parseInt(myArr[i][1].denominator())
-    }
-    return tempdenom
-}
-
-// check for second LCM
-function checkForSecondLCM(anyArr) {
-    let myArr = anyArr
-    if (myArr.find(element => element[0] > 1)) {
-        return true
-    } else {
-        return false
-    }
-}
-
-
 // Filter Selected Asbaat
 function filterSelectedAsbaat() {
 
@@ -73,6 +52,46 @@ function filterSelectedAsbaat() {
     }
 
     return tempAsbaat
+}
+
+function filterNumerators(myArr) {
+
+    let tempdenom = []
+
+    for(let i = 0; i < myArr.length; i++) {
+        tempdenom[i] = parseInt(myArr[i][1].numerator())
+    }
+    return tempdenom
+}
+
+function filterDenominators(myArr) {
+
+    let tempdenom = []
+
+    for(let i = 0; i < myArr.length; i++) {
+        tempdenom[i] = parseInt(myArr[i][1].denominator())
+    }
+    return tempdenom
+}
+
+// check for second LCM
+function checkForSecondLCM(anyArr) {
+    let myArr = anyArr
+    if (myArr.find(element => element[0] > 1)) {
+        return true
+    } else {
+        return false
+    }
+}
+
+// check for second LCM For Asbaat
+function checkSecondLCMForAsbaat(anyArr) {
+    let myArr = anyArr
+    if (myArr.find(element => element[2] < 1)) {
+        return true
+    } else {
+        return false
+    }
 }
 
 function display(any2DArr) {

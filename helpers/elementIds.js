@@ -87,6 +87,17 @@ let mmfm = document.getElementById('MMFM')		    // Mother of Mother's Father's M
 let mmff = document.getElementById('MMFF')		    // Mother of Mother's Father's Father
 let mfff = document.getElementById('MFFF')		    // Mother of Father's Father's Father
 
+/*
+   -------------------------------------------------------------------
+   -------------------------------------------------------------------
+                        Asbaat Chart Related Ids
+   -------------------------------------------------------------------
+   -------------------------------------------------------------------
+*/
+
+let asbaatChart = document.getElementById('asbaatChart') // Complete Asbaat Chart
+let main = document.getElementById('main')
+
 
 
 

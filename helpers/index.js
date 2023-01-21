@@ -23,13 +23,19 @@ include('helpers/filterRelatives.js');
 // Function to include many javascript files
 function include(file) {
 
-    var script = document.createElement('script');
+    let script = document.createElement('script');
     script.src = file;
     script.type = 'text/javascript';
     script.defer = true;
 
     document.getElementsByTagName('head').item(0).appendChild(script);
 
+}
+
+// In Start Asbaat Chart will not be visible until certain condition(s) match
+// when Asbaat Chart is visible then the main form will be hidden
+function hideAsbaatChart() {
+	asbaatChart.style.display = 'none'; 
 }
 
 let oneByTwo = new Frac(1, 2)		//	Fraction(1).div(2)
@@ -131,6 +137,8 @@ let flag1 = false, flag2 = false
 let outputParts	= 0	// shows the total number of output parts
 let outputArray	= [[]]	// shows the total number of output rows in the output table
 let outputArrayLength = 0	// shows the total number of elements in the outputArray
+
+hideAsbaatChart()
 
 // Submit Button Function
 submitBtn.addEventListener('click', function() {
