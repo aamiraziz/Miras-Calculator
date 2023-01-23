@@ -347,7 +347,7 @@ function showParts() {
 
 		// solveAsbaat(selectedRelativesArr, selectedRelatives1stLCM)
 
-		secondLCM = checkSecondLCMForAsbaat(selectedRelativesArr)
+		// secondLCM = checkSecondLCMForAsbaat(selectedRelativesArr)
 		console.log(`secondLCM = ${secondLCM}`)
 
 		// selectedRelativesNumeratorArr = filterNumerators(selectedRelativesArr)
@@ -355,8 +355,9 @@ function showParts() {
 		// console.log(`selectedRelatives2ndLCM = ${selectedRelatives2ndLCM}`)
 
 		// solveAsbaat(selectedRelativesArr, selectedRelatives2ndLCM)
+		solveAsbaat(selectedRelativesArr, selectedRelatives1stLCM)
 
-		solve(selectedRelativesArr, selectedRelatives1stLCM, selectedRelatives2ndLCM, selectedRelatives2ndLCMArr)
+		// solve(selectedRelativesArr, selectedRelatives1stLCM, selectedRelatives2ndLCM, selectedRelatives2ndLCMArr)
 
 		
 	} else if (parseFloat(zaweAlFaroozSum) < 1 && !asbatExists) {
