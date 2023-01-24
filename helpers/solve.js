@@ -8,7 +8,7 @@
 	* Documentation Started on January 03, 2023
 */
 
-function solve(anyArr, LCM1, LCM2, LCM2Arr) {
+function solveZAF(anyArr, LCM1, LCM2, LCM2Arr) {
 
     let myArr = anyArr
 
@@ -59,14 +59,13 @@ function solveAsbaat(anyArr, LCM) {
 	for (let i = 0; i < myArr.length; i++) {
 		// Assign 2D array to a new array
 		// Array       =	Name, Value, Part * LCM
-		outputArray[i] = [myArr[i][3], myArr[i][0], ( (myArr[i][1] * LCM) / myArr[i][0]) ]
-		outputParts += myArr[i][1] * LCM
-
+		outputArray[i] = [myArr[i][3], myArr[i][0], ( myArr[i][1] * LCM) ]
+		outputParts += outputArray[i][1] * outputArray[i][2]
 	}
 	
 	console.log(`myArr.length : ${myArr.length}`)
 	console.log(`outputParts : ${outputParts}`)
-	console.log(`outputArray : ${outputArray}`)
+	console.table(`outputArray : ${outputArray}`)
 	
 }
 

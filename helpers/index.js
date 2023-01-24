@@ -118,6 +118,9 @@ let counterMale = 1, counterFemale = 0
 // this variable will hold the part when male and female simultaneously become Asba
 let perAsbaSiblingPart = new Frac(0, 1)
 
+// This variable will hold the part of persibling in Zawe Al Farooz
+let perZAFSiblingPart = new Frac(0, 1)
+
 // this will contain only available Asbaat
 let selectedAsbaatArr = [[]]
 
