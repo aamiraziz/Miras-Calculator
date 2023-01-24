@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="main_place">
+    main
+    </div>
+    
+    <button onclick="show('operation1')">Replace to operation 1</button>
+    <button onclick="show('operation2')">Replace to operation 2</button>
+    <button onclick="show('operation3')">Replace to operation 3</button>
+    
+    
+    <div w3-include-html="content.html"></div>
+    
+    <script>
+    function show(param_div_id) {
+        document.getElementById('main_place').innerHTML = document.getElementById(param_div_id).innerHTML;
+    }
+    </script>
+    
+</body>
+</html>

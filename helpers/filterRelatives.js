@@ -6,14 +6,18 @@
 function filterSelectedZaweAlFarooz() {
 
     let tempZAF = [[]]
+    // let tempZAFpp = [[]]
 
     // Put only the available Zawe Al Farooz from availableRelativesArr array to selectedZaweAlFaroozArr array
     for ( let i = 0, z = 0; z < availableRelativesArr.length; z++ ) {
         if ( availableRelativesArr[z][0] !== 0 && availableRelativesArr[z][1] !== zero) {
 
+            // perPerson = new Frac(availableRelativesArr[z][1].numerator(), availableRelativesArr[z][1].denominator() * availableRelativesArr[z][0])
+            // tempZAFpp[i] = [availableRelativesArr[z][0], perPerson, availableRelativesArr[z][2], availableRelativesArr[z][3]]
+            // console.log(`selectedZaweAlFaroozArr[${i}] = ${tempZAFpp[i][0]}, ${tempZAFpp[i][1].valueOf()}, ${tempZAFpp[i][2]}, ${tempZAFpp[i][3]}`)
+
             tempZAF[i] = availableRelativesArr[z]
-            // myArr[i] = parseInt(tempZAF[i][1].denominator())
-            console.log(`selectedZaweAlFaroozArr[${i}] = ${tempZAF[i][0]}, ${tempZAF[i][1].valueOf()}, ${tempZAF[i][2]}, ${tempZAF[i][3]}`)
+            console.log(`selectedZaweAlFaroozArr[${i}] = ${tempZAF[i][0]}, ${(tempZAF[i][1]/tempZAF[i][0]).valueOf()}, ${tempZAF[i][2]}, ${tempZAF[i][3]}`)
 
             if ( tempZAF[i][2] ) {
                 flag1 = true
@@ -28,26 +32,30 @@ function filterSelectedZaweAlFarooz() {
     return tempZAF
 }
 
-function filterDenominators(myArr) {
+function filterSelectedZaweAlFaroozPP(perPerson) {
 
-    let tempdenom = []
+    let tempZAFpp = [[]]
 
-    for(let i = 0; i < myArr.length; i++) {
-        tempdenom[i] = parseInt(myArr[i][1].denominator())
+    // Put only the available Zawe Al Farooz from availableRelativesArr array to selectedZaweAlFaroozArr array
+    for ( let i = 0, z = 0; z < availableRelativesArr.length; z++ ) {
+        if ( availableRelativesArr[z][0] !== 0 && availableRelativesArr[z][1] !== zero) {
+
+            perPerson = new Frac(availableRelativesArr[z][1].numerator(), availableRelativesArr[z][1].denominator() * availableRelativesArr[z][0])
+            tempZAFpp[i] = [availableRelativesArr[z][0], perPerson, availableRelativesArr[z][2], availableRelativesArr[z][3]]
+            console.log(`selectedZaweAlFaroozArr[${i}] = ${tempZAFpp[i][0]}, ${tempZAFpp[i][1].valueOf()}, ${tempZAFpp[i][2]}, ${tempZAFpp[i][3]}`)
+
+            if ( tempZAFpp[i][2] ) {
+                flag1 = true
+                console.log(`My name is tempAZFpp[${i}][3] : ${tempZAFpp[i][3]} and my Flag is: ${flag1}`)
+            }
+
+            i++
+        } 
+        
     }
-    return tempdenom
+    
+    return tempZAFpp
 }
-
-// check for second LCM
-function checkForSecondLCM(anyArr) {
-    let myArr = anyArr
-    if (myArr.find(element => element[0] > 1)) {
-        return true
-    } else {
-        return false
-    }
-}
-
 
 // Filter Selected Asbaat
 function filterSelectedAsbaat() {
@@ -74,6 +82,46 @@ function filterSelectedAsbaat() {
 
     return tempAsbaat
 }
+
+function filterNumerators(myArr) {
+
+    let tempdenom = []
+
+    for(let i = 0; i < myArr.length; i++) {
+        tempdenom[i] = parseInt(myArr[i][1].numerator())
+    }
+    return tempdenom
+}
+
+function filterDenominators(myArr) {
+
+    let tempdenom = []
+
+    for(let i = 0; i < myArr.length; i++) {
+        tempdenom[i] = parseInt(myArr[i][1].denominator())
+    }
+    return tempdenom
+}
+
+// check for second LCM
+function checkForSecondLCM(anyArr) {
+    let myArr = anyArr
+    if (myArr.find(element => element[0] > 1)) {
+        return true
+    } else {
+        return false
+    }
+}
+
+// check for second LCM For Asbaat
+// function checkSecondLCMForAsbaat(anyArr) {
+//     let myArr = anyArr
+//     if (myArr.find(element => element[2] < 1)) {
+//         return true
+//     } else {
+//         return false
+//     }
+// }
 
 function display(any2DArr) {
 

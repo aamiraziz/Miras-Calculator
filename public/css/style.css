@@ -1,0 +1,102 @@
+#itemstyle, #notpresent {
+    height: 10px;
+}
+
+#notpresent {
+    margin: 2em 1em 1em 1em;
+    font-weight: bold;
+}
+#cbleft {
+    margin-top: -0.6%; 
+    margin-left: 1%;
+}
+
+#cbright {
+    margin-top: -0.6%; 
+    margin-right: 1%;
+}
+
+h1#asbaat {
+    text-align: center;
+    margin: 1em 0em;
+    color: blue;
+}
+
+hr {
+    border: none;
+    border-top: 2px double #000;
+    color: #000;
+    overflow: visible;
+    text-align: center;
+    opacity: 0.7;
+}
+
+hr#ffff {  
+    margin: 1em 4em;
+}
+
+hr#fff {
+    margin: 1em 7.5em;
+}
+
+hr#ff {
+    margin: 1em 11.2em;
+}
+
+hr#f {
+    margin: 1em 14.8em;
+}
+
+/* hr#dp {
+    margin: 1em 17.8em;
+} */
+
+hr#dp, hr#sd, hr#ssds, hr#sssdss, hr#ssssdsss{
+    margin: 1em 18.5em;
+}
+
+hr:after {
+    background: #fff;
+    padding: 0 4px;
+    position: relative;
+    top: -13px;
+}
+
+#ffff:after {
+    content: '8- FFFF';
+}
+
+#fff:after {
+    content: '7- FFF';
+}
+
+#ff:after {
+    content: '6- FF';
+}
+
+#f:after {
+    content: '5- F';
+}
+
+#dp:after {
+    /* font-size: small; */
+    content: 'P. B/S <--- D. P ---> R. B/S';
+    font-weight: bold;
+    color: blue;
+}
+
+#sd:after {
+    content: '1- S D';
+}
+
+#ssds:after {
+    content: '2- SS DS';
+}
+
+#sssdss:after {
+    content: '3- SSS DSS';
+}
+
+#ssssdsss:after {
+    content: '4- SSSS DSSS';
+}

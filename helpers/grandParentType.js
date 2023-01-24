@@ -1,6 +1,7 @@
 /*
     * Grand Parents are of many type
     * This file contains the functions which will return the correct grandparents
+    * This file also contains the functions of Show/Hide Main/AsbaatChart div
     * Khanqah Rehmkariya Imdadia
     * Copyright (c) 2023 ~ 2123
 	* Development Started on August 2022
@@ -109,3 +110,9 @@ function showGrandMotherType() {
     return gmTypeArr
 
 }
+
+// This function can use to hide the asbaat chart after calculate button is clicked
+// function hideAsbaatChart() {
+//     main.style.display = 'block'
+// 	asbaatChart.style.display = 'none'
+// }

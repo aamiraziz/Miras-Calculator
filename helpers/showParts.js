@@ -243,19 +243,22 @@ function showParts() {
 	// =============================================================================
 	// check to solve the problem 
 	if (parseFloat(zaweAlFaroozSum) === 1 || parseFloat(zaweAlFaroozSum) > 1) {
-		// if zaweAlFaroozSum is greater than 1 or equal to 1 then solve the zaweAlFaroozSum problem and the parts are their parts
-		// In Solve.js, solveZAF is the function to calculate the solution of only zaweAlFarooz problem.
+		/*
+			* Solve zawe al farooz and these are their parts
+			* if zaweAlFaroozSum is greater than 1 or equal to 1 then solve the zaweAlFaroozSum problem and the parts are their parts
+			* In Solve.js, solveZAF is the function to calculate the solution of only zaweAlFarooz problem.
+		*/
+
 		selectedZaweAlFaroozArr = filterSelectedZaweAlFarooz()
 		zaweAlFaroozDenominatorArr = filterDenominators(selectedZaweAlFaroozArr)
 
 		zaweAlFarooz1stLCM = nerdamer(`lcm(${zaweAlFaroozDenominatorArr})`) // First LCM
 		console.log(`zaweAlFarooz1stLCM = ${zaweAlFarooz1stLCM}`)
-		// console.log(`secondLCM = ${secondLCM}`)
 
 		secondLCM = checkForSecondLCM(selectedZaweAlFaroozArr)
 		console.log(`secondLCM = ${secondLCM}`)
 
-		solve(selectedZaweAlFaroozArr, zaweAlFarooz1stLCM, zaweAlFarooz2ndLCM, zaweAlFarooz2ndLCMArr)
+		solveZAF(selectedZaweAlFaroozArr, zaweAlFarooz1stLCM, zaweAlFarooz2ndLCM, zaweAlFarooz2ndLCMArr)
 		// console.log(`Solve zawe al farooz and these are their parts`) // test statement
 
 	} else if (parseFloat(zaweAlFaroozSum) < 1 && asbatExists) {
@@ -264,7 +267,7 @@ function showParts() {
 		console.log(`calculate zawe al farooz and then asbat`)
 
 		// available Zawe al farooz Relatives
-		selectedZaweAlFaroozArr = filterSelectedZaweAlFarooz()
+		selectedZaweAlFaroozArr = filterSelectedZaweAlFaroozPP(perZAFSiblingPart)
 		
 		// calculate the remaining part from zawe al farooz
 		remainingPart = calculateRemainingPart()
@@ -278,7 +281,10 @@ function showParts() {
 			* Find Remaining Part from ZaweAlFarooz Relatives
 			* Find Asbaat Relatives and store it in "selectedAsbaatArr" Array
 			* if selectedAsbaatArr.length === 1
-				* selectedAsbaatArr[0][1] = remainingPart 
+				* if Asbaat is already present in ZAF (Only Father and GrandFather)
+					* Add Asbaat part in that particular Zawe al farooz
+				* else
+					* selectedAsbaatArr[0][1] = remainingPart 
 			* if selectedAsbaatArr.length > 1
 				* perAsbaSiblingPart = remainingPart / totalFemales
 				* femaleAsbaPart = perAsbaSiblingPart
@@ -289,6 +295,7 @@ function showParts() {
 		*/
 
 		if ( selectedAsbaatArr.length === 1 ) {
+
 			if ( flag1 === flag2 ) {
 				let remaining
 				// assign the remaining part in ZAF array in which asba part is true
@@ -296,8 +303,7 @@ function showParts() {
 					if ( selectedZaweAlFaroozArr[i][2]) {
 						console.log(`The Part of ${selectedZaweAlFaroozArr[i][3]} is 
 						${selectedZaweAlFaroozArr[i][1].solvedDisplay()} + ${remainingPart.solvedDisplay()} = `)
-
-						// selectedZaweAlFaroozArr[i][1] = selectedZaweAlFaroozArr[i][1] + remainingPart
+						
 						remaining = selectedZaweAlFaroozArr[i][1] + remainingPart
 
 						remaining = new Fraction(remaining)
@@ -311,7 +317,7 @@ function showParts() {
 					}
 				}
 			} else {
-				selectedAsbaatArr[0][1] = remainingPart
+				selectedAsbaatArr[0][1] = new Frac(remainingPart.numerator(), remainingPart.denominator() * selectedAsbaatArr[0][0])
 			}
 		} else {
 			let totalFemales = parseInt(counterMale) + parseInt(counterFemale)
@@ -342,21 +348,20 @@ function showParts() {
 
 		selectedRelativesDenominatorArr = filterDenominators(selectedRelativesArr)
 
+		// -------------------------------------------------
 		selectedRelatives1stLCM = nerdamer(`lcm(${selectedRelativesDenominatorArr})`) // First LCM
 		console.log(`selectedRelatives1stLCM = ${selectedRelatives1stLCM}`)
 
-		secondLCM = checkForSecondLCM(selectedRelativesArr)
-		console.log(`secondLCM = ${secondLCM}`)
-
-		// solveAsbaat(selectedRelativesArr, selectedRelatives1stLCM)
-
-		solve(selectedRelativesArr, selectedRelatives1stLCM, selectedRelatives2ndLCM, selectedRelatives2ndLCMArr)
+		solveAsbaat(selectedRelativesArr, selectedRelatives1stLCM)
 
 		
 	} else if (parseFloat(zaweAlFaroozSum) < 1 && !asbatExists) {
 		// if zaweAlFaroozSum is Less than 1 and asbat is not present in the first page of interface,
 		// then go the second page of interface and select the asbat (from chart).
 		console.log(`GoTo Asbat Chart`)
+
+		main.style.display = 'none'
+		asbaatChart.style.display = 'block'
 		// remainingPart = calculateRemainingPart()
 	} else {
 		// if zaweAlFaroozSum is Less than 1 and asbat not present which is selected from the asbat chat in the interface,
