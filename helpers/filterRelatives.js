@@ -53,6 +53,8 @@ function filterSelectedZaweAlFaroozPP(perPerson) {
         } 
         
     }
+
+    console.log(`tempZAFpp.length = ${tempZAFpp.length}`)
     
     return tempZAFpp
 }
@@ -67,8 +69,10 @@ function filterSelectedAsbaat() {
         
         if ( availableRelativesArr[z][2] ) {
             tempAsbaat[i] = availableRelativesArr[z]
-            console.log(`selectedAsbaatArr[${i}] = ${tempAsbaat[i][0]}, ${tempAsbaat[i][1].valueOf()},
-                                    ${tempAsbaat[i][2]}, ${tempAsbaat[i][3]}`)
+            console.log(`selectedAsbaatArr[${i}] = ${tempAsbaat[i][0]}, ${selectedAsbaatArr[0][1]},
+                                    ${tempAsbaat[i][2]}, ${tempAsbaat[i][3]}
+                            The Type OF availableRelativesArr[${z}][1] when assigned to tempAbsaat is: ${typeof(tempAsbaat[i][1].display())}
+                            The Value OF availableRelativesArr[${z}][1] when assigned to tempAbsaat is: ${tempAsbaat[i][1].display()}`)
 
             if ( tempAsbaat[i][2] ) {
                 flag2 = true

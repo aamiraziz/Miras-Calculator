@@ -45,6 +45,7 @@ let oneByFour = new Frac(1, 4) 		//	Fraction(1).div(4)
 let oneBySix = new Frac(1, 6) 		//	Fraction(1).div(6)
 let oneByEight = new Frac(1, 8) 	//	Fraction(1).div(8)
 let zero = new Frac(0, 1) 			//	Fraction(0).div(1)
+// let one = new Frac(1, 1) 			//	Fraction(1).div(1)
 
 let imam = "hanfi"
 
@@ -135,6 +136,9 @@ let selectedRelativesDenominatorArr = []
 
 // these flag will use to find the existance of father/grandFather in Selected ZAF and Selected Asbaat
 let flag1 = false, flag2 = false
+
+// this flag will become true when ZAF array is empty
+let flag3 = false
 
 // output variables
 let outputParts	= 0	// shows the total number of output parts

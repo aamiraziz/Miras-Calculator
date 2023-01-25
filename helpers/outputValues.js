@@ -19,7 +19,7 @@ function outputAllValues() {
       // console.log("I am here")
       tableRow = `
       <tr>
-              <th class="text-center" scope="row">${i}</th>
+              <th class="text-center" scope="row">${i + 1}</th>
               <td class="text-center">${outputArray[i][0]}</td>
               <td class="text-center">${outputArray[i][1]}</td>
               <td class="text-center">${outputArray[i][2]}</td>
