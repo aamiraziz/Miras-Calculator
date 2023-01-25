@@ -272,6 +272,9 @@ function showParts() {
 		// calculate the remaining part from zawe al farooz
 		remainingPart = calculateRemainingPart()
 
+		console.log(`remainingPart: ${remainingPart.valueOf()}`)
+		console.log(`typeof(remainingPart): ${typeof(remainingPart.valueOf())}`)
+
 		// available Asbaat
 		selectedAsbaatArr = filterSelectedAsbaat()
 
@@ -294,7 +297,14 @@ function showParts() {
 			* Multiply LCM with parts of selectedRelativesArr // Answer
 		*/
 
-		if ( selectedAsbaatArr.length === 1 ) {
+		// if ( (!zaweAlFaroozArr.find(element => element[0] > 0)) ) {
+		if ( flag3 ) {
+			selectedZaweAlFaroozArr.length = 0
+			console.log(`selectedZaweAlFaroozArr.length (when this array is empty before IF): ${selectedZaweAlFaroozArr.length}`)
+		}
+		
+
+		if ( selectedAsbaatArr.length === 1 /* && remainingPart !== 1 */) {
 
 			if ( flag1 === flag2 ) {
 				let remaining
@@ -313,11 +323,17 @@ function showParts() {
 
 						selectedZaweAlFaroozArr[i][1] = remaining
 
-						console.log(`${selectedZaweAlFaroozArr[i][1]}`)
+						console.log(`selectedZaweAlFaroozArr[i][1]: ${selectedZaweAlFaroozArr[i][1]}`)
 					}
 				}
+			} else if ( flag3 ) {
+				selectedAsbaatArr[0][1] = new Frac(remainingPart.numerator(), remainingPart.denominator())
+				console.log(`selectedAsbaatArr[0][1] (ifelse) [in Absence of ZAF]: ${selectedAsbaatArr[0][1].display()}`)
 			} else {
 				selectedAsbaatArr[0][1] = new Frac(remainingPart.numerator(), remainingPart.denominator() * selectedAsbaatArr[0][0])
+				console.log(`selectedAsbaatArr[0][1] (ifelse)  [in presensce of ZAF]: ${selectedAsbaatArr[0][1].display()}, 
+								${new Frac(remainingPart.numerator(), remainingPart.denominator() * selectedAsbaatArr[0][0])}`)
+				console.log(`FLAG3: ${flag3}`)
 			}
 		} else {
 			let totalFemales = parseInt(counterMale) + parseInt(counterFemale)
@@ -341,15 +357,33 @@ function showParts() {
 		if (flag1 === flag2) {
 			selectedRelativesArr = selectedZaweAlFaroozArr
 			display(selectedRelativesArr) // test function
+		} else if (selectedZaweAlFaroozArr.length === 0) {
+			console.log(`selectedZaweAlFaroozArr.length = 0 (when this array is empty): ${selectedZaweAlFaroozArr.length}`)
+			// if (selectedZaweAlFaroozArr.length === 0) {
+				selectedRelativesArr = selectedAsbaatArr
+
+				// console.log(`selectedAsbaatArr: ${selectedAsbaatArr}`)
+				// console.log(`selectedRelativesArr: ${selectedRelativesArr}`)
 		} else {
 			selectedRelativesArr = selectedZaweAlFaroozArr.concat(selectedAsbaatArr)
-			display(selectedRelativesArr) // test function
-		}		
+		}
+		
+		display(selectedRelativesArr) // test function
+		// console.log(`selectedZaweAlFaroozArr (when this array is empty After Display Function): ${selectedZaweAlFaroozArr}`)
+		// }		
 
 		selectedRelativesDenominatorArr = filterDenominators(selectedRelativesArr)
+		console.log(`selectedRelativesDenominatorArr: ${selectedRelativesDenominatorArr}`)
+		console.log(`selectedRelativesDenominatorArr.length: ${selectedRelativesDenominatorArr.length}`)
+
+		if (selectedRelativesDenominatorArr.length === 1) {
+			selectedRelatives1stLCM = selectedRelativesDenominatorArr	 // First LCM
+		} else {
+			selectedRelatives1stLCM = nerdamer(`lcm(${selectedRelativesDenominatorArr})`) // First LCM
+		}
 
 		// -------------------------------------------------
-		selectedRelatives1stLCM = nerdamer(`lcm(${selectedRelativesDenominatorArr})`) // First LCM
+		// selectedRelatives1stLCM = nerdamer(`lcm(${selectedRelativesDenominatorArr})`) // First LCM
 		console.log(`selectedRelatives1stLCM = ${selectedRelatives1stLCM}`)
 
 		solveAsbaat(selectedRelativesArr, selectedRelatives1stLCM)

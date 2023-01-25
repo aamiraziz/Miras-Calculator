@@ -414,6 +414,7 @@ function calculateRemainingPart() {
     let part = new Frac(0, 1)
 
     if (remaining === parseInt(1)) {
+        flag3 = true
         part = new Frac(remaining, 1)
     } else {
         remaining = new Fraction(remaining)
