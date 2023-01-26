@@ -396,6 +396,12 @@ function showParts() {
 
 		main.style.display = 'none'
 		asbaatChart.style.display = 'block'
+
+		// if (asbaFromChart.length === 0) {
+		// 	// none checked
+		// 	} else {
+		// 	alert(asbaFromChart[0].value)
+		// }
 		// remainingPart = calculateRemainingPart()
 	} else {
 		// if zaweAlFaroozSum is Less than 1 and asbat not present which is selected from the asbat chat in the interface,

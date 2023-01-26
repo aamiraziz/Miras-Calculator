@@ -645,3 +645,27 @@ husband.addEventListener('change', function() {
       }
   
   })
+
+  // Add event Listener to radio buttons From 1 to 78 in ASbaat Chart
+  // the callback function is written below the event listener line
+  // asbaFromChart.addEventListener('click', asbaFromChartHandler)
+
+  // callback function as an event handler for asbaFromChart
+  // function asbaFromChartHandler() {
+  //   if (asbaFromChart.length === 0) {
+	// 		// none checked
+	// 		} else {
+	// 		console.log(`asbaFromChart[0].value : ${asbaFromChart[0].value}`)
+	// 		alert(asbaFromChart[0].value)
+	// 	}
+  // }
+
+  asbaFromChart.addEventListener('click', function() {
+    
+    if (asbaFromChart.length === 0) {
+			// none checked
+			} else {
+			console.log(`asbaFromChart[0].value : ${asbaFromChart[0].value}`)
+			alert(asbaFromChart[0].value)
+		}    
+  })
