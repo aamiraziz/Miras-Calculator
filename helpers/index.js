@@ -145,6 +145,9 @@ let outputParts	= 0	// shows the total number of output parts
 let outputArray	= [[]]	// shows the total number of output rows in the output table
 let outputArrayLength = 0	// shows the total number of elements in the outputArray
 
+// Asbaat Chart
+let asbaFromChart
+
 hideAsbaatChart()
 
 // Submit Button Function

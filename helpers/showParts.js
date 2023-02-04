@@ -275,7 +275,7 @@ function showParts() {
 		console.log(`remainingPart: ${remainingPart.valueOf()}`)
 		console.log(`typeof(remainingPart): ${typeof(remainingPart.valueOf())}`)
 
-		// available Asbaat
+		// available Asbaat {Number of relatives, Part, flag(true/false), Name of relative}
 		selectedAsbaatArr = filterSelectedAsbaat()
 
 		/*
@@ -392,16 +392,35 @@ function showParts() {
 	} else if (parseFloat(zaweAlFaroozSum) < 1 && !asbatExists) {
 		// if zaweAlFaroozSum is Less than 1 and asbat is not present in the first page of interface,
 		// then go the second page of interface and select the asbat (from chart).
-		console.log(`GoTo Asbat Chart`)
 
 		main.style.display = 'none'
 		asbaatChart.style.display = 'block'
 
-		// if (asbaFromChart.length === 0) {
-		// 	// none checked
-		// 	} else {
-		// 	alert(asbaFromChart[0].value)
-		// }
+		console.log(`GoTo Asbat Chart`)
+
+		const myFirstPromise = new Promise((resolve, reject) => {
+			// We call resolve(...) when what we were doing asynchronously was successful, and reject(...) when it failed.
+			// In this example, we use setTimeout(...) to simulate async code.
+			// In reality, you will probably be using something like XHR or an HTML API.
+			setInterval(() => {
+
+				if (asbaFromChart !== undefined) {
+					resolve("Success! and asbaFromChart is: " + asbaFromChart) // Yay! Everything went well!
+				}
+
+			}, 250)
+		  })
+		  
+		  myFirstPromise.then((successMessage) => {
+			// successMessage is whatever we passed in the resolve(...) function above.
+			// It doesn't have to be a string, but if it is only a succeed message, it probably will be.
+			console.log(`Yay! ${successMessage}`);
+		  }, (error) => {
+			console.error(error);
+		  });
+		  
+		console.log(`After Promise Good Bye and asbaFromChart: ${asbaFromChart}`)
+		
 		// remainingPart = calculateRemainingPart()
 	} else {
 		// if zaweAlFaroozSum is Less than 1 and asbat not present which is selected from the asbat chat in the interface,

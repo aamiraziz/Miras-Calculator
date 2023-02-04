@@ -88,29 +88,21 @@ let mmff = document.getElementById('MMFF')		    // Mother of Mother's Father's F
 let mfff = document.getElementById('MFFF')		    // Mother of Father's Father's Father
 
 /*
-   -------------------------------------------------------------------
-   -------------------------------------------------------------------
-                        Asbaat Chart Related Ids
-   -------------------------------------------------------------------
-   -------------------------------------------------------------------
+   ------------------------------------------------------------------------
+   ------------------------------------------------------------------------
+    |    |    |    |    |    Asbaat Chart Related Ids   |   |   |   |   |
+   ------------------------------------------------------------------------
+   ------------------------------------------------------------------------
 */
 
 let asbaatChart = document.getElementById('asbaatChart') // Complete Asbaat Chart
 let main = document.getElementById('main')
 
 // This will save the name of asba selected from Asbaat Chart
-let asbaFromChart = document.querySelectorAll('input[type="radio"][name="asba-number"]:checked')
-
-
-// if (asbaFromChart.length === 0) {
-// // none checked
-// } else {
-// alert(asbaFromChart[0].value)
-// }
-
-
-
-
+// let asbaFromChart = document.querySelectorAll('input[type="radio"][name="asba-number"]:checked')
+// let getSelectedValue = document.querySelector( 'input[type="radio"][name="asba-number"]:checked')
+// let getSelectedValue = document.querySelectorAll('input[type="radio"][name="asba-number"]:checked')
+let getSelectedValue = document.getElementsByName('asba-number')
 
 
 
