@@ -117,22 +117,12 @@ function checkForSecondLCM(anyArr) {
     }
 }
 
-// check for second LCM For Asbaat
-// function checkSecondLCMForAsbaat(anyArr) {
-//     let myArr = anyArr
-//     if (myArr.find(element => element[2] < 1)) {
-//         return true
-//     } else {
-//         return false
-//     }
-// }
-
 function display(any2DArr) {
 
     let myArr = any2DArr
 
     for ( let i = 0; i < myArr.length; i++ ) {
-        console.log(`myArr[${i}] = ${myArr[i][0]}, ${myArr[i][1].solvedDisplay()},
+        console.log(`DisplayAny2DArr[${i}] = ${myArr[i][0]}, ${myArr[i][1].solvedDisplay()},
                                     ${myArr[i][2]}, ${myArr[i][3]}`)
     }
 }
@@ -146,4 +136,14 @@ function testAfterFilterSelectedAsbaat() {
     // console.log(`counterMale(${counterMale}) + counterFemale(${counterFemale})= ${counterMale + counterFemale}`) // test statement
     // console.log(`typeof(counterMale) : ${typeof(counterMale)} \n typeof(counterFemale) : ${typeof(counterFemale)}`) // test statement
 }
+
+// check for second LCM For Asbaat
+// function checkSecondLCMForAsbaat(anyArr) {
+//     let myArr = anyArr
+//     if (myArr.find(element => element[2] < 1)) {
+//         return true
+//     } else {
+//         return false
+//     }
+// }
 

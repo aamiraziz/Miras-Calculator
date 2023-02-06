@@ -89,7 +89,8 @@ let husbandArr, husbandVal, husbandName = husband.name,	// For husband
 	sonArr, sonVal, sonName = son.name,	// For son(s)	
 	sSonArr, sSonVal, sSonName = sSon.name,	// For sSon(s)
 	ssSonArr, ssSonVal, ssSonName = ssSon.name,	// For ssSon(s)
-	sssSonArr, sssSonVal, sssSonName = sssSon.name	// For sssSon(s)
+	sssSonArr, sssSonVal, sssSonName = sssSon.name,	// For sssSon(s)
+	asbaatChartArr
 
 
 // this array will contain all zawe al farooz 
@@ -153,8 +154,9 @@ hideAsbaatChart()
 // Submit Button Function
 submitBtn.addEventListener('click', function() {
     
-	showParts()   
-    outputAllValues()	// Temporary for testing and debigging purposes
+	showParts() 
+	document.getElementById("main").innerHTML = ""
+    // outputAllValues()	// Temporary for testing and debigging purposes
 })
 
 
