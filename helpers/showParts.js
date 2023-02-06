@@ -203,6 +203,8 @@ function showParts() {
 
 	sssSonArr = [sssSonVal, sssSonPart, sssSonAsba, sssSonName]
 
+	// asbaatChartArr = [0, zero, false, "x"]
+
 	availableRelativesArr = [ husbandArr, wifeArr, daughterArr, sDaughterArr, ssDaughterArr, sssDaughterArr, fatherArr,
 		motherArr, rSisterArr, pSisterArr, mSisArr, gfArr, gmArr, rBrotherArr, pBrotherArr, 
 		sonArr, sSonArr, ssSonArr, sssSonArr ]
@@ -261,6 +263,8 @@ function showParts() {
 		solveZAF(selectedZaweAlFaroozArr, zaweAlFarooz1stLCM, zaweAlFarooz2ndLCM, zaweAlFarooz2ndLCMArr)
 		// console.log(`Solve zawe al farooz and these are their parts`) // test statement
 
+		outputAllValues()
+
 	} else if (parseFloat(zaweAlFaroozSum) < 1 && asbatExists) {
 		// if zaweAlFaroozSum is Less than 1 and asbat are present in the first page of interface, 
 		// then first solve the zaweAlFarooz problem and then asbat problem
@@ -275,7 +279,7 @@ function showParts() {
 		console.log(`remainingPart: ${remainingPart.valueOf()}`)
 		console.log(`typeof(remainingPart): ${typeof(remainingPart.valueOf())}`)
 
-		// available Asbaat
+		// available Asbaat {Number of relatives, Part, flag(true/false), Name of relative}
 		selectedAsbaatArr = filterSelectedAsbaat()
 
 		/*
@@ -298,104 +302,105 @@ function showParts() {
 		*/
 
 		// if ( (!zaweAlFaroozArr.find(element => element[0] > 0)) ) {
-		if ( flag3 ) {
-			selectedZaweAlFaroozArr.length = 0
-			console.log(`selectedZaweAlFaroozArr.length (when this array is empty before IF): ${selectedZaweAlFaroozArr.length}`)
-		}
-		
 
-		if ( selectedAsbaatArr.length === 1 /* && remainingPart !== 1 */) {
+		solveZAFandAsbaat()
 
-			if ( flag1 === flag2 ) {
-				let remaining
-				// assign the remaining part in ZAF array in which asba part is true
-				for ( let i = 0; i < selectedZaweAlFaroozArr.length; i++ ) {
-					if ( selectedZaweAlFaroozArr[i][2]) {
-						console.log(`The Part of ${selectedZaweAlFaroozArr[i][3]} is 
-						${selectedZaweAlFaroozArr[i][1].solvedDisplay()} + ${remainingPart.solvedDisplay()} = `)
-						
-						remaining = selectedZaweAlFaroozArr[i][1] + remainingPart
-
-						remaining = new Fraction(remaining)
-						const myString = remaining.toFraction()
-						let myFrac = myString.split('/')
-						remaining = new Frac(parseInt(myFrac[0]), parseInt(myFrac[1]))
-
-						selectedZaweAlFaroozArr[i][1] = remaining
-
-						console.log(`selectedZaweAlFaroozArr[i][1]: ${selectedZaweAlFaroozArr[i][1]}`)
-					}
-				}
-			} else if ( flag3 ) {
-				selectedAsbaatArr[0][1] = new Frac(remainingPart.numerator(), remainingPart.denominator())
-				console.log(`selectedAsbaatArr[0][1] (ifelse) [in Absence of ZAF]: ${selectedAsbaatArr[0][1].display()}`)
-			} else {
-				selectedAsbaatArr[0][1] = new Frac(remainingPart.numerator(), remainingPart.denominator() * selectedAsbaatArr[0][0])
-				console.log(`selectedAsbaatArr[0][1] (ifelse)  [in presensce of ZAF]: ${selectedAsbaatArr[0][1].display()}, 
-								${new Frac(remainingPart.numerator(), remainingPart.denominator() * selectedAsbaatArr[0][0])}`)
-				console.log(`FLAG3: ${flag3}`)
-			}
-		} else {
-			let totalFemales = parseInt(counterMale) + parseInt(counterFemale)
-			let temp = remainingPart.denominator() * totalFemales
-			perAsbaSiblingPart = new Frac(remainingPart.numerator(), temp)
-			console.log(`totalFemales : ${totalFemales}`)						// Test Statement
-			console.log(`typeof(totalFemales) : ${typeof(totalFemales)}`)		// Test Statement
-			console.log(`perAsbaSiblingPart: ${perAsbaSiblingPart.display()}`)	// Test Statement
-
-			// use FOR loop to assign values to array and multiply value by 2 on last index
-			for ( let i = 0; i < selectedAsbaatArr.length; i++ ) {
-				if ( i === selectedAsbaatArr.length -1 ) {
-					selectedAsbaatArr[i][1] = new Frac( 2 * perAsbaSiblingPart.numerator(), perAsbaSiblingPart.denominator() )
-				} else {
-					selectedAsbaatArr[i][1] = perAsbaSiblingPart
-				}		
-			}
-		}
-
-		// combines zawe al farooz and asbaat
-		if (flag1 === flag2) {
-			selectedRelativesArr = selectedZaweAlFaroozArr
-			display(selectedRelativesArr) // test function
-		} else if (selectedZaweAlFaroozArr.length === 0) {
-			console.log(`selectedZaweAlFaroozArr.length = 0 (when this array is empty): ${selectedZaweAlFaroozArr.length}`)
-			// if (selectedZaweAlFaroozArr.length === 0) {
-				selectedRelativesArr = selectedAsbaatArr
-
-				// console.log(`selectedAsbaatArr: ${selectedAsbaatArr}`)
-				// console.log(`selectedRelativesArr: ${selectedRelativesArr}`)
-		} else {
-			selectedRelativesArr = selectedZaweAlFaroozArr.concat(selectedAsbaatArr)
-		}
-		
-		display(selectedRelativesArr) // test function
-		// console.log(`selectedZaweAlFaroozArr (when this array is empty After Display Function): ${selectedZaweAlFaroozArr}`)
-		// }		
-
-		selectedRelativesDenominatorArr = filterDenominators(selectedRelativesArr)
-		console.log(`selectedRelativesDenominatorArr: ${selectedRelativesDenominatorArr}`)
-		console.log(`selectedRelativesDenominatorArr.length: ${selectedRelativesDenominatorArr.length}`)
-
-		if (selectedRelativesDenominatorArr.length === 1) {
-			selectedRelatives1stLCM = selectedRelativesDenominatorArr	 // First LCM
-		} else {
-			selectedRelatives1stLCM = nerdamer(`lcm(${selectedRelativesDenominatorArr})`) // First LCM
-		}
-
-		// -------------------------------------------------
-		// selectedRelatives1stLCM = nerdamer(`lcm(${selectedRelativesDenominatorArr})`) // First LCM
-		console.log(`selectedRelatives1stLCM = ${selectedRelatives1stLCM}`)
-
-		solveAsbaat(selectedRelativesArr, selectedRelatives1stLCM)
-
+		outputAllValues()
 		
 	} else if (parseFloat(zaweAlFaroozSum) < 1 && !asbatExists) {
 		// if zaweAlFaroozSum is Less than 1 and asbat is not present in the first page of interface,
 		// then go the second page of interface and select the asbat (from chart).
-		console.log(`GoTo Asbat Chart`)
 
 		main.style.display = 'none'
 		asbaatChart.style.display = 'block'
+
+		console.log(`GoTo Asbat Chart`)
+
+		const myFirstPromise = new Promise((resolve, reject) => {
+			// We call resolve(...) when what we were doing asynchronously was successful, and reject(...) when it failed.
+			// In this example, we use setTimeout(...) to simulate async code.
+			// In reality, you will probably be using something like XHR or an HTML API.
+			setInterval(() => {
+
+				if (asbaFromChart !== undefined) {
+					resolve("Success! and asbaFromChart is: " + asbaFromChart) // Yay! Everything went well!
+				}
+
+			}, 250)
+		  })
+		  
+		  myFirstPromise.then((successMessage) => {
+			// successMessage is whatever we passed in the resolve(...) function above.
+			// It doesn't have to be a string, but if it is only a succeed message, it probably will be.
+			console.log(`Yay! ${successMessage}`)
+		  }, (error) => {
+			console.error(error)
+		  })
+
+		  myFirstPromise.then(() => {
+
+			// available Zawe al farooz Relatives
+			selectedZaweAlFaroozArr = filterSelectedZaweAlFaroozPP(perZAFSiblingPart)
+			
+			// calculate the remaining part from zawe al farooz
+			remainingPart = calculateRemainingPart()
+			ZAFNotFound()	// makes ZAF array length to zero whern there is no ZAF available.
+			
+			console.log(`remainingPart: ${remainingPart.valueOf()}`)
+			console.log(`remainingPart.numerator: ${remainingPart.numerator()}`)
+			console.log(`remainingPart.denominator: ${remainingPart.denominator()}`)
+			console.log(`typeof(remainingPart): ${typeof(remainingPart.valueOf())}`)
+
+			/*
+				* if asbaFromChart[2] === 0 && selectedZaweAlFaroozArr.length === 0
+				* Goto output screen to provide book link because it is Zawe Al Arhaam problem
+
+				* if selectedZaweAlFaroozArr.length !== 0 && asbaFromChart[2] === 0 
+				* Implement Rad Method
+			*/
+
+			if (asbaFromChart[2] === 0 && selectedZaweAlFaroozArr.length === 0) {
+				let bookLink = "This is Zawe Al Arhaam (ذوی الارحام) problem. Please consult the book"
+				document.getElementById("main").innerHTML = bookLink
+			} else if (selectedZaweAlFaroozArr.length !== 0 && asbaFromChart[2] === 0) {
+				let bookLink = "IMplement Rad (رد) Method"
+				document.getElementById("main").innerHTML = bookLink
+			} else {
+
+				if (flag3) { // if there is no ZAF
+					perAsbaSiblingPart = new Frac(1, asbaFromChart[2])		
+				} else {
+					perAsbaSiblingPart = new Frac(remainingPart.numerator(), remainingPart.denominator() * asbaFromChart[2])
+				}
+				
+				// available Asbaat {Number of relatives, Part = zero, flag(true/false), Name of relative}
+				asbaatChartArr = [asbaFromChart[2], perAsbaSiblingPart, true, asbaFromChart[1]]
+				console.log(`asbaatChartArr: ${asbaatChartArr[0]}, ${asbaatChartArr[1].display()}, ${asbaatChartArr[2]}, ${asbaatChartArr[3]}`)
+	
+				// ----------------------------------------------------------------
+				availableRelativesArr.push([asbaFromChart[2], perAsbaSiblingPart, true, asbaFromChart[1]])
+				// ----------------------------------------------------------------
+	
+				
+				selectedAsbaatArr = filterSelectedAsbaat()
+				// selectedAsbaatArr = availableRelativesArr
+				combineZAFandAsbaat()
+				display(selectedRelativesArr) // test function
+				allRelativesLCM()
+		
+				console.log(`selectedRelatives1stLCM = ${selectedRelatives1stLCM}`)
+	
+				solveAsbaat(selectedRelativesArr, selectedRelatives1stLCM)
+	
+				outputAllValues()
+
+			}
+
+			
+		  })
+		  
+		console.log(`After Promise Good Bye and asbaFromChart: ${asbaFromChart}`)
+		
 		// remainingPart = calculateRemainingPart()
 	} else {
 		// if zaweAlFaroozSum is Less than 1 and asbat not present which is selected from the asbat chat in the interface,

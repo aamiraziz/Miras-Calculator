@@ -15,7 +15,7 @@
 		<h1 class="text-center text-success" style="font-family: jameel Noori Nastaleeq;">خانقاہ رحمکاریہ امدادیہ</h1>
 		<h2 class="text-center text-secondary" style="font-family:Verdana, Geneva, Tahoma, sans-serif;"> Miras Calculator </h2>
 		<h6 class="text-center text-danger" id="note"> Change values carefully, select close relatives first. 
-			All non eligible relatives may remove automatically in the form.
+			All non eligible relatives may disappear automatically in the form.
         </h6>
 
         <div class="container bg-light">
@@ -233,7 +233,9 @@
 
         <h1 id="asbaat">Asbaat</h1>
 
-        <!-- ------------------------------- Start FFFF ------------------------------- -->
+        <form>
+
+             <!-- ------------------------------- Start FFFF ------------------------------- -->
         <div id="itemstyle">
             <div class="form-check float-start" id="cbleft">
                 <input class="form-check-input" type="radio" name="asba-number" id="asba-number-62" value="Paternal Brother of FFFF">
@@ -728,6 +730,15 @@
                 </label>
             </div>
         </div>
+            
+        </form>
+
+        <div class="d-grid gap-3 row justify-content-end"><br>
+            <div class="col-4 col-lg-2">	
+                <button type="submit" class="btn btn-success" id="submitAsbaBtn" onclick="submitAsbaBtns()">Submit</button>
+            </div>
+        </div>
+
         
 
     </div>

@@ -89,7 +89,8 @@ let husbandArr, husbandVal, husbandName = husband.name,	// For husband
 	sonArr, sonVal, sonName = son.name,	// For son(s)	
 	sSonArr, sSonVal, sSonName = sSon.name,	// For sSon(s)
 	ssSonArr, ssSonVal, ssSonName = ssSon.name,	// For ssSon(s)
-	sssSonArr, sssSonVal, sssSonName = sssSon.name	// For sssSon(s)
+	sssSonArr, sssSonVal, sssSonName = sssSon.name,	// For sssSon(s)
+	asbaatChartArr
 
 
 // this array will contain all zawe al farooz 
@@ -145,13 +146,17 @@ let outputParts	= 0	// shows the total number of output parts
 let outputArray	= [[]]	// shows the total number of output rows in the output table
 let outputArrayLength = 0	// shows the total number of elements in the outputArray
 
+// Asbaat Chart
+let asbaFromChart
+
 hideAsbaatChart()
 
 // Submit Button Function
 submitBtn.addEventListener('click', function() {
     
-	showParts()   
-    outputAllValues()	// Temporary for testing and debigging purposes
+	showParts() 
+	document.getElementById("main").innerHTML = ""
+    // outputAllValues()	// Temporary for testing and debigging purposes
 })
 
 

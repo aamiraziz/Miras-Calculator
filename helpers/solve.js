@@ -69,6 +69,144 @@ function solveAsbaat(anyArr, LCM) {
 	
 }
 
+// makes ZAF array length to zero when there is no ZAF
+function ZAFNotFound() {
+	if ( flag3 ) {
+		selectedZaweAlFaroozArr.length = 0
+		console.log(`selectedZaweAlFaroozArr.length (when this array is empty before IF): ${selectedZaweAlFaroozArr.length}`)
+	}
+}
+
+// This function will combine the ZAF andAsbaat array
+function combineZAFandAsbaat() {
+	if (flag1 === flag2) {
+		selectedRelativesArr = selectedZaweAlFaroozArr
+		display(selectedRelativesArr) // test function
+	} else if (selectedZaweAlFaroozArr.length === 0) {
+		console.log(`selectedZaweAlFaroozArr.length = 0 (when this array is empty): ${selectedZaweAlFaroozArr.length}`)
+			selectedRelativesArr = selectedAsbaatArr
+
+			// console.log(`selectedAsbaatArr: ${selectedAsbaatArr}`)
+			// console.log(`selectedRelativesArr: ${selectedRelativesArr}`)
+	} else {
+		selectedRelativesArr = selectedZaweAlFaroozArr.concat(selectedAsbaatArr)
+	}
+
+	console.log(`selectedRelativesArr: ${selectedRelativesArr}`)
+	
+}
+
+// calculates the ZAF and ASBAAT combined array LCM
+function allRelativesLCM() {
+
+	selectedRelativesDenominatorArr = filterDenominators(selectedRelativesArr)
+	console.log(`selectedRelativesDenominatorArr: ${selectedRelativesDenominatorArr}`)
+	console.log(`selectedRelativesDenominatorArr.length: ${selectedRelativesDenominatorArr.length}`)
+
+	if (selectedRelativesDenominatorArr.length === 1) {
+		selectedRelatives1stLCM = selectedRelativesDenominatorArr	 // First LCM
+	} else {
+		selectedRelatives1stLCM = nerdamer(`lcm(${selectedRelativesDenominatorArr})`) // First LCM
+	}
+
+}
+
+
+function solveZAFandAsbaat() {
+
+	// if ( flag3 ) {
+	// 	selectedZaweAlFaroozArr.length = 0
+	// 	console.log(`selectedZaweAlFaroozArr.length (when this array is empty before IF): ${selectedZaweAlFaroozArr.length}`)
+	// }
+
+	ZAFNotFound()
+	
+	if ( selectedAsbaatArr.length === 1 /* && remainingPart !== 1 */) {
+
+		if ( flag1 === flag2 ) {
+			let remaining
+			// assign the remaining part in ZAF array in which asba part is true
+			for ( let i = 0; i < selectedZaweAlFaroozArr.length; i++ ) {
+				if ( selectedZaweAlFaroozArr[i][2]) {
+					console.log(`The Part of ${selectedZaweAlFaroozArr[i][3]} is 
+					${selectedZaweAlFaroozArr[i][1].solvedDisplay()} + ${remainingPart.solvedDisplay()} = `)
+					
+					remaining = selectedZaweAlFaroozArr[i][1] + remainingPart
+
+					remaining = new Fraction(remaining)
+					const myString = remaining.toFraction()
+					let myFrac = myString.split('/')
+					remaining = new Frac(parseInt(myFrac[0]), parseInt(myFrac[1]))
+
+					selectedZaweAlFaroozArr[i][1] = remaining
+
+					console.log(`selectedZaweAlFaroozArr[i][1]: ${selectedZaweAlFaroozArr[i][1]}`)
+				}
+			}
+		} else if ( flag3 ) {
+			selectedAsbaatArr[0][1] = new Frac(remainingPart.numerator(), remainingPart.denominator())
+			console.log(`selectedAsbaatArr[0][1] (ifelse) [in Absence of ZAF]: ${selectedAsbaatArr[0][1].display()}`)
+		} else {
+			selectedAsbaatArr[0][1] = new Frac(remainingPart.numerator(), remainingPart.denominator() * selectedAsbaatArr[0][0])
+			console.log(`selectedAsbaatArr[0][1] (ifelse)  [in presensce of ZAF]: ${selectedAsbaatArr[0][1].display()}, 
+							${new Frac(remainingPart.numerator(), remainingPart.denominator() * selectedAsbaatArr[0][0])}`)
+			console.log(`FLAG3: ${flag3}`)
+		}
+	} else {
+		let totalFemales = parseInt(counterMale) + parseInt(counterFemale)
+		let temp = remainingPart.denominator() * totalFemales
+		perAsbaSiblingPart = new Frac(remainingPart.numerator(), temp)
+		console.log(`totalFemales : ${totalFemales}`)						// Test Statement
+		console.log(`typeof(totalFemales) : ${typeof(totalFemales)}`)		// Test Statement
+		console.log(`perAsbaSiblingPart: ${perAsbaSiblingPart.display()}`)	// Test Statement
+
+		// use FOR loop to assign values to array and multiply value by 2 on last index
+		for ( let i = 0; i < selectedAsbaatArr.length; i++ ) {
+			if ( i === selectedAsbaatArr.length -1 ) {
+				selectedAsbaatArr[i][1] = new Frac( 2 * perAsbaSiblingPart.numerator(), perAsbaSiblingPart.denominator() )
+			} else {
+				selectedAsbaatArr[i][1] = perAsbaSiblingPart
+			}		
+		}
+	}
+
+	// combines zawe al farooz and asbaat
+	combineZAFandAsbaat()
+	// if (flag1 === flag2) {
+	// 	selectedRelativesArr = selectedZaweAlFaroozArr
+	// 	display(selectedRelativesArr) // test function
+	// } else if (selectedZaweAlFaroozArr.length === 0) {
+	// 	console.log(`selectedZaweAlFaroozArr.length = 0 (when this array is empty): ${selectedZaweAlFaroozArr.length}`)
+	// 	// if (selectedZaweAlFaroozArr.length === 0) {
+	// 		selectedRelativesArr = selectedAsbaatArr
+
+	// 		// console.log(`selectedAsbaatArr: ${selectedAsbaatArr}`)
+	// 		// console.log(`selectedRelativesArr: ${selectedRelativesArr}`)
+	// } else {
+	// 	selectedRelativesArr = selectedZaweAlFaroozArr.concat(selectedAsbaatArr)
+	// }
+	
+	display(selectedRelativesArr) // test function
+	allRelativesLCM()
+	// console.log(`selectedZaweAlFaroozArr (when this array is empty After Display Function): ${selectedZaweAlFaroozArr}`)
+	// }		
+
+	// selectedRelativesDenominatorArr = filterDenominators(selectedRelativesArr)
+	// console.log(`selectedRelativesDenominatorArr: ${selectedRelativesDenominatorArr}`)
+	// console.log(`selectedRelativesDenominatorArr.length: ${selectedRelativesDenominatorArr.length}`)
+
+	// if (selectedRelativesDenominatorArr.length === 1) {
+	// 	selectedRelatives1stLCM = selectedRelativesDenominatorArr	 // First LCM
+	// } else {
+	// 	selectedRelatives1stLCM = nerdamer(`lcm(${selectedRelativesDenominatorArr})`) // First LCM
+	// }
+	
+	console.log(`selectedRelatives1stLCM = ${selectedRelatives1stLCM}`)
+
+	solveAsbaat(selectedRelativesArr, selectedRelatives1stLCM)
+
+}
+
 /*
 
 function solveZAF(zaweAlFaroozArr) {
