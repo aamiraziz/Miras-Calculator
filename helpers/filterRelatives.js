@@ -42,7 +42,7 @@ function filterSelectedZaweAlFaroozPP(perPerson) {
 
             perPerson = new Frac(availableRelativesArr[z][1].numerator(), availableRelativesArr[z][1].denominator() * availableRelativesArr[z][0])
             tempZAFpp[i] = [availableRelativesArr[z][0], perPerson, availableRelativesArr[z][2], availableRelativesArr[z][3]]
-            console.log(`selectedZaweAlFaroozArr[${i}] = ${tempZAFpp[i][0]}, ${tempZAFpp[i][1].valueOf()}, ${tempZAFpp[i][2]}, ${tempZAFpp[i][3]}`)
+            console.log(`selectedZaweAlFaroozArr[${i}] = ${tempZAFpp[i][0]}, ${tempZAFpp[i][1].solvedDisplay()}, ${tempZAFpp[i][2]}, ${tempZAFpp[i][3]}`)
 
             if ( tempZAFpp[i][2] ) {
                 flag1 = true
@@ -85,6 +85,16 @@ function filterSelectedAsbaat() {
     }
 
     return tempAsbaat
+}
+
+function filterRelativeCounts(myArr) {
+
+    let tempdenom = []
+
+    for(let i = 0; i < myArr.length; i++) {
+        tempdenom[i] = parseInt(myArr[i][0])
+    }
+    return tempdenom
 }
 
 function filterNumerators(myArr) {

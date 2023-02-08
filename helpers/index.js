@@ -9,16 +9,17 @@
 */
 
 /* Include Many js files */
-include('helpers/outputValues.js');
-include('helpers/elementIds.js');
-include('helpers/eventListeners.js');
-include('helpers/existance.js');
-include('helpers/grandParentType.js');
-include('helpers/calculateParts.js');
-include('helpers/showParts.js'); 
-include('helpers/solve.js');
-include('helpers/filterRelatives.js');
-// include('test/testoutputfile.js');
+include('helpers/outputValues.js')
+include('helpers/elementIds.js')
+include('helpers/eventListeners.js')
+include('helpers/existance.js')
+include('helpers/grandParentType.js')
+include('helpers/calculateParts.js')
+include('helpers/showParts.js')
+include('helpers/solve.js')
+include('helpers/filterRelatives.js')
+include('helpers/mainLogic.js')
+// include('test/testoutputfile.js')
 
 // Function to include many javascript files
 function include(file) {
@@ -154,47 +155,8 @@ hideAsbaatChart()
 // Submit Button Function
 submitBtn.addEventListener('click', function() {
     
-	showParts() 
-	document.getElementById("main").innerHTML = ""
-    // outputAllValues()	// Temporary for testing and debigging purposes
+	showParts()
+	mainLogic()
+	displayOutput()
+	
 })
-
-
-/* 
-// this is the 2D array which will hold the details of all available relatives in form of first page
-// let availableRelatives  // = [ husbandArr, wifeArr, daughterArr, sDaughterArr, ssDaughterArr, sssDaughterArr, fatherArr,
-						//	motherArr, rSisterArr, pSisterArr, mSisArr, mBroArr, gfArr, gmArr, rBrotherArr, pBrotherArr, 
-						//	sonArr, sSonArr, ssSonArr, sssSonArr ]
-						 
-
-zaweAlFaroozArr = [husbandArr, wifeArr, daughterArr, sDaughterArr, ssDaughterArr, sssDaughterArr, fatherArr, motherArr, 
-	rSisterArr, pSisterArr, mBroArr, mSisArr, gfArr, gmArr]
-
-// Variables that store Element IDs 
-let submitBtn, method, husband, husbandText, wife, wifeText, rSister, pSister, mSister, rBrother, pBrother, mBrother,
-	father, mother, grandFather, grandMother, daughter, sDaughter, ssDaughter, sssDaughter, son, sSon, ssSon, sssSon,
-	gfType, backBtnGF, ff, fff, ffff, pType, gmType, backBtnGM, rmhanbali, rmmaliki, mm, mf, mmm, mfm, mff, mmmm, 
-	mmfm, mmff, mfff
-*/
-
-							// [husbandArr, husbandVal, husbandPerHead, husbandName],
-							// [wifeArr, wifeVal, wifePerHead, wifeName],
-							// [daughterArr, daughterVal, daughterPerHead, daughterName],
-							// [sDaughterArr, sDaughterVal, sDaughterPerHead, sDaughterName],
-							// [ssDaughterArr, ssDaughterVal, ssDaughterPerHead, ssDaughterName],
-							// [ sssDaughterVal, sssDaughterPerHead, sssDaughterName],
-							// [ fatherVal, fatherPerHead, fatherName],
-							// [ motherVal, motherPerHead, motherName],
-							// [ rSisterVal, rSisterPerHead, rSisterName],
-							// [ pSisterVal, pSisterPerHead, pSisterName],
-							// [ mSisterVal, maternalPerHead, mSisterName, totalBroSis, mSisParts],
-							// [ mBrotherVal, maternalPerHead, mBrotherName, totalBroSis, mBroParts],
-							// [gfPerHead, gfName],
-							// [grandMotherVal, gmPerHead, gmName],
-
-							// [rBrotherVal, rBrotherPerHead, rBrotherName],
-							// [pBrotherPerHead, pBrotherName],
-							// [sonVal, sonPerHead, sonName],
-							// [sSonVal, sSonPerHead, sSonName],
-							// [ssSonVal, ssSonPerHead, ssSonName],
-							// [sssSonVal, sssSonPerHead, sssSonName]
