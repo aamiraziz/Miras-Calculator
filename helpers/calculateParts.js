@@ -442,3 +442,14 @@ function calculateRemainingPart() {
     console.log(`================= For Testing Purpose Start =================`)
     return part
 }
+
+// calculates the LCM or any Array
+function calculateLCM(LCM) {
+    if (LCM.length > 1) {
+        LCM = nerdamer(`lcm(${LCM})`) // Numerators LCM
+    } 
+    // else {
+    //     LCM = selectedRelativesArr[0][0] // first element value
+    // }
+    return LCM
+}

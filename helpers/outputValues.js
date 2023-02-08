@@ -8,7 +8,7 @@
 */
 
 
-// Output all values just for testing purpose.
+// Shows All Output values.
 function outputAllValues() {
     note.style.display = "none";
     
@@ -47,4 +47,13 @@ function outputAllValues() {
     document.getElementById("main").innerHTML = out
   
   }
+
+// This function will display the output of solution to users
+function displayOutput() {
+	if (parseFloat(zaweAlFaroozSum) === 1 || parseFloat(zaweAlFaroozSum) > 1 || asbatExists) {
+		outputAllValues()
+	} else {
+		document.getElementById("main").innerHTML = ""	// used to control execution for promise
+	}
+}
 
