@@ -15,6 +15,7 @@ function outputAllValues() {
     let allRows = ""
     let tableRow = ""
     let out
+    let Imam = imam.charAt(0).toUpperCase() + imam.slice(1)
     for (let i = 0; i < outputArray.length; i++) {
       // console.log("I am here")
       tableRow = `
@@ -29,7 +30,8 @@ function outputAllValues() {
     }
   
     out = `
-      <h3>Total Parts: ${outputParts}</h3>
+      <h3><span style="color:green">Maslak: </span><span style="color:red">${Imam}</span></h3>
+      <h3><span style="color:green">Total Parts: </span><span style="color:red">${outputParts}</span></h3>
       <table class="table">
           <thead>
               <tr>

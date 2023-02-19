@@ -379,6 +379,8 @@ function calculateMBroSisPart() {
 // Father's Father's Father's part
 function calculateGrandFatherPart() {
 
+    if (imam === "shaafi" || imam === "maliki") {return zero}
+
     // in presence of childern if father is not present then grandFather will get 1/6
     if ( parseInt(grandFather.value) === 1 && childernExists && parseInt(father.value) === 0) {
         return oneBySix // 1/6
@@ -452,4 +454,16 @@ function calculateLCM(LCM) {
     //     LCM = selectedRelativesArr[0][0] // first element value
     // }
     return LCM
+}
+
+
+function calculatePerAsbaSiblingPart() {
+
+    totalFemales = parseInt(counterMale) + parseInt(counterFemale)
+    let temp = remainingPart.denominator() * totalFemales
+    perAsbaSiblingPart = new Frac(remainingPart.numerator(), temp)
+    console.log(`totalFemales : ${totalFemales}`)						// Test Statement
+    console.log(`typeof(totalFemales) : ${typeof(totalFemales)}`)		// Test Statement
+    console.log(`perAsbaSiblingPart: ${perAsbaSiblingPart.display()}`)	// Test Statement
+
 }

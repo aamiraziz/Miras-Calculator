@@ -47,11 +47,11 @@ hr#f {
     margin: 1em 14.8em;
 }
 
-/* hr#dp {
-    margin: 1em 17.8em;
-} */
+hr#dp {
+    margin: 1em 18.5em;
+}
 
-hr#dp, hr#sd, hr#ssds, hr#sssdss, hr#ssssdsss{
+hr#sd, hr#ssds, hr#sssdss, hr#ssssdsss{
     margin: 1em 18.5em;
 }
 

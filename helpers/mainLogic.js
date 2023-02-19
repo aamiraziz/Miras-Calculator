@@ -8,6 +8,23 @@
 	* Documentation Started on Feburary 08, 2023
 */
 
+/*
+	APPLICATION lOGIC:
+	==================
+
+	* If this sum (zaweAlFaroozSum) is equal to 1 or greater than 1 then all these parts are the zawe al farooz parts
+
+	* If this sum (zaweAlFaroozSum) is Less than 1 and asbat is/are present in the first page of interface,
+		then first solve the zaweAlFarooz problem and then asbat problem
+
+	* If this sum (zaweAlFaroozSum) is Less than 1 and asbat is not present in the first page of interface,
+		then go the second page of interface and select the asbat (from chart).
+
+	* If this sum (zaweAlFaroozSum) is less than 1 but asbat not present in Asbaat Chart then use رد کا طریقہ
+
+	* If only SPOUSE is present OR neither any ZaweAlFarooz nor any Asbaat is present then go to ZaweAlArham
+*/
+
 function mainLogic() {
 
 	// =============================================================================
@@ -20,7 +37,7 @@ function mainLogic() {
 		*/
 		console.log(`Solve zawe al farooz and these are their parts`) // test statement
 
-		selectedZaweAlFaroozArr = filterSelectedZaweAlFarooz()
+		selectedZaweAlFaroozArr = filterZaweAlFarooz()
 		zaweAlFaroozDenominatorArr = filterDenominators(selectedZaweAlFaroozArr)
 
 		zaweAlFarooz1stLCM = nerdamer(`lcm(${zaweAlFaroozDenominatorArr})`) // First LCM
@@ -59,12 +76,16 @@ function mainLogic() {
 
 
 		// available Zawe al farooz Relatives
-		selectedZaweAlFaroozArr = filterSelectedZaweAlFaroozPP(perZAFSiblingPart)
-		
+		if (imam === "shaafi" || imam === "maliki") {
+			selectedZaweAlFaroozArr = filterSelectedZaweAlFarooz(perZAFSiblingPart, zaweAlFaroozArr)
+		} else {
+			selectedZaweAlFaroozArr = filterSelectedZaweAlFarooz(perZAFSiblingPart, availableRelativesArr)
+		}
+				
 		// calculate the remaining part from zawe al farooz
 		remainingPart = calculateRemainingPart()
 
-		console.log(`remainingPart: ${remainingPart.valueOf()}`)
+		console.log(`remainingPart: ${remainingPart.solvedDisplay()}`)
 		console.log(`typeof(remainingPart): ${typeof(remainingPart.valueOf())}`)
 
 		// available Asbaat {Number of relatives, Part, flag(true/false), Name of relative}
@@ -106,8 +127,8 @@ function mainLogic() {
 
 		myFirstPromise.then(() => {
 
-			// available Zawe al farooz Relatives
-			selectedZaweAlFaroozArr = filterSelectedZaweAlFaroozPP(perZAFSiblingPart)
+			// available Zawe al farooz Relatives			
+			selectedZaweAlFaroozArr = filterSelectedZaweAlFarooz(perZAFSiblingPart, availableRelativesArr)
 			
 			// calculate the remaining part from zawe al farooz
 			remainingPart = calculateRemainingPart()

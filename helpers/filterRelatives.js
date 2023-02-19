@@ -3,7 +3,7 @@
 */
 
 
-function filterSelectedZaweAlFarooz() {
+function filterZaweAlFarooz() {
 
     let tempZAF = [[]]
     // let tempZAFpp = [[]]
@@ -17,7 +17,7 @@ function filterSelectedZaweAlFarooz() {
             // console.log(`selectedZaweAlFaroozArr[${i}] = ${tempZAFpp[i][0]}, ${tempZAFpp[i][1].valueOf()}, ${tempZAFpp[i][2]}, ${tempZAFpp[i][3]}`)
 
             tempZAF[i] = availableRelativesArr[z]
-            console.log(`selectedZaweAlFaroozArr[${i}] = ${tempZAF[i][0]}, ${(tempZAF[i][1]/tempZAF[i][0]).valueOf()}, ${tempZAF[i][2]}, ${tempZAF[i][3]}`)
+            console.log(`selectedZaweAlFaroozArr[${i}] = ${tempZAF[i][0]}, ${tempZAF[i][1].solvedDisplay()}, ${tempZAF[i][2]}, ${tempZAF[i][3]}`)
 
             if ( tempZAF[i][2] ) {
                 flag1 = true
@@ -32,16 +32,18 @@ function filterSelectedZaweAlFarooz() {
     return tempZAF
 }
 
-function filterSelectedZaweAlFaroozPP(perPerson) {
+function filterSelectedZaweAlFarooz(perPerson, myArr) {
 
     let tempZAFpp = [[]]
 
-    // Put only the available Zawe Al Farooz from availableRelativesArr array to selectedZaweAlFaroozArr array
-    for ( let i = 0, z = 0; z < availableRelativesArr.length; z++ ) {
-        if ( availableRelativesArr[z][0] !== 0 && availableRelativesArr[z][1] !== zero) {
+    console.log(`INSIDE filterSelectedZaweAlFaroozPP Function`)
 
-            perPerson = new Frac(availableRelativesArr[z][1].numerator(), availableRelativesArr[z][1].denominator() * availableRelativesArr[z][0])
-            tempZAFpp[i] = [availableRelativesArr[z][0], perPerson, availableRelativesArr[z][2], availableRelativesArr[z][3]]
+    // Put only the available Zawe Al Farooz from availableRelativesArr array to selectedZaweAlFaroozArr array
+    for ( let i = 0, z = 0; z < myArr.length; z++ ) {
+        if ( myArr[z][0] !== 0 && myArr[z][1] !== zero) {
+
+            perPerson = new Frac(myArr[z][1].numerator(), myArr[z][1].denominator() * myArr[z][0])
+            tempZAFpp[i] = [myArr[z][0], perPerson, myArr[z][2], myArr[z][3]]
             console.log(`selectedZaweAlFaroozArr[${i}] = ${tempZAFpp[i][0]}, ${tempZAFpp[i][1].solvedDisplay()}, ${tempZAFpp[i][2]}, ${tempZAFpp[i][3]}`)
 
             if ( tempZAFpp[i][2] ) {
@@ -61,6 +63,8 @@ function filterSelectedZaweAlFaroozPP(perPerson) {
 
 // Filter Selected Asbaat
 function filterSelectedAsbaat() {
+
+    console.log(`INSIDE filterSelectedAsbaat Function`)
 
     let tempAsbaat = [[]]
 

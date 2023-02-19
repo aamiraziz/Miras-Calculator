@@ -113,10 +113,14 @@ let secondLCM = false
 // this contains only the asbat of first page in interface.
 let asbatExists
 
-// this counter will use to find total number of asbaat
-// for female it will increment by one
-// for male it will increment by two
-let counterMale = 1, counterFemale = 0
+/*
+	* These counters will use to find total number of females in asbaat
+	* When male and female are togather.
+	* For female it will increment by one
+	* For male it will increment by two
+	* The totalFemales will be the sum of both.
+*/
+let counterMale = 0, counterFemale = 0, totalFemales
 
 // this variable will hold the part when male and female simultaneously become Asba
 let perAsbaSiblingPart = new Frac(0, 1)
