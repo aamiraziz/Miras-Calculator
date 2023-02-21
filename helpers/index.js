@@ -141,6 +141,9 @@ let selectedRelativesArr = [[]], selectedRelatives1stLCM, selectedRelatives2ndLC
 let selectedRelativesDenominatorArr = []
 
 // these flag will use to find the existance of father/grandFather in Selected ZAF and Selected Asbaat
+// flag1 is True if Father/Grand Father is present in filterSelectedZaweAlFarooz()
+// flag1 is not become true for imam malik and shaafi
+// flag2 is True if Father/Grand Father is present in filterSelectedAsbaat()
 let flag1 = false, flag2 = false
 
 // this flag will become true when ZAF array is empty

@@ -85,8 +85,9 @@ function mainLogic() {
 		// calculate the remaining part from zawe al farooz
 		remainingPart = calculateRemainingPart()
 
-		console.log(`remainingPart: ${remainingPart.solvedDisplay()}`)
-		console.log(`typeof(remainingPart): ${typeof(remainingPart.valueOf())}`)
+		console.log(`%c remainingPart: ${remainingPart.solvedDisplay()}`, 
+        			"color: black; font-size: 12px; font-weight: bold;")
+		// console.log(`typeof(remainingPart): ${typeof(remainingPart.valueOf())}`)
 
 		// available Asbaat {Number of relatives, Part, flag(true/false), Name of relative}
 		selectedAsbaatArr = filterSelectedAsbaat()
@@ -134,7 +135,8 @@ function mainLogic() {
 			remainingPart = calculateRemainingPart()
 			ZAFNotFound()	// makes ZAF array length to zero whern there is no ZAF available.
 			
-			console.log(`remainingPart: ${remainingPart.solvedDisplay()}`)
+			console.log(` %c remainingPart: ${remainingPart.solvedDisplay()}`, 
+						"color: black; font-size: 12px; font-weight: bold;")
 
 			/*
 				* if asbaFromChart[2] === 0 && selectedZaweAlFaroozArr.length === 0

@@ -73,7 +73,9 @@ function solveAsbaat(anyArr, LCM) {
 function ZAFNotFound() {
 	if ( flag3 ) {
 		selectedZaweAlFaroozArr.length = 0
-		console.log(`selectedZaweAlFaroozArr.length (when this array is empty before IF): ${selectedZaweAlFaroozArr.length}`)
+		console.log(`FLAG3 is true when ZAF array is empty`)
+		console.log(`%c FLAG3: ${flag3}`, "color: black; font-size: 12px; font-weight: bold;")
+		// console.log(`selectedZaweAlFaroozArr.length (when this array is empty before IF): ${selectedZaweAlFaroozArr.length}`)
 	}
 }
 
@@ -89,7 +91,7 @@ function combineZAFandAsbaat() {
 		selectedRelativesArr = selectedZaweAlFaroozArr.concat(selectedAsbaatArr)
 	}
 
-	console.log(`selectedRelativesArr: ${selectedRelativesArr}`)
+	// console.log(`selectedRelativesArr: ${selectedRelativesArr}`)
 	
 }
 
@@ -113,11 +115,13 @@ function allRelativesLCM() {
 
 function solveZAFandAsbaat() {
 
-	ZAFNotFound()	// This will makes ZAF array length to zero when there is no ZAF
+	// This will makes ZAF array length to zero when there is no ZAF
+	ZAFNotFound()
 
 	if ( selectedAsbaatArr.length === 1 /* && remainingPart !== 1 */) {
 
 		// these flag will use to find the existance of father/grandFather in Selected ZAF and Selected Asbaat
+		// if Imam is maaliki or shaafi then it is only true for father but not for grand father
 		if ( flag1 === flag2 ) {
 			let remaining
 			// assign the remaining part in ZAF array in which asba part is true
@@ -138,13 +142,16 @@ function solveZAFandAsbaat() {
 			}
 		} else if ( flag3 && (imam === "hanfi" || imam === "hanbali") ) { // this flag will become true when ZAF array is empty
 			// Here Imam condition is in doubt --- Please Confirm it through TESTING
+			// if Imam is maaliki or shaafi then it is only true for father but not for grand father
 			selectedAsbaatArr[0][1] = new Frac(remainingPart.numerator(), remainingPart.denominator())
-			console.log(`selectedAsbaatArr[0][1] (ifelse) [in Absence of ZAF]: ${selectedAsbaatArr[0][1].display()}`)
+			console.log(`selectedAsbaatArr[0][1] (ifelse) 
+			in Absence of ZAF, ${selectedAsbaatArr[0][3]} will get ${selectedAsbaatArr[0][1].display()}`)
 		} else {
 			selectedAsbaatArr[0][1] = new Frac(remainingPart.numerator(), remainingPart.denominator() * selectedAsbaatArr[0][0])
-			console.log(`selectedAsbaatArr[0][1] (ifelse)  [in presensce of ZAF]: ${selectedAsbaatArr[0][1].display()}, 
-							${new Frac(remainingPart.numerator(), remainingPart.denominator() * selectedAsbaatArr[0][0])}`)
-			console.log(`FLAG3: ${flag3}`)
+			console.log(`selectedAsbaatArr[0][1] (ifelse)  
+			in presensce of ZAF, ${selectedAsbaatArr[0][3]} will get ${selectedAsbaatArr[0][1].display()}`)
+			console.log(`FLAG3 is true when ZAF array is empty`)
+			console.log(`%c FLAG3: ${flag3}`, "color: black; font-size: 12px; font-weight: bold;")
 		}
 	} else if ( !((grandFatherVal > 0) && (imam === "shaafi" || imam === "maliki")) ) { 
 		// this block of code will work for all imams
@@ -162,6 +169,7 @@ function solveZAFandAsbaat() {
 		}
 
 	} else if (imam === "shaafi" || imam === "maliki") {
+		console.log(`rSisterPart: ${rSisterPart.display()}`)
 
 		// we calculate total females then calculate one female part
 		// then assign the double value of female to male.
@@ -225,21 +233,29 @@ function solveZAFandAsbaat() {
 		const row = selectedAsbaatArr.findIndex(row => row.includes(gfName))
 		selectedAsbaatArr[row][1] = gfRule1
 
+		// Reduce counter by one brother because Grand Father has taken the part
+		counterMale = counterMale - 2
+
 		console.log(`gfRule1: ${gfRule1.solvedDisplay()} is the greatest`)
 		console.log(`selectedAsbaatArr[${row}][1]: ${selectedAsbaatArr[row][1].solvedDisplay()} is the greatest`)
 		console.log(`selectedAsbaatArr[${row}][3]: ${selectedAsbaatArr[row][3]} is the greatest`)
 		console.log(`**********************************************`)
 
 		// Now Remove the Paternal Brothers and Sisters
+		const rBroRow = selectedAsbaatArr.findIndex(row => row.includes(rBrotherName))
 		const pBroRow = selectedAsbaatArr.findIndex(row => row.includes(pBrotherName))
 		const pSisRow = selectedAsbaatArr.findIndex(row => row.includes(pSisterName))
 
 		console.log(`pBroRow: ${pBroRow}`)
 
-		if ( pBroRow === -1 ) {
-			counterMale = counterMale - 2 * (selectedAsbaatArr[row][0])
-		} else {
-			counterMale = counterMale - 2 * (selectedAsbaatArr[pBroRow][0] + selectedAsbaatArr[row][0])
+		if(imam === "maliki" && rBroRow !== -1 && pSisRow === -1 && totalBroSis > 0) { // special case
+			selectedAsbaatArr.splice(rBroRow, 1)
+			selectedAsbaatArr[row][1] = oneByThree
+		} else if(imam === "maliki" && pBroRow !== -1 && pSisRow === -1 && totalBroSis > 0) { // special case
+			selectedAsbaatArr.splice(pBroRow, 1)
+			selectedAsbaatArr[row][1] = oneByThree
+		} else if ( pBroRow !== -1 ) { 
+			counterMale = counterMale - 2 * (selectedAsbaatArr[pBroRow][0])
 			selectedAsbaatArr.splice(pBroRow, 1)
 		}
 
@@ -255,6 +271,9 @@ function solveZAFandAsbaat() {
 		remainingPart = remainingPart - gfRule1
 		remainingPart = makeFrac(remainingPart)
 		console.log(`remainingForSiblings: ${remainingPart.display()}`)
+		// totalFemales = parseInt(counterMale) + parseInt(counterFemale)
+		// console.log(`totalFemales: ${totalFemales}`)
+		// if (totalFemales === 0 || totalFemales == 0) {break}
 		calculatePerAsbaSiblingPart()
 
 		// Now calculates the remaining brother(s) and sister(s) part.

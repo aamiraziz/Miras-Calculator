@@ -36,7 +36,9 @@ function filterSelectedZaweAlFarooz(perPerson, myArr) {
 
     let tempZAFpp = [[]]
 
-    console.log(`INSIDE filterSelectedZaweAlFaroozPP Function`)
+    console.log(`INSIDE filterSelectedZaweAlFarooz Function`)
+    console.log(`%c Selected Zawe Al Farooz: `, 
+    "color: black; font-size: 12px; font-weight: bold;")
 
     // Put only the available Zawe Al Farooz from availableRelativesArr array to selectedZaweAlFaroozArr array
     for ( let i = 0, z = 0; z < myArr.length; z++ ) {
@@ -44,11 +46,16 @@ function filterSelectedZaweAlFarooz(perPerson, myArr) {
 
             perPerson = new Frac(myArr[z][1].numerator(), myArr[z][1].denominator() * myArr[z][0])
             tempZAFpp[i] = [myArr[z][0], perPerson, myArr[z][2], myArr[z][3]]
-            console.log(`selectedZaweAlFaroozArr[${i}] = ${tempZAFpp[i][0]}, ${tempZAFpp[i][1].solvedDisplay()}, ${tempZAFpp[i][2]}, ${tempZAFpp[i][3]}`)
+            console.log(`
+                %c ${i + 1})   ${tempZAFpp[i][0]}, ${tempZAFpp[i][1].solvedDisplay()}, ${tempZAFpp[i][2]}, ${tempZAFpp[i][3]}`, 
+                "color: black; font-size: 12px; font-weight: bold;"
+            )
 
             if ( tempZAFpp[i][2] ) {
                 flag1 = true
-                console.log(`My name is tempAZFpp[${i}][3] : ${tempZAFpp[i][3]} and my Flag is: ${flag1}`)
+                console.log(`My Index in selectedZaweAlFaroozArr is : %c ${i} `, "color: black; font-size: 12px; font-weight: bold;")
+                console.log(`My name is : %c ${tempZAFpp[i][3]} `, "color: black; font-size: 12px; font-weight: bold;")
+                console.log(`and my Flag is: %c ${flag1}`, "color: black; font-size: 12px; font-weight: bold;")
             }
 
             i++
@@ -65,6 +72,7 @@ function filterSelectedZaweAlFarooz(perPerson, myArr) {
 function filterSelectedAsbaat() {
 
     console.log(`INSIDE filterSelectedAsbaat Function`)
+    console.log(`%c Selected Asbaat: `, "color: black; font-size: 12px; font-weight: bold;")
 
     let tempAsbaat = [[]]
 
@@ -73,14 +81,17 @@ function filterSelectedAsbaat() {
         
         if ( availableRelativesArr[z][2] ) {
             tempAsbaat[i] = availableRelativesArr[z]
-            console.log(`selectedAsbaatArr[${i}] = ${tempAsbaat[i][0]}, ${selectedAsbaatArr[0][1]},
-                                    ${tempAsbaat[i][2]}, ${tempAsbaat[i][3]}
-                            The Type OF availableRelativesArr[${z}][1] when assigned to tempAbsaat is: ${typeof(tempAsbaat[i][1].display())}
-                            The Value OF availableRelativesArr[${z}][1] when assigned to tempAbsaat is: ${tempAsbaat[i][1].display()}`)
+            console.log(`
+                %c ${i + 1})   ${tempAsbaat[i][0]}, ${selectedAsbaatArr[0][1]}, ${tempAsbaat[i][2]}, ${tempAsbaat[i][3]}`, 
+                "color: black; font-size: 12px; font-weight: bold;"
+                // The Type OF availableRelativesArr[${z}][1] when assigned to tempAbsaat is: ${typeof(tempAsbaat[i][1].display())}
+                // The Value OF availableRelativesArr[${z}][1] when assigned to tempAbsaat is: ${tempAsbaat[i][1].display()}
+                )
 
             if ( tempAsbaat[i][2] ) {
                 flag2 = true
-                console.log(`My name is tempAsbaat[${i}][3] : ${tempAsbaat[i][3]} and my Flag is: ${flag2}`)
+                console.log(`flag2 is True if Father/Grand Father is present in Selected Asbaat Array`)
+                console.log(`%c FLAG2: ${flag2}`, "color: black; font-size: 12px; font-weight: bold;")
             }
 
             i++
@@ -136,8 +147,8 @@ function display(any2DArr) {
     let myArr = any2DArr
 
     for ( let i = 0; i < myArr.length; i++ ) {
-        console.log(`DisplayAny2DArr[${i}] = ${myArr[i][0]}, ${myArr[i][1].solvedDisplay()},
-                                    ${myArr[i][2]}, ${myArr[i][3]}`)
+        console.log(`DisplayAny2DArr[${i}] = %c ${myArr[i][0]}, ${myArr[i][1].solvedDisplay()}, ${myArr[i][2]}, ${myArr[i][3]}`, 
+        "color: black; font-size: 12px; font-weight: bold;")
     }
 }
 

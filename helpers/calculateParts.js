@@ -258,23 +258,46 @@ function calculateRSisterPart() {
     // Check if Real Sister exists
     if ( parseInt(rSister.value) !== 0 ) {
 
-        // in zawe al farooz chart in absence of childern, father, grand father (Father 0f Father) and real brother
-        // if there are more than one Real Sister then she will get 2/3
-        if ( parseInt(rSister.value) > 1 && !childernExists && 
-        parseInt(father.value) === 0 && parseInt(grandFather.value) === 0 && 
-        parseInt(rBrother.value) === 0 ) {
+        if ( imam === "hanfi" || imam === "hanbali" ) {
 
-            return twoByThree // 2/3
+            // in zawe al farooz chart in absence of childern, father, grand father (Father 0f Father) and real brother
+            // if there are more than one Real Sister then she will get 2/3
+            if ( parseInt(rSister.value) > 1 && !childernExists && 
+            parseInt(father.value) === 0 && parseInt(grandFather.value) === 0 && 
+            parseInt(rBrother.value) === 0 ) {
+    
+                return twoByThree // 2/3
+            }
+    
+            // in zawe al farooz chart in absence of childern, father, grand father (Father 0f Father) and real brother
+            // if there is only one Real Sister then she will get 1/2
+            if ( parseInt(rSister.value) === 1 && !childernExists && 
+            parseInt(father.value) === 0 && parseInt(grandFather.value) === 0 && 
+            parseInt(rBrother.value) === 0 ) {
+    
+                return oneByTwo // 1/2
+            }
+        
+        } else {    // if ( imam === "shaafi" || imam === "maliki" ) 
+
+            // in zawe al farooz chart in absence of childern, father and real brother
+            // if there are more than one Real Sister then she will get 2/3
+            if ( parseInt(rSister.value) > 1 && !childernExists && 
+            parseInt(father.value) === 0 && parseInt(rBrother.value) === 0 ) {
+    
+                return twoByThree // 2/3
+            }
+    
+            // in zawe al farooz chart in absence of childern, father and real brother
+            // if there is only one Real Sister then she will get 1/2
+            if ( parseInt(rSister.value) === 1 && !childernExists && 
+            parseInt(father.value) === 0 && parseInt(rBrother.value) === 0 ) {
+    
+                return oneByTwo // 1/2
+            }
+        
         }
 
-        // in zawe al farooz chart in absence of childern, father, grand father (Father 0f Father) and real brother
-        // if there is only one Real Sister then she will get 1/2
-        if ( parseInt(rSister.value) === 1 && !childernExists && 
-        parseInt(father.value) === 0 && parseInt(grandFather.value) === 0 && 
-        parseInt(rBrother.value) === 0 ) {
-
-            return oneByTwo // 1/2
-        }
     }
     
     return zero
@@ -291,37 +314,73 @@ function calculatePSisterPart() {
     // Check if Paternal Sister exists
     if ( parseInt(pSister.value) !== 0) {
 
-        // in zawe al farooz chart in absence of childern, father, grand father (Father 0f Father), real brother(s), 
-        // real sister(s) and paternal brother
-        // if there is more than one paternal sister, then she will get 2/3
-        if ( parseInt(pSister.value) > 1 && !childernExists && 
-        parseInt(father.value) === 0 && parseInt(grandFather.value) === 0 && 
-        parseInt(rBrother.value) === 0 && parseInt(rSister.value) === 0 && 
-        parseInt(pBrother.value) === 0 ) {
+        if ( imam === "hanfi" || imam === "hanbali" ) {
 
-            return twoByThree // 2/3
-        }
+            // in zawe al farooz chart in absence of childern, father, grand father (Father 0f Father), real brother(s), 
+            // real sister(s) and paternal brother
+            // if there is more than one paternal sister, then she will get 2/3
+            if ( parseInt(pSister.value) > 1 && !childernExists && 
+            parseInt(father.value) === 0 && parseInt(grandFather.value) === 0 && 
+            parseInt(rBrother.value) === 0 && parseInt(rSister.value) === 0 && 
+            parseInt(pBrother.value) === 0 ) {
+    
+                return twoByThree // 2/3
+            }
+    
+            // in zawe al farooz chart in absence of childern, father, grand father (Father 0f Father), real brother(s), 
+            // real sister(s) and paternal brother
+            // if there is only one paternal sister, then she will get 1/2
+            if ( parseInt(pSister.value) === 1 && !childernExists && 
+            parseInt(father.value) === 0 && parseInt(grandFather.value) === 0 && 
+            parseInt(rBrother.value) === 0 && parseInt(rSister.value) === 0 && 
+            parseInt(pBrother.value) === 0 ) {
+    
+                return oneByTwo // 1/2
+            }
+    
+            // in zawe al farooz chart in absence of childern, father, grand father (Father 0f Father), real brother(s), 
+            // real sister(s) and paternal brother, but only one real sister exist.
+            // no matter how many paternal sisters are, then she will get 1/6
+            if ( parseInt(pSister.value) > 0 && !childernExists && 
+            parseInt(father.value) === 0 && parseInt(grandFather.value) === 0 && 
+            parseInt(rBrother.value) === 0 && parseInt(rSister.value) === 1 && 
+            parseInt(pBrother.value) === 0 ) {
+    
+                return oneBySix // 1/6
+            }
+        
+        } else {    // if ( imam === "shaafi" || imam === "maliki" ) 
 
-        // in zawe al farooz chart in absence of childern, father, grand father (Father 0f Father), real brother(s), 
-        // real sister(s) and paternal brother
-        // if there is only one paternal sister, then she will get 1/2
-        if ( parseInt(pSister.value) === 1 && !childernExists && 
-        parseInt(father.value) === 0 && parseInt(grandFather.value) === 0 && 
-        parseInt(rBrother.value) === 0 && parseInt(rSister.value) === 0 && 
-        parseInt(pBrother.value) === 0 ) {
-
-            return oneByTwo // 1/2
-        }
-
-        // in zawe al farooz chart in absence of childern, father, grand father (Father 0f Father), real brother(s), 
-        // real sister(s) and paternal brother, but only one real sister exist.
-        // no matter how many paternal sisters are, then she will get 1/6
-        if ( parseInt(pSister.value) > 0 && !childernExists && 
-        parseInt(father.value) === 0 && parseInt(grandFather.value) === 0 && 
-        parseInt(rBrother.value) === 0 && parseInt(rSister.value) === 1 && 
-        parseInt(pBrother.value) === 0 ) {
-
-            return oneBySix // 1/6
+            // in zawe al farooz chart in absence of childern, father, real brother(s), 
+            // real sister(s) and paternal brother
+            // if there is more than one paternal sister, then she will get 2/3
+            if ( parseInt(pSister.value) > 1 && !childernExists && 
+            parseInt(father.value) === 0 && parseInt(rBrother.value) === 0 
+            && parseInt(rSister.value) === 0 && parseInt(pBrother.value) === 0 ) {
+    
+                return twoByThree // 2/3
+            }
+    
+            // in zawe al farooz chart in absence of childern, father, real brother(s), 
+            // real sister(s) and paternal brother
+            // if there is only one paternal sister, then she will get 1/2
+            if ( parseInt(pSister.value) === 1 && !childernExists && 
+            parseInt(father.value) === 0 && parseInt(rBrother.value) === 0 
+            && parseInt(rSister.value) === 0 && parseInt(pBrother.value) === 0 ) {
+    
+                return oneByTwo // 1/2
+            }
+    
+            // in zawe al farooz chart in absence of childern, father, real brother(s), 
+            // real sister(s) and paternal brother, but only one real sister exist.
+            // no matter how many paternal sisters are, then she will get 1/6
+            if ( parseInt(pSister.value) > 0 && !childernExists && 
+            parseInt(father.value) === 0 && parseInt(rBrother.value) === 0 
+            && parseInt(rSister.value) === 1 && parseInt(pBrother.value) === 0 ) {
+    
+                return oneBySix // 1/6
+            }
+        
         }
 
     } 
@@ -461,6 +520,10 @@ function calculatePerAsbaSiblingPart() {
 
     totalFemales = parseInt(counterMale) + parseInt(counterFemale)
     let temp = remainingPart.denominator() * totalFemales
+    if (temp === 0) { 
+        temp = 1
+        console.log(`temp was zero but now temp: ${temp}`)
+    }
     perAsbaSiblingPart = new Frac(remainingPart.numerator(), temp)
     console.log(`totalFemales : ${totalFemales}`)						// Test Statement
     console.log(`typeof(totalFemales) : ${typeof(totalFemales)}`)		// Test Statement

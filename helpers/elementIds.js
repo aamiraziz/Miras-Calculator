@@ -99,11 +99,11 @@ let asbaatChart = document.getElementById('asbaatChart') // Complete Asbaat Char
 let main = document.getElementById('main')
 
 // This will save the name of asba selected from Asbaat Chart
+let getSelectedValue = document.getElementsByName('asba-number')
+
 // let asbaFromChart = document.querySelectorAll('input[type="radio"][name="asba-number"]:checked')
 // let getSelectedValue = document.querySelector( 'input[type="radio"][name="asba-number"]:checked')
 // let getSelectedValue = document.querySelectorAll('input[type="radio"][name="asba-number"]:checked')
-let getSelectedValue = document.getElementsByName('asba-number')
-
 
 
 
