@@ -17,6 +17,7 @@ function showParts() {
 	// Existance necessary to get parts
     childernExists = childernCheck()	// If childern exists then it will return true
 	ikhwaExists = ikhwaCheck()			// if ikhwa exists then it will return true
+	console.log(`IkhwaExists:	${ikhwaExists}`)
 
 	// Calculates Husband Part
 	husbandPart = calculateHusbandPart()
@@ -84,8 +85,9 @@ function showParts() {
     // ------------------------------------------------------------------
     // ---------------------------- Calculations ------------------------
     // ------------------------------------------------------------------
-	
+		
 	asbatExists = asbatCheck()			// if asbat exists then it will return true
+	aqdariyaExists = checkAqdariya()	// if aqdariya exists then
 	// asbatExists ? console.log(`Asbat Exists`) : console.log(`Asbat Does Not Exists`)
 	
 	// ------------------------------------
@@ -150,6 +152,7 @@ function showParts() {
 	// ---- Array For grand Father Calculations	----
 	
 	// grandFatherPart										// decides the total parts of all grand fathers
+	console.log(`grandFatherPart: ${grandFatherPart.display()}`)
 	grandFatherVal = parseInt(grandFather.value) 			// decides the total number of grand father(s)
 	gfName = grandFatherType
 
@@ -208,23 +211,29 @@ function showParts() {
 
 	// this is the 2D array which will hold the details of all available relatives in form of first page
 	availableRelativesArr = [ husbandArr, wifeArr, daughterArr, sDaughterArr, ssDaughterArr, sssDaughterArr, fatherArr,
-		motherArr, rSisterArr, pSisterArr, mSisArr, gfArr, gmArr, rBrotherArr, pBrotherArr, 
-		sonArr, sSonArr, ssSonArr, sssSonArr ]
-
+							motherArr, rSisterArr, pSisterArr, mSisArr, gfArr, gmArr, rBrotherArr, pBrotherArr, 
+							sonArr, sSonArr, ssSonArr, sssSonArr
+						]
+	
 	// CHECK ZaweAlFarooz PARTS // hanfi, shaafi, hanbali, maliki
-	if (imam === "shaafi" || imam === "maliki") {
-
-		zaweAlFaroozSum = husbandPart + wifePart + daughterPart + sDaughterPart + ssDaughterPart + 
-						sssDaughterPart + fatherPart + motherPart + rSisterPart + pSisterPart 
-						+ mBroSisPart + grandMotherPart
-
-	} else {
-
-		zaweAlFaroozSum = husbandPart + wifePart + daughterPart + sDaughterPart + ssDaughterPart + 
+	zaweAlFaroozSum = husbandPart + wifePart + daughterPart + sDaughterPart + ssDaughterPart + 
 						sssDaughterPart + fatherPart + motherPart + rSisterPart + pSisterPart 
 						+ mBroSisPart + grandFatherPart + grandMotherPart
 
-	}
+	
+	// if (imam === "shaafi" || imam === "maliki") {
+
+	// 	zaweAlFaroozSum = husbandPart + wifePart + daughterPart + sDaughterPart + ssDaughterPart + 
+	// 					sssDaughterPart + fatherPart + motherPart + rSisterPart + pSisterPart 
+	// 					+ mBroSisPart + grandMotherPart
+
+	// } else {
+
+	// 	zaweAlFaroozSum = husbandPart + wifePart + daughterPart + sDaughterPart + ssDaughterPart + 
+	// 					sssDaughterPart + fatherPart + motherPart + rSisterPart + pSisterPart 
+	// 					+ mBroSisPart + grandFatherPart + grandMotherPart
+
+	// }
 
 	// conver the zaweAlFaroozSum to fraction to find the exact value of its sum
 	zaweAlFaroozSum = new Fraction(zaweAlFaroozSum)
@@ -233,7 +242,7 @@ function showParts() {
 	// 	motherArr, rSisterArr, pSisterArr, mSisArr, gfArr, gmArr ]
 	
 	//	if imam === "shaafi" || imam === "maliki"
-	zaweAlFaroozArr = [ husbandArr, wifeArr, daughterArr, sDaughterArr, ssDaughterArr, sssDaughterArr, fatherArr,
-		motherArr, rSisterArr, pSisterArr, mSisArr, gmArr ]
+	// zaweAlFaroozArr = [ husbandArr, wifeArr, daughterArr, sDaughterArr, ssDaughterArr, sssDaughterArr, fatherArr,
+	// 	motherArr, rSisterArr, pSisterArr, mSisArr, gmArr ]
 }
 

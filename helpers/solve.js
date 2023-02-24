@@ -81,9 +81,10 @@ function ZAFNotFound() {
 
 // This function will combine the ZAF andAsbaat array
 function combineZAFandAsbaat() {
-	if (flag1 === flag2) {
+
+	if (flag1 && flag2) {
 		selectedRelativesArr = selectedZaweAlFaroozArr
-		display(selectedRelativesArr) // test function
+		// display(selectedRelativesArr) // test function
 	} else if (selectedZaweAlFaroozArr.length === 0) {
 		console.log(`selectedZaweAlFaroozArr.length = 0 (when this array is empty): ${selectedZaweAlFaroozArr.length}`)
 			selectedRelativesArr = selectedAsbaatArr
@@ -91,6 +92,7 @@ function combineZAFandAsbaat() {
 		selectedRelativesArr = selectedZaweAlFaroozArr.concat(selectedAsbaatArr)
 	}
 
+	display(selectedRelativesArr)
 	// console.log(`selectedRelativesArr: ${selectedRelativesArr}`)
 	
 }
@@ -108,15 +110,42 @@ function allRelativesLCM() {
 	
 	console.log(`selectedRelativesDenominatorArr: ${selectedRelativesDenominatorArr}`)
 	console.log(`selectedRelativesDenominatorArr.length: ${selectedRelativesDenominatorArr.length}`)
-	console.log(`selectedRelatives1stLCM: ${selectedRelatives1stLCM}`)
+	console.log(`%c selectedRelatives1stLCM: ${selectedRelatives1stLCM}`, 
+				"color: black; font-size: 12px; font-weight: bold;")
 
 }
 
+// This function will calculate the parts for all relatives
+function solveParts() {
 
+	if (imam === "hanfi" || imam === "hanbali") {
+		hanfiMethod()
+	}
+
+	if ((imam === "shaafi" || imam === "maliki")) {
+
+		/*
+			// aqdariyaExists if husband, mother, grandfather and realsister exists
+			if ((imam === "shaafi" || imam === "maliki") && aqdariyaExists && selectedAsbaatArr.length === 4) {
+				
+				aqdariyaMethod()
+
+			}
+		*/
+
+		if ( (grandFatherVal > 0) && !aqdariyaExists ) { //	&& ikhwaExists check it
+			malikiMethod()
+		} else {
+			hanfiMethod()
+		}
+	}
+}
+
+// This was the previous function written to solve the problem for all imams
+// But it can not accomodate the methods of all imams
+// Now working on this function is left
+// This will be deleted later insha Allah
 function solveZAFandAsbaat() {
-
-	// This will makes ZAF array length to zero when there is no ZAF
-	ZAFNotFound()
 
 	if ( selectedAsbaatArr.length === 1 /* && remainingPart !== 1 */) {
 
@@ -137,7 +166,7 @@ function solveZAFandAsbaat() {
 
 					selectedZaweAlFaroozArr[i][1] = remaining
 
-					console.log(`selectedZaweAlFaroozArr[i][1]: ${selectedZaweAlFaroozArr[i][1]}`)
+					console.log(`%c ${selectedZaweAlFaroozArr[i][1].display()}`, "color: black; font-size: 12px; font-weight: bold;")
 				}
 			}
 		} else if ( flag3 && (imam === "hanfi" || imam === "hanbali") ) { // this flag will become true when ZAF array is empty
@@ -288,18 +317,5 @@ function solveZAFandAsbaat() {
 
 		
 
-	}
-	
-
-	// combines zawe al farooz and asbaat
-	// on line 81 of same file
-	combineZAFandAsbaat()
-	
-	display(selectedRelativesArr) // test function
-	allRelativesLCM()
-	
-	console.log(`selectedRelatives1stLCM = ${selectedRelatives1stLCM}`)
-
-	solveAsbaat(selectedRelativesArr, selectedRelatives1stLCM)
-
+	}	
 }

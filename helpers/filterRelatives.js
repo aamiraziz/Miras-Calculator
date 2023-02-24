@@ -51,19 +51,23 @@ function filterSelectedZaweAlFarooz(perPerson, myArr) {
                 "color: black; font-size: 12px; font-weight: bold;"
             )
 
-            if ( tempZAFpp[i][2] ) {
+            if ( tempZAFpp[i][2] && (tempZAFpp[i][3] === fatherName || tempZAFpp[i][3] === gfName) ) {
                 flag1 = true
-                console.log(`My Index in selectedZaweAlFaroozArr is : %c ${i} `, "color: black; font-size: 12px; font-weight: bold;")
-                console.log(`My name is : %c ${tempZAFpp[i][3]} `, "color: black; font-size: 12px; font-weight: bold;")
-                console.log(`and my Flag is: %c ${flag1}`, "color: black; font-size: 12px; font-weight: bold;")
+
+                // console.log(`My Index in selectedZaweAlFaroozArr is : %c ${i} `, "color: black; font-size: 12px; font-weight: bold;")
+                // console.log(`My name is : %c ${tempZAFpp[i][3]} `, "color: black; font-size: 12px; font-weight: bold;")
             }
 
             i++
         } 
         
     }
+        
+    console.log(`flag1 is True if Father/Grand Father is present in Selected ZAF Array for Hanfi and Hanbali`)
+    console.log(`flag1 is True if Fatheris present in Selected Asbaat Array for Maliki and Shaafi`)
+    console.log(`%c FLAG1: ${flag1}`, "color: black; font-size: 12px; font-weight: bold;")
 
-    console.log(`tempZAFpp.length = ${tempZAFpp.length}`)
+    console.log(`Selected Zawe Al Farooz Array length = ${tempZAFpp.length}`)
     
     return tempZAFpp
 }
@@ -88,16 +92,19 @@ function filterSelectedAsbaat() {
                 // The Value OF availableRelativesArr[${z}][1] when assigned to tempAbsaat is: ${tempAsbaat[i][1].display()}
                 )
 
-            if ( tempAsbaat[i][2] ) {
+            if ( tempAsbaat[i][2] && (tempAsbaat[i][3] === fatherName || tempAsbaat[i][3] === gfName) ) {
                 flag2 = true
-                console.log(`flag2 is True if Father/Grand Father is present in Selected Asbaat Array`)
-                console.log(`%c FLAG2: ${flag2}`, "color: black; font-size: 12px; font-weight: bold;")
             }
 
             i++
         }
         
     }
+
+    console.log(`flag2 is True if Father/Grand Father is present in Selected Asbaat Array`)
+    console.log(`%c FLAG2: ${flag2}`, "color: black; font-size: 12px; font-weight: bold;")
+
+    console.log(`Selected Asbaat Array length = ${tempAsbaat.length}`)
 
     return tempAsbaat
 }
@@ -147,7 +154,8 @@ function display(any2DArr) {
     let myArr = any2DArr
 
     for ( let i = 0; i < myArr.length; i++ ) {
-        console.log(`DisplayAny2DArr[${i}] = %c ${myArr[i][0]}, ${myArr[i][1].solvedDisplay()}, ${myArr[i][2]}, ${myArr[i][3]}`, 
+        console.log(`%c 
+        ${i + 1}) ${myArr[i][0]}, ${myArr[i][1].solvedDisplay()}, ${myArr[i][2]}, ${myArr[i][3]}`, 
         "color: black; font-size: 12px; font-weight: bold;")
     }
 }

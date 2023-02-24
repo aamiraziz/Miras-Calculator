@@ -74,13 +74,14 @@ function mainLogic() {
 			* Multiply LCM with parts of selectedRelativesArr // Answer
 		*/
 
+		selectedZaweAlFaroozArr = filterSelectedZaweAlFarooz(perZAFSiblingPart, availableRelativesArr)
 
 		// available Zawe al farooz Relatives
-		if (imam === "shaafi" || imam === "maliki") {
-			selectedZaweAlFaroozArr = filterSelectedZaweAlFarooz(perZAFSiblingPart, zaweAlFaroozArr)
-		} else {
-			selectedZaweAlFaroozArr = filterSelectedZaweAlFarooz(perZAFSiblingPart, availableRelativesArr)
-		}
+		// if (imam === "shaafi" || imam === "maliki") {
+		// 	selectedZaweAlFaroozArr = filterSelectedZaweAlFarooz(perZAFSiblingPart, zaweAlFaroozArr)
+		// } else {
+		// 	selectedZaweAlFaroozArr = filterSelectedZaweAlFarooz(perZAFSiblingPart, availableRelativesArr)
+		// }
 				
 		// calculate the remaining part from zawe al farooz
 		remainingPart = calculateRemainingPart()
@@ -92,9 +93,45 @@ function mainLogic() {
 		// available Asbaat {Number of relatives, Part, flag(true/false), Name of relative}
 		selectedAsbaatArr = filterSelectedAsbaat()
 
+		// This will makes ZAF array length to zero when there is no ZAF
+		// on line 72 of solve.js
+		ZAFNotFound()
+
 		// if ( (!zaweAlFaroozArr.find(element => element[0] > 0)) ) {
 
-		solveZAFandAsbaat()
+		// new name is assignParts()
+		// solveZAFandAsbaat()	// in solve file
+
+		// This if section is true for all Imams but its else section is not true for all Imams
+		if ( selectedAsbaatArr.length === 1 ) {
+
+			// common method for all Imams
+			forAllMethods()
+
+		} else {
+
+			// This will differentiate the different methods for different Imams
+			solveParts()
+
+		}
+		
+
+
+		// combines zawe al farooz and asbaat
+		// on line 83 of solve.js file
+		combineZAFandAsbaat()
+
+		// aqdariyaExists if husband, mother, grandfather and realsister exists
+		if ((imam === "shaafi" || imam === "maliki") && aqdariyaExists && selectedRelativesArr.length === 4) {
+				
+			aqdariyaMethod()
+			
+		}
+		
+		// display(selectedRelativesArr) // test function
+		allRelativesLCM()
+		solveAsbaat(selectedRelativesArr, selectedRelatives1stLCM)
+
 		
 	} else if (parseFloat(zaweAlFaroozSum) < 1 && !asbatExists) {
 		// if zaweAlFaroozSum is Less than 1 and asbat is not present in the first page of interface,

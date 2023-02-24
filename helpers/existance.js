@@ -21,10 +21,16 @@ function childernCheck() {
 }
 
 // checks Ikhwa (اخوہ)
-function ikhwaCheck () {
+function ikhwaCheck() {
     let ik = parseInt(rSister.value) + parseInt(pSister.value) + 
     parseInt(mSister.value) + parseInt(rBrother.value) + 
     parseInt(pBrother.value) + parseInt(mBrother.value)
+
+    //  If only one real sister is present the the special flag 
+    if ( ik === 1 && parseInt(rSister.value) === 1 ) {
+        specialFlag = true
+        console.log(`%c specialFlag: ${specialFlag}`, "color: black; font-size: 12px; font-weight: bold;")
+    }
 
     if (ik > 1) {
         // console.log("Ikhwa Exists")
@@ -33,6 +39,13 @@ function ikhwaCheck () {
         // console.log("Ikhwa does not Exists")
         return false
     }
+}
+
+//  This will return true if only reletives needed for aqdariya are available
+function checkAqdariya(){
+
+    if (parseInt(rSister.value) === 1 && parseInt(grandFather.value) === 1 && 
+        parseInt(mother.value) === 1 && parseInt(husband.value) === 1 ) {return true}
 }
 
 // // checks son/daughter or any of their offspring.
@@ -191,11 +204,19 @@ function asbatCheck() {
         if (parseInt(pSister.value) > 0 && pSisterPart === zero)  {counterFemale = parseInt(pSister.value); pSisterAsba = true}
         // console.log(`pSisterAsba: ${pSisterAsba}`)
 
-    } else if (imam === "shaafi" || imam === "maliki") {
+    } else if ( (imam === "shaafi" || imam === "maliki") ) { //  && ikhwaCheck()
 
         /*  ******************** 6, 7, 8 - Grand Father ********************   */
         // Grandfather present
-        if (parseInt(grandFather.value) > 0) {counterMale = 2 * parseInt(grandFather.value); grandFatherAsba = true}   //   && grandFatherPart === zero
+        // if (parseInt(grandFather.value) > 0) {counterMale = 2 * parseInt(grandFather.value); grandFatherAsba = true}   //   && grandFatherPart === zero
+        if ( (parseInt(grandFather.value) > 0) && ikhwaExists ) {
+            counterMale = 2 * parseInt(grandFather.value); grandFatherAsba = true
+            grandFatherPart = zero
+        } else if (specialFlag) {
+            grandFatherAsba = true
+        }else {
+            grandFatherAsba = false
+        }
         // console.log(`grandFatherAsba: ${grandFatherAsba}`)
 
         /*  ******************** 9- Real Brother(s)/Sister(s) ********************  */

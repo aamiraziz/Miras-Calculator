@@ -8,8 +8,8 @@
 	* Documentation Started on January 03, 2023
 */
 
-/* Include Many js files */
-include('helpers/outputValues.js')
+/* Include Many js files  */
+// include('helpers/outputValues.js')
 include('helpers/elementIds.js')
 include('helpers/eventListeners.js')
 include('helpers/existance.js')
@@ -19,7 +19,7 @@ include('helpers/showParts.js')
 include('helpers/solve.js')
 include('helpers/filterRelatives.js')
 include('helpers/mainLogic.js')
-// include('test/testoutputfile.js')
+include('helpers/ikhtilafyat.js')
 
 // Function to include many javascript files
 function include(file) {
@@ -52,6 +52,9 @@ let imam = "hanfi"
 
 // few check variables, mirath parts and parent types
 let childernExists, sonCheck, sSonCheck, ssSonCheck, sssSonCheck, ikhwaExists, myNum, grandFatherType, grandMotherType
+
+// this will return true if only reletives needed for aqdariya are available
+let aqdariyaExists
 
 let husbandPart = new Frac(0, 1), wifePart = new Frac(0, 1), 
 	daughterPart = new Frac(0, 1), sonPart = new Frac(0, 1),
@@ -147,7 +150,12 @@ let selectedRelativesDenominatorArr = []
 let flag1 = false, flag2 = false
 
 // this flag will become true when ZAF array is empty
+// changes value in calculateRemainingPart()
 let flag3 = false
+
+// this flag will become true when in ikhwa only one real sister exist
+// i.e there is no brother or sister of any type except one real sister.
+let specialFlag = false
 
 // output variables
 let outputParts	= 0	// shows the total number of output parts
