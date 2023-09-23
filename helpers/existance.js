@@ -189,7 +189,7 @@ function asbatCheck() {
         // console.log(`rBrotherAsba: ${rBrotherAsba}`)
     
         // Real Sister(s) present
-        if (parseInt(rSister.value) > 0 && rSisterPart === zero) {counterFemale = parseInt(rSister.value);  rSisterAsba = true}
+        if (parseInt(rSister.value) > 0 && rSisterPart === zero && parseInt(rBrother.value) > 0) {counterFemale = parseInt(rSister.value);  rSisterAsba = true}
         // console.log(`rSisterAsba: ${rSisterAsba}`)
     
         /*  ******************** 10- Paternal Brother(s)/Sister(s) ********************  */
@@ -201,7 +201,7 @@ function asbatCheck() {
         // console.log(`pBrotherAsba: ${pBrotherAsba}`)
     
         // paternal sister(s) present
-        if (parseInt(pSister.value) > 0 && pSisterPart === zero)  {counterFemale = parseInt(pSister.value); pSisterAsba = true}
+        if (parseInt(pSister.value) > 0 && pSisterPart === zero && parseInt(pBrother.value) > 0)  {counterFemale = parseInt(pSister.value); pSisterAsba = true}
         // console.log(`pSisterAsba: ${pSisterAsba}`)
 
     } else if ( (imam === "shaafi" || imam === "maliki") ) { //  && ikhwaCheck()
@@ -225,7 +225,9 @@ function asbatCheck() {
         // console.log(`rBrotherAsba: ${rBrotherAsba}`)
 
         // Real Sister(s) present
-        if (parseInt(rSister.value) > 0 && rSisterPart === zero) {counterFemale = parseInt(rSister.value);  rSisterAsba = true}
+        if (parseInt(rSister.value) > 0 && rSisterPart === zero && (parseInt(rBrother.value) > 0 || parseInt(grandFather.value) > 0)) {
+            counterFemale = parseInt(rSister.value);  rSisterAsba = true
+        }
         // console.log(`rSisterAsba: ${rSisterAsba}`)
 
         /*  ******************** 10- Paternal Brother(s)/Sister(s) ********************  */
@@ -234,7 +236,9 @@ function asbatCheck() {
         // console.log(`pBrotherAsba: ${pBrotherAsba}`)
 
         // paternal sister(s) present
-        if (parseInt(pSister.value) > 0 && pSisterPart === zero)  {counterFemale += parseInt(pSister.value); pSisterAsba = true}
+        if (parseInt(pSister.value) > 0 && pSisterPart === zero && (parseInt(pBrother.value) > 0 || parseInt(grandFather.value) > 0))  {
+            counterFemale += parseInt(pSister.value); pSisterAsba = true
+        }
         // console.log(`pSisterAsba: ${pSisterAsba}`)
 
     }

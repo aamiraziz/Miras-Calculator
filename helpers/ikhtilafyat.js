@@ -134,8 +134,8 @@ function malikiMethod() {
     console.log(`gfRule1: ${gfRule1.display()}, gfRule2: ${gfRule2.display()}, gfRule3: ${gfRule3.display()}`)
 
     // gfRule1 will now contain the maximum value among all the rules.
-    gfRule1 = Math.max(gfRule1.valueOf(),gfRule2.valueOf(),gfRule3.valueOf())
-
+    gfRule1 = Math.max(parseFloat(gfRule1.valueOf()), parseFloat(gfRule2.valueOf()), parseFloat(gfRule3.valueOf()))
+    
     // makeFrac function is written in Frac.js file
     // this function will convert the float to Frac.
     gfRule1 = makeFrac(gfRule1)

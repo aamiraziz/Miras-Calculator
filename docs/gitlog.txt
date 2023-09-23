@@ -1,13 +1,122 @@
-commit 5485b660a0f8998aa6ec7d16a4adb94e283d9e5d
-Merge: bbca237 d68ac30
+commit a8f88ea32c60a299461266ebaf5eb48ea6f83246
 Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
-Date:   Tue Jan 3 20:46:44 2023 +0500
+Date:   Fri Feb 24 11:54:00 2023 +0500
 
-    Merge branch 'underDev'
-    1) code is organized
-    2) unnecssary code is removed
-    3) errors are removed
-    4) properly working for zawe al farooz solution if sum of all parts are equal to or greater than 1
+    aqdariya Method Implemented but noe testing has done. next step is to implement the problems in blank pages of notebook
+
+commit cf29e8f543aab2a3914cc02343a245dbc0a2b4e7
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Tue Feb 21 10:58:10 2023 +0500
+
+    Improved console.log statements, too many logical errors
+
+commit 3c6c247d9ba0a20611506df5206a5b3d53745143
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Sun Feb 19 15:15:47 2023 +0500
+
+    Hazrat Zaid bin Sabit RA method implemented only few special cases left
+
+commit 4564c107629918d9722e9455c8260b10fd4f2fb6
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Wed Feb 8 17:10:54 2023 +0500
+
+    ZAF and Asbaat accourding to Imam Abu Hanifa has been completed but not tested by Shah Sb
+
+commit 521ebed6a59dd96a94e274990c3f08da0afb4b82
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Mon Feb 6 11:31:31 2023 +0500
+
+    in ZAF and Asbaat only RAD (رد) is not implemented yet
+
+commit 5acb02933faa74ebd91db9932a9b28b55e1eb73d
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Sat Feb 4 12:01:47 2023 +0500
+
+    Promise is working properly, next step is to add the logic
+
+commit 8a05ce3d8369cbfcdc5db48fae15824c856eaa20
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Thu Jan 26 14:05:07 2023 +0500
+
+    Store Name against Asba Number in a variable ---> In Progress contain errors
+
+commit c6dd44dd39850092c6e9eabd6253757f9c4d07a3
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Wed Jan 25 18:45:26 2023 +0500
+
+    bugs removed including only asbaat array and single item in only asbaat array
+
+commit b25a1e950c170e16a3d66f740349b2aaaabf79ba
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Tue Jan 24 10:13:01 2023 +0500
+
+    Some BUGS were fixed
+
+commit 8173ceb631ab8c35ab8b7fbb1caf1f5952a98502
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Mon Jan 23 12:02:54 2023 +0500
+
+    encounterd errors need to switch branch to see old code
+
+commit cd2f7f84ed91cffd83c46951159500d49b0fb74e
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Sat Jan 21 15:54:18 2023 +0500
+
+    deleted unused files, one logical error removed from ZAF, Written Asbaat Cart HTML
+
+commit d40f32a66701c577b28ca23ce791b802b82ac272
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Wed Jan 18 17:19:07 2023 +0500
+
+    few test files for testing in testing folder has been added
+
+commit 9519e3d45fc47a382577a2758615ddf4528c5d6c
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Tue Jan 17 22:02:48 2023 +0500
+
+    One Logical Error was removed. Solve function for ZAF was called to solve Asbaat problem. Because in some cases second LCM is necessary
+
+commit ffbf2ecf1f29491b47de24e564aeb5e555ac4b6f
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Thu Jan 12 11:37:27 2023 +0500
+
+    First form zawe al farooz completed and tested but not shown to shah sb
+
+commit 7df6354d427b2325b8a5a16076103ba4fc32d5f2
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Wed Jan 11 16:29:08 2023 +0500
+
+    first page asbaat problem has been implemented with one logical error
+
+commit b63f038acdafdad58a78d55015a596c03e15c70b
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Sat Jan 7 11:53:38 2023 +0500
+
+    Asbat variable in array has been added and ZaweAlFarooz code is written at the end of the file
+
+commit 1058a7f7a4e423452cee96a0f60ab2a4a8780daa
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Thu Jan 5 17:20:52 2023 +0500
+
+    eligibleAsba() is created but testing is not done yet
+
+commit 77d545d0e92ebfae310e6b37153a1ea331b451db
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Thu Jan 5 13:10:45 2023 +0500
+
+    Bug Fixes in checkAsbat()
+
+commit c59b8e6544fce0965a69860839c9514719960dad
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Thu Jan 5 09:42:33 2023 +0500
+
+    REMOVED LOGICAL ERRORS FROM: 1) Grand Mother Interface. 2) asbatCheck()
+
+commit d1bb7cd4107432ee5f1ccdefaa023b72e6d251d2
+Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
+Date:   Tue Jan 3 22:00:32 2023 +0500
+
+    Proper Comments in the form of documentation are written in start of every file in helpers folder
 
 commit d68ac30c9150bb37a64d6078d1dcf477f844d297
 Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
@@ -38,14 +147,6 @@ Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
 Date:   Mon Jan 2 16:52:32 2023 +0500
 
     in Zawe Al Farooz caculations is done upto, if sum of all the heirs is equal to or greater than 1. Testing is not done yet
-
-commit bbca237e0cd08f722003bf31faf7aad19cf9b052
-Merge: f61b7a1 68e8f94
-Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
-Date:   Sat Dec 31 16:56:29 2022 +0500
-
-    Merge branch 'underDev'
-    LCM is working Properly and book first example is working properly
 
 commit 68e8f94381d480121a01f0688ea132968f447cfc
 Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
@@ -148,13 +249,6 @@ Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
 Date:   Tue Dec 13 20:41:49 2022 +0500
 
     Errors from grandFather options removed and errors in grandMother due to grandFather selection has also been removed.
-
-commit f61b7a18a1cf76490a24870cebfddc9c4855025d
-Merge: 369da95 30e6b06
-Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
-Date:   Tue Dec 13 13:06:51 2022 +0500
-
-    Merge branch 'master' because from now master branch will delete
 
 commit 30e6b06af9e6240f4a8e762ac04873db6f62282d
 Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
@@ -281,12 +375,6 @@ Author: Aamir Aziz <aamiraziz.khattak@gmail.com>
 Date:   Tue Aug 23 16:45:57 2022 +0500
 
     Husband Part implemented
-
-commit 369da95f24b39f1748f1f06182898c5049736e94
-Author: aamiraziz <aamiraziz.khattak@gmail.com>
-Date:   Tue Aug 23 16:05:21 2022 +0500
-
-    Initial commit
 
 commit d908e1b27ff1a6d251d569634113a660b30a0257
 Author: Aamir Aziz <aamiraziz.khattak@gmail.com>

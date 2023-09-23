@@ -20,7 +20,7 @@
 	* If this sum (zaweAlFaroozSum) is Less than 1 and asbat is not present in the first page of interface,
 		then go the second page of interface and select the asbat (from chart).
 
-	* If this sum (zaweAlFaroozSum) is less than 1 but asbat not present in Asbaat Chart then use رد کا طریقہ
+	* If this sum (zaweAlFaroozSum) is less than 1 but asbat are not present in Asbaat Chart then use رد کا طریقہ
 
 	* If only SPOUSE is present OR neither any ZaweAlFarooz nor any Asbaat is present then go to ZaweAlArham
 */
@@ -219,19 +219,25 @@ function mainLogic() {
 					// =============================================================================
 
 					/*
-						Algortihm:
+						Algortihm: (رد کا طریقہ)
 						==========
 						
 						* take lcm of Relative Values array elements
 							if there number is greater than 1 then we need to multiply our answer with that LCM 
 							in the end.
+						
+						
+						* Add all relatives parts together and subtract it from 1
+						* keep the remaining part in some variable
 						* remove 1st element i.e ZAF sababi
 						* take lcm of remaining array elements
 						* store all the numerators
 						* Multiply LCM (say selectedRelatives1stLCM) with Numerator and devide it by its denominator of 
 								every element and add their sum in sum variable
 						* add all its elements and save it in a variable (e.g ratioSum)
+
 						* in selectedRelativesArr every person part should be allNumerators[i]/ratioSum
+
 						* myltiply ratioSum with Denominator of ZAF Sababi and store it in variable (say tempTotalParts)
 						* the total parts for ZAFsababi will be tempTotalParts * ZAFSababi PartS (e.g ZAFSababiTotalParts)
 						* The remainingTotalParts will be tempTotalParts - ZAFSababiTotalParts
@@ -258,7 +264,7 @@ function mainLogic() {
 					display(selectedRelativesArr)	
 					
 					//	* take lcm of remaining array elements
-					allRelativesLCM()	// LCM of ZAF 
+					allRelativesLCM()	// LCM of ZAF  // this function is written In solve.js File
 
 					//	* store all the numerators
 					let allNumeratorsLCM = filterNumerators(selectedRelativesArr)
@@ -270,18 +276,41 @@ function mainLogic() {
 					// 			every element and add their sum in sum variable
 					//	* add all its elements and save it in a variable (e.g ratioSum)
 
-					let ratioSum = 0
+					// let ratioSum = 0
+
+					// for (let i = 0; i < selectedRelativesArr.length; i++){
+					// 	selectedRelativesArr[i][1].set(selectedRelatives1stLCM * selectedRelativesArr[i][1].numerator(), selectedRelativesArr[i][1].denominator())
+
+					// 	ratioSum += selectedRelativesArr[i][1].numerator()
+					// }
+
+					// for (let i = 0; i < selectedRelativesArr.length; i++){
+					// 	selectedRelativesArr[i][1].set(selectedRelativesArr[i][1].numerator(), ratioSum)
+					// }
+
+					// =================================================
+					// WORKING ON NEW RAD ALGORITHM
+					let ratioSum = 0, ratio = [], ratioSumTemp = 0, addRemaining = []
 
 					for (let i = 0; i < selectedRelativesArr.length; i++){
-						selectedRelativesArr[i][1].set(selectedRelatives1stLCM * selectedRelativesArr[i][1].numerator(), selectedRelativesArr[i][1].denominator())
+						ratioSumTemp = new Frac(selectedRelatives1stLCM * selectedRelativesArr[i][1].numerator(), selectedRelativesArr[i][1].denominator())
+						ratio[i] = ratioSumTemp
 
-						ratioSum += selectedRelativesArr[i][1].numerator()
+						ratioSum += ratio[i]
 					}
 
+					// modify it
 					for (let i = 0; i < selectedRelativesArr.length; i++){
+						addRemaining[i] = new Frac(remainingPart.numerator() * ratio[i], remainingPart.denominator() * ratioSum)
+						// ADD TWO OBJECTS HERE
 						selectedRelativesArr[i][1].set(selectedRelativesArr[i][1].numerator(), ratioSum)
 					}
+
+					// WORKING ON NEW RAD ALGORITHM
+					// =================================================
+
 					console.log(`================================================================`)
+					console.log(`addRemaining: ${addRemaining[0].solvedDisplay()}`)
 					console.log(`ratioSum: ${ratioSum}`)
 					display(selectedRelativesArr)
 

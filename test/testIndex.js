@@ -8,6 +8,41 @@ class Frac {
       this.n = n;
       this.d = d;
     }
+
+    Frac(n, d = 1) {
+      
+      if (d == 0) {
+        throw new Error("denominator cannot be zero!");
+      }
+      this.n = n;
+      this.d = d;
+
+    } 
+
+    add(num, denum) {
+
+      // program to find the LCM of two integers
+
+      // take input
+      const num1 = denum
+      const num2 = this.d
+
+      // higher number among number1 and number2 is stored in LCM
+      let LCM = (num1 > num2) ? num1 : num2;
+
+      // while loop
+      while (true) {
+          if (LCM % num1 == 0 && LCM % num2 == 0) {
+              console.log(`The LCM of ${num1} and ${num2} is ${LCM}`);
+              break;
+          }
+          LCM++;
+      }
+
+      this.n = LCM * this.n/this.d + LCM * num/denum
+      this.d = LCM
+
+    }
     
     valueOf() {
       return this.n / this.d;
@@ -38,8 +73,15 @@ function gcd_two_numbers(x, y) {
   return x;
 }
 
+let num11 = new Frac(1, 2)
+let num22 = new Frac(3, 48)
+num11.add(3, 48)
+
 console.log(`gcd_two_numbers(12, 13): ${gcd_two_numbers(12, 13)}`);
 console.log(`gcd_two_numbers(9, 3) ${gcd_two_numbers(9, 3)}`);
+console.log(`Frac(9, 3) `);
+console.log(`num11.add(num22) ${num11.solvedDisplay()}`);
+
 
 let oneByTwo = Fraction(1).div(2);      oneByTwo = oneByTwo.toFraction(true); 
 let oneByThree = Fraction(1).div(3);    oneByThree = oneByThree.toFraction(true);
