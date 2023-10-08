@@ -221,43 +221,31 @@ function mainLogic() {
 					/*
 						Algortihm: (رد کا طریقہ)
 						==========
-						
-						* take lcm of Relative Values array elements
-							if there number is greater than 1 then we need to multiply our answer with that LCM 
-							in the end.
-						
+												
 						
 						* Add all relatives parts together and subtract it from 1
 						* keep the remaining part in some variable
+
 						* remove 1st element i.e ZAF sababi
 						* take lcm of remaining array elements
-						* store all the numerators
+
 						* Multiply LCM (say selectedRelatives1stLCM) with Numerator and devide it by its denominator of 
 								every element and add their sum in sum variable
 						* add all its elements and save it in a variable (e.g ratioSum)
 
-						* in selectedRelativesArr every person part should be allNumerators[i]/ratioSum
-
-						* myltiply ratioSum with Denominator of ZAF Sababi and store it in variable (say tempTotalParts)
-						* the total parts for ZAFsababi will be tempTotalParts * ZAFSababi PartS (e.g ZAFSababiTotalParts)
-						* The remainingTotalParts will be tempTotalParts - ZAFSababiTotalParts
-						* Multiply it with every part element in selectedRelativesArr.
+						* add remianing part in ZAF Nasbi parts according to their ratio.
+						
 						* insert the removed element in start of selectedRelativesArr.
 
-						* Multiply it with relativeCountsLCM 
-							(if number of every/any type of relatives is greater than 1)
+						* Calculate per Head Part i.e if multiply denominator by 1st index of selected Relatives Array (selectedRelativesArr)
+						* Take LCM of denominators
+						* Solve it
 						* Show Output on Screen.
 					*/
 
 					// =============================================================================
 					
 					console.log(`=============================================================================`)
-					//	* take lcm of Relative Values array elements
-					let relativeCountsLCM = []
-					relativeCountsLCM = filterRelativeCounts(selectedRelativesArr)
-					console.log(`relativeCountsLCM Array: ${relativeCountsLCM}`)
-					relativeCountsLCM = calculateLCM(relativeCountsLCM)
-					console.log(`relativeCountsLCM: ${relativeCountsLCM}`)
 
 					//	* remove 1st element i.e ZAF sababi
 					let ZAFsababi = selectedRelativesArr.shift()
@@ -265,31 +253,11 @@ function mainLogic() {
 					
 					//	* take lcm of remaining array elements
 					allRelativesLCM()	// LCM of ZAF  // this function is written In solve.js File
-
-					//	* store all the numerators
-					let allNumeratorsLCM = filterNumerators(selectedRelativesArr)
-					console.log(`allNumeratorsLCM Array: ${allNumeratorsLCM}`)
-					allNumeratorsLCM = calculateLCM(allNumeratorsLCM)
-					console.log(`allNumeratorsLCM: ${allNumeratorsLCM}`)
-
+					
+					// =================================================
 					//	* Multiply LCM (say selectedRelatives1stLCM) with Numerator and devide it by its denominator of 
 					// 			every element and add their sum in sum variable
 					//	* add all its elements and save it in a variable (e.g ratioSum)
-
-					// let ratioSum = 0
-
-					// for (let i = 0; i < selectedRelativesArr.length; i++){
-					// 	selectedRelativesArr[i][1].set(selectedRelatives1stLCM * selectedRelativesArr[i][1].numerator(), selectedRelativesArr[i][1].denominator())
-
-					// 	ratioSum += selectedRelativesArr[i][1].numerator()
-					// }
-
-					// for (let i = 0; i < selectedRelativesArr.length; i++){
-					// 	selectedRelativesArr[i][1].set(selectedRelativesArr[i][1].numerator(), ratioSum)
-					// }
-
-					// =================================================
-					// WORKING ON NEW RAD ALGORITHM
 					let ratioSum = 0, ratio = [], ratioSumTemp = 0, addRemaining = []
 
 					for (let i = 0; i < selectedRelativesArr.length; i++){
@@ -299,64 +267,54 @@ function mainLogic() {
 						ratioSum += ratio[i]
 					}
 
-					// modify it
+					// * add remianing part in ZAF Nasbi parts according to their ratio.
 					for (let i = 0; i < selectedRelativesArr.length; i++){
+						console.log(`ratio[${i}]: ${ratio[i].numerator()}`)
 						addRemaining[i] = new Frac(remainingPart.numerator() * ratio[i], remainingPart.denominator() * ratioSum)
 						// ADD TWO OBJECTS HERE
-						selectedRelativesArr[i][1].set(selectedRelativesArr[i][1].numerator(), ratioSum)
+						// selectedRelativesArr[i][1] + addRemaining[i]
+						console.log(`ADD TWO OBJECTS HERE\nselectedRelativesArr[${i}][1] + addRemaining[${i}]`)
+						// selectedRelativesArr[i][1].set(selectedRelativesArr[i][1].numerator(), ratioSum)
+						// addTwoFracs(selectedRelativesArr[i][1], addRemaining[i])
+						selectedRelativesArr[i][1] = addTwoFracs(selectedRelativesArr[i][1], addRemaining[i])
+						// selectedRelativesArr[i][1].set(addTwoFracs.numerator(), addTwoFracs.denominator())
+						console.log(`selectedRelativesArr[${i}][1] = ${selectedRelativesArr[i][1].display()}`)
 					}
 
-					// WORKING ON NEW RAD ALGORITHM
+					// Testing Statements
 					// =================================================
 
 					console.log(`================================================================`)
-					console.log(`addRemaining: ${addRemaining[0].solvedDisplay()}`)
-					console.log(`ratioSum: ${ratioSum}`)
+					// console.log(`addRemaining[0]: ${addRemaining[0].solvedDisplay()}`)
+					// console.log(`addRemaining[1]: ${addRemaining[1].solvedDisplay()}`)
+					// console.log(`ratio[0]: ${ratio[0].numerator()}`)
+					// console.log(`ratio[1]: ${ratio[1].numerator()}`)
+					// console.log(`ratioSum: ${ratioSum}`)
+
+					// =================================================
 					display(selectedRelativesArr)
 
-					// * myltiply ratioSum with Denominator of ZAF Sababi and store it in variable (say tempTotalParts)
-					let tempTotalParts = ratioSum * ZAFsababi[1].denominator()
-					console.log(`tempTotalParts: ${tempTotalParts}`)
-
-
-					// * the total parts for ZAFsababi will be tempTotalParts * ZAFSababi PartS (e.g ZAFSababiTotalParts)
-					ZAFsababi[1].set(tempTotalParts * ZAFsababi[1].numerator(), ZAFsababi[0] * ZAFsababi[1].denominator())
-					console.log(`TotalParts of ZAFSababi: ${ZAFsababi[1].solvedDisplay()}`)
-
-
-					// * The remainingTotalParts will be tempTotalParts - ZAFSababiTotalParts
-					let remainingTotalParts = parseInt(tempTotalParts - ZAFsababi[1].numerator())
-					console.log(`remainingTotalParts: ${remainingTotalParts}`)
-
-					// * Multiply it with every part element in selectedRelativesArr.
-					for (let i = 0; i < selectedRelativesArr.length; i++){
-						selectedRelativesArr[i][1].set(remainingTotalParts * selectedRelativesArr[i][1].numerator(), selectedRelativesArr[i][0] * selectedRelativesArr[i][1].denominator())
-					}
-					display(selectedRelativesArr)
 					console.log(`================================================================`)
 
 					// * insert the removed element in start of selectedRelativesArr.
 					selectedRelativesArr.unshift(ZAFsababi)
 					display(selectedRelativesArr)
 					console.log(`================================================================`)
-					
-					// * Multiply it with relativeCountsLCM 
-					// 		(if number of every/any type of relatives is greater than 1)
-					if (relativeCountsLCM > 1) {
-						for (let i = 0; i < selectedRelativesArr.length; i++){
-							selectedRelativesArr[i][1].set(relativeCountsLCM * selectedRelativesArr[i][1].numerator(), selectedRelativesArr[i][1].denominator())
-						}
-
-						tempTotalParts *= relativeCountsLCM
+										
+					// * Calculate per Head Part i.e if multiply denominator by 1st index of selected Relatives Array (selectedRelativesArr)
+					for (let i = 0; i < selectedRelativesArr.length; i++){
+						selectedRelativesArr[i][1].set(selectedRelativesArr[i][1].numerator(), selectedRelativesArr[i][0] * selectedRelativesArr[i][1].denominator())
 					}
 					display(selectedRelativesArr)
 					console.log(`================================================================`)
 					
-					outputParts = tempTotalParts
-					for (let i = 0; i < selectedRelativesArr.length; i++) {
-						outputArray[i] = [selectedRelativesArr[i][3], selectedRelativesArr[i][0], selectedRelativesArr[i][1].valueOf()]
-					}
+					// * Take LCM of denominators
+					allRelativesLCM()
+					
+					// * Solve it
+					solveAsbaat(selectedRelativesArr, selectedRelatives1stLCM)
 
+					// * Show Output on Screen.
 					outputAllValues()
 
 				}
