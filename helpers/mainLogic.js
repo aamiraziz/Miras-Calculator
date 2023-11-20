@@ -257,6 +257,7 @@ function mainLogic() {
 					// =======================================================
 					if ( imam === "hanbali" ) {hanbaliRad()}
 					console.log(`Hanbali RAD not elligible persons: ${hanbaliRadArr}`)
+					// display(hanbaliRadArr)
 					// ===================================================
 					
 					//	* take lcm of remaining array elements

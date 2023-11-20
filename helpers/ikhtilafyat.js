@@ -414,8 +414,7 @@ function motherExistanceHR() {
 function rSisterExistanceHR() {
 
     const RealSister = selectedRelativesArr.findIndex(RealSister => RealSister.includes(rSisterName))
-    const MaternalSister = selectedRelativesArr.findIndex(MaternalSister => MaternalSister.includes(mBroSisName)) // && parseInt(mSister.value) !== 0
-    const PaternalSister = selectedRelativesArr.findIndex(PaternalSister => PaternalSister.includes(pSisterName))
+    const PaternalSister = selectedRelativesArr.findIndex(PaternalSister => PaternalSister.includes(pSisterName)) 
 
     if ( RealSister === -1 ) {
         return false
@@ -427,9 +426,13 @@ function rSisterExistanceHR() {
         hanbaliRadArr.push( selectedRelativesArr[PaternalSister] )  // First push the required element
         selectedRelativesArr.splice(PaternalSister, 1)              // Then remove the required element from array
         
-        console.log(`Removed From RAD: ${hanbaliRadArr}`)
+        console.log(`Paternal Sister Removed From RAD: ${hanbaliRadArr}`)
 
     }
+
+    // finds Maternal sister's index in array 
+    // can not declare it above. It will create problem especially when Paternal sister exists
+    const MaternalSister = selectedRelativesArr.findIndex(MaternalSister => MaternalSister.includes(mBroSisName))
 
     // Makes Maternal Brother(s) / Sister(s) not elligible for RAD
     if ( MaternalSister !== -1 ) {
@@ -437,7 +440,7 @@ function rSisterExistanceHR() {
         hanbaliRadArr.push( selectedRelativesArr[MaternalSister] )  // First push the required element
         selectedRelativesArr.splice(MaternalSister, 1)              // Then remove the required element from array
         
-        console.log(`Removed From RAD: ${hanbaliRadArr}`)
+        console.log(`Maternal Sister Removed From RAD: ${hanbaliRadArr}`)
 
     }
 
