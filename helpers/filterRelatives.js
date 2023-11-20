@@ -64,7 +64,7 @@ function filterSelectedZaweAlFarooz(perPerson, myArr) {
     }
         
     console.log(`flag1 is True if Father/Grand Father is present in Selected ZAF Array for Hanfi and Hanbali`)
-    console.log(`flag1 is True if Fatheris present in Selected Asbaat Array for Maliki and Shaafi`)
+    console.log(`flag1 is True if Father is present in Selected Asbaat Array for Maliki and Shaafi`)
     console.log(`%c FLAG1: ${flag1}`, "color: black; font-size: 12px; font-weight: bold;")
 
     console.log(`Selected Zawe Al Farooz Array length = ${tempZAFpp.length}`)

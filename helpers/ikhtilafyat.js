@@ -55,14 +55,7 @@ function forAllMethods() {
 
 // this function will assign parts according to Imam Hanfi and Hanbali Method
 function hanfiMethod() {
-
-    // This if section is true for all Imams but its else section is not true for all Imams
-	// if ( selectedAsbaatArr.length === 1 /* && remainingPart !== 1 */) {} else {}
-
-    //  if ( !((grandFatherVal > 0) && (imam === "shaafi" || imam === "maliki")) )
-    // this block of code will work for all imams
-    // for shaafi and maliki this will only work if grand father is not present i.e (grandFatherVal === 0)
-
+    
     calculatePerAsbaSiblingPart()
 
     // use FOR loop to assign values to array and multiply value by 2 on last index
@@ -99,7 +92,7 @@ function malikiMethod() {
         * Calculate Grand Father's part which is equal to the greatest among the three rules below.
             * RULE 1: Calculate the male part
             * RULE 2: Calculate the one third (1/3) of remaining part
-            * RULE 3: Calculate the one sixth (1/6) of remaining part
+            * RULE 3: Calculate the one sixth (1/6) of total
         * Assign the the Greatest value to Grand Father's part
         * Remove Paternal Brothers and sisters
         * Calculate remaining part for siblings i.e remainingPart - GrandFather's part
@@ -108,6 +101,7 @@ function malikiMethod() {
 
     */
     
+    // * Calculate per Asba Sibling part which is equal to every female part
     calculatePerAsbaSiblingPart()
     console.log(`for imam === shaafi || imam === maliki and totalFemales: ${totalFemales}`)
 
@@ -124,7 +118,7 @@ function malikiMethod() {
                 selectedAsbaatArr[i][3] === pBrotherName ) {
                 selectedAsbaatArr[i][1] = new Frac( 2 * perAsbaSiblingPart.numerator(), perAsbaSiblingPart.denominator() )
                 if (selectedAsbaatArr[i][3] === gfName) { 
-                    gfRule1.set(selectedAsbaatArr[i][1].numerator(), remainingPart.denominator() * selectedAsbaatArr[i][1].denominator())}
+                    gfRule1.set(selectedAsbaatArr[i][1].numerator(), remainingPart.denominator() * totalFemales)}
         } else {
             selectedAsbaatArr[i][1] = perAsbaSiblingPart
         }		
@@ -134,7 +128,7 @@ function malikiMethod() {
     console.log(`gfRule1: ${gfRule1.display()}, gfRule2: ${gfRule2.display()}, gfRule3: ${gfRule3.display()}`)
 
     // gfRule1 will now contain the maximum value among all the rules.
-    gfRule1 = Math.max(parseFloat(gfRule1.valueOf()), parseFloat(gfRule2.valueOf()), parseFloat(gfRule3.valueOf()))
+    gfRule1 = Math.max(2 * parseFloat(gfRule1.valueOf()), parseFloat(gfRule2.valueOf()), parseFloat(gfRule3.valueOf()))
     
     // makeFrac function is written in Frac.js file
     // this function will convert the float to Frac.
@@ -246,4 +240,232 @@ function aqdariyaMethod() {
     console.log(`New Values Are:`)
     display(selectedRelativesArr)
     
+}
+
+// this function will do RAD operation only for Imam === hanbali
+function hanbaliRad() {
+
+    console.log(`Inside hanbaliRad Function`)
+
+    /*
+        Rule 1:
+        ============
+
+        * In presenece of Daughter, (sDaughter, ssDaughter and sssDaughter) will not elligble for RAD
+        * Similarly in presenece of sDaughter, ssDaughter and sssDaughter will not elligble for RAD
+        * Similarly in presenece of ssDaughter, sssDaughter will not elligble for RAD
+    */
+
+    if (daughterExistanceHR()) {
+    } else if (sDaughterExistanceHR()) {
+    } else if (ssDaughterExistanceHR()) {}
+  
+
+    /*
+        Rule 2:
+        ============
+
+        * In Presence of Mother, Maternal Brother(s) and Sister(s) are not elligible for RAD
+    */
+   if(motherExistanceHR()) {}
+
+   /*
+        Rule 3:
+        ============
+
+        * In Presence of Real Sister, Maternal Sister(s) and Paternal Sister(s) are not elligible for RAD
+    */
+   if (rSisterExistanceHR()) {}
+
+
+    /*
+        Rule 4:
+        ============
+
+        * In Presence of any ZAF, Grand Mother is not elligible for RAD
+    */
+   if (ZAFExistanceHR()) {}
+
+
+}
+
+// check daughter existance in selectedRelativesArr
+// if exists then it will remove sDaughter, ssDaughter or sssDaughter
+function daughterExistanceHR() {
+
+    const Daughter = selectedRelativesArr.findIndex(Daughter => Daughter.includes(daughterName))
+    const SD = selectedRelativesArr.findIndex(SD => SD.includes(sDaughterName))
+    const SSD = selectedRelativesArr.findIndex(SSD => SSD.includes(ssDaughterName))
+    const SSSD = selectedRelativesArr.findIndex(SSSD => SSSD.includes(sssDaughterName))
+
+    // console.log(`${selectedRelativesArr.findIndex(Daughter => Daughter.includes(sDaughterName))}`)
+
+    if ( Daughter === -1 ) {
+        return false
+    }
+
+    if ( selectedRelativesArr.length > parseInt(Daughter + 1)) {
+
+        // if SD Exists
+        if (selectedRelativesArr[Daughter + 1][3] === sDaughterName ) {
+
+            hanbaliRadArr.push( selectedRelativesArr[SD] )  // First push the SD element
+            selectedRelativesArr.splice(SD, 1)              // Then remove the SD element from array
+        
+        } else if (selectedRelativesArr[Daughter + 1][3] === ssDaughterName ) { // if SSD Exists    
+
+            hanbaliRadArr.push( selectedRelativesArr[SSD] )  // First push the SSD element
+            selectedRelativesArr.splice(SSD, 1)              // Then remove the SSD element from array
+        
+        } else if (selectedRelativesArr[Daughter + 1][3] === sssDaughterName) { // if SSSD Exists    
+
+            hanbaliRadArr.push( selectedRelativesArr[SSSD] )  // First push the SSSD element
+            selectedRelativesArr.splice(SSSD, 1)              // Then remove the SSSD element from array
+        
+    }
+
+}
+
+    // console.log(`Removed From RAD: ${display(hanbaliRadArr)}`)
+    console.log(`Removed From RAD: ${hanbaliRadArr}`)
+
+    return true
+
+}
+
+// check ssDaughter existance in selectedRelativesArr
+// if exists then it will remove sssDaughter
+function sDaughterExistanceHR() {
+
+    const SD = selectedRelativesArr.findIndex(SD => SD.includes(sDaughterName))
+
+    if ( SD === -1 ) {
+        return false
+    }
+
+    if (selectedRelativesArr[SD][3] === sDaughterName && ( parseInt(SD + 1) <= selectedRelativesArr.length )  && ( 
+        selectedRelativesArr[SD + 1][3] === ssDaughterName ||
+        selectedRelativesArr[SD + 1][3] === sssDaughterName) ) {
+        
+        hanbaliRadArr.push( selectedRelativesArr[SD + 1] )  // First push the required element
+        selectedRelativesArr.splice(SD + 1, 1)              // Then remove the required element from array
+        
+        console.log(`Removed From RAD: ${hanbaliRadArr}`)
+    }
+
+    return true
+
+}
+
+// check sDaughter existance in selectedRelativesArr
+// if exists then it will remove ssDaughter or sssDaughter
+function ssDaughterExistanceHR() {
+
+    const SSD = selectedRelativesArr.findIndex(SSD => SSD.includes(ssDaughterName))
+
+    if ( SSD === -1 ) {
+        return false
+    }
+
+    if (selectedRelativesArr[SSD][3] === ssDaughterName && ( parseInt(row + 1) <= selectedRelativesArr.length )  && ( 
+        selectedRelativesArr[SSD + 1][3] === sssDaughterName) ) {
+        
+        hanbaliRadArr.push( selectedRelativesArr[SSD + 1] )  // First push the required element
+        selectedRelativesArr.splice(SSD + 1, 1)              // Then remove the required element from array
+        
+        console.log(`Removed From RAD: ${hanbaliRadArr}`)
+    }
+
+    return true
+
+}
+
+// This function will check whether Mother exists or not
+// This function will take action accordingly
+// In Presence of Mother, Maternal Brother(s) and Sister(s) are not elligible for RAD
+
+function motherExistanceHR() {
+
+    const Mother = selectedRelativesArr.findIndex(Mother => Mother.includes(motherName))
+    const MBS = selectedRelativesArr.findIndex(MBS => MBS.includes(mBroSisName))
+
+    if ( Mother === -1 ) {
+        return false
+    }
+   
+    if ( (selectedRelativesArr[Mother][3] === motherName) && MBS !== -1) {
+
+        // hanbaliRadArr = selectedRelativesArr.splice(r, 1)
+        hanbaliRadArr.push( selectedRelativesArr[MBS] )  // First push the required element
+        selectedRelativesArr.splice(MBS, 1)              // Then remove the required element from array
+        
+        console.log(`Removed From RAD: ${hanbaliRadArr}`)
+
+    }
+
+    return true
+
+}
+
+// This function will check whether Real Sister exists or not
+// This function will take action accordingly (Maternal Brother(s))
+// In Presence of Real Sister, Maternal Sister(s) and Paternal Sister(s) are not elligible for RAD
+
+function rSisterExistanceHR() {
+
+    const RealSister = selectedRelativesArr.findIndex(RealSister => RealSister.includes(rSisterName))
+    const MaternalSister = selectedRelativesArr.findIndex(MaternalSister => MaternalSister.includes(mBroSisName)) // && parseInt(mSister.value) !== 0
+    const PaternalSister = selectedRelativesArr.findIndex(PaternalSister => PaternalSister.includes(pSisterName))
+
+    if ( RealSister === -1 ) {
+        return false
+    }
+
+    // makes paternal sister not elligible for RAD
+    if ( PaternalSister !== -1 ) {
+
+        hanbaliRadArr.push( selectedRelativesArr[PaternalSister] )  // First push the required element
+        selectedRelativesArr.splice(PaternalSister, 1)              // Then remove the required element from array
+        
+        console.log(`Removed From RAD: ${hanbaliRadArr}`)
+
+    }
+
+    // Makes Maternal Brother(s) / Sister(s) not elligible for RAD
+    if ( MaternalSister !== -1 ) {
+
+        hanbaliRadArr.push( selectedRelativesArr[MaternalSister] )  // First push the required element
+        selectedRelativesArr.splice(MaternalSister, 1)              // Then remove the required element from array
+        
+        console.log(`Removed From RAD: ${hanbaliRadArr}`)
+
+    }
+
+    return true
+
+}
+
+// This function will check whether Real Sister exists or not
+// This function will take action accordingly (Grand Mother(s))
+// In Presence of any ZAF, Grand Mother is not elligible for RAD
+function ZAFExistanceHR(){
+
+    const anyZAF = selectedRelativesArr.findIndex(anyZAF => anyZAF.includes(false))
+    const GrandMother = selectedRelativesArr.findIndex(GrandMother => GrandMother.includes(gmName))
+
+    // if ZAF Exists and Grand Mother also exists
+    // then Grand Mother is not elligible for RAD
+    if (GrandMother !== -1 && selectedRelativesArr[anyZAF][3] !== gmName) {
+
+        // hanbaliRadArr = selectedRelativesArr.splice(GrandMother, 1)
+        hanbaliRadArr.push( selectedRelativesArr[GrandMother] )  // First push the required element
+        selectedRelativesArr.splice(GrandMother, 1)              // Then remove the required element from array
+        console.log(`Removed From RAD: ${hanbaliRadArr}`)
+
+        return true
+    }
+
+    // if there is no ZAF
+    return false
+
 }

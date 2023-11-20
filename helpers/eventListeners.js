@@ -261,7 +261,7 @@ grandMother.addEventListener('change', function() {
   }
 
   // if father is checked then no grand mother related to father will appear
-  if ( father.checked === true) {
+  if ( father.checked === true && imam !== "hanbali") {
     gmFather.style.display = 'none'
   }
 

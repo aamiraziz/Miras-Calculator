@@ -165,6 +165,10 @@ let outputArrayLength = 0	// shows the total number of elements in the outputArr
 // Asbaat Chart
 let asbaFromChart
 
+// variables used only in hanbali RAD
+// this array will hold the not elligible persons in hanbali RAD.
+let hanbaliRadArr = [[]]
+
 hideAsbaatChart()
 
 // Submit Button Function

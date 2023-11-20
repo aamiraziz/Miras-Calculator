@@ -75,14 +75,7 @@ function mainLogic() {
 		*/
 
 		selectedZaweAlFaroozArr = filterSelectedZaweAlFarooz(perZAFSiblingPart, availableRelativesArr)
-
-		// available Zawe al farooz Relatives
-		// if (imam === "shaafi" || imam === "maliki") {
-		// 	selectedZaweAlFaroozArr = filterSelectedZaweAlFarooz(perZAFSiblingPart, zaweAlFaroozArr)
-		// } else {
-		// 	selectedZaweAlFaroozArr = filterSelectedZaweAlFarooz(perZAFSiblingPart, availableRelativesArr)
-		// }
-				
+			
 		// calculate the remaining part from zawe al farooz
 		remainingPart = calculateRemainingPart()
 
@@ -97,11 +90,6 @@ function mainLogic() {
 		// on line 72 of solve.js
 		ZAFNotFound()
 
-		// if ( (!zaweAlFaroozArr.find(element => element[0] > 0)) ) {
-
-		// new name is assignParts()
-		// solveZAFandAsbaat()	// in solve file
-
 		// This if section is true for all Imams but its else section is not true for all Imams
 		if ( selectedAsbaatArr.length === 1 ) {
 
@@ -114,8 +102,6 @@ function mainLogic() {
 			solveParts()
 
 		}
-		
-
 
 		// combines zawe al farooz and asbaat
 		// on line 83 of solve.js file
@@ -191,16 +177,23 @@ function mainLogic() {
 
 				selectedRelativesArr = selectedZaweAlFaroozArr
 
-				if (husbandVal === 0 && wifeVal === 0) {
-					
-					display(selectedRelativesArr)
-					allRelativesLCM()	// LCM of ZAF 
-					// Here this function will solve the Rad Problem only for ZAF Nasbi (زوی الفروض نسبی).
-					solveAsbaat(selectedRelativesArr, selectedRelatives1stLCM)
-					outputAllValues()
+				// if (husbandVal === 0 && wifeVal === 0 && imam !== "hanbali") {
 
-				} else if (selectedRelativesArr.length === 1 && (husbandVal > 0 || wifeVal > 0)) {
-					let bookLink = "IMplement (زوی الارحام) Method with remaining part (other than Husband Or Wife)"
+				// 	// ===================================================
+				// 	/*		Hanbali Rad Testing			*/
+				// 	// ===================================================
+				// 	// hanbaliRad()
+				// 	// ===================================================
+					
+				// 	display(selectedRelativesArr)
+				// 	allRelativesLCM()	// LCM of ZAF 
+				// 	// Here this function will solve the Rad Problem only for ZAF Nasbi (زوی الفروض نسبی).
+				// 	solveAsbaat(selectedRelativesArr, selectedRelatives1stLCM)
+				// 	outputAllValues()
+
+				// } else 
+				if (selectedRelativesArr.length === 1 && (husbandVal > 0 || wifeVal > 0)) {
+					let bookLink = "Implement (زوی الارحام) Method with remaining part (other than Husband Or Wife)"
 					document.getElementById("main").innerHTML = bookLink
 
 				} else {
@@ -227,6 +220,7 @@ function mainLogic() {
 						* keep the remaining part in some variable
 
 						* remove 1st element i.e ZAF sababi
+							* for Imam = Hanbali, write function in ikhtilafiyat.js 
 						* take lcm of remaining array elements
 
 						* Multiply LCM (say selectedRelatives1stLCM) with Numerator and devide it by its denominator of 
@@ -247,9 +241,23 @@ function mainLogic() {
 					
 					console.log(`=============================================================================`)
 
+					
+
 					//	* remove 1st element i.e ZAF sababi
-					let ZAFsababi = selectedRelativesArr.shift()
-					display(selectedRelativesArr)	
+					let ZAFsababi
+					if (husbandVal !== 0 || wifeVal !== 0) {
+
+						ZAFsababi = selectedRelativesArr.shift()
+						display(selectedRelativesArr)
+					
+					}	
+
+					// =======================================================
+					/*						Hanbali Rad						*/
+					// =======================================================
+					if ( imam === "hanbali" ) {hanbaliRad()}
+					console.log(`Hanbali RAD not elligible persons: ${hanbaliRadArr}`)
+					// ===================================================
 					
 					//	* take lcm of remaining array elements
 					allRelativesLCM()	// LCM of ZAF  // this function is written In solve.js File
@@ -274,11 +282,13 @@ function mainLogic() {
 						// ADD TWO OBJECTS HERE
 						// selectedRelativesArr[i][1] + addRemaining[i]
 						console.log(`ADD TWO OBJECTS HERE\nselectedRelativesArr[${i}][1] + addRemaining[${i}]`)
-						// selectedRelativesArr[i][1].set(selectedRelativesArr[i][1].numerator(), ratioSum)
-						// addTwoFracs(selectedRelativesArr[i][1], addRemaining[i])
+						console.log(`%c ${selectedRelativesArr[i][1].display()} + (${remainingPart.numerator()} / ${remainingPart.denominator()}) * (${ratio[i].numerator()} / ${ratioSum})`, 
+						"color: orange; font-size: 12px; font-weight: bold;")
+
 						selectedRelativesArr[i][1] = addTwoFracs(selectedRelativesArr[i][1], addRemaining[i])
-						// selectedRelativesArr[i][1].set(addTwoFracs.numerator(), addTwoFracs.denominator())
-						console.log(`selectedRelativesArr[${i}][1] = ${selectedRelativesArr[i][1].display()}`)
+
+						console.log(`%c selectedRelativesArr[${i}][1] = ${selectedRelativesArr[i][1].display()}`, 
+						"color: orange; font-size: 12px; font-weight: bold;")
 					}
 
 					// Testing Statements
@@ -297,7 +307,18 @@ function mainLogic() {
 					console.log(`================================================================`)
 
 					// * insert the removed element in start of selectedRelativesArr.
-					selectedRelativesArr.unshift(ZAFsababi)
+					if (husbandVal !== 0 || wifeVal !== 0) { 
+						selectedRelativesArr.unshift(ZAFsababi)
+					}
+
+					if ( imam === "hanbali") {
+
+						// 1st index is removed because its always empty.
+						hanbaliRadArr.shift()
+						selectedRelativesArr = selectedRelativesArr.concat(hanbaliRadArr)
+						console.log(`selectedRelativesArr After Concatination: ${selectedRelativesArr}`)
+
+					}
 					display(selectedRelativesArr)
 					console.log(`================================================================`)
 										

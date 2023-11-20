@@ -220,6 +220,14 @@ function showParts() {
 						sssDaughterPart + fatherPart + motherPart + rSisterPart + pSisterPart 
 						+ mBroSisPart + grandFatherPart + grandMotherPart
 
+	// conver the zaweAlFaroozSum to fraction to find the exact value of its sum
+	zaweAlFaroozSum = new Fraction(zaweAlFaroozSum)
+	
+	//	 ZAF 
+	// zaweAlFaroozArr = [ husbandArr, wifeArr, daughterArr, sDaughterArr, ssDaughterArr, sssDaughterArr, fatherArr,
+	// 	motherArr, rSisterArr, pSisterArr, mSisArr, gmArr]
+
+	
 	
 	// if (imam === "shaafi" || imam === "maliki") {
 
@@ -235,14 +243,8 @@ function showParts() {
 
 	// }
 
-	// conver the zaweAlFaroozSum to fraction to find the exact value of its sum
-	zaweAlFaroozSum = new Fraction(zaweAlFaroozSum)
 		
 	// zaweAlFaroozArr = [ husbandArr, wifeArr, daughterArr, sDaughterArr, ssDaughterArr, sssDaughterArr, fatherArr,
 	// 	motherArr, rSisterArr, pSisterArr, mSisArr, gfArr, gmArr ]
-	
-	//	if imam === "shaafi" || imam === "maliki"
-	// zaweAlFaroozArr = [ husbandArr, wifeArr, daughterArr, sDaughterArr, ssDaughterArr, sssDaughterArr, fatherArr,
-	// 	motherArr, rSisterArr, pSisterArr, mSisArr, gmArr ]
 }
 
